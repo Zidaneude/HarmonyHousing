@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 // la version choisie
-=======
+
 use App\Http\Requests\StoreLogementRequest;
 use App\Http\Requests\UpdateLogementRequest;
 use App\Models\Logement;
->>>>>>> a119579 (migration de la table logement)
 
 class LogementController extends Controller
 {
