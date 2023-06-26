@@ -1,0 +1,311 @@
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav li:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 20px;
+}
+
+.navbar-brand {
+    margin-right: auto;
+}
+.dropdown-item:hover {
+    color: #36417D;
+}
+.nav-link:hover {
+    color: #36417D;
+}
+.btn-account {
+    border: 1px solid black;
+    color: black;
+    background-color: transparent;
+}
+.btn-account:hover {
+    color: #36417D;
+    background-color: white;
+}
+
+.background-section {
+    position: relative;
+    background-image: url('../images/home.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.logo {
+    height: 30px;
+    width: auto;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.btn-account {
+    border-color: white !important;
+    background-color: transparent !important;
+    color: white !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-account:hover {
+    background-color: white !important;
+    color: #36417D !important;
+    transform: translateY(-2px);
+}
+
+.navbar.scrolled .nav-link {
+    color: #36417D !important;
+}
+
+.navbar.scrolled .btn-account {
+    background-color: #2EB88A!important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar.scrolled .btn-account:hover {
+    color: white !important;
+    background-color:  rgb(56, 136, 109) !important;
+    transform: translateY(-2px);
+}
+
+.hero-text {
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 2.2vw;
+    margin-bottom: 2vw;
+    white-space: nowrap;
+    background: rgba(46,184,138, 0.5);
+}
+
+.btn-primary {
+    background-color: #2EB88A !important;
+    border-color: #2EB88A !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: rgb(56, 136, 109) !important;
+    border-color: rgb(56, 136, 109) !important;
+    transform: translateY(-2px);
+}
+
+.hero-text .btn {
+    background-color: #2EB88A;
+    border: none;
+    font-size: 1.25vw;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero-text .btn:hover{
+    background-color: rgb(56, 136, 109);
+    transform: translateY(-2px);
+}
+
+.circle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    color: #36417D;
+}
+
+.city-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.city-box img {
+    width: 100%;
+    height: auto;
+}
+
+.title-accueil{
+    color: #36417D;
+}
+
+.city-card {
+    display: block;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.city-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease-in-out;
+}
+
+.city-card:hover::after {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.city-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 10px;
+    background: #36417D;
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.city-card:hover .city-title {
+    background: #2EB88A;
+    color: white;
+    transform: translate(-50%, -50%) rotate(-5deg) scale(1.1);
+}
+
+
+footer {
+    background-color: #36417D;
+    color: white;
+}
+
+footer a{
+    color: rgb(255, 255, 255);
+}
+
+.text-muted{
+    color: white !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+body{
+    background-color: #F8F8FF;
+}
+
+.background-image {
+    background-image: url('../images/cle-en-main.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.stepscard{
+    background-color: white;
+}
+
+.sous-titre{
+    color: #36417D;
+    text-align: center;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.carousel-indicators li {
+    background-color: #fff;
+    opacity: 0.5;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+.carousel-caption {
+    background-color:  #2EB88A;
+    padding: 1rem;
+    right: 1rem;
+    left: auto;
+    width: 300px;
+    bottom: 1rem;
+}
+
+.carousel-caption h5 {
+    margin-left: 0.5rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #33CC99;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgb(56, 136, 109);
+}
+
+.bg-primary {
+    background-color: #33CC99 !important;
+}
+
+.btn-custom {
+    background-color: white;
+    color: #36417D;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+}
+
+.btn-ins {
+    border: 1px solid #36417D;;
+    color: #36417D;
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out;
+}
+.btn-ins:hover {
+    background-color: #36417D;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.input-group-text {
+    border-radius: 0 0.2rem 0.2rem 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.input-group-text i {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-con {
+    border: 1px solid #36417D;
+    color: white;
+    background-color: #36417D;
+}
+.btn-con:hover {
+    background-color: white;
+    color: #36417D;
+}
