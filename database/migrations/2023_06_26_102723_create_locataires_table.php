@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $tabel->string('profil');
+            $table->string('profil');
             $table->date('date_nais')->nullable(false);
-            $table->srting('prenom')->unique()->nullable();
-            $tabel->string('MotDePasse')->unique()->notnull();
+            $table->srting('prenom')->nullable();
+            $table->string('MotDePasse')->unique()->notnull();
             $table->string('login')->unique()->nullable(false);
             $table->timestamps();
         });
