@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->srting('prenom')->unique()->nullable();
-            $tabel->string('MotDePasse')->unique()->nullable(false);
+            $table->string('MotDePasse')->unique()->nullable(false);
             $table->string('login')->unique()->nullable(false);
             $table->timestamps();
         });

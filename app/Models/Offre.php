@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Offre extends Model
 {
     use HasFactory;
+    public function logements()
+    {
+        return $this->belongsTo(Logement::class);
+    }
+
+    public function admins()
+    {
+       return $this->belongsTo(Admin::class);
+    }
+
+    public  function proprietaire()
+    {
+        return $this->belongsTo(Proprietaire::class);
+    }
 }

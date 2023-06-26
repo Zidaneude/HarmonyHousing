@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('proprietaires', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('prenom');
-            $table->srting('prenom')->unique()->nullable();
-            $tabel->string('MotDePasse')->unique()->notnull();
+            $table->string('prenom')->unique()->nullable();
+            $table->string('MotDePasse')->unique()->notnull();
             $table->string('login')->unique()->nullable(false);
             $table->timestamps();
         });

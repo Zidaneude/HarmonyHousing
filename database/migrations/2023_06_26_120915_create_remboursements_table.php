@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('montant_remb')->nullable(false);
             $table->string('motif');
             $table->date('date_remb')->nullable()->useCurrent();
-            $table->foreigndId('paiement_id')->constrained();
+            $table->foreignId('paiement_id')->constrained();
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('quartier');
             $table->boolean('statut');
             $table->double('prix')->nullable(false)->min(0);
-            $table->foreigndId('offre_id')->constrained();
+            $table->foreignId('offre_id')->constrained();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('NombreDeChambre')->min(1);
             $table->integer('NombreDeSallesDeBain')->min(0)->max(3);
-            $table->foreigndId('logement_id')->constrained();
+            $table->foreignId('logement_id')->constrained();
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('offres', function (Blueprint $table) {
             $table->id();
             $table->boolean('disponibilité');
-            $table->foreigndId('propietaire_id')->constrained();
-            $table->foreigndId('admin_id')->constrained();
+            $table->foreignId('proprietaire_id')->constrained();
+            $table->foreignId('admin_id')->constrained();
             $table->timestamps();
         });
     }
