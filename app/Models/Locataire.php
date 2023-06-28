@@ -17,4 +17,6 @@ class Locataire extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+
+    protected $fillable = ['nom','prenom','email','sexe','telephone','text','MotDePasse'];
 }

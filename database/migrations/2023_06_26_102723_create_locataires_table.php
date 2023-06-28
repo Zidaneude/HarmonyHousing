@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('profil');
             $table->date('date_nais')->nullable(false);
             $table->string('MotDePasse')->unique()->notnull();
+            $table->json('text')->nullable(false);
             $table->string('login')->unique()->nullable(false);
             $table->timestamps();
         });

@@ -35,7 +35,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Déposer une annonce</a>
                                 <a class="dropdown-item" href="#">Comment ça marche</a>
-                                <a class="dropdown-item" href="/connexion-proprietaire">Me connecter</a>
+                                <a class="dropdown-item" href="{{route('login-proprietaire')}}">Me connecter</a>
                             </div>
                         </li>
                         <li class="nav-item">

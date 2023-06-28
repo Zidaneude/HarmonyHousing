@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,37 +18,14 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/inscription-locataire', function () {
-    return view('inscription-locataire');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/inscription-proprietaire', function () {
-    return view('inscription-proprietaire');
-});
-
-Route::get('/connexion-locataire', function () {
-    return view('connexion-locataire');
-});
-
-Route::get('/connexion-proprietaire', function () {
-    return view('connexion-proprietaire');
-});
-
-Route::get('/admin', function () {
-    return view('connexion-admin');
-});
-
-Route::get('/dashboard-proprietaire', function () {
-    return view('dashboard-proprietaire');
-});
-
-Route::get('/profil-proprietaire', function () {
-    return view('profil-proprietaire');
-});
-
-Route::get('/soumission-offre', function () {
-    return view('soumission-offre-proprietaire');
-});
-
-//Route::get('/payment', 'PaymentController@getPaymentLink');
-Route::get('/payment', [PaymentController::class, 'getPaymentLink']);
+require __DIR__.'/auth.php';

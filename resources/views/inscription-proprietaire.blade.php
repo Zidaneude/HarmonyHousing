@@ -24,7 +24,7 @@
                         <form>
                             <div class="form-group mt-5">
                                 <input style="background-color: #F8F8FF;" placeholder="Adresse e-mail" type="email"
-                                    class="form-control" id="email" required>
+                                    class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group my-3">
                                 <div class="row">
@@ -50,11 +50,11 @@
                             </div>
                             <div class="form-group my-3">
                                 <input style="background-color: #F8F8FF;" placeholder="Prénom" type="text"
-                                    class="form-control" id="firstName" required>
+                                    class="form-control" id="firstName"  name="prenom" required>
                             </div>
                             <div class="form-group my-3">
                                 <input style="background-color: #F8F8FF;" placeholder="Nom" type="text"
-                                    class="form-control" id="lastName" required>
+                                    class="form-control" id="lastName" name="nom" required>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
@@ -64,13 +64,13 @@
                                             </span>&nbsp;+237</span>
                                     </div>
                                     <input style="background-color: #F8F8FF;" placeholder="Numéro de téléphone"
-                                        type="tel" class="form-control" id="phoneNumber" required>
+                                        type="tel" class="form-control" id="phoneNumber" name="telephone" required>
                                 </div>
                             </div>
                             <div class="form-group mt-3 mb-4">
                                 <div class="input-group">
                                     <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
-                                        class="form-control" id="password" required>
+                                        class="form-control" id="password" name="password" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i id="togglePassword" class="fas fa-eye"></i>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="receiveOffers" required>
-                                <label class="form-check-label" for="receiveOffers">
+                                <label class="form-check-label" for="receiveOffers" name="" >
                                     J’accepte de recevoir des offres ponctuelles de Harmony Housing par SMS
                                 </label>
                             </div>

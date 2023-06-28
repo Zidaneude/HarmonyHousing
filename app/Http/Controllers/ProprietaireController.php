@@ -21,7 +21,7 @@ class ProprietaireController extends Controller
      */
     public function create()
     {
-        //
+        return view('inscription-proprietaire');
     }
 
     /**
@@ -29,7 +29,7 @@ class ProprietaireController extends Controller
      */
     public function store(StoreProprietaireRequest $request)
     {
-        //
+        
     }
 
     /**
