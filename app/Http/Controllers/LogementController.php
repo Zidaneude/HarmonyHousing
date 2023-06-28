@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Logement;
+// la version choisie
+
 use App\Http\Requests\StoreLogementRequest;
 use App\Http\Requests\UpdateLogementRequest;
+use App\Models\Logement;
 
 class LogementController extends Controller
 {
