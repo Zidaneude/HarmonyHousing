@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->date('date_res')->nullable()->useCurrent();
+            $table->date('date_reservation')->nullable();
             $table->foreignId('logement_id')->constrained();
             $table->foreignId('paiement_id')->constrained();
             $table->timestamps();

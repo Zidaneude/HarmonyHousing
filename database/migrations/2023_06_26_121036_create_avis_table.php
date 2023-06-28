@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Logement;
+use App\Models\Locataire;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -13,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('avis', function (Blueprint $table) {
             $table->id();
-            $table->integer('note');
-            $table->text('commentaire');
+            $table->integer("note");
+            $table->mediumText("commentaire");
+            $table->foreignIdFor(Locataire::class);
+            $table->foreignIdFor(Logement::class);
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('remboursements', function (Blueprint $table) {
             $table->id();
-            $table->integer('montant_remb')->nullable(false);
+            $table->float('montant')->nullable(false);
             $table->string('motif');
             $table->date('date_remb')->nullable()->useCurrent();
             $table->foreignId('paiement_id')->constrained();

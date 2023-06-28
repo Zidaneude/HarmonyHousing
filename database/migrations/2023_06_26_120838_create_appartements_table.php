@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('appartements', function (Blueprint $table) {
             $table->id();
-            $table->integer('NombreDeChambre')->min(1);
-            $table->integer('NombreDeSallesDeBain')->min(0)->max(3);
+            $table->integer('nombre_chambre')->min(1);
+            $table->integer('nombre_salles_bain')->min(0)->max(3);
             $table->foreignId('logement_id')->constrained();
             $table->timestamps();
         });

@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('logements', function (Blueprint $table) {
             $table->id();
             $table->string('ville');
-            $table->string('code postal')->unique();
+            $table->string('code_postal')->unique();
             $table->text('description')->nullable();
-            $table->string('photos');
             $table->string('quartier');
-            $table->boolean('statut');
-            $table->double('prix')->nullable(false)->min(0);
+            $table->double('prix')->nullable(false);
+            $table->string('statut');
+            $table->string('photos1')->unique();
+            $table->string('photos2')->unique()->nullable();
+            $table->string('photos3')->unique()->nullable();
             $table->foreignId('offre_id')->constrained();
             $table->timestamps();
         });

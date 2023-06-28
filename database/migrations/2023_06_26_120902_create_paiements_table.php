@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('montant_paie')->nullable(false);
             $table->date('date_paie')->nullable()->useCurrent();
-            $table->boolean('statut_paie')->nullable(false)->unique();
+            $table->string('statut_paie')->nullable(false)->unique();
             $table->string('mode');
             $table->timestamps();
         });

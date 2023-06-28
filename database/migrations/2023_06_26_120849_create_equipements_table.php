@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('equipements', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nom');
             $table->double('prix')->nullable(false);
             $table->text('description')->nullable();
             $table->foreignId('logement_id')->constrained();
-            $table->timestamps();
+
         });
     }
 
