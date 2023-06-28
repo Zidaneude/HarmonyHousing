@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>Connexion propriétaire - Harmony Housing</title>
+    <title>Connexion locataire - Harmony Housing</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -12,15 +12,15 @@
 </head>
 
 <body class="pt-5">
-    @include('header');
+    @include('commun/header');
 
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-center title-accueil mt-3" style="font-weight: bold;">Espace
-                            propriétaire</h4>
+                        <h4 class="card-title text-center title-accueil mt-3" style="font-weight: bold;">Connexion
+                            locataire</h4>
                         <form>
                             <div class="form-group mt-5">
                                 <div class="input-group pb-3">
@@ -60,12 +60,12 @@
                         </form>
                         <div class="mt-3">
                             <p class="text-center">
-                                Vous n'avez pas encore de compte ? <a href="/inscription-proprietaire"
-                                    style="text-decoration: none;"><span
-                                        style="color: #36417D;">Inscrivez-vous</span></a>
+                                Vous n'avez pas de compte ? <a href="/inscription-locataire"
+                                    style="text-decoration: none;"><span style="color: #36417D;">Inscription
+                                        locataire</span></a>
                             </p>
                             <p class="text-center">
-                                Vous êtes locataire ? <a href="/connexion-locataire"
+                                Vous êtes propriétaire ? <a href="/connexion-proprietaire"
                                     style="text-decoration: none;"><span
                                         style="color: #36417D;">Connectez-vous</span></a>
                             </p>
@@ -87,7 +87,7 @@
         });
     </script>
 
-    @include('footer');
+    @include('commun/footer');
 </body>
 
 </html>

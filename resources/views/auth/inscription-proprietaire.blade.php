@@ -12,7 +12,7 @@
 </head>
 
 <body class="pt-5">
-    @include('header');
+    @include('commun/header');
 
     <div class="container py-5">
         <div class="row justify-content-center">
@@ -20,12 +20,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title text-center title-accueil mt-3" style="font-weight: bold;">Inscription
-                            locataire</h4>
-                        <form method="POST" action="{{ route('locataire.store') }}">
-                            @csrf
+                            propriétaire</h4>
+                        <form>
                             <div class="form-group mt-5">
                                 <input style="background-color: #F8F8FF;" placeholder="Adresse e-mail" type="email"
-                                    class="form-control" id="email" required name="email">
+                                    class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group my-3">
                                 <div class="row">
@@ -50,12 +49,12 @@
                                 </div>
                             </div>
                             <div class="form-group my-3">
-                                <input style="background-color: #F8F8FF;" name="prenom" placeholder="Prénom" type="text"
-                                    class="form-control" id="firstName" required>
+                                <input style="background-color: #F8F8FF;" placeholder="Prénom" type="text"
+                                    class="form-control" id="firstName"  name="prenom" required>
                             </div>
                             <div class="form-group my-3">
-                                <input style="background-color: #F8F8FF;" name= "nom" placeholder="Nom" type="text"
-                                    class="form-control" id="lastName" required>
+                                <input style="background-color: #F8F8FF;" placeholder="Nom" type="text"
+                                    class="form-control" id="lastName" name="nom" required>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
@@ -64,14 +63,14 @@
                                                 <img src="/images/cameroun.jpg" alt="Cameroon Flag" width="25">
                                             </span>&nbsp;+237</span>
                                     </div>
-                                    <input style="background-color: #F8F8FF;" name='NumeroTel' placeholder="Numéro de téléphone"
-                                        type="tel" class="form-control" id="phoneNumber" required>
+                                    <input style="background-color: #F8F8FF;" placeholder="Numéro de téléphone"
+                                        type="tel" class="form-control" id="phoneNumber" name="telephone" required>
                                 </div>
                             </div>
                             <div class="form-group mt-3 mb-4">
                                 <div class="input-group">
-                                    <input style="background-color: #F8F8FF;" name='password' placeholder="Mot de passe" type="password"
-                                        class="form-control" id="password" required>
+                                    <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
+                                        class="form-control" id="password" name="password" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i id="togglePassword" class="fas fa-eye"></i>
@@ -81,19 +80,19 @@
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="receiveOffers" required>
-                                <label class="form-check-label" for="receiveOffers" name="text[]">
+                                <label class="form-check-label" for="receiveOffers" name="" >
                                     J’accepte de recevoir des offres ponctuelles de Harmony Housing par SMS
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="text[]" id="dataProcessing" required>
+                                <input type="checkbox" class="form-check-input" id="dataProcessing" required>
                                 <label class="form-check-label" for="dataProcessing">
                                     En m'inscrivant, j'accepte que Harmony Housing recueille et traite mes données
                                     personnelles
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="termsOfUse" required name="text[]">
+                                <input type="checkbox" class="form-check-input" id="termsOfUse" required>
                                 <label class="form-check-label" for="termsOfUse">
                                     J’accepte sans réserve les <span> <a style="color: #212529;"
                                             href="#">Conditions Générales d’Utilisation</a></span> des services
@@ -106,7 +105,7 @@
                         </form>
                         <div class="mt-3">
                             <p class="text-center mt-3">
-                                Vous avez déjà un compte ? <a href="/connexion-locataire">Je me connecte</a>
+                                Vous avez déjà un compte ? <a href="/connexion-proprietaire">Je me connecte</a>
                             </p>
                         </div>
                     </div>
@@ -114,12 +113,12 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            <a href="/inscription-proprietaire" class="btn btn-ins">Je suis proprietaire</a>
+            <a href="/inscription-locataire" class="btn btn-ins">Je suis locataire</a>
         </div>
     </div>
 
 
-    @include('footer');
+    @include('commun/footer');
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

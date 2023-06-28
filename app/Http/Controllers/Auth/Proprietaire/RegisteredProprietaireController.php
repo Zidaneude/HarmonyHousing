@@ -24,7 +24,7 @@ class RegisteredProprietaireController extends Controller
      */
     public function create(): View
     {
-        return view('inscription-proprietaire');
+        return view('auth.inscription-proprietaire');
     }
     
    /**

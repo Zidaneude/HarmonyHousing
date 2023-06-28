@@ -13,7 +13,7 @@ class AuthenticatedSessionProprietaireController extends Controller
      */
     public function create(): View
     {
-        return view('connexion-proprietaire');
+        return view('auth.connexion-proprietaire');
     }
     
 }
