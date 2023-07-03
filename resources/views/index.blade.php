@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="col form-check">
                                             <input class="form-check-input" type="checkbox" id="maison">
-                                            <label class="form-check-label" for="maison">Maison</label>
+                                            <label class="form-check-label" for="maison">Studio</label>
                                         </div>
                                     </div>
                                 </div>
@@ -64,8 +64,9 @@
 
             <div class="section-cta d-flex flex-column align-items-start position-absolute"
                 style="margin-left: 980px; margin-top:8rem;">
-                <a href="{{route('connexion.proprietaire.create')}}" class="btn btn-primary mb-2 d-flex align-items-center"
-                    role="button" aria-label="Je suis propriétaire">
+                <a href="{{ route('connexion.proprietaire.create') }}"
+                    class="btn btn-primary mb-2 d-flex align-items-center" role="button"
+                    aria-label="Je suis propriétaire" style="transform: inherit; transition: inherit;">
                     <i class="fas fa-bullhorn" style="margin-right: 10px;"></i>
                     <div style="text-align: left;">
                         <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis propriétaire
@@ -74,8 +75,9 @@
                             gratuitement</small>
                     </div>
                 </a>
-                <a href="{{route('connexion.locataire.create')}}" class="btn btn-dark d-flex align-items-center" role="button"
-                    aria-label="Je suis locataire" style="width: 307px;">
+                <a href="{{ route('connexion.locataire.create') }}" class="btn btn-dark d-flex align-items-center"
+                    role="button" aria-label="Je suis locataire"
+                    style="width: 307px; transform: inherit; transition: inherit;">
                     <i class="fas fa-search" style="margin-right: 10px;"></i>
                     <div style="text-align: left;">
                         <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis locataire</div>

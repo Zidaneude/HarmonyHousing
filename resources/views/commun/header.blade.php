@@ -13,6 +13,9 @@
                     <a class="nav-link" href="#"><i class="fas fa-search"></i> Rechercher</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/"><i class="fas fa-home"></i> Accueil</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/connexion-locataire"><i class="fas fa-user"></i> Se connecter</a>
                 </li>
                 <li class="nav-item">
