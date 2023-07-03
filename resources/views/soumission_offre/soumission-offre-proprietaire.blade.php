@@ -37,35 +37,32 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <h4 style="text-align: center; color: #004aad;" class="mb-4"><strong>Publier
-                                                une
-                                                annonce</strong></h4>
+                                                une annonce</strong></h4>
                                         <div class="form-group">
-                                            <label for="titre_annonce">Titre de l'annonce <span
-                                                    style="color: red;">*</span></label>
+                                            <label for="titre_annonce"><strong>Titre de
+                                                    l'annonce</strong><span style="color: red;">*</span></label>
                                             <input type="text" name="titre_annonce" id="titre_annonce"
                                                 class="form-control" placeholder="Entrez le titre de votre annonce"
                                                 required />
                                         </div>
-                                        <!--description-->
                                         <div class="form-group">
                                             <label for="description_annonce"><strong>Description</strong></label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
-                                        <h6 class="fs-title mt-5">Localisation</h6>
+                                        <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">
+                                            Localisation</h5>
                                         <div class="form-group">
                                             <label for="adresse">
                                                 <strong>Adresse</strong></label>
                                             <input type="text" name="adresse" id="adresse" class="form-control"
                                                 placeholder="Indiquez une adresse" />
                                         </div>
-                                        <!-- quartier-->
                                         <div class="form-group">
                                             <label for="quartier"><strong>Quartier</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
                                                 placeholder="Indiquez un quartier" required />
                                         </div>
-                                        <!-- region-->
                                         <div class="form-group">
                                             <label for="region"> <strong>Région</strong> <span
                                                     style="color: red;">*</span></label>
@@ -83,20 +80,19 @@
                                                 <option value="est">Extrême-Nord</option>
                                             </select>
                                         </div>
-                                        <!--ville-->
                                         <div class="form-group mt-4">
                                             <label for="ville"><strong>Ville</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="ville" id="ville" class="form-control"
                                                 placeholder="Ville" required />
                                         </div>
-                                        <!-- code  postal-->
                                         <div class="form-group">
                                             <label for="code_postal"><strong>Code postal</strong> </label>
                                             <input type="text" name="code_postal" id="code_postal"
                                                 class="form-control" placeholder="Code postal" />
                                         </div>
-                                        <h6 class="fs-title mt-5">Détails du lieu</h6>
+                                        <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">Détails
+                                            du lieu</h5>
                                         <div class="form-group">
                                             <label for="type_logement"><i class="fas fa-home"></i><strong>Type de
                                                     logement</strong>
@@ -124,6 +120,25 @@
                                                 <option value="Un_An">1 an</option>
                                             </select>
                                         </div>
+
+                                        <div class="form-group mt-4">
+                                            <label><strong>Chambre(s) identiques ?</strong> <span
+                                                    style="color: red;">*</span></label>
+                                            <div class="row" style="margin-left:2px;">
+                                                <div class="col-md-2 form-check">
+                                                    <input type="radio" id="identicalYes" name="chambres"
+                                                        value="oui" class="form-check-input">
+                                                    <label for="identicalYes" class="form-check-label">Oui</label>
+                                                </div>
+                                                <div class="col-md-4 form-check">
+                                                    <input type="radio" id="identicalNo" name="chambres"
+                                                        value="non" class="form-check-input">
+                                                    <label for="identicalNo" class="form-check-label">Non</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="form-group mt-4">
                                             <label for="chambre"><i class="fas fa-bed"></i>
                                                 <strong>Chambre(s)</strong> <span style="color: red;">*</span>
@@ -134,8 +149,10 @@
                                             </label>
                                             <input type="number" name="chambre" id="chambre" class="form-control"
                                                 min="1" max="50" required
+                                                placeholder="Entrez le nombre de chambre(s)"
                                                 onchange="generateRoomForms()" />
                                         </div>
+
                                         <div id="roomFormsContainer">
                                         </div>
                                     </div>
@@ -178,7 +195,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Précédent" />
                                     <input type="button" name="next" class="next action-button"
@@ -216,6 +232,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
+        var identicalRooms = false;
+
+        document.getElementById('identicalYes').addEventListener('change', function() {
+            identicalRooms = true;
+            generateRoomForms();
+        });
+        document.getElementById('identicalNo').addEventListener('change', function() {
+            identicalRooms = false;
+            generateRoomForms();
+        });
+
         function generateRoomForms() {
             var roomCount = document.getElementById('chambre').value;
             var roomFormsContainer = document.getElementById('roomFormsContainer');
@@ -225,7 +252,7 @@
             roomPhotosContainer.innerHTML = '';
 
             // Générer de nouveaux formulaires de chambre
-            for (var i = 1; i <= roomCount; i++) {
+            for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
                 roomFormsContainer.innerHTML += `
                 <h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">Chambre ${i}</h6>
                 <div class="form-group">
@@ -332,7 +359,7 @@
             }
 
             // Générer de nouveaux formulaires de photo de chambre
-            for (var i = 1; i <= roomCount; i++) {
+            for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
                 roomPhotosContainer.innerHTML += `
         <div class="form-group">
             <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> Photo(s) de la chambre ${i} *</label>

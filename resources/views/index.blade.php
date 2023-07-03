@@ -337,7 +337,7 @@
     </div>
     <script>
         window.onload = function() {
-            var banners = ['/images/banner1.png', '/images/banner2.png', '/images/banner3.png'];
+            var banners = ['/images/banner1.jpg', '/images/banner2.jpg', '/images/banner3.jpg'];
             var banner = banners[Math.floor(Math.random() * banners.length)];
             document.getElementById('banner').style.backgroundImage = 'url(' + banner + ')';
         }
