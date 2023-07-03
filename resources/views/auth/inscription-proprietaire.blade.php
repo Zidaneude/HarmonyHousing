@@ -23,13 +23,7 @@
                             style="font-weight: bold; color: #0f0f11;">Inscription
                             propriétaire</h4>
 
-                            <div> 
-                                @if($errors->any())  
-                                    @foreach ($errors->all() as $item)
-                                    {{$item}}
-                                    @endforeach     
-                                @endif
-                            </div>
+
                             <form method="POST" action="{{route('inscription.proprietaire.store')}}">
                                 @csrf
                             <!-- email                          -->
@@ -37,6 +31,11 @@
                                 <input style="background-color: #F8F8FF;" placeholder="Adresse e-mail" type="email"
                                     class="form-control" id="email" name="email" required>
                             </div>
+                            @error("email")
+                            <h6 style="color: red"> {{$message}}</h6>
+                            @enderror
+
+
                             <!-- sexe                          -->
                             <div class="form-group my-3">
                                 <div class="row">
@@ -65,12 +64,13 @@
                                 <input style="background-color: #F8F8FF;" placeholder="Prénom" type="text"
                                     class="form-control" id="firstName" name="prenom" required>
                             </div>
+
                             <!-- nom                          -->
                             <div class="form-group my-3">
                                 <input style="background-color: #F8F8FF;" placeholder="Nom" type="text"
                                     class="form-control" id="lastName" name="nom" required>
                             </div>
-                            
+
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -83,18 +83,27 @@
                                         type="tel" class="form-control" id="phoneNumber" name="telephone" required>
                                 </div>
                             </div>
+                            @error("telephone")
+                            <h6 style="color: red"> {{$message}}</h6>
+                            @enderror
                             <div class="form-group mt-3 mb-4">
                                 <div class="input-group">
                                 <!-- password                          -->
                                     <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
                                         class="form-control" id="password" name="password" required>
+
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i id="togglePassword" class="fas fa-eye"></i>
                                         </span>
                                     </div>
                                 </div>
+                                @error("password")
+                                <h6 style="color: red"> {{$message}}</h6>
+                                @enderror
                             </div>
+
+
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="dataProcessing" required>
                                 <label class="form-check-label" for="dataProcessing">

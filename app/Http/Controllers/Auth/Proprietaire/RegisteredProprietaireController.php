@@ -41,10 +41,10 @@ class RegisteredProprietaireController extends Controller
 
             'prenom' => ['required', 'string', 'max:255'],
             'nom' => ['required', 'string', 'max:255'],
-            'telephone' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255', 'unique:'.Proprietaire::class],
+            'gender' => ['required', 'string', 'max:15'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Proprietaire::class],
-            'password' => ['required'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $proprietaire = Proprietaire::create([
