@@ -16,7 +16,7 @@
     @include('header-dashboard-prop')
     <div class="container">
         <div style="color: #004aad;">
-            <h4>👋🏼 Bienvenue,David!</h4>
+            <h4>👋🏼 Bienvenue,{{Auth::guard('proprietaire')->user()->nom}}!</h4>
         </div>
 
         <div class="row">
@@ -29,7 +29,7 @@
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <span style="font-weight: bold;">0 Annonce(s)</span>
                             </button>
-                            <a href="/soumission-offre" class="btn btn-success btn-sm d-flex align-items-center"
+                            <a href="{{route('soumission.offre')}}" class="btn btn-success btn-sm d-flex align-items-center"
                                 type="button">
                                 <div class="col-2">
                                     <i class="fas fa-plus-circle fa-lg"></i>

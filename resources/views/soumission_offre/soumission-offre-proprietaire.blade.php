@@ -38,27 +38,32 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <div class="form-group">
+                                            <!-- titre-->
                                             <label for="titre_annonce">Titre de l'annonce <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="titre_annonce" id="titre_annonce"
                                                 class="form-control" placeholder="Entrez le titre de votre annonce"
                                                 required />
                                         </div>
+                                        <!--description-->
                                         <div class="form-group">
                                             <label for="description_annonce">Description</label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
+                                        <!-- localisation-->
                                         <h6 class="fs-title mt-5">Localisation</h6>
                                         <div class="form-group">
                                             <label for="adresse"><i class="fas fa-map-marker-alt"></i> Adresse</label>
                                             <input type="text" name="adresse" id="adresse" class="form-control"
                                                 placeholder="Indiquez une adresse" />
                                         </div>
+                                        <!-- quartier-->
                                         <div class="form-group">
                                             <label for="quartier">Quartier <span style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
                                                 placeholder="Indiquez un quartier" required />
                                         </div>
+                                        <!-- region-->
                                         <div class="form-group">
                                             <label for="region">Région <span style="color: red;">*</span></label>
                                             <select name="region" id="region" class="form-control" required>
@@ -75,16 +80,19 @@
                                                 <option value="est">Extrême-Nord</option>
                                             </select>
                                         </div>
+                                        <!--ville-->
                                         <div class="form-group mt-4">
                                             <label for="ville">Ville <span style="color: red;">*</span></label>
                                             <input type="text" name="ville" id="ville" class="form-control"
                                                 placeholder="Ville" required />
                                         </div>
+                                        <!-- code  postal-->
                                         <div class="form-group">
                                             <label for="code_postal">Code postal</label>
                                             <input type="text" name="code_postal" id="code_postal"
                                                 class="form-control" placeholder="Code postal" />
                                         </div>
+                                        <!-- détails-->
                                         <h6 class="fs-title mt-5">Détails du lieu</h6>
                                         <div class="form-group">
                                             <label for="type_logement"><i class="fas fa-home"></i> Type de logement

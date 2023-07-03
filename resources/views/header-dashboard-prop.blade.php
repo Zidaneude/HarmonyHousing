@@ -33,7 +33,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuDropdown">
-                    <a class="dropdown-item" href="/profil-proprietaire">Mon profil</a>
+                    <a class="dropdown-item" href="{{route('profil.pro')}}">Mon profil</a>
                     <a class="dropdown-item" href="/reservations-prop">Gérer les réservations</a>
                     <a class="dropdown-item" href="/historique-versement">Historique de versement</a>
                     <div class="dropdown-divider"></div>

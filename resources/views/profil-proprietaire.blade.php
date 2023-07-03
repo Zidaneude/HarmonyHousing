@@ -36,6 +36,7 @@
                 </div>
                 <hr>
                 <form action="">
+                    <!--profil -->
                     <h6 class="card-title">Photo de profil</h6>
                     <div style="display: flex; justify-content: center;">
                         <img height="60" src="images/upload.png" alt="Upload Image" class="mb-2">
@@ -45,8 +46,10 @@
                     </div>
                     <div class="row">
                         <div class="col">
+                            <!-- sexe-->
                             <div class="form-group">
                                 <label>Civilité</label><br>
+
                                 <div class="form-check">
                                     <input id="homme" class="form-check-input" type="radio" name="gender"
                                         value="homme" checked>
@@ -61,8 +64,9 @@
                         </div>
                         <div class="col">
                             <div class="form-group">
+                                <!--email-->
                                 <label for="email">Adresse e-mail<span style="color: red;">*</span></label>
-                                <input id="email" type="email" class="form-control" required>
+                                <input id="email" type="email"  value="{{$proprietaire->email}}"="form-control" required name="email">
                                 <a style="text-decoration: none;" href="#" class="mt-1 d-block">Changer mon
                                     adresse email</a>
                             </div>
@@ -70,20 +74,23 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
+                            <!--prenom-->
                             <div class="form-group">
                                 <label for="prenom">Prénom<span style="color: red;">*</span></label>
-                                <input id="prenom" type="text" class="form-control" required>
+                                <input id="prenom" type="text" value="{{$proprietaire->nom}}"  class="form-control" required name="prenom">
                             </div>
                         </div>
                         <div class="col">
+                            <!--nom -->
                             <div class="form-group">
                                 <label for="nom">Nom<span style="color: red;">*</span></label>
-                                <input id="nom" type="text" class="form-control" required>
+                                <input id="nom" type="text" value="{{$proprietaire->prenom}}" class="form-control" required name="nom">
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group mt-3">
+                        <!--tel-->
                         <label for="tel">Numéro de téléphone</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -92,13 +99,13 @@
                                     </span>&nbsp;+237</span>
                             </div>
                             <input id="tel" style="background-color: #F8F8FF;" type="tel" class="form-control"
-                                id="phoneNumber" required>
+                                id="phoneNumber" value="{{$proprietaire->telephone}}" required name="telephone">
                         </div>
                     </div>
-
+                    <!-- presentation-->
                     <div class="form-group mt-3">
                         <label for="pres">Présentation</label>
-                        <textarea id="pres" class="form-control" rows="3"></textarea>
+                        <textarea id="pres" value="{{$proprietaire->presentation}}" class="form-control" rows="3" name="presentation"></textarea>
                     </div>
                     <div class="form-group mt-4">
                         <h6>Notifications</h6>
