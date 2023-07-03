@@ -19,7 +19,6 @@
     <div class="container-fluid">
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center">
-                <h3><strong>Publier une annonce</strong></h3>
                 <p style="color: #004aad; font-weight: bold;">Étapes de publication</p>
                 <ul id="progressbar">
                     <li class="active" id="details"><strong>Détails de l'annonce</strong></li>
@@ -37,8 +36,10 @@
                             <form id="msform" action="">
                                 <fieldset>
                                     <div class="form-card">
+                                        <h4 style="text-align: center; color: #004aad;" class="mb-4"><strong>Publier
+                                                une
+                                                annonce</strong></h4>
                                         <div class="form-group">
-                                            <!-- titre-->
                                             <label for="titre_annonce">Titre de l'annonce <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="titre_annonce" id="titre_annonce"
@@ -47,25 +48,27 @@
                                         </div>
                                         <!--description-->
                                         <div class="form-group">
-                                            <label for="description_annonce">Description</label>
+                                            <label for="description_annonce"><strong>Description</strong></label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
-                                        <!-- localisation-->
                                         <h6 class="fs-title mt-5">Localisation</h6>
                                         <div class="form-group">
-                                            <label for="adresse"><i class="fas fa-map-marker-alt"></i> Adresse</label>
+                                            <label for="adresse">
+                                                <strong>Adresse</strong></label>
                                             <input type="text" name="adresse" id="adresse" class="form-control"
                                                 placeholder="Indiquez une adresse" />
                                         </div>
                                         <!-- quartier-->
                                         <div class="form-group">
-                                            <label for="quartier">Quartier <span style="color: red;">*</span></label>
+                                            <label for="quartier"><strong>Quartier</strong> <span
+                                                    style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
                                                 placeholder="Indiquez un quartier" required />
                                         </div>
                                         <!-- region-->
                                         <div class="form-group">
-                                            <label for="region">Région <span style="color: red;">*</span></label>
+                                            <label for="region"> <strong>Région</strong> <span
+                                                    style="color: red;">*</span></label>
                                             <select name="region" id="region" class="form-control" required>
                                                 <option value="">--Sélectionnez une région--</option>
                                                 <option value="nord">Nord</option>
@@ -82,31 +85,34 @@
                                         </div>
                                         <!--ville-->
                                         <div class="form-group mt-4">
-                                            <label for="ville">Ville <span style="color: red;">*</span></label>
+                                            <label for="ville"><strong>Ville</strong> <span
+                                                    style="color: red;">*</span></label>
                                             <input type="text" name="ville" id="ville" class="form-control"
                                                 placeholder="Ville" required />
                                         </div>
                                         <!-- code  postal-->
                                         <div class="form-group">
-                                            <label for="code_postal">Code postal</label>
+                                            <label for="code_postal"><strong>Code postal</strong> </label>
                                             <input type="text" name="code_postal" id="code_postal"
                                                 class="form-control" placeholder="Code postal" />
                                         </div>
-                                        <!-- détails-->
                                         <h6 class="fs-title mt-5">Détails du lieu</h6>
                                         <div class="form-group">
-                                            <label for="type_logement"><i class="fas fa-home"></i> Type de logement
+                                            <label for="type_logement"><i class="fas fa-home"></i><strong>Type de
+                                                    logement</strong>
                                                 <span style="color: red;">*</span></label>
                                             <select name="type_logement" id="type_logement" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez un type de logement--</option>
                                                 <option value="chambre">Chambre</option>
                                                 <option value="appartement">Appartement</option>
+                                                <option value="studio">Studio</option>
                                             </select>
                                         </div>
                                         <div class="form-group mt-4">
-                                            <label for="frequence_paie"><i class="fas fa-calendar"></i> Fréquence de
-                                                paiement
+                                            <label for="frequence_paie"><i class="fas fa-calendar"></i>
+                                                <strong>Fréquence de
+                                                    paiement</strong>
                                                 <span style="color: red;">*</span></label>
                                             <select name="frequence_paie" id="frequence_paie" class="form-control"
                                                 required>
@@ -119,8 +125,8 @@
                                             </select>
                                         </div>
                                         <div class="form-group mt-4">
-                                            <label for="chambre"><i class="fas fa-bed"></i> Chambre(s) <span
-                                                    style="color: red;">*</span>
+                                            <label for="chambre"><i class="fas fa-bed"></i>
+                                                <strong>Chambre(s)</strong> <span style="color: red;">*</span>
                                                 <a data-toggle="tooltip"
                                                     title="ATTENTION - Ne modifiez pas ce nombre après avoir rempli les détails de chambre(s) au risque de réinitialiser vos données !">
                                                     <i class="fas fa-info-circle" style="color: #004aad;"></i>
@@ -221,7 +227,7 @@
             // Générer de nouveaux formulaires de chambre
             for (var i = 1; i <= roomCount; i++) {
                 roomFormsContainer.innerHTML += `
-                <h6 class="mt-5" style="color:#004aad; font-size:18px;">Chambre ${i}</h6>
+                <h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">Chambre ${i}</h6>
                 <div class="form-group">
                     <label for="titre_chambre${i}">Titre de la chambre <span style="color: red;">*</span></label>
                     <input type="text" name="titre_chambre${i}" id="titre_chambre${i}" class="form-control" placeholder="Titre de la chambre" required/>

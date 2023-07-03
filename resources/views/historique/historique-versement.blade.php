@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes versements - Harmony Housing - La plateforme de réservation en ligne</title>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </head>
 
 <body style="margin-top: 70px; background-color: #F8F8FF;">
@@ -71,23 +68,21 @@
                                 <td>30/06/2023</td>
                                 <td>100 000 FCFA</td>
                                 <td>MTN Mobile Money</td>
-                                <td>Payé <i style="color: green; margin-left: 39px;" class="fas fa-check-circle"></i>
-                                </td>
+                                <td><i style="color: green;" class="fas fa-check-circle"></i> Payé</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>01/07/2023</td>
                                 <td>150 000 FCFA</td>
                                 <td>Orange Money</td>
-                                <td>Non payé <i style="color: red; margin-left: 3px;" class="fas fa-times-circle"></i>
-                                </td>
+                                <td><i style="color: red;" class="fas fa-times-circle"></i> Non payé</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>01/07/2023</td>
                                 <td>200 000 FCFA</td>
                                 <td>MTN Mobile Money</td>
-                                <td>En attente <i style="color: orange;" class="fas fa-clock"></i></td>
+                                <td><i style="color: orange;" class="fas fa-clock"></i> En attente</td>
                             </tr>
                         </tbody>
                     </table>
@@ -122,8 +117,7 @@
     </div>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
