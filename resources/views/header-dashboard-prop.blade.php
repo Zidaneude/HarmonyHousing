@@ -12,14 +12,14 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item btn-primary2">
                 <a class="nav-link" href="/dashboard-proprietaire">
-                    <div class="circle-icon">
+                    <div class="circle-icon" style="color: #004aad;">
                         <i class="fas fa-home"></i>
                     </div>
                 </a>
             </li>
             <li class="nav-item btn-primary2">
                 <a class="nav-link" href="#">
-                    <div class="circle-icon">
+                    <div class="circle-icon" style="color: #004aad;">
                         <i class="fas fa-envelope"></i>
                     </div>
                 </a>
@@ -40,7 +40,7 @@
                     <a class="dropdown-item" href="#">FAQ - Propriétaire</a>
                     <a class="dropdown-item" href="#">Nous contacter</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{route('logout')}}">Déconnexion</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">Déconnexion</a>
                 </div>
             </li>
         </ul>

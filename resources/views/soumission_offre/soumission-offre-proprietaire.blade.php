@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publier une annonce | Harmony Housing - La plateforme de réservation en ligne</title>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/steps-wizard.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
@@ -28,6 +28,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
@@ -37,7 +38,8 @@
                                 <fieldset>
                                     <div class="form-card">
                                         <div class="form-group">
-                                            <label for="titre_annonce">Titre de l'annonce *</label>
+                                            <label for="titre_annonce">Titre de l'annonce <span
+                                                    style="color: red;">*</span></label>
                                             <input type="text" name="titre_annonce" id="titre_annonce"
                                                 class="form-control" placeholder="Entrez le titre de votre annonce"
                                                 required />
@@ -46,14 +48,19 @@
                                             <label for="description_annonce">Description</label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
-                                        <h6 class="fs-title">Ajouter une nouvelle adresse</h6>
+                                        <h6 class="fs-title mt-5">Localisation</h6>
                                         <div class="form-group">
-                                            <label for="lieu"><i class="fas fa-map-marker-alt"></i> Adresse</label>
+                                            <label for="adresse"><i class="fas fa-map-marker-alt"></i> Adresse</label>
                                             <input type="text" name="adresse" id="adresse" class="form-control"
                                                 placeholder="Indiquez une adresse" />
                                         </div>
                                         <div class="form-group">
-                                            <label for="region">Région *</label>
+                                            <label for="quartier">Quartier <span style="color: red;">*</span></label>
+                                            <input type="text" name="quartier" id="quartier" class="form-control"
+                                                placeholder="Indiquez un quartier" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="region">Région <span style="color: red;">*</span></label>
                                             <select name="region" id="region" class="form-control" required>
                                                 <option value="">--Sélectionnez une région--</option>
                                                 <option value="nord">Nord</option>
@@ -69,7 +76,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group mt-4">
-                                            <label for="ville">Ville *</label>
+                                            <label for="ville">Ville <span style="color: red;">*</span></label>
                                             <input type="text" name="ville" id="ville" class="form-control"
                                                 placeholder="Ville" required />
                                         </div>
@@ -81,19 +88,18 @@
                                         <h6 class="fs-title mt-5">Détails du lieu</h6>
                                         <div class="form-group">
                                             <label for="type_logement"><i class="fas fa-home"></i> Type de logement
-                                                *</label>
+                                                <span style="color: red;">*</span></label>
                                             <select name="type_logement" id="type_logement" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez un type de logement--</option>
                                                 <option value="chambre">Chambre</option>
                                                 <option value="appartement">Appartement</option>
-                                                <option value="maison">Maison</option>
                                             </select>
                                         </div>
                                         <div class="form-group mt-4">
                                             <label for="frequence_paie"><i class="fas fa-calendar"></i> Fréquence de
                                                 paiement
-                                                *</label>
+                                                <span style="color: red;">*</span></label>
                                             <select name="frequence_paie" id="frequence_paie" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez une fréquence de paiement--
@@ -105,7 +111,8 @@
                                             </select>
                                         </div>
                                         <div class="form-group mt-4">
-                                            <label for="chambre"><i class="fas fa-bed"></i> Chambre(s) *
+                                            <label for="chambre"><i class="fas fa-bed"></i> Chambre(s) <span
+                                                    style="color: red;">*</span>
                                                 <a data-toggle="tooltip"
                                                     title="ATTENTION - Ne modifiez pas ce nombre après avoir rempli les détails de chambre(s) au risque de réinitialiser vos données !">
                                                     <i class="fas fa-info-circle" style="color: #004aad;"></i>
@@ -137,7 +144,8 @@
                                                     placeholder="Exemple : https://youtu.be/yp_4C9JRnM8" />
                                             </div>
 
-                                            <label><i class="fas fa-camera"></i> Photos de votre annonce *</label>
+                                            <label><i class="fas fa-camera"></i> Photos de votre annonce <span
+                                                    style="color: red;">*</span></label>
 
                                             <a data-toggle="tooltip"
                                                 title="ATTENTION – Nous vous recommandons d’afficher au moins 3 photos pour donner envie à des candidats potentiels de prendre contact avec vous.">
@@ -150,7 +158,7 @@
                                                     logement</label>
                                                 <input type="file" name="roomPhotoPrincipale"
                                                     id="roomPhotoPrincipale" class="form-control"
-                                                    accept=".jpg, .jpeg, .png" required />
+                                                    accept=".jpg, .jpeg, .png" multiple required />
                                                 <div class="form-group" id="roomPhotosContainer">
                                                 </div>
                                             </div>
@@ -162,15 +170,13 @@
                                     <input type="button" name="next" class="next action-button"
                                         value="Valider" />
                                 </fieldset>
-                                </fieldset>
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">Félicitations ! 🎉</h2>
                                         <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-3">
-                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png"
-                                                    class="fit-image">
+                                                <img src="images/coche.png" class="img-fluid">
                                             </div>
                                         </div>
                                         <br><br>
@@ -192,9 +198,9 @@
         </div>
     </div>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
         function generateRoomForms() {
             var roomCount = document.getElementById('chambre').value;
@@ -209,28 +215,103 @@
                 roomFormsContainer.innerHTML += `
                 <h6 class="mt-5" style="color:#004aad; font-size:18px;">Chambre ${i}</h6>
                 <div class="form-group">
-                    <label for="titre_chambre${i}">Titre de la chambre *</label>
+                    <label for="titre_chambre${i}">Titre de la chambre <span style="color: red;">*</span></label>
                     <input type="text" name="titre_chambre${i}" id="titre_chambre${i}" class="form-control" placeholder="Titre de la chambre" required/>
                 </div>
+                <div class="form-group mt-4">
+                                            <label for="meuble${i}"><i class="fas fa-calendar"></i> Meublé ?
+                                                <span style="color: red;">*</span></label>
+                                            <select name="meuble${i}" id="meuble${i}" class="form-control"
+                                                required>
+                                                <option value="">--Sélectionnez--
+                                                </option>
+                                                <option value="Oui">Oui</option>
+                                                <option value="Non">Non</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mt-4">
+                                        <label for="disponibilite${i}"><i class="fas fa-calendar-alt"></i> Disponibilité <span style="color: red;">*</span></label>
                 <input type="date" name="disponibilite${i}" id="disponibilite${i}" class="form-control" min="2023-07-01" max="2025-01-01" required />
+            </div>
                 <div class="form-group">
-                <label for="equipements${i}"><i class="fas fa-tools"></i> Avec équipements ? *</label>
-                <select name="equipements${i}" id="equipements${i}" class="form-control" onchange="toggleEquipmentsTextarea(${i})" required>
+                <label for="equipements${i}"><i class="fas fa-tools"></i> Avec équipements ? <span style="color: red;">*</span></label>
+                <select name="equipements${i}" id="equipements${i}" class="form-control" onchange="toggleEquipmentsContainer(${i})" required>
                     <option value="">--Sélectionnez--</option>
                     <option value="oui">Oui</option>
                     <option value="non">Non</option>
                 </select>
             </div>
-            <div class="form-group mt-4" id="equipmentsTextareaContainer${i}" style="display: none;">
-                <label for="equipmentsTextarea${i}"><i class="fas fa-toolbox"></i> Liste des équipements *</label>
-                <textarea name="equipmentsTextarea${i}" id="equipmentsTextarea${i}" class="form-control" rows="3" placeholder="Entrez la liste des équipements de manière exhaustive"></textarea>
-            </div>
+
+            <div class="form-group mt-4" id="equipmentsContainer${i}" style="display: none;">
+    <label><i class="fas fa-toolbox"></i> Liste des équipements <span style="color: red;">*</span></label>
+    <div class="row" style="margin-left:2px;">
+    <div class="col-md-4 form-check">
+        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="chauffage${i}" value="Chauffage">
+        <label class="form-check-label" for="chauffage${i}">
+            Chauffage
+        </label>
+    </div>
+    <div class="col-md-4 form-check">
+        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="fer_a_repasser${i}" value="Fer à repasser">
+        <label class="form-check-label" for="fer_a_repasser${i}">
+            Fer à repasser
+        </label>
+    </div>
+    <div class="col-md-4 form-check">
+        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="ordinateur${i}" value="Ordinateur">
+        <label class="form-check-label" for="ordinateur${i}">
+            Ordinateur
+        </label>
+    </div>
+</div>
+
+<div class="row" style="margin-left:2px;">
+    <div class="col-md-4 form-check">
+        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="equipements_hygiene${i}" value="Équipements d'hygiène">
+        <label class="form-check-label" for="equipements_hygiene${i}">
+            Équipements d'hygiène
+        </label>
+    </div>
+    <div class="col-md-4 form-check">
+        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="tv${i}" value="Télévision">
+        <label class="form-check-label" for="tv${i}">
+            Télévision
+        </label>
+    </div>
+    <div class="col-md-4 form-check">
+        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="cintres${i}" value="Cintres pour vêtements">
+        <label class="form-check-label" for="cintres${i}">
+            Cintres pour vêtements
+        </label>
+    </div>
+</div>
+<div class="row" style="margin-left:2px;">
+    <div class="col-md-4 form-check">
+        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="climatisation${i}" value="Climatisation">
+        <label class="form-check-label" for="climatisation${i}">
+            Climatisation
+        </label>
+    </div>
+    <div class="col-md-4 form-check">
+            <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="cuisine_equipee${i}" value="Cuisine équipée">
+            <label class="form-check-label" for="cuisine_equipee${i}">
+                Cuisine équipée
+            </label>
+        </div>
+        <div class="col-md-4 form-check">
+            <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="internet${i}" value="Internet">
+            <label class="form-check-label" for="internet${i}">
+                Internet
+            </label>
+        </div>
+</div>
+</div>
                 <div class="form-group mt-4">
-                    <label for="salle_de_bain${i}"><i class="fas fa-bath"></i> Salle de bain(s) *</label>
+                    <label for="salle_de_bain${i}"><i class="fas fa-bath"></i> Salle de bain(s) <span style="color: red;">*</span></label>
                     <input type="number" name="salle_de_bain${i}" id="salle_de_bain${i}" class="form-control" placeholder="Entrez le nombre de salle de bain(s)" min="1" required />
                 </div>
                 <div class="form-group">
-                    <label for="loyer${i}"><i class="fas fa-coins"></i> Loyer *</label>
+                    <label for="loyer${i}"><i class="fas fa-coins"></i> Loyer <span style="color: red;">*</span></label>
                     <input type="number" name="loyer${i}" id="loyer${i}" class="form-control" placeholder="Loyer par mois (en FCFA)" min="1" required />
                 </div>
             `;
@@ -241,23 +322,23 @@
                 roomPhotosContainer.innerHTML += `
         <div class="form-group">
             <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> Photo(s) de la chambre ${i} *</label>
-            <input type="file" name="roomPhoto${i}" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" required />
+            <input type="file" name="roomPhoto${i}" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
         </div>
         `;
             }
         }
 
-        function toggleEquipmentsTextarea(i) {
+        function toggleEquipmentsContainer(i) {
             var equipementsSelect = document.getElementById("equipements" + i);
-            var equipmentsTextareaContainer = document.getElementById("equipmentsTextareaContainer" + i);
-            var equipmentsTextarea = document.getElementById("equipmentsTextarea" + i);
+            var equipmentsContainer = document.getElementById("equipmentsContainer" + i);
+            var equipmentsContainer = document.getElementById("equipmentsContainer" + i);
 
             if (equipementsSelect.value === "oui") {
-                equipmentsTextareaContainer.style.display = "block";
-                equipmentsTextarea.required = true;
+                equipmentsContainer.style.display = "block";
+                equipmentsContainer.required = true;
             } else {
-                equipmentsTextareaContainer.style.display = "none";
-                equipmentsTextarea.required = false;
+                equipmentsContainer.style.display = "none";
+                equipmentsContainer.required = false;
             }
         }
 

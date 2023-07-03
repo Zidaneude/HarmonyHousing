@@ -50,8 +50,8 @@
                                             <label class="form-check-label" for="appartement">Appartement</label>
                                         </div>
                                         <div class="col form-check">
-                                            <input class="form-check-input" type="checkbox" id="maison">
-                                            <label class="form-check-label" for="maison">Studio</label>
+                                            <input class="form-check-input" type="checkbox" id="studio">
+                                            <label class="form-check-label" for="studio">Studio</label>
                                         </div>
                                     </div>
                                 </div>
