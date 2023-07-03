@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 </head>
 
 <body style="margin-top: 70px; background-color: #F8F8FF;">

@@ -21,7 +21,15 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                //Default route
+                /*
+                $route = 'index';
+                //Admin route
+                if($guard === 'proprietaire'){
+                    $route = 'connexion.proprietaire.create';
+                }
+                return redirect()->route($route);*/
+                return redirect(RouteServiceProvider::DASHBORD);
             }
         }
 

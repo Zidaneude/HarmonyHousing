@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticate;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Locataire extends Model
+class Locataire extends Authenticate
 {
     use HasFactory;
     public function avis()
@@ -18,5 +19,6 @@ class Locataire extends Model
         return $this->hasMany(Reservation::class);
     }
 
-    protected $fillable = ['nom','prenom','email','sexe','telephone','text','MotDePasse'];
+    protected $fillable = ['nom','prenom','email','sexe','telephone','password'];
+ 
 }

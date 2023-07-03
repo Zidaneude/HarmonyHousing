@@ -4,21 +4,22 @@ namespace App\Http\Controllers\Auth\Proprietaire;
 
 
 use Rules\Password;
-use App\Models\Locataire;
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Locataire;
+use Illuminate\View\View;
+use App\Models\Proprietaire;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredProprietaireController extends Controller
 {
-    
+
     /**
      * Display the registration view.
      */
@@ -26,30 +27,39 @@ class RegisteredProprietaireController extends Controller
     {
         return view('auth.inscription-proprietaire');
     }
-    
+
    /**
-    * Handle an incoming registration request.
-    *
-    * @throws \Illuminate\Validation\ValidationException
-    */
+     * Handle an incoming registration request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
+            'prenom' => ['required', 'string', 'max:255'],
+            'nom' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Proprietaire::class],
+            'password' => ['required'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $proprietaire = Proprietaire::create([
+            'nom' => $request->nom,
+            'prenom' =>$request->prenom,
             'email' => $request->email,
+            'sexe' => $request->gender,
+            'telephone' => $request->telephone,
             'password' => Hash::make($request->password),
+
         ]);
 
-        event(new Registered($user));
+        event(new Registered($proprietaire));
 
-        Auth::login($user);
+        Auth::guard('proprietaire')->login($proprietaire);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::DASHBORD );
     }
 }

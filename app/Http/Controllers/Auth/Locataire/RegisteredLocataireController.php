@@ -2,52 +2,58 @@
 
 namespace App\Http\Controllers\Auth\Locataire;
 
-use Rules\Password;
 use App\Models\Locataire;
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisteredLocataireController extends Controller
 {
-     /**
-    * Display the registration view.
-    */
-   public function create(): View
-   {
-       return view('auth.register');
-   }
+    /**
+     * Display the registration view.
+     */
+    public function create(): View
+    {
+        return view('auth.inscription-locataire');
+    }
 
-   /**
-    * Handle an incoming registration request.
-    *
-    * @throws \Illuminate\Validation\ValidationException
-    */
+    /**
+     * Handle an incoming registration request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
+            'prenom' => ['required', 'string', 'max:255'],
+            'nom' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Locataire::class],
+            'password' => ['required'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $locataire = Locataire::create([
+            'nom' => $request->nom,
+            'prenom' =>$request->prenom,
             'email' => $request->email,
+            'sexe' => $request->gender,
+            'telephone' => $request->telephone,
             'password' => Hash::make($request->password),
+
         ]);
 
-        event(new Registered($user));
+        event(new Registered($locataire));
+ 
+        Auth::login($locataire);
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::CONNEXION_LOCATAIRE);
     }
 }

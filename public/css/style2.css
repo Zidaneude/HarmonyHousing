@@ -14,10 +14,10 @@
     margin-right: auto;
 }
 .dropdown-item:hover {
-    color: #36417D;
+    color: #004aad;
 }
 .nav-link:hover {
-    color: #36417D;
+    color: #004aad;
 }
 
 /* CSS pour la pagination */
@@ -62,7 +62,7 @@
 }
 .pagination li a.page-link:before{
     content: '';
-    background-color: #36417D;
+    background-color: #004aad;
     height: 100%;
     width: 100%;
     border-radius: 50%;
@@ -161,22 +161,22 @@
 
 
 .active-tab {
-    border-bottom: 3px solid #36417D;
+    border-bottom: 3px solid #004aad;
     font-weight: 500;
 }
 .profile-card {
     border-color: rgb(0, 0, 0);
 }
 .profile-card-header {
-    background-color: #36417D;
+    background-color: #004aad;
     color: white;
 }
 .dashed-border {
-    border: 2px dashed #36417D;
+    border: 2px dashed #004aad;
 }
 
 .nav-tabs .nav-link {
-    color: #36417D;
+    color: #004aad;
 
 }
 
@@ -187,11 +187,11 @@
     margin: auto;
 }
 .profile-card-header {
-    background-color: #36417D;
+    background-color: #004aad;
     color: white;
 }
 .dashed-border {
-    border: 2px dashed #36417D;
+    border: 2px dashed #004aad;
     text-align: center;
     padding: 10px;
     margin: auto;
@@ -211,13 +211,13 @@
 }
 
 .btn-ins {
-    border: 1px solid #36417D;
-    color: #36417D;
+    border: 1px solid #004aad;
+    color: #004aad;
     background-color: transparent;
     transition: transform 0.3s ease-in-out;
 }
 .btn-ins:hover {
-    background-color: #36417D;
+    background-color: #0760d4;
     color: white;
     transform: translateY(-2px);
 }
@@ -235,3 +235,16 @@
     transform: translateY(-2px);
 }
 
+.btn-success {
+    background-color: #004aad !important;
+    border-color: #004aad !important;
+}
+
+.btn-success:hover {
+    background-color: #0760d4 !important;
+    border-color: #0760d4 !important;
+    color: white !important;
+}
+.shadow-bottom {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}

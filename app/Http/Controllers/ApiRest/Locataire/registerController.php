@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\ApiRest\Locataire;
 
+use Rules\Password;
 use App\Models\Locataire;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class registerController extends Controller
 {
@@ -24,7 +28,7 @@ class registerController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'telephone' => ['required', 'min:9', 'max:9'],
             'sexe' => ['required','string', 'max:1'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed'],
         ]);
 
         $user = Locataire::create([
@@ -40,6 +44,6 @@ class registerController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        //return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -6,33 +6,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/flavicon.png">
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 </head>
 
 <body class="pt-5">
-    @include('commun/header');
+    @include('commun.header');
 
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-center title-accueil mt-3" style="font-weight: bold;">Inscription
+                        <h4 class="card-title text-center title-accueil mt-3"
+                            style="font-weight: bold; color: #0f0f11;">Inscription
                             locataire</h4>
-                        <form method="POST" action="{{ route('locataire.store') }}">
+                        <div> 
+                            @if($errors->any())  
+                                @foreach ($errors->all() as $item)
+                                {{$item}}
+                                @endforeach     
+                            @endif
+                        </div>
+                        <form method="POST" action="{{route('inscription.locataire.store')}}">
                             @csrf
+
+                            <!--Email                         -->
                             <div class="form-group mt-5">
                                 <input style="background-color: #F8F8FF;" placeholder="Adresse e-mail" type="email"
-                                    class="form-control" id="email" required name="email">
+                                    class="form-control" id="email" name="email" required>
                             </div>
+
+                            <!--sexe                             -->
                             <div class="form-group my-3">
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="gender"
-                                                id="genderMale" value="male" required>
+                                                id="genderMale" value="homme" required>
                                             <label class="form-check-label" for="genderMale">
                                                 Homme
                                             </label>
@@ -41,7 +53,7 @@
                                     <div class="col-md-2">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="gender"
-                                                id="genderFemale" value="female" required>
+                                                id="genderFemale" value="femme" required>
                                             <label class="form-check-label" for="genderFemale">
                                                 Femme
                                             </label>
@@ -49,14 +61,23 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!--prenom             -->
+
                             <div class="form-group my-3">
-                                <input style="background-color: #F8F8FF;" name="prenom" placeholder="Prénom" type="text"
-                                    class="form-control" id="firstName" required>
+                                <input style="background-color: #F8F8FF;" placeholder="Prénom" type="text"
+                                    class="form-control" id="firstName" name="prenom" required>
                             </div>
+
+                            <!--nom                -->
+
                             <div class="form-group my-3">
-                                <input style="background-color: #F8F8FF;" name= "nom" placeholder="Nom" type="text"
-                                    class="form-control" id="lastName" required>
+                                <input style="background-color: #F8F8FF;" placeholder="Nom" type="text"
+                                    class="form-control" id="lastName" name="nom" required>
                             </div>
+
+                            <!--telephone                -->
+
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -64,14 +85,17 @@
                                                 <img src="/images/cameroun.jpg" alt="Cameroon Flag" width="25">
                                             </span>&nbsp;+237</span>
                                     </div>
-                                    <input style="background-color: #F8F8FF;" name='NumeroTel' placeholder="Numéro de téléphone"
-                                        type="tel" class="form-control" id="phoneNumber" required>
+                                    <input style="background-color: #F8F8FF;" placeholder="Numéro de téléphone"
+                                        type="tel" class="form-control" id="phoneNumber" name="telephone" required>
                                 </div>
                             </div>
+
+                            <!--   password -->
+
                             <div class="form-group mt-3 mb-4">
                                 <div class="input-group">
-                                    <input style="background-color: #F8F8FF;" name='password' placeholder="Mot de passe" type="password"
-                                        class="form-control" id="password" required>
+                                    <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
+                                        class="form-control" id="password" name="password" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i id="togglePassword" class="fas fa-eye"></i>
@@ -79,21 +103,16 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="receiveOffers" required>
-                                <label class="form-check-label" for="receiveOffers" name="text[]">
-                                    J’accepte de recevoir des offres ponctuelles de Harmony Housing par SMS
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="text[]" id="dataProcessing" required>
+                                <input type="checkbox" class="form-check-input" id="dataProcessing" required>
                                 <label class="form-check-label" for="dataProcessing">
                                     En m'inscrivant, j'accepte que Harmony Housing recueille et traite mes données
                                     personnelles
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="termsOfUse" required name="text[]">
+                                <input type="checkbox" class="form-check-input" id="termsOfUse" required>
                                 <label class="form-check-label" for="termsOfUse">
                                     J’accepte sans réserve les <span> <a style="color: #212529;"
                                             href="#">Conditions Générales d’Utilisation</a></span> des services
@@ -119,7 +138,7 @@
     </div>
 
 
-    @include('commun/footer');
+    @include('commun.footer')
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

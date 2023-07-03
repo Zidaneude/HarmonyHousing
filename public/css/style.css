@@ -10,40 +10,45 @@
     margin-right: 20px;
 }
 
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:hover i {
+  color:  #09e29a;
+}
+
+.nav-item:hover{
+    color: #000000;
+}
 .navbar-brand {
     margin-right: auto;
 }
 .dropdown-item:hover {
-    color: #36417D;
+    color: #004aad;
 }
-.nav-link:hover {
-    color: #36417D;
-}
+
 .btn-account {
     border: 1px solid black;
     color: black;
     background-color: transparent;
 }
 .btn-account:hover {
-    color: #36417D;
+    color: #004aad;
     background-color: white;
 }
 
 .background-section {
     position: relative;
-    background-image: url('../images/home.png');
     background-size: cover;
     background-position: center;
-    height: 400px;
+}
+
+#banner {
+    width: 100%;
+    height: 450px;
 }
 
 .logo {
     height: 30px;
     width: auto;
-}
-
-.nav-link {
-    color: white !important;
 }
 
 .btn-account {
@@ -55,22 +60,22 @@
 
 .btn-account:hover {
     background-color: white !important;
-    color: #36417D !important;
+    color: #004aad !important;
     transform: translateY(-2px);
 }
 
-.navbar.scrolled .nav-link {
-    color: #36417D !important;
+.nav-link {
+    color: #004aad !important;
 }
 
-.navbar.scrolled .btn-account {
-    background-color: #2EB88A!important;
+.btn-account {
+    background-color: #595959!important;
     transition: transform 0.3s ease-in-out;
 }
 
-.navbar.scrolled .btn-account:hover {
+.btn-account:hover {
     color: white !important;
-    background-color:  rgb(56, 136, 109) !important;
+    background-color:  #424141 !important;
     transform: translateY(-2px);
 }
 
@@ -91,15 +96,28 @@
 }
 
 .btn-primary {
-    background-color: #2EB88A !important;
-    border-color: #2EB88A !important;
+    background-color: rgb(7, 168, 115) !important;
+    border-color: rgb(7, 168, 115) !important;
     transition: transform 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-    background-color: rgb(56, 136, 109) !important;
-    border-color: rgb(56, 136, 109) !important;
+    background-color:  #2EB88A !important;
+    border-color: #2EB88A !important;
     transform: translateY(-2px);
+}
+
+
+.btn-dark{
+    background-color: #202020 !important;
+    border-color:#202020 !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-dark:hover {
+    background-color: #494747 !important;
+    border-color:#494747 !important;
+    transform: translateY(2px);
 }
 
 .hero-text .btn {
@@ -119,7 +137,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    color: #36417D;
+    color: #004aad;
 }
 
 .city-box {
@@ -135,7 +153,7 @@
 }
 
 .title-accueil{
-    color: #36417D;
+    color: #004aad;
 }
 
 .city-card {
@@ -171,7 +189,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 5px 10px;
-    background: #36417D;
+    background: #004aad;
     text-align: center;
     font-size: 1.5rem;
     z-index: 1;
@@ -185,7 +203,7 @@
 
 
 footer {
-    background-color: #36417D;
+    background-color: #004aad;
     color: white;
 }
 
@@ -217,7 +235,7 @@ body{
 }
 
 .sous-titre{
-    color: #36417D;
+    color: #004aad;
     text-align: center;
 }
 
@@ -268,7 +286,7 @@ body{
 
 .btn-custom {
     background-color: white;
-    color: #36417D;
+    color: #004aad;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -277,13 +295,13 @@ body{
 }
 
 .btn-ins {
-    border: 1px solid #36417D;;
-    color: #36417D;
+    border: 1px solid #004aad;;
+    color: #004aad;
     background-color: transparent;
     transition: transform 0.3s ease-in-out;
 }
 .btn-ins:hover {
-    background-color: #36417D;
+    background-color: #004aad;
     color: white;
     transform: translateY(-2px);
 }
@@ -301,11 +319,16 @@ body{
 }
 
 .btn-con {
-    border: 1px solid #36417D;
+    border: 1px solid #004aad;
     color: white;
-    background-color: #36417D;
+    background-color: #004aad;
 }
 .btn-con:hover {
     background-color: white;
-    color: #36417D;
+    color: #004aad;
 }
+
+.shadow-bottom {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+

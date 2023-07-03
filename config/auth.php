@@ -40,6 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'locataire' => [
+            'driver' => 'session',
+            'provider' => 'locataires',
+        ],
+        'proprietaire' => [
+            'driver' => 'session',
+            'provider' => 'proprietaires',
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -63,6 +75,19 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'locataires' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Locataire::class,
+        ],
+        'proprietaires' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Proprietaire::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [
@@ -93,6 +118,24 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'locataires' => [
+            'provider' => 'locataires',
+            'table' => 'password_reset_tokens_locataire',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'proprietaires' => [
+            'provider' => 'proprietaires',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

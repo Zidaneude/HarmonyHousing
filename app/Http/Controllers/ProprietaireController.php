@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proprietaire;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProprietaireRequest;
 use App\Http\Requests\UpdateProprietaireRequest;
 
@@ -21,7 +22,7 @@ class ProprietaireController extends Controller
      */
     public function create()
     {
-        return view('inscription-proprietaire');
+        return view('dashboard-proprietaire');
     }
 
     /**
@@ -29,7 +30,6 @@ class ProprietaireController extends Controller
      */
     public function store(StoreProprietaireRequest $request)
     {
-        
     }
 
     /**
@@ -51,7 +51,7 @@ class ProprietaireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProprietaireRequest $request, Proprietaire $proprietaire)
+    public function update(Request $request, Proprietaire $proprietaire)
     {
         //
     }
@@ -63,4 +63,9 @@ class ProprietaireController extends Controller
     {
         //
     }
+    public function soumi_offre()
+    {
+        return view('soumission_offre.soumission-offre-proprietaire');
+    }
+
 }

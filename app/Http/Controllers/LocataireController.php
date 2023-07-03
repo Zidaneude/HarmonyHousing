@@ -63,10 +63,10 @@ class LocataireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLocataireRequest $request, Locataire $locataire)
-    {
+   // public function update(UpdateLocataireRequest $request, Locataire $locataire)
+    //{
         //
-    }
+   // }
 
     /**
      * Remove the specified resource from storage.

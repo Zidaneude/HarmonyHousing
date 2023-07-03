@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/flavicon.png">
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 </head>
@@ -17,12 +17,14 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="pb-4 text-center">
-                    <a href="/"><img class="img-fluid" style="height: 100px;" src="/images/flavicon.png"
+                    <a href="/"><img class="img-fluid" style="height: 100px;" src="/images/favicon.png"
                             alt="Logo Harmony Housing"></a>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title text-center title-accueil mt-3" style="font-weight: bold;">Espace
+                        <h4 class="card-title text-center title-accueil mt-3"
+                            style="font-weight: bold; color: #0f0f11;">
+                            Espace
                             d'administration</h4>
                         <form>
                             <div class="form-group mt-5">
@@ -54,17 +56,17 @@
                             </div>
                             <div class="form-group pt-1">
                                 <a href="#" style="float: right; text-decoration: none;"><span
-                                        style="color: #36417D;">Mot de passe
+                                        style="color: #004aad;">Mot de passe
                                         oublié ?</span></a>
                             </div>
                             <div class="text-center pt-5 pb-3">
-                                <button type="submit" class="btn btn-con">Se connecter</button>
+                                <button type="submit" class="btn btn-primary">Se connecter</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="py-3">
-                    <a href="/" style="text-decoration: none;"><span style="color: #36417D;"><i
+                    <a href="/" style="text-decoration: none;"><span style="color: #004aad;"><i
                                 class="fa-solid fa-arrow-left"></i> Allez sur le
                             site Harmony Housing</span></a>
                 </div>

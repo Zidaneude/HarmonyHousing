@@ -6,52 +6,87 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/flavicon.png">
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+
 </head>
 
-<body>
-    <div class="background-section">
-        <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light bg-light bg-transparent fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img id="myLogo" src="images/logo1.png" height="40" alt="Logo Harmony Housing">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Trouver un logement</a>
-                        </li>
-                        <li class="nav-item dropdown" id="navbarDropdownParent">
-                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
-                                aria-haspopup="true" aria-expanded="false">
-                                Je suis propriétaire <i id="dropdownIcon" class="fa-solid fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Déposer une annonce</a>
-                                <a class="dropdown-item" href="#">Comment ça marche</a>
-                                <a class="dropdown-item" href="{{route('login-proprietaire')}}">Me connecter</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contactez-nous</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="btn btn-account">Mon compte</a>
-                        </li>
-                    </ul>
-                </div>
-        </nav>
+@include('commun.header')
 
-        <div class="hero-text">
-            <h1>Trouvez votre chez-vous idéal aujourd'hui !</h1>
-            <a href="lien_vers_votre_page" class="btn btn-primary">Je commence mes recherches</a>
+<body style="margin-top: 60px;">
+    <div class="background-section" id="banner">
+
+        <div class="container h-100 d-flex align-items-center justify-content-sm-center justify-content-md-start"
+            style="margin-left: 20px;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <form action="">
+                        <div class="card" style="border-radius: 10px;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Vous cherchez un logement à louer?</h5>
+                                <div class="form-group mt-4">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text circle-icon" id="basic-addon1">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="city"
+                                            placeholder="Entrez la ville">
+                                    </div>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <input type="number" class="form-control" placeholder="Budget maximum (en FCFA)">
+                                </div>
+                                <div class="form-group my-3">
+                                    <div class="row">
+                                        <div class="col form-check" style="margin-left: 12px;">
+                                            <input class="form-check-input" type="checkbox" id="chambre">
+                                            <label class="form-check-label" for="chambre">Chambre</label>
+                                        </div>
+                                        <div class="col form-check">
+                                            <input class="form-check-input" type="checkbox" id="appartement">
+                                            <label class="form-check-label" for="appartement">Appartement</label>
+                                        </div>
+                                        <div class="col form-check">
+                                            <input class="form-check-input" type="checkbox" id="maison">
+                                            <label class="form-check-label" for="maison">Maison</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button style="width: 100%;" type="submit" class="btn btn-primary">Chercher</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="section-cta d-flex flex-column align-items-start position-absolute"
+                style="margin-left: 980px; margin-top:8rem;">
+                <a href="{{route('connexion.proprietaire.create')}}" class="btn btn-primary mb-2 d-flex align-items-center"
+                    role="button" aria-label="Je suis propriétaire">
+                    <i class="fas fa-bullhorn" style="margin-right: 10px;"></i>
+                    <div style="text-align: left;">
+                        <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis propriétaire
+                        </div>
+                        <small class="text-muted" style="font-size: 12px;">Je souhaite annoncer un logement
+                            gratuitement</small>
+                    </div>
+                </a>
+                <a href="{{route('connexion.locataire.create')}}" class="btn btn-dark d-flex align-items-center" role="button"
+                    aria-label="Je suis locataire" style="width: 307px;">
+                    <i class="fas fa-search" style="margin-right: 10px;"></i>
+                    <div style="text-align: left;">
+                        <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis locataire</div>
+                        <small class="text-muted" style="font-size: 12px;">Je cherche une maison à louer</small>
+                    </div>
+                </a>
+
+            </div>
+
         </div>
+
     </div>
 
     <div class="container">
@@ -124,7 +159,7 @@
         </div>
 
         <div class="text-center my-4">
-            <a href="lien_vers_votre_page" class="btn btn-primary ">Voir d'autres villes</a>
+            <a href="#" class="btn btn-primary ">Voir d'autres villes</a>
         </div>
     </div>
 
@@ -133,7 +168,7 @@
             <div class="col-lg-6">
                 <h4 class="text-center my-4 title-accueil">Profitez d'une expérience de location plus fluide et
                     tranquille.</h4>
-                <p>Que vous souhaitiez louer pour une durée d'un mois à deux ans, nous vous offrons la possibilité de
+                <p>Que vous souhaitiez louer pour une durée d'un mois à un an, nous vous offrons la possibilité de
                     réserver votre logement auprès de propriétaires de confiance, tout en bénéficiant d'un
                     accompagnement personnalisé.</p>
                 <br>
@@ -279,6 +314,7 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid bg-primary">
         <div class="container py-5">
             <h4 class="text-center text-white">Propriétaire</h4>
@@ -292,42 +328,17 @@
         </div>
     </div>
 
-    @include('commun/footer');
-
+    @include('commun.footer')
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </div>
     <script>
-        window.onscroll = function() {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                document.getElementById("myNavbar").className =
-                    "navbar navbar-expand-lg navbar-light bg-white scrolled fixed-top";
-                document.getElementById("myLogo").src = "images/logo.png";
-            } else {
-                document.getElementById("myNavbar").className =
-                    "navbar navbar-expand-lg navbar-dark bg-transparent fixed-top";
-                document.getElementById("myLogo").src = "images/logo1.png";
-            }
+        window.onload = function() {
+            var banners = ['/images/banner1.png', '/images/banner2.png', '/images/banner3.png'];
+            var banner = banners[Math.floor(Math.random() * banners.length)];
+            document.getElementById('banner').style.backgroundImage = 'url(' + banner + ')';
         }
-
-        $(document).ready(function() {
-            $("#navbarDropdownParent").hover(
-                function() {
-                    $("#dropdownIcon").removeClass("fa-chevron-down");
-                    $("#dropdownIcon").addClass("fa-chevron-up");
-                },
-                function() {
-                    $("#dropdownIcon").removeClass("fa-chevron-up");
-                    $("#dropdownIcon").addClass("fa-chevron-down");
-                }
-            );
-        });
     </script>
 </body>
 
