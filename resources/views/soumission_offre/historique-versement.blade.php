@@ -33,40 +33,65 @@
                 Mes versements
             </div>
             <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Date de versement</th>
-                            <th scope="col">Montant</th>
-                            <th scope="col">Mode de paiement</th>
-                            <th scope="col">Statut</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>30/06/2023</td>
-                            <td>100 000 FCFA</td>
-                            <td>MTN Mobile Money</td>
-                            <td>Payé <i style="color: green; margin-left: 39px;" class="fas fa-check-circle"></i></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>01/07/2023</td>
-                            <td>150 000 FCFA</td>
-                            <td>Orange Money</td>
-                            <td>Non payé <i style="color: red; margin-left: 3px;" class="fas fa-times-circle"></i></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>01/07/2023</td>
-                            <td>200 000 FCFA</td>
-                            <td>MTN Mobile Money</td>
-                            <td>En attente <i style="color: orange;" class="fas fa-clock"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="mt-2">
+                    <button class="btn btn-primary btn-export" style="position: relative; margin-left:72%">
+                        Exporter en PDF <i class="fas fa-file-pdf"></i>
+                    </button>
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-6">
+                        <label for="filter">Filtrer par :</label>
+                        <select id="filter" class="form-select">
+                            <option value="all">Tous</option>
+                            <option value="paid">Payé</option>
+                            <option value="unpaid">Non payé</option>
+                            <option value="pending">En attente</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="search">Rechercher :</label>
+                        <input id="search" class="form-control" type="text"
+                            placeholder="Mode de paiement, etc...">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Date de versement</th>
+                                <th scope="col">Montant</th>
+                                <th scope="col">Mode de paiement</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>30/06/2023</td>
+                                <td>100 000 FCFA</td>
+                                <td>MTN Mobile Money</td>
+                                <td>Payé <i style="color: green; margin-left: 39px;" class="fas fa-check-circle"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>01/07/2023</td>
+                                <td>150 000 FCFA</td>
+                                <td>Orange Money</td>
+                                <td>Non payé <i style="color: red; margin-left: 3px;" class="fas fa-times-circle"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>01/07/2023</td>
+                                <td>200 000 FCFA</td>
+                                <td>MTN Mobile Money</td>
+                                <td>En attente <i style="color: orange;" class="fas fa-clock"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="demo mt-5">
                     <nav class="pagination-outer" aria-label="Page navigation">
                         <ul class="pagination">
