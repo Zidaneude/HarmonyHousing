@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProprietaireController;
 use App\Http\Controllers\Proprietaire\ProfilControlleur;
+use App\Http\Controllers\Proprietaire\SoumissionOffreControlleur;
 use App\Http\Controllers\Auth\Proprietaire\RegisteredProprietaireController;
 use App\Http\Controllers\Auth\Proprietaire\NewPasswordProprietaireController;
 use App\Http\Controllers\Auth\Proprietaire\PasswordResetLinkProprietaireController;
@@ -68,7 +69,7 @@ Route::middleware('guest:proprietaire')->group(static function () {
 
     Route::get('proprietaire-dashbord', [ProprietaireController::class, 'create'])
                     ->name('proprietaire-dashbord');
-    Route::get('/soumission_offre', [ProprietaireController::class, 'soumi_offre'])
+    Route::get('/soumission_offre', [SoumissionOffreControlleur::class, 'create'])
             ->name('soumission.offre');
     Route::get('/profil-pro', [ProfilControlleur::class, 'create'])
             ->name('profil.pro');

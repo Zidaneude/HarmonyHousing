@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth\Proprietaire;
 
 
+use toastr;
 use Rules\Password;
 use App\Models\User;
 use App\Models\Locataire;
@@ -55,6 +56,7 @@ class RegisteredProprietaireController extends Controller
             'password' => Hash::make($request->password),
 
         ]);
+        toastr()->success('creation du compte  propriétaire reussie');
 
         event(new Registered($proprietaire));
 

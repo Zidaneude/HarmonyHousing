@@ -27,8 +27,11 @@ class AuthenticatedSessionProprietaireController extends Controller
     public function store(LoginProprietaireRequest $request): RedirectResponse
     {
 
+
         $request->authenticate();
         $request->session()->regenerate();
+        $pre=Auth::guard('proprietaire')->user()->nom;
+        toastr()->success('Heureux de vous revoir '.$pre);
         return redirect()->intended(RouteServiceProvider::DASHBORD);
     }
 
@@ -37,12 +40,14 @@ class AuthenticatedSessionProprietaireController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $pre=Auth::guard('proprietaire')->user()->nom;
         Auth::guard('proprietaire')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
+        toastr()->success(' Au revoir '.$pre.' à la prochaine !');
         return redirect('/');
     }
 }
