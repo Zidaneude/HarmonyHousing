@@ -75,6 +75,9 @@ Route::middleware('guest:proprietaire')->group(static function () {
             ->name('profil.pro');
 
 
+    Route::get("/reser",[ProfilControlleur::class, 'aff']);
+
+
 
 
 });

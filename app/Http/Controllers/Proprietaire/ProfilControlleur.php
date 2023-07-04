@@ -64,4 +64,10 @@ class ProfilControlleur extends Controller
     {
         //
     }
-}
+
+    public function aff()
+    {
+        return view('recherche.affichage-resultats-recherche') ;
+    }
+    }
+

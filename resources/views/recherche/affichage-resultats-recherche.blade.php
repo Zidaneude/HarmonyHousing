@@ -34,7 +34,7 @@
 </head>
 
 <body class="pt-5">
-    @include('header')
+    @include('commun.header')
     <section class="header2 cid-tImC7YmmP6" id="header2-6">
         <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(17, 105, 113);"></div>
 
@@ -313,7 +313,7 @@
             </div>
         </div>
     </section>
-    @include('footer')
+    @include('commun.footer')
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/smoothscroll/smooth-scroll.js"></script>
     <script src="assets/ytplayer/index.js"></script>
