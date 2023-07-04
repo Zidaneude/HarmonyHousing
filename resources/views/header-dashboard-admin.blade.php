@@ -33,17 +33,30 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuDropdown">
-                    <a class="dropdown-item" href="/profil-admin">Mon profil</a>
+                    <a class="dropdown-item" href="/profil-admin">
+                        <i class="fas fa-user"></i> Mon profil
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/verification-offres">Vérification des offres</a>
-                    <a class="dropdown-item" href="/verification-avis">Vérification des avis</a>
-                    <a class="dropdown-item" href="/historique-reservations">Historique des réservations</a>
-                    <a class="dropdown-item" href="/historique-paiements">Historique des paiements</a>
+                    <a class="dropdown-item" href="/verification-offres">
+                        <i class="fas fa-check-square"></i> Vérification des offres
+                    </a>
+                    <a class="dropdown-item" href="/verification-avis">
+                        <i class="fas fa-comments"></i> Vérification des avis
+                    </a>
+                    <a class="dropdown-item" href="/historique-reservations">
+                        <i class="fas fa-calendar-alt"></i> Historique des réservations
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/gestion-proprietaire">Gestion des utilisateurs</a>
-                    <a class="dropdown-item" href="/gestion-remboursements">Gestion des remboursements</a>
+                    <a class="dropdown-item" href="/gestion-proprietaire">
+                        <i class="fas fa-users-cog"></i> Gestion des utilisateurs
+                    </a>
+                    <a class="dropdown-item" href="/gestion-remboursements">
+                        <i class="fas fa-undo"></i> Gestion des remboursements
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Déconnexion</a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
                 </div>
             </li>
         </ul>

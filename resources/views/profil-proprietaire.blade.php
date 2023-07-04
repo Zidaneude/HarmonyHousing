@@ -23,7 +23,7 @@
                 <a class="nav-link" href="#">Gérer les réservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Historique de versement</a>
+                <a class="nav-link" href="/disponibilite">Mettre à jour la disponibilité</a>
             </li>
         </ul>
         <div class="card profile-card my-5">
@@ -66,7 +66,8 @@
                             <div class="form-group">
                                 <!--email-->
                                 <label for="email">Adresse e-mail<span style="color: red;">*</span></label>
-                                <input id="email" type="email"  value="{{$proprietaire->email}}"="form-control" required name="email">
+                                <input id="email" type="email" value="{{ $proprietaire->email }}"="form-control"
+                                    required name="email">
                                 <a style="text-decoration: none;" href="#" class="mt-1 d-block">Changer mon
                                     adresse email</a>
                             </div>
@@ -77,14 +78,16 @@
                             <!--prenom-->
                             <div class="form-group">
                                 <label for="prenom">Prénom<span style="color: red;">*</span></label>
-                                <input id="prenom" type="text" value="{{$proprietaire->nom}}"  class="form-control" required name="prenom">
+                                <input id="prenom" type="text" value="{{ $proprietaire->nom }}"
+                                    class="form-control" required name="prenom">
                             </div>
                         </div>
                         <div class="col">
                             <!--nom -->
                             <div class="form-group">
                                 <label for="nom">Nom<span style="color: red;">*</span></label>
-                                <input id="nom" type="text" value="{{$proprietaire->prenom}}" class="form-control" required name="nom">
+                                <input id="nom" type="text" value="{{ $proprietaire->prenom }}"
+                                    class="form-control" required name="nom">
                             </div>
                         </div>
                     </div>
@@ -98,14 +101,16 @@
                                         <img src="/images/cameroun.jpg" alt="Cameroon Flag" width="25">
                                     </span>&nbsp;+237</span>
                             </div>
-                            <input id="tel" style="background-color: #F8F8FF;" type="tel" class="form-control"
-                                id="phoneNumber" value="{{$proprietaire->telephone}}" required name="telephone">
+                            <input id="tel" style="background-color: #F8F8FF;" type="tel"
+                                class="form-control" id="phoneNumber" value="{{ $proprietaire->telephone }}" required
+                                name="telephone">
                         </div>
                     </div>
                     <!-- presentation-->
                     <div class="form-group mt-3">
                         <label for="pres">Présentation</label>
-                        <textarea id="pres" value="{{$proprietaire->presentation}}" class="form-control" rows="3" name="presentation"></textarea>
+                        <textarea id="pres" value="{{ $proprietaire->presentation }}" class="form-control" rows="3"
+                            name="presentation"></textarea>
                     </div>
                     <div class="form-group mt-4">
                         <h6>Notifications</h6>

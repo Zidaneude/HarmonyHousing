@@ -24,7 +24,7 @@
                 <a class="nav-link" href="/reservations-prop">Mes réservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/historique-versement">Historique de versement</a>
+                <a class="nav-link" href="/disponibilite">Mettre à jour la disponibilité</a>
             </li>
         </ul>
 

@@ -29,19 +29,31 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span style="color: black; font-weight: bold;"> <i class="fas fa-bars icon-menu"></i> &nbsp;
                         Menu</span>
-
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuDropdown">
-                    <a class="dropdown-item" href="{{route('profil.pro')}}">Mon profil</a>
-                    <a class="dropdown-item" href="/reservations-prop">Gérer les réservations</a>
-                    <a class="dropdown-item" href="/historique-versement">Historique de versement</a>
+                    <a class="dropdown-item" href="{{ route('profil.pro') }}">
+                        <i class="fas fa-user"></i> Mon profil
+                    </a>
+                    <a class="dropdown-item" href="/reservations-prop">
+                        <i class="fas fa-calendar-check"></i> Gérer les réservations
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-sync"></i> Mettre à jour la disponibilité
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">FAQ - Propriétaire</a>
-                    <a class="dropdown-item" href="#">Nous contacter</a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-question-circle"></i> FAQ - Propriétaire
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-envelope"></i> Nous contacter
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('logout') }}">Déconnexion</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
                 </div>
+
             </li>
         </ul>
     </div>

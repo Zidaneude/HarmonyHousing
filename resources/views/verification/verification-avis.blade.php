@@ -29,9 +29,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="/historique-reservations">Historique des réservations</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/historique-paiements">Historique des paiements</a>
-            </li>
         </ul>
 
         <div class="card my-5">
