@@ -30,7 +30,7 @@
 </head>
 
 <body class="pt-5">
-    @include('header');
+    @include('commun.header');
     <section data-bs-version="5.1" class="gallery6 mbr-gallery cid-tIWkkBEfM2" id="gallery6-1l">
         <div class="container-fluid">
             <div class="row mbr-gallery mt-4">
