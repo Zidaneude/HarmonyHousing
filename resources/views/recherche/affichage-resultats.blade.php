@@ -140,8 +140,9 @@
             </nav>
         </div>
 
-        <div class="res mb-4">
-            <h5><strong>Trouvez ci-dessous, les logements correspondants à vos critères.</strong></h5>
+        <div class="container my-5" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <h5><strong><span style="color: #004aad; font-weight: bold;">2 logements disponibles</span> <span
+                        style="color: rgb(207, 201, 201)">sur 25</span> </strong></h5>
         </div>
 
         <style>
