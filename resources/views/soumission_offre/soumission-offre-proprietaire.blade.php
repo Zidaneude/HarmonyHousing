@@ -127,12 +127,12 @@
                                             <div class="row" style="margin-left:2px;">
                                                 <div class="col-md-2 form-check">
                                                     <input type="radio" id="identicalYes" name="chambres"
-                                                        value="oui" class="form-check-input">
+                                                        value="oui" class="form-check-input" required>
                                                     <label for="identicalYes" class="form-check-label">Oui</label>
                                                 </div>
                                                 <div class="col-md-4 form-check">
                                                     <input type="radio" id="identicalNo" name="chambres"
-                                                        value="non" class="form-check-input">
+                                                        value="non" class="form-check-input" required>
                                                     <label for="identicalNo" class="form-check-label">Non</label>
                                                 </div>
                                             </div>

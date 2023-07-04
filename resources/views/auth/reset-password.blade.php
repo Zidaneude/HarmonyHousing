@@ -13,7 +13,7 @@
 </head>
 
 <body class="pt-5">
-    @include('commun.header');
+    @include('commun.header')
 
     <div class="container py-5">
         <div class="row justify-content-center">
@@ -23,8 +23,8 @@
                         <h4 class="card-title text-center title-accueil mt-3"
                             style="font-weight: bold; color: #0f0f11;">Récupération de
                             mot de passe</h4>
-                        <form id="recovery-form" method="POST" action="{{route('password.email.l')}}">
-                                @csrf
+                        <form id="recovery-form" method="POST" action="{{ route('password.email.l') }}">
+                            @csrf
                             <p class="mt-4">
                                 Pour récupérer le mot de passe, veuillez remplir le formulaire suivant. Un message
                                 courriel vous sera envoyé avec les instructions pour compléter la récupération.

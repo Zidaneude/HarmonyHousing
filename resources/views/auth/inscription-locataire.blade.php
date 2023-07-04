@@ -12,7 +12,7 @@
 </head>
 
 <body class="pt-5">
-    @include('commun.header');
+    @include('commun.header')
 
     <div class="container py-5">
         <div class="row justify-content-center">
@@ -22,14 +22,14 @@
                         <h4 class="card-title text-center title-accueil mt-3"
                             style="font-weight: bold; color: #0f0f11;">Inscription
                             locataire</h4>
-                        <div> 
-                            @if($errors->any())  
+                        <div>
+                            @if ($errors->any())
                                 @foreach ($errors->all() as $item)
-                                {{$item}}
-                                @endforeach     
+                                    {{ $item }}
+                                @endforeach
                             @endif
                         </div>
-                        <form method="POST" action="{{route('inscription.locataire.store')}}">
+                        <form method="POST" action="{{ route('inscription.locataire.store') }}">
                             @csrf
 
                             <!--Email                         -->

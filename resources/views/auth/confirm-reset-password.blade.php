@@ -13,7 +13,7 @@
 </head>
 
 <body class="pt-5">
-    @include('commun.header');
+    @include('commun.header')
 
     <div class="container py-5">
         <div class="row justify-content-center">
