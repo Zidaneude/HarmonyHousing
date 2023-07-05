@@ -13,10 +13,10 @@
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
-    @include('header-dashboard-prop')
+    @include('commun.header-dashboard-prop')
     <div class="container">
         <div style="color: #004aad;">
-            <h4>👋🏼 Bienvenue,{{Auth::guard('proprietaire')->user()->nom}}!</h4>
+            <h4>👋🏼 Bienvenue,{{ Auth::guard('proprietaire')->user()->nom }}!</h4>
         </div>
 
         <div class="row">
@@ -29,8 +29,8 @@
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <span style="font-weight: bold;">0 Annonce(s)</span>
                             </button>
-                            <a href="{{route('soumission.offre')}}" class="btn btn-success btn-sm d-flex align-items-center"
-                                type="button">
+                            <a href="{{ route('soumission.offre') }}"
+                                class="btn btn-success btn-sm d-flex align-items-center" type="button">
                                 <div class="col-2">
                                     <i class="fas fa-plus-circle fa-lg"></i>
                                 </div>

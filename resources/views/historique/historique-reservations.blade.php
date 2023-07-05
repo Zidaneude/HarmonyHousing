@@ -14,7 +14,7 @@
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
-    @include('header-dashboard-admin')
+    @include('commun.header-dashboard-admin')
 
     <div class="container">
         <ul class="nav nav-tabs">
@@ -48,6 +48,7 @@
                         <select id="filter" class="form-select">
                             <option value="all">Tous</option>
                             <option value="reserved">Réservé</option>
+                            <option value="pending">En attente</option>
                             <option value="cancelled">Annulé</option>
                         </select>
                     </div>
@@ -69,7 +70,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="reservation-row all reserved">
+                        <tr class="reservation-row">
                             <td>1</td>
                             <td>David</td>
                             <td>Appartement</td>
@@ -77,8 +78,17 @@
                             <td>1 mois</td>
                             <td><i style="color: green;" class="fas fa-check-circle"></i> Réservé</td>
                         </tr>
-                        <tr class="reservation-row all cancelled">
+                        <tr class="reservation-row">
                             <td>2</td>
+                            <td>Cabrel</td>
+                            <td>Studio</td>
+                            <td>03/07/2023</td>
+                            <td>3 mois</td>
+                            <td><span><i style="color: orange;" class="fas fa-clock"></i> En attente</span>
+                            </td>
+                        </tr>
+                        <tr class="reservation-row">
+                            <td>3</td>
                             <td>Roland</td>
                             <td>Chambre</td>
                             <td>01/07/2023</td>
