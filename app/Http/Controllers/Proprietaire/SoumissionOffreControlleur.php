@@ -31,8 +31,32 @@ class SoumissionOffreControlleur extends Controller
      */
     public function store(Request $request)
     {
-
         $id=Auth::guard('proprietaire')->user()->id;
+        $request->validate([
+            "roomPhotoPrincipale"=>['required','image','max:2000'],
+            "roomPhoto1.*"=>['required','image','max:2000']
+        ]);
+
+        if(!(count($request->roomPhoto1)<=2 && count($request->roomPhoto1)>0) )
+        {
+           /// dd("Au plus 3 images");
+        }
+       // dd($request->all());
+
+        //$id=Auth::guard('proprietaire')->user()->id;
+
+        $image_principale=$request->file('roomPhotoPrincipale');
+        $chemin_image_principale='proprietaire_chambre_imag1'.'.'.$image_principale->extension();
+
+        $image_seconds=$request->file('roomPhoto1');
+        $chemin_image_seconds1='proprietaire_chambre_imag2'.'.'.$image_seconds[0]->extension();
+        $chemin_image_seconds2='proprietaire_chambre_imag3'.'.'.$image_seconds[1]->extension();
+
+       // dd($chemin_image_seconds2);
+
+        $image_principale->move(public_path("images"),$chemin_image_principale);
+        $image_seconds[0]->move(public_path("images"),$chemin_image_seconds1);
+        $image_seconds[1]->move(public_path("images"),$chemin_image_seconds2);
 
         $chambres_idem=$request->chambres_idem;
         $type_logement=$request->type_logement;
@@ -40,7 +64,7 @@ class SoumissionOffreControlleur extends Controller
         $equipements1=$request->equipements1;
 
         $nb=$request->chambre;
-       // dd( $request);
+        //dd( $request);
 
         $offre=Offre::create([
             'titre'=>$request->titre,
@@ -61,7 +85,10 @@ class SoumissionOffreControlleur extends Controller
                     'code_postal'=>$request->code_postal,
                     'frequence_paie'=>$request->frequence_paie,
                     'prix'=>$request->loyer1,
-                    'meuble'=>$request->meuble,
+                    'meuble'=>$request->meuble1,
+                    'photos1'=>$chemin_image_principale,
+                    'photos2'=>$chemin_image_seconds1,
+                    'photos3'=>$chemin_image_seconds2,
                 ]);
             }
         }

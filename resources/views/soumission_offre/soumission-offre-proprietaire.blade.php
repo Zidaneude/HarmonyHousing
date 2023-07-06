@@ -33,7 +33,7 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="{{route('soumission.offre.store')}}" method="POST">
+                            <form id="msform" action="{{route('soumission.offre.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <fieldset>
                                     <div class="form-card">
@@ -203,7 +203,8 @@
                                                     logement</label>
                                                 <input type="file" name="roomPhotoPrincipale"
                                                     id="roomPhotoPrincipale" class="form-control"
-                                                    accept=".jpg, .jpeg, .png" multiple required />
+                                                    accept=".jpg, .jpeg, .png" multiple required name="image_prinp"/>
+                                                    
                                                 <div class="form-group" id="roomPhotosContainer">
                                                 </div>
                                             </div>
@@ -377,7 +378,7 @@
                 roomPhotosContainer.innerHTML += `
         <div class="form-group">
             <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> Photo(s) de la chambre ${i} *</label>
-            <input type="file" name="roomPhoto${i}" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
+            <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required/>
         </div>
         `;
             }
@@ -436,7 +437,7 @@
                         duration: 600
                     });
                 } else {
-                    alert("Veuillez remplir tous les champs requis avant de continuer.");
+                   // alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }
             });
 

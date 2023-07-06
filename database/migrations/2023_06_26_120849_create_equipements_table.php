@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('equipements', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->double('prix')->nullable(false);
-            $table->text('description')->nullable();
+            $table->string('nom'); 
             $table->foreignId('logement_id')->constrained();
 
         });
