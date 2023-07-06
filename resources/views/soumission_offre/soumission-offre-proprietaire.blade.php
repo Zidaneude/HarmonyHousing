@@ -439,6 +439,8 @@
                         },
                         duration: 600
                     });
+                } else {
+                    alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }
             });
 
