@@ -22,4 +22,7 @@ class Offre extends Model
     {
         return $this->belongsTo(Proprietaire::class);
     }
+
+    protected $fillable = ['titre','description','status','proprietaire_id'];
+
 }

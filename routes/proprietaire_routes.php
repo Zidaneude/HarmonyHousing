@@ -71,6 +71,8 @@ Route::middleware('guest:proprietaire')->group(static function () {
                     ->name('proprietaire-dashbord');
     Route::get('/soumission_offre', [SoumissionOffreControlleur::class, 'create'])
             ->name('soumission.offre');
+    Route::post('/soumission_offre', [SoumissionOffreControlleur::class, 'store'])
+            ->name('soumission.offre.store');
     Route::get('/profil-pro', [ProfilControlleur::class, 'create'])
             ->name('profil.pro');
 
