@@ -14,7 +14,7 @@
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
-    @include('header-dashboard-prop')
+    @include('commun.header-dashboard-prop')
 
     <div class="container-fluid">
         <div class="row justify-content-center mt-0">

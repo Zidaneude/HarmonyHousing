@@ -13,7 +13,7 @@
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
-    @include('header-dashboard-admin')
+    @include('commun.header-dashboard-admin')
 
     <div class="container">
         <ul class="nav nav-tabs">
