@@ -33,40 +33,49 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="">
+                            <form id="msform" action="{{route('soumission.offre.store')}}" method="POST">
+                                @csrf
                                 <fieldset>
                                     <div class="form-card">
                                         <h4 style="text-align: center; color: #004aad;" class="mb-4"><strong>Publier
                                                 une annonce</strong></h4>
                                         <div class="form-group">
+
+                                        <!--titre-->
                                             <label for="titre_annonce"><strong>Titre de
                                                     l'annonce</strong><span style="color: red;">*</span></label>
-                                            <input type="text" name="titre_annonce" id="titre_annonce"
+                                            <input type="text" name="titre" id="titre_annonce"
                                                 class="form-control" placeholder="Entrez le titre de votre annonce"
-                                                required />
+                                                required  />
                                         </div>
+
+                                        <!-- description-->
                                         <div class="form-group">
                                             <label for="description_annonce"><strong>Description</strong></label>
-                                            <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
+                                            <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message" name="description"></textarea>
                                         </div>
+                                        <!------------------------------------>
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">
                                             Localisation</h5>
                                         <div class="form-group">
                                             <label for="adresse">
                                                 <strong>Adresse</strong></label>
+                                                <!--adresse-->
                                             <input type="text" name="adresse" id="adresse" class="form-control"
-                                                placeholder="Indiquez une adresse" />
+                                                placeholder="Indiquez une adresse" name="adresse" />
                                         </div>
                                         <div class="form-group">
+                                            <!-- quartier-->
                                             <label for="quartier"><strong>Quartier</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
                                                 placeholder="Indiquez un quartier" required />
                                         </div>
+                                         <!--religion-->
                                         <div class="form-group">
                                             <label for="region"> <strong>Région</strong> <span
                                                     style="color: red;">*</span></label>
-                                            <select name="region" id="region" class="form-control" required>
+                                            <select name="region" id="region" class="form-control" required name="ville[]">
                                                 <option value="">--Sélectionnez une région--</option>
                                                 <option value="nord">Nord</option>
                                                 <option value="sud">Sud</option>
@@ -80,16 +89,19 @@
                                                 <option value="est">Extrême-Nord</option>
                                             </select>
                                         </div>
+                                        <!-- ville-->
                                         <div class="form-group mt-4">
                                             <label for="ville"><strong>Ville</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="ville" id="ville" class="form-control"
-                                                placeholder="Ville" required />
+                                                placeholder="Ville" required name="ville" />
                                         </div>
+
+                                        <!-- code_postal-->
                                         <div class="form-group">
                                             <label for="code_postal"><strong>Code postal</strong> </label>
                                             <input type="text" name="code_postal" id="code_postal"
-                                                class="form-control" placeholder="Code postal" />
+                                                class="form-control" placeholder="Code postal"  name="code_postal"/>
                                         </div>
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">Détails
                                             du lieu</h5>
@@ -97,8 +109,9 @@
                                             <label for="type_logement"><i class="fas fa-home"></i><strong>Type de
                                                     logement</strong>
                                                 <span style="color: red;">*</span></label>
+                                                <!--type de logement-->
                                             <select name="type_logement" id="type_logement" class="form-control"
-                                                required>
+                                                required name="type_log">
                                                 <option value="">--Sélectionnez un type de logement--</option>
                                                 <option value="chambre">Chambre</option>
                                                 <option value="appartement">Appartement</option>
@@ -110,14 +123,15 @@
                                                 <strong>Fréquence de
                                                     paiement</strong>
                                                 <span style="color: red;">*</span></label>
+                                                <!-- frequence-->
                                             <select name="frequence_paie" id="frequence_paie" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez une fréquence de paiement--
                                                 </option>
-                                                <option value="Un_Mois">1 mois</option>
-                                                <option value="Trois_Mois">3 mois</option>
-                                                <option value="Six_Mois">6 mois</option>
-                                                <option value="Un_An">1 an</option>
+                                                <option value="Par Mois">1 mois</option>
+                                                <option value="Trois Mois">3 mois</option>
+                                                <option value="Six Mois">6 mois</option>
+                                                <option value="Par ans">1 an</option>
                                             </select>
                                         </div>
 
@@ -126,12 +140,12 @@
                                                     style="color: red;">*</span></label>
                                             <div class="row" style="margin-left:2px;">
                                                 <div class="col-md-2 form-check">
-                                                    <input type="radio" id="identicalYes" name="chambres"
+                                                    <input type="radio" id="identicalYes" name="chambres_idem"
                                                         value="oui" class="form-check-input" required>
                                                     <label for="identicalYes" class="form-check-label">Oui</label>
                                                 </div>
                                                 <div class="col-md-4 form-check">
-                                                    <input type="radio" id="identicalNo" name="chambres"
+                                                    <input type="radio" id="identicalNo" name="chambres_idem"
                                                         value="non" class="form-check-input" required>
                                                     <label for="identicalNo" class="form-check-label">Non</label>
                                                 </div>
@@ -197,7 +211,7 @@
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Précédent" />
-                                    <input type="button" name="next" class="next action-button"
+                                    <input type="submit" name="next" class="next action-button"
                                         value="Valider" />
                                 </fieldset>
                                 <fieldset>
