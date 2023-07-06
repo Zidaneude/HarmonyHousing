@@ -33,7 +33,7 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="{{route('soumission.offre.store')}}" method="POST">
+                            <form id="msform" action="{{ route('soumission.offre.store') }}" method="POST">
                                 @csrf
                                 <fieldset>
                                     <div class="form-card">
@@ -41,18 +41,18 @@
                                                 une annonce</strong></h4>
                                         <div class="form-group">
 
-                                        <!--titre-->
+                                            <!--titre-->
                                             <label for="titre_annonce"><strong>Titre de
                                                     l'annonce</strong><span style="color: red;">*</span></label>
-                                            <input type="text" name="titre" id="titre_annonce"
-                                                class="form-control" placeholder="Entrez le titre de votre annonce"
-                                                required  />
+                                            <input type="text" name="titre" id="titre_annonce" class="form-control"
+                                                placeholder="Entrez le titre de votre annonce" required />
                                         </div>
 
                                         <!-- description-->
                                         <div class="form-group">
                                             <label for="description_annonce"><strong>Description</strong></label>
-                                            <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message" name="description"></textarea>
+                                            <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"
+                                                name="description"></textarea>
                                         </div>
                                         <!------------------------------------>
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">
@@ -60,7 +60,7 @@
                                         <div class="form-group">
                                             <label for="adresse">
                                                 <strong>Adresse</strong></label>
-                                                <!--adresse-->
+                                            <!--adresse-->
                                             <input type="text" name="adresse" id="adresse" class="form-control"
                                                 placeholder="Indiquez une adresse" name="adresse" />
                                         </div>
@@ -71,11 +71,12 @@
                                             <input type="text" name="quartier" id="quartier" class="form-control"
                                                 placeholder="Indiquez un quartier" required />
                                         </div>
-                                         <!--religion-->
+                                        <!--religion-->
                                         <div class="form-group">
                                             <label for="region"> <strong>Région</strong> <span
                                                     style="color: red;">*</span></label>
-                                            <select name="region" id="region" class="form-control" required name="ville[]">
+                                            <select name="region" id="region" class="form-control" required
+                                                name="ville[]">
                                                 <option value="">--Sélectionnez une région--</option>
                                                 <option value="nord">Nord</option>
                                                 <option value="sud">Sud</option>
@@ -101,7 +102,7 @@
                                         <div class="form-group">
                                             <label for="code_postal"><strong>Code postal</strong> </label>
                                             <input type="text" name="code_postal" id="code_postal"
-                                                class="form-control" placeholder="Code postal"  name="code_postal"/>
+                                                class="form-control" placeholder="Code postal" name="code_postal" />
                                         </div>
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">Détails
                                             du lieu</h5>
@@ -109,7 +110,7 @@
                                             <label for="type_logement"><i class="fas fa-home"></i><strong>Type de
                                                     logement</strong>
                                                 <span style="color: red;">*</span></label>
-                                                <!--type de logement-->
+                                            <!--type de logement-->
                                             <select name="type_logement" id="type_logement" class="form-control"
                                                 required name="type_log">
                                                 <option value="">--Sélectionnez un type de logement--</option>
@@ -123,7 +124,7 @@
                                                 <strong>Fréquence de
                                                     paiement</strong>
                                                 <span style="color: red;">*</span></label>
-                                                <!-- frequence-->
+                                            <!-- frequence-->
                                             <select name="frequence_paie" id="frequence_paie" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez une fréquence de paiement--
@@ -267,8 +268,10 @@
 
             // Générer de nouveaux formulaires de chambre
             for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
+                var roomTitle = identicalRooms ? "Détails de la chambre" : "Chambre " + i;
                 roomFormsContainer.innerHTML += `
-                <h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">Chambre ${i}</h6>
+<h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">${roomTitle}</h6>`;
+                roomFormsContainer.innerHTML += `
                 <div class="form-group">
                     <label for="titre_chambre${i}">Titre de la chambre <span style="color: red;">*</span></label>
                     <input type="text" name="titre_chambre${i}" id="titre_chambre${i}" class="form-control" placeholder="Titre de la chambre" required/>
@@ -374,12 +377,13 @@
 
             // Générer de nouveaux formulaires de photo de chambre
             for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
+                var photoTitle = identicalRooms ? "Photo(s) de la chambre" : "Photo(s) de la chambre " + i;
                 roomPhotosContainer.innerHTML += `
-        <div class="form-group">
-            <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> Photo(s) de la chambre ${i} *</label>
-            <input type="file" name="roomPhoto${i}" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
-        </div>
-        `;
+    <div class="form-group">
+        <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
+        <input type="file" name="roomPhoto${i}" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
+    </div>
+    `;
             }
         }
 
