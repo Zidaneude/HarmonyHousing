@@ -416,32 +416,29 @@
                     }
                 });
 
-                if (isValid) {
-                    current_fs = $(this).parent();
-                    next_fs = $(this).parent().next();
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
 
-                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
-                    next_fs.show();
-                    current_fs.animate({
-                        opacity: 0
-                    }, {
-                        step: function(now) {
-                            opacity = 1 - now;
+                next_fs.show();
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now) {
+                        opacity = 1 - now;
 
-                            current_fs.css({
-                                'display': 'none',
-                                'position': 'relative'
-                            });
-                            next_fs.css({
-                                'opacity': opacity
-                            });
-                        },
-                        duration: 600
-                    });
-                } else {
-                    alert("Veuillez remplir tous les champs requis avant de continuer.");
-                }
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        next_fs.css({
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 600
+                });
+
             });
 
             $(".previous").click(function() {
