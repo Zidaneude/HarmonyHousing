@@ -22,7 +22,7 @@
                     <a class="nav-link" href="#"><i class="fas fa-question"></i> FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contactez-nous</a>
+                    <a class="nav-link" href="/contactez-nous"><i class="fas fa-envelope"></i> Contactez-nous</a>
                 </li>
             </ul>
         </div>

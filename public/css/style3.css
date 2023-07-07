@@ -1,0 +1,90 @@
+
+.positioned {
+	position: sticky;
+	top: 30px;
+	left: 30px;
+}
+.btn-center{
+    scroll-margin-left: 15px;
+    margin-left: 30%;
+}
+
+span{
+	color: red;
+}
+.background-div{
+    background-color: #f5f5f5;
+}
+.icon-center{
+    align-items: center;
+}
+.test-align{
+    margin-left: 70px;
+    color:rgb(84, 84, 145);
+    size: 15px;
+}
+.test-icon-align{
+   margin-left: auto;
+}
+.icon-size{
+    mask-size: 100%;
+}
+#border{
+    border-radius: 25px;
+}
+.md{
+    width: 100%;
+    height: 110%;
+}
+.color1{
+    color: blue;
+}
+.color2{
+    color: rgb(235, 26, 26);
+}
+.color3{
+    color: coral;
+}
+.color4{
+    color: rgb(9, 250, 9);
+}
+.color5{
+    color: orange;
+}
+.card-space{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 90px;
+}
+.text-border{
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #36417D;
+}
+.text-border-space{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.arriere-plan{
+    background-color: rgb(238, 238, 237);
+    margin-top: 10px;
+}
+.position{
+    margin-left: 20px;
+    border-color: rgb(144, 231, 170);
+    color: #c8f8c8;
+}
+.card-space-aide{
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+}
+.text{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: small;
+   color: black;
+   text-decoration : none;
+}
+a{
+    text-decoration: none;
+}

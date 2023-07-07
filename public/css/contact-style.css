@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style des inputs */
+  input[type=text], input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Style du conteneur/section de contact */
+  .contact-container {
+    border-radius: 5px;
+    background-color: #f7f8f5;
+    padding: 10px;
+  }
+  .aborder-type{
+     background-color: rgb(215, 224, 250);
+     margin-top: 15px;
+     margin-left: 100px;
+     margin-right: 100px;
+     border-radius: 15px;
+  }
+  /* Création de deux colonnes qui flottent l'une à côté de l'autre */
+  .column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+  }
+  
+  /* Effacement des flottants après les colonnes */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Mise en page responsive - lorsque l'écran est inférieur à 600px de largeur, les deux colonnes s'empilent l'une sur l'autre au lieu d'être côte à côte */
+  @media screen and (max-width: 600px) {
+    .column, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+   .footer{
+    background-color: cornflowerblue;
+   }
+  }
+  span{
+    color: red;
+  }
+  .background-div{
+      background-color: #ee0b0b;
+  }
+  .icon-center{
+      align-items: center;
+  }
+  .test-align{
+      margin-left: 70px;
+      color:rgb(84, 84, 145);
+      size: 15px;
+  }
+  .test-icon-align{
+     margin-left: auto;
+  }
+  .icon-size{
+      mask-size: 100%;
+  }
+  #border{
+      border-radius: 25px;
+  }
+  .md{
+      width: 100%;
+      height: 110%;
+  }
+  .color1{
+      color: blue;
+  }
+  .color2{
+      color: rgb(235, 26, 26);
+  }
+  .color3{
+      color: coral;
+  }
+  .color4{
+      color: rgb(9, 250, 9);
+  }
+  .color5{
+      color: orange;
+  }
+  .card-space{
+      margin-left: 100px;
+      margin-right: 100px;
+      margin-top: 90px;
+  }
+  .text-border{
+      margin-left: 50px;
+      margin-right: 50px;
+      color: #36417D;
+  }
+  .text-border-space{
+      margin-left: 50px;
+      margin-right: 50px;
+  }
+  .arriere-plan{
+      background-color: rgb(238, 238, 237);
+      margin-top: 10px;
+  }
+  .position{
+      margin-left: 20px;
+      border-color: rgb(144, 231, 170);
+      color: #c8f8c8;
+  }
+  .card-space-aide{
+      margin-left: 200px;
+      margin-right: 200px;
+      margin-top: 20px;
+  }
+  .text{
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     font-size: small;
+     color: black;
+     text-decoration : none;
+  }
+  
+  

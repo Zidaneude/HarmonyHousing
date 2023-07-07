@@ -23,7 +23,7 @@
             <div class="col-3">
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="#">Espace propriétaire</a></li>
-                    <li><a class="text-muted" href="#">Comment ça marche ?</a></li>
+                    <li><a class="text-muted" href="/comment-ca-marche">Comment ça marche ?</a></li>
                     <li><a class="text-muted" href="/connexion-locataire">Connexion</a></li>
                 </ul>
             </div>
@@ -31,9 +31,9 @@
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="#">Politique de confidentialité</a></li>
                     <li><a class="text-muted" href="#">CGU</a></li>
-                    <li><a class="text-muted" href="#">Mentions légales</a></li>
-                    <li><a class="text-muted" href="#">FAQ - Locataire</a></li>
-                    <li><a class="text-muted" href="#">FAQ - Propriétaire</a></li>
+                    <li><a class="text-muted" href="/mension-legale">Mentions légales</a></li>
+                    <li><a class="text-muted" href="/FAQ-Locataire">FAQ - Locataire</a></li>
+                    <li><a class="text-muted" href="/FAQ-Proprietaire">FAQ - Propriétaire</a></li>
                 </ul>
             </div>
             <div class="col-2">
@@ -47,7 +47,7 @@
             </div>
             <div class="col-2">
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Nous contacter</a></li>
+                    <li><a class="text-muted" href="/contactez-nous">Nous contacter</a></li>
                 </ul>
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>

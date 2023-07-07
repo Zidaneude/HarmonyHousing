@@ -1,0 +1,49 @@
+.module {
+    width: 80%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .star, .star-half {
+    font-size: 24px;
+    color: gold;
+  }
+  
+  .star-half {
+    position: relative;
+  }
+  
+  .star-half::before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+  }
+  
+  .comments {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .name {
+    font-weight: bold;
+  }
+  
+  .date {
+    color: #999;
+  }
+  
+  .text {
+    margin-top: 10px;
+  }
+  
