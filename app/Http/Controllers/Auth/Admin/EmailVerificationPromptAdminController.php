@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Proprietaire;
+namespace App\Http\Controllers\Auth\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class ProfilControlleur extends Controller
+class EmailVerificationPromptAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -21,8 +20,7 @@ class ProfilControlleur extends Controller
      */
     public function create()
     {
-        $pro=Auth::guard('proprietaire')->user();
-        return view('profil-proprietaire',['proprietaire'=>$pro]) ;
+        //
     }
 
     /**
@@ -64,10 +62,4 @@ class ProfilControlleur extends Controller
     {
         //
     }
-
-    public function aff()
-    {
-        return view('recherche.affichage-resultats') ;
-    }
-    }
-
+}

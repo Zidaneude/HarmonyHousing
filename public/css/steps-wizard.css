@@ -51,7 +51,7 @@ html {
     color: #000000;
 }
 
-#msform input:not([type='checkbox']):not([type='button']):not([type='radio']) {
+#msform input:not([type='checkbox']):not([type='button']):not([type='radio']) :not([type='submit']) {
     padding: 0px 8px 4px 8px;
     border: none;
     border-bottom: 1px solid #ccc;

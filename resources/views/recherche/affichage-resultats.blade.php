@@ -87,7 +87,7 @@
                     style="padding: 10px; border-radius: 5px; border: none; background-color: #004aad; color: white; cursor: pointer;">Plus
                     de filtres</button>
 
-                <div id="extra-filters" style="display: none; flex-basis: 100%; margin-top: 10px;">
+                <div id="extra-filters" style="overflow: hidden; transition: max-height 0.2s ease-out; max-height: 0;">
                     <input type="number" name="budget_min" min="0" placeholder="Budget min"
                         style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
                     <input type="number" name="budget_max" min="0" placeholder="Budget max"
@@ -323,12 +323,13 @@
     <script src="assets/formoid/formoid.min.js"></script>
 
     <script>
-        document.getElementById('more-filters').addEventListener('click', function() {
-            var extraFilters = document.getElementById('extra-filters');
-            if (extraFilters.style.display === 'none') {
-                extraFilters.style.display = 'flex';
+        var moreFiltersButton = document.getElementById('more-filters');
+        var extraFilters = document.getElementById('extra-filters');
+        moreFiltersButton.addEventListener('click', function() {
+            if (extraFilters.style.maxHeight === '0px') {
+                extraFilters.style.maxHeight = extraFilters.scrollHeight + 'px';
             } else {
-                extraFilters.style.display = 'none';
+                extraFilters.style.maxHeight = '0px';
             }
         });
     </script>

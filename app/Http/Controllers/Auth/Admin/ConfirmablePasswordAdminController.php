@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Proprietaire;
+namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SoumissionOffreControlleur extends Controller
+class ConfirmablePasswordAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class SoumissionOffreControlleur extends Controller
      */
     public function create()
     {
-        return view('soumission_offre.soumission-offre-proprietaire');
+        //
     }
 
     /**

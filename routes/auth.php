@@ -3,6 +3,7 @@
 use App\Models\Proprietaire;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Auth\Events\Registered;
+use App\Http\Controllers\LocataireController;
 use App\Http\Controllers\ProprietaireController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\Locataire\RegisteredLocataireController;
+use App\Http\Controllers\Auth\Admin\AuthenticatedSessionAdminController;
 use App\Http\Controllers\Auth\Proprietaire\RegisteredProprietaireController;
 use App\Http\Controllers\Auth\Locataire\PasswordResetLinkLocataireController;
 use App\Http\Controllers\Auth\Locataire\AuthenticatedSessionLocataireController;
@@ -86,13 +88,18 @@ Route::post('inscription-locataire', [RegisteredLocataireController::class, 'sto
 
 Route::post('forgot-passwordl', [PasswordResetLinkLocataireController::class, 'store'])
         ->name('password.email.l');
+        
+Route::get('profil-locataire', [LocataireController::class, 'create'])
+        ->name('profil-locataire');
 
-//proprietaire
+//Addmin
+
+Route::get('connexion-admin', [AuthenticatedSessionAdminController::class, 'create'])
+->name('connexion.admin.create');
+
+Route::post('connexion-admin', [AuthenticatedSessionAdminController::class, 'store'])
+->name('connexion.admin.store');
 
 
- //Route::get('forgot-passwordl', [PasswordResetLinkLocataireController::class, 'create'])
-       // ->name('password.request.l');
 
-//Route::post('forgot-passwordl', [PasswordResetLinkLocataireController::class, 'store'])
 
-        //->name('password.email.l');

@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('offres', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('status');
             $table->string('description');
-            $table->float('prix');
-            $table->string('disponibilité');
+            $table->string('status');
+           // $table->float('prix');
+            //$table->string('disponibilité');
             $table->foreignId('proprietaire_id')->constrained();
-            $table->foreignId('admin_id')->constrained();
+           // $table->foreignId('admin_id')->constrained();
             $table->timestamps();
         });
     }

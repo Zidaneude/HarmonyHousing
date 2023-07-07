@@ -26,7 +26,13 @@
                             style="font-weight: bold; color: #0f0f11;">
                             Espace
                             d'administration</h4>
-                        <form>
+                            @if($errors->any())  
+                                    @foreach ($errors->all() as $item)
+                                    {{$item}}
+                                    @endforeach     
+                                @endif
+                        <form method="POST" action="{{route('connexion.admin.store')}}">
+                            @csrf
                             <div class="form-group mt-5">
                                 <div class="input-group pb-3">
                                     <div class="input-group-prepend">
@@ -35,7 +41,7 @@
                                         </span>
                                     </div>
                                     <input style="background-color: #F8F8FF;" placeholder="Votre adresse email"
-                                        type="email" class="form-control" id="email" required>
+                                        type="email" class="form-control" id="email" name="email" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -46,7 +52,7 @@
                                         </span>
                                     </div>
                                     <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
-                                        class="form-control" id="password" required>
+                                        class="form-control" id="password" name="password" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text toggle-password">
                                             <i class="fas fa-eye"></i>

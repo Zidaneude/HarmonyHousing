@@ -14,15 +14,19 @@ return new class extends Migration
         Schema::create('logements', function (Blueprint $table) {
             $table->id();
             $table->string('ville');
-            $table->string('code_postal')->unique();
-            $table->text('description')->nullable();
+            $table->string('code_postal')->nullable();
+           // $table->text('description')->nullable();
             $table->string('quartier');
+            $table->string('adresse');
+            $table->string('frequence_paie');
+            $table->string('region');
             $table->double('prix')->nullable(false);
-            $table->string('statut');
-            $table->string('photos1')->unique();
-            $table->string('photos2')->unique()->nullable();
-            $table->string('photos3')->unique()->nullable();
-            $table->foreignId('offre_id')->constrained();
+            $table->string('statut')->nullable();
+            $table->string('meuble');
+            $table->string('photos1')->nullable();
+            $table->string('photos2')->nullable();
+            $table->string('photos3')->nullable();
+           // $table->foreignId('offre_id')->constrained();
             $table->timestamps();
         });
     }

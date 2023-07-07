@@ -22,7 +22,7 @@ class LocataireController extends Controller
      */
     public function create()
     {
-        return view('inscription-locataire');
+        return view('location.profil-locataire');
     }
 
     /**
@@ -30,18 +30,7 @@ class LocataireController extends Controller
      */
     public function store(StoreLocataireRequest $request)
     {
-       $locataire = Locataire::create([
-
-            'email' => $request->input('email'),
-            'sexe' => $request->input('gender'),
-            'nom' => $request->input('nom'),
-            'prenom' => $request->input('prenom'),
-            'telephone' => $request->input('NumeroTel'),
-            'MotDePasse' => $request->input('password'),
-            'text' => $request->only('receiveOffers', 'dataProcessing', 'termsOfUse')
-            
-        ]);  
-        return redirect('/')->with('success', 'Données enregistrées avec succès !');
+    //
     }   
 
     /**

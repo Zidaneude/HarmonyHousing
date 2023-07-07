@@ -34,7 +34,9 @@ class AuthenticatedSessionLocataireController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $pre=Auth::guard('locataire')->user()->nom;
+        toastr()->success('Heureux de vous revoir '.$pre);
+        return redirect()->intended(RouteServiceProvider::DASHBORD_LOCATAIRE);
     }
 
     /**
@@ -42,12 +44,14 @@ class AuthenticatedSessionLocataireController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $pre=Auth::guard('locataire')->user()->nom;
         Auth::guard('locataire')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
+        toastr()->success(' Au revoir '.$pre.' à la prochaine !');
         return redirect('/');
     } 
 }   

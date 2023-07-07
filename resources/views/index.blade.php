@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <title>Location de logements - Harmony Housing</title>
+    <title>Réservation de logements - Harmony Housing</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
