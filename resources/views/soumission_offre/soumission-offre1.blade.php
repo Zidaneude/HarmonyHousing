@@ -166,9 +166,15 @@
                                         <div id="roomFormsContainer">
                                         </div>
                                     </div>
+<<<<<<< HEAD
+                                    <div  >
+                                        <input type="submit" class="next action-button"
+                                        value="Continuer" />
+=======
                                     <div>
                                         <input type="submit" name="next" class="next action-button"
                                             value="Continuer" />
+>>>>>>> 5fb751f2ca19dde5b51bc5d80931435c3a318de8
                                     </div>
                                 </fieldset>
                             </form>
