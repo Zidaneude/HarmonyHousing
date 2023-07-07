@@ -48,7 +48,7 @@
                         <select id="filter" class="form-select">
                             <option value="all">Tous</option>
                             <option value="reserved">Réservé</option>
-                            <option value="pending">En attente</option>
+                            <option value="pending">En cours</option>
                             <option value="cancelled">Annulé</option>
                         </select>
                     </div>
@@ -84,7 +84,7 @@
                             <td>Studio</td>
                             <td>03/07/2023</td>
                             <td>3 mois</td>
-                            <td><span><i style="color: orange;" class="fas fa-clock"></i> En attente</span>
+                            <td><span><i style="color: orange;" class="fas fa-clock"></i> En cours</span>
                             </td>
                         </tr>
                         <tr class="reservation-row">
