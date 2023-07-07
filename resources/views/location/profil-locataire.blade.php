@@ -37,7 +37,7 @@
                     <a style="text-decoration: none;" href="#">Voir mon profil public</a>
                 </div>
                 <hr>
-                <form action="">
+                <form method="" action="">
                     <h6 class="card-title">Photo de profil</h6>
                     <div style="display: flex; justify-content: center;">
                         <img height="60" src="images/upload.png" alt="Upload Image" class="mb-2">

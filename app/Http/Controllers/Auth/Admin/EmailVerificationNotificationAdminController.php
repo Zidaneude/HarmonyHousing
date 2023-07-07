@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth\Admin;
 
-use App\Models\Locataire;
-use App\Http\Requests\StoreLocataireRequest;
-use App\Http\Requests\UpdateLocataireRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-
-class LocataireController extends Controller
+class EmailVerificationNotificationAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,21 +20,21 @@ class LocataireController extends Controller
      */
     public function create()
     {
-        return view('location.profil-locataire');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLocataireRequest $request)
+    public function store(Request $request)
     {
-    //
-    }   
+        //
+    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Locataire $locataire)
+    public function show(string $id)
     {
         //
     }
@@ -44,7 +42,7 @@ class LocataireController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Locataire $locataire)
+    public function edit(string $id)
     {
         //
     }
@@ -52,15 +50,15 @@ class LocataireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-   // public function update(UpdateLocataireRequest $request, Locataire $locataire)
-    //{
+    public function update(Request $request, string $id)
+    {
         //
-   // }
+    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Locataire $locataire)
+    public function destroy(string $id)
     {
         //
     }
