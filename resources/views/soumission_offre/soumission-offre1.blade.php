@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
                                     <div  >
-                                        <input type="submit" name="next" class="next action-button"
+                                        <input type="submit" class="next action-button"
                                         value="Continuer" />
                                     </div>
                                 </fieldset>
