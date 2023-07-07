@@ -23,9 +23,9 @@ return new class extends Migration
             $table->double('prix')->nullable(false);
             $table->string('statut')->nullable();
             $table->string('meuble');
-            $table->string('photos1')->unique()->nullable();
-            $table->string('photos2')->unique()->nullable();
-            $table->string('photos3')->unique()->nullable();
+            $table->string('photos1')->nullable();
+            $table->string('photos2')->nullable();
+            $table->string('photos3')->nullable();
            // $table->foreignId('offre_id')->constrained();
             $table->timestamps();
         });

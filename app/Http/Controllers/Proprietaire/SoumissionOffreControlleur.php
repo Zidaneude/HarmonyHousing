@@ -31,50 +31,57 @@ class SoumissionOffreControlleur extends Controller
      */
     public function store(Request $request)
     {
+        //variables qui vont conditionnées les traitements
+
         $id=Auth::guard('proprietaire')->user()->id;
-        $request->validate([
-            "roomPhotoPrincipale"=>['required','image','max:2000'],
-            "roomPhoto1.*"=>['required','image','max:2000']
-        ]);
-
-        if(!(count($request->roomPhoto1)<=2 && count($request->roomPhoto1)>0) )
-        {
-           /// dd("Au plus 3 images");
-        }
-       // dd($request->all());
-
-        //$id=Auth::guard('proprietaire')->user()->id;
-
-        $image_principale=$request->file('roomPhotoPrincipale');
-        $chemin_image_principale='proprietaire_chambre_imag1'.'.'.$image_principale->extension();
-
-        $image_seconds=$request->file('roomPhoto1');
-        $chemin_image_seconds1='proprietaire_chambre_imag2'.'.'.$image_seconds[0]->extension();
-        $chemin_image_seconds2='proprietaire_chambre_imag3'.'.'.$image_seconds[1]->extension();
-
-       // dd($chemin_image_seconds2);
-
-        $image_principale->move(public_path("images"),$chemin_image_principale);
-        $image_seconds[0]->move(public_path("images"),$chemin_image_seconds1);
-        $image_seconds[1]->move(public_path("images"),$chemin_image_seconds2);
-
         $chambres_idem=$request->chambres_idem;
         $type_logement=$request->type_logement;
-        $meuble=$request->meuble1;
-        $equipements1=$request->equipements1;
 
-        $nb=$request->chambre;
-        //dd( $request);
 
-        $offre=Offre::create([
-            'titre'=>$request->titre,
-            'description'=>$request->description_annonce,
-            'status'=>"en attente",
-            'proprietaire_id'=>$id,
-        ]);
-        $i=0;
+        //si les chambres sont toutes identique
         if($chambres_idem=="oui")
         {
+            if(!(count($request->roomPhoto1)<=2 && count($request->roomPhoto1)>0) )
+            {
+                return;
+            }
+             //validation des données
+            $request->validate([
+                "roomPhotoPrincipale"=>['required','image','max:2000'],
+                "roomPhoto1.*"=>['required','image','max:2000']
+            ]);
+
+            ///recuperation des images
+            //image principale
+            $image_principale=$request->file('roomPhotoPrincipale');
+
+            // chemin image principale a mettre dans la bd
+            $chemin_image_principale='proprietaire_chambre_imag1'.'.'.$image_principale->extension();
+
+             //image secondaires(2)
+            $image_seconds=$request->file('roomPhoto1');
+
+            //leurs chemins respectifs
+            $chemin_image_seconds1='proprietaire_chambre_imag2'.'.'.$image_seconds[0]->extension();
+            $chemin_image_seconds2='proprietaire_chambre_imag3'.'.'.$image_seconds[1]->extension();
+
+
+            // uploader  les images danns dans le dossier /public/images
+            $image_principale->move(public_path("images"),$chemin_image_principale);
+            $image_seconds[0]->move(public_path("images"),$chemin_image_seconds1);
+            $image_seconds[1]->move(public_path("images"),$chemin_image_seconds2);
+
+
+            //enregistrer offre
+            $offre=Offre::create([
+                'titre'=>$request->titre,
+                'description'=>$request->description_annonce,
+                'status'=>"en attente",
+                'proprietaire_id'=>$id,]);
+
+            //compteur
+
+            $i=0;
             for($i=0;$i<$nb;$i++)
             {
                 $logement=Logement::create([
@@ -89,9 +96,22 @@ class SoumissionOffreControlleur extends Controller
                     'photos1'=>$chemin_image_principale,
                     'photos2'=>$chemin_image_seconds1,
                     'photos3'=>$chemin_image_seconds2,
+                    'status'=>"Disponible",
                 ]);
             }
+
+
         }
+
+
+
+
+
+
+        $meuble=$request->meuble1;
+        $equipements1=$request->equipements1;
+
+        $nb=$request->chambre;
 
 
         //chambres ou appartement ou studio
@@ -129,5 +149,9 @@ class SoumissionOffreControlleur extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function test()
+    {
+        return view('verification.verification-avis');
     }
 }
