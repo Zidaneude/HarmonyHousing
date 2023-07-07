@@ -163,13 +163,6 @@
                             <li>
                                 <a style="text-decoration: none; color: #102180;" href="#"><span
                                         class="chevron right"></span>
-                                    Fournissez les
-                                    détails de paiement pour obtenir des demandes.</a>
-                            </li>
-                            <br>
-                            <li>
-                                <a style="text-decoration: none; color: #102180;" href="#"><span
-                                        class="chevron right"></span>
                                     Introduisez-vous</a>
                             </li>
                         </ul>

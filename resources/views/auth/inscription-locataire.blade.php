@@ -133,7 +133,7 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            <a href="/inscription-proprietaire" class="btn btn-ins">Je suis proprietaire</a>
+            <a href="/inscription-proprietaire" class="btn btn-ins">Je suis propriétaire</a>
         </div>
     </div>
 

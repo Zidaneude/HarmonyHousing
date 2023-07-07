@@ -58,7 +58,7 @@ class RegisteredProprietaireController extends Controller
         ]);
         toastr()->success('creation du compte  propriétaire reussie');
 
-        event(new Registered($proprietaire));
+       // event(new Registered($proprietaire));
 
         Auth::guard('proprietaire')->login($proprietaire);
 
