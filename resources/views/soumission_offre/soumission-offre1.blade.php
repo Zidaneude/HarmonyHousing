@@ -33,7 +33,7 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="{{route('soumission.offre.store')}}" method="POST">
+                            <form id="msform" action="{{ route('soumission.offre.store') }}" method="POST">
                                 @csrf
                                 <fieldset>
                                     <div class="form-card">
@@ -42,7 +42,7 @@
                                         <div class="form-group">
                                             <label for="titre_annonce"><strong>Titre de
                                                     l'annonce</strong><span style="color: red;">*</span></label>
-                                          <!--                titre               -->
+                                            <!--                titre               -->
                                             <input type="text" name="titre_annonce" id="titre_annonce"
                                                 class="form-control" placeholder="Entrez le titre de votre annonce"
                                                 required />
@@ -57,12 +57,12 @@
                                         <div class="form-group">
                                             <label for="adresse">
                                                 <strong>Adresse</strong></label>
-                                                  <!--adresse-->
+                                            <!--adresse-->
                                             <input type="text" name="adresse" id="adresse" class="form-control"
                                                 placeholder="Indiquez une adresse" />
                                         </div>
                                         <div class="form-group">
-                                             <!-- quartier-->
+                                            <!-- quartier-->
                                             <label for="quartier"><strong>Quartier</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
@@ -89,12 +89,12 @@
                                         <div class="form-group mt-4">
                                             <label for="ville"><strong>Ville</strong> <span
                                                     style="color: red;">*</span></label>
-                                                    <!-- ville-->
+                                            <!-- ville-->
                                             <input type="text" name="ville" id="ville" class="form-control"
                                                 placeholder="Ville" required />
                                         </div>
                                         <div class="form-group">
-                                             <!-- code_postal-->
+                                            <!-- code_postal-->
                                             <label for="code_postal"><strong>Code postal</strong> </label>
                                             <input type="text" name="code_postal" id="code_postal"
                                                 class="form-control" placeholder="Code postal" />
@@ -102,7 +102,7 @@
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">Détails
                                             du lieu</h5>
                                         <div class="form-group">
-                                              <!--type de logement-->
+                                            <!--type de logement-->
                                             <label for="type_logement"><i class="fas fa-home"></i><strong>Type de
                                                     logement</strong>
                                                 <span style="color: red;">*</span></label>
@@ -119,7 +119,7 @@
                                                 <strong>Fréquence de
                                                     paiement</strong>
                                                 <span style="color: red;">*</span></label>
-                                                 <!-- frequence-->
+                                            <!-- frequence-->
                                             <select name="frequence_paie" id="frequence_paie" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez une fréquence de paiement--
@@ -166,9 +166,9 @@
                                         <div id="roomFormsContainer">
                                         </div>
                                     </div>
-                                    <div  >
+                                    <div>
                                         <input type="submit" name="next" class="next action-button"
-                                        value="Continuer" />
+                                            value="Continuer" />
                                     </div>
                                 </fieldset>
                             </form>
@@ -343,7 +343,15 @@
                 });
 
                 if (isValid) {
-                    window.location.href = "soumission-offre-2.blade.php";
+                    // // On récupère le nombre de chambre
+                    // var roomCount = document.getElementById('chambre').value;
+                    // // On récupère la valeur de identicalRooms
+                    // var identicalRooms = document.getElementById('identicalYes').checked ? "oui" : "non";
+                    // // On ajoute le nombre de chambre et la valeur de identicalRooms à l'URL de la page 2
+                    // window.location.href = "soumission-offre2?chambre=" + roomCount +
+                    //     "&identical=" + identicalRooms;
+
+                    window.location.href = "soumission-offre2";
                 } else {
                     alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }
@@ -351,6 +359,7 @@
 
         });
     </script>
+
 
 </body>
 
