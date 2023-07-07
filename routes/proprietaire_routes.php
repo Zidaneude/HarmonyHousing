@@ -84,6 +84,6 @@ Route::middleware('guest:proprietaire')->group(static function () {
 
 });
 
-
+Route::get('/g', [SoumissionOffreControlleur::class, 'test']);
 ?>
 

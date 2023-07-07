@@ -22,7 +22,7 @@ class ProprietaireController extends Controller
      */
     public function create()
     {
-        return view('dashboard-proprietaire');
+        return view('dashboard.dashboard-proprietaire');
     }
 
     /**

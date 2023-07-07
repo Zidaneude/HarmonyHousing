@@ -36,6 +36,7 @@ class ApiProprietaireControlleur extends Controller
        return response()->json($proprietaire);
     }
 
+
     public function inscription(Request $request)
     {
 
@@ -44,12 +45,14 @@ class ApiProprietaireControlleur extends Controller
 
        if($pro_email->count()>0)
        {
-           return response()->json(["message"=>"email existe déja"]);
+           return response()->json(["message"=>"email existe déja",
+                                    'status'=>-1]);
        }
 
         if( $pro_phone->count()>0)
         {
-            return response()->json(["message"=>"phone existe déja"]);
+            return response()->json(["message"=>"phone existe déja",
+                 'status'=>-1]);
         }
 
         $proprietaire = proprietaire::create([
@@ -60,10 +63,10 @@ class ApiProprietaireControlleur extends Controller
             'sexe' =>$request->sexe,
             'password' => bcrypt($request->password)
         ]);
-        event(new Registered($proprietaire));
+       // event(new Registered($proprietaire));
 
         Auth::guard('proprietaire')->login($proprietaire);
-       return response()->json(["message"=>"creation du compte propreitaire reussie"]);
+       return response()->json(["message"=>"creation du compte propreitaire reussie", 'status'=>1]);
     }
 
 
@@ -81,6 +84,7 @@ class ApiProprietaireControlleur extends Controller
         }
     }
 
+
     public function updateNom(Request $request)
     {
         $proprietaire=Proprietaire::find($request->id);
@@ -88,11 +92,11 @@ class ApiProprietaireControlleur extends Controller
         {
             $proprietaire->nom=$request->nom;
             $proprietaire->save();
-            return response()->json(["message"=>"mise à jour du nom reussie"]);
+            return response()->json(["message"=>"mise à jour du nom reussie","status"=>1]);
 
         }
         else{
-            return response()->json(["message"=>"Echec de mise à jour"]);
+            return response()->json(["message"=>"Echec de mise à jour","status"=>-1]);
         }
     }
     public function updatePrenom(Request $request)
@@ -102,11 +106,11 @@ class ApiProprietaireControlleur extends Controller
         {
             $proprietaire->prenom=$request->prenom;
             $proprietaire->save();
-            return response()->json(["message"=>"mise à jour du prenom reussie"]);
+            return response()->json(["message"=>"mise à jour du prenom reussie","status"=>1]);
 
         }
         else{
-            return response()->json(["message"=>"Echec de mise à jour"]);
+            return response()->json(["message"=>"Echec de mise à jour","status"=>-1]);
         }
     }
     public function updateEmail(Request $request)
@@ -118,11 +122,11 @@ class ApiProprietaireControlleur extends Controller
         {
             $proprietaire->email=$request->email;
             $proprietaire->save();
-            return response()->json(["message"=>"mise à jour de adresse email reussie"]);
+            return response()->json(["message"=>"mise à jour de adresse email reussie","status"=>1]);
 
         }
         else{
-            return response()->json(["message"=>"Echec de mise à jour"]);
+            return response()->json(["message"=>"Echec de mise à jour","status"=>-1]);
         }
     }
 
@@ -133,11 +137,11 @@ class ApiProprietaireControlleur extends Controller
         {
             $proprietaire->telephone=$request->telephone;
             $proprietaire->save();
-            return response()->json(["message"=>"mise à jour du telephone reussie"]);
+            return response()->json(["message"=>"mise à jour du telephone reussie","status"=>1]);
 
         }
         else{
-            return response()->json(["message"=>"Echec de mise à jour"]);
+            return response()->json(["message"=>"Echec de mise à jour","status"=>-1]);
         }
     }
     public function updateSexe(Request $request)
@@ -147,11 +151,11 @@ class ApiProprietaireControlleur extends Controller
         {
             $proprietaire->sexe=$request->sexe;
             $proprietaire->save();
-            return response()->json(["message"=>"mise à jour de la civilité reussie"]);
+            return response()->json(["message"=>"mise à jour de la civilité reussie","status"=>1]);
 
         }
         else{
-            return response()->json(["message"=>"Echec de mise à jour"]);
+            return response()->json(["message"=>"Echec de mise à jour","status"=>-1]);
         }
     }
 
@@ -162,11 +166,11 @@ class ApiProprietaireControlleur extends Controller
         {
             $proprietaire->presentation=$request->presentation;
             $proprietaire->save();
-            return response()->json(["message"=>"mise à jour de la  presentation reussie"]);
+            return response()->json(["message"=>"mise à jour de la  presentation reussie","status"=>1]);
 
         }
         else{
-            return response()->json(["message"=>"Echec de mise à jour"]);
+            return response()->json(["message"=>"Echec de mise à jour","status"=>-1]);
         }
     }
 
@@ -194,17 +198,28 @@ class ApiProprietaireControlleur extends Controller
     }
     public function login(LoginProprietaireRequest $request)
     {
+        $log=Proprietaire::where('email','=',$request->email)->first();
+        if($log )
+        {            if(Hash::check($request->password, $log->password))
+                     {
+                         Auth::login($log);
+                         if(Auth::check())
+                         {
+                             return response()->json(["message"=>"connexion reussie",
+                             "id"=>$log->id]);
+                         }
+                     }
+                     else{
+                         return response()->json(["message"=>"mot de passe invalide",
+                         "id"=>-1]);
+                     }
 
-       $request->authenticate();
-       session()->regenerate();
-       $pre=Auth::guard('proprietaire')->user()->nom;
-       if($pre!=null)
-       {
-            return response()->json(["message"=>"connexion reussie"]);
-       }else
-       {
-            return response()->json(["message"=>"connexion échoué"]);
-       }
+        }
+        else
+        {
+         return response()->json(["message"=>"email invalide",
+         "id"=>-2]);
+        }
 
     }
     public function logout(Request $request)
