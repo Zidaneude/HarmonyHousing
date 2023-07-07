@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
+        toastr()->success('Heureux de vous revoir '.$pre);
         return redirect()->intended(RouteServiceProvider::CONNEXION_LOCATAIRE);
     }
 

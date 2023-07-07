@@ -23,7 +23,7 @@ class SoumissionOffreControlleur extends Controller
      */
     public function create()
     {
-        return view('soumission_offre.soumission-offre-proprietaire');
+        return view('soumission_offre.soumission-offre1');
     }
 
     /**

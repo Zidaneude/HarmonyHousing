@@ -33,7 +33,8 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="">
+                            <form id="msform" action="{{route('soumission.offre.store')}}" method="POST">
+                                @csrf
                                 <fieldset>
                                     <div class="form-card">
                                         <h4 style="text-align: center; color: #004aad;" class="mb-4"><strong>Publier
@@ -41,11 +42,13 @@
                                         <div class="form-group">
                                             <label for="titre_annonce"><strong>Titre de
                                                     l'annonce</strong><span style="color: red;">*</span></label>
+                                          <!--                titre               -->
                                             <input type="text" name="titre_annonce" id="titre_annonce"
                                                 class="form-control" placeholder="Entrez le titre de votre annonce"
                                                 required />
                                         </div>
                                         <div class="form-group">
+                                            <!-- description-->
                                             <label for="description_annonce"><strong>Description</strong></label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
@@ -54,16 +57,19 @@
                                         <div class="form-group">
                                             <label for="adresse">
                                                 <strong>Adresse</strong></label>
+                                                  <!--adresse-->
                                             <input type="text" name="adresse" id="adresse" class="form-control"
                                                 placeholder="Indiquez une adresse" />
                                         </div>
                                         <div class="form-group">
+                                             <!-- quartier-->
                                             <label for="quartier"><strong>Quartier</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
                                                 placeholder="Indiquez un quartier" required />
                                         </div>
                                         <div class="form-group">
+                                            <!--religion-->
                                             <label for="region"> <strong>Région</strong> <span
                                                     style="color: red;">*</span></label>
                                             <select name="region" id="region" class="form-control" required>
@@ -83,10 +89,12 @@
                                         <div class="form-group mt-4">
                                             <label for="ville"><strong>Ville</strong> <span
                                                     style="color: red;">*</span></label>
+                                                    <!-- ville-->
                                             <input type="text" name="ville" id="ville" class="form-control"
                                                 placeholder="Ville" required />
                                         </div>
                                         <div class="form-group">
+                                             <!-- code_postal-->
                                             <label for="code_postal"><strong>Code postal</strong> </label>
                                             <input type="text" name="code_postal" id="code_postal"
                                                 class="form-control" placeholder="Code postal" />
@@ -94,6 +102,7 @@
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">Détails
                                             du lieu</h5>
                                         <div class="form-group">
+                                              <!--type de logement-->
                                             <label for="type_logement"><i class="fas fa-home"></i><strong>Type de
                                                     logement</strong>
                                                 <span style="color: red;">*</span></label>
@@ -110,6 +119,7 @@
                                                 <strong>Fréquence de
                                                     paiement</strong>
                                                 <span style="color: red;">*</span></label>
+                                                 <!-- frequence-->
                                             <select name="frequence_paie" id="frequence_paie" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez une fréquence de paiement--
@@ -156,8 +166,10 @@
                                         <div id="roomFormsContainer">
                                         </div>
                                     </div>
-                                    <input type="button" name="next" class="next action-button"
+                                    <div  >
+                                        <input type="submit" name="next" class="next action-button"
                                         value="Continuer" />
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>
