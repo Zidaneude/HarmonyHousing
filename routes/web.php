@@ -52,8 +52,5 @@ Route::get('/commentaire', function () {
     return view('commentaire.commentaire');
 });
 
-Route::get('/form', function () {
-    return view('soumission_offre.soumission-offre1');
-});
 
 require __DIR__ . '/auth.php';
