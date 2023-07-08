@@ -32,7 +32,7 @@
 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuDropdown">
-                    <a class="dropdown-item" href="/profil-proprietaire">
+                    <a class="dropdown-item" href="{{ route('profil.pro') }}">
                         <i class="fas fa-user"></i> Mon profil
                     </a>
                     <a class="dropdown-item" href="/reservations-prop">
@@ -46,7 +46,7 @@
                         <i class="fas fa-envelope"></i> Nous contacter
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('logout') }}">
                         <i class="fas fa-sign-out-alt"></i> Déconnexion
                     </a>
                 </div>
