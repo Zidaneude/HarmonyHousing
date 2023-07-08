@@ -22,10 +22,7 @@
                 <a class="nav-link" href="/profil-locataire">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mes réservations</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Demander un remboursement</a>
+                <a class="nav-link" href="/reservation-locataire">Mes réservations</a>
             </li>
         </ul>
         <div class="card profile-card my-5">

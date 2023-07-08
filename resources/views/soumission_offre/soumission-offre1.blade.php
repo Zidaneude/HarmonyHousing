@@ -19,7 +19,7 @@
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
-   @include('commun.header-dashboard-prop')
+    @include('commun.header-dashboard-prop')
 
     <div class="container-fluid">
         <div class="row justify-content-center mt-0">
@@ -44,7 +44,7 @@
                                     <div class="form-card">
                                         <h4 style="text-align: center; color: #004aad;" class="mb-4"><strong>Publier
                                                 une annonce</strong></h4>
-                                        <div class="form-group">
+                                        <div class="form-group mb-4">
                                             <label for="titre_annonce"><strong>Titre de
                                                     l'annonce</strong><span style="color: red;">*</span></label>
                                             <input type="text" name="titre_annonce" id="titre_annonce"
@@ -61,9 +61,9 @@
                                             <label for="adresse">
                                                 <strong>Adresse</strong></label>
                                             <input type="text" name="adresse" id="adresse" class="form-control"
-                                                placeholder="Indiquez une adresse Ex: face ADYS Hotel " />
+                                                placeholder="Indiquez une adresse (Ex: Face ADYS Hotel)" />
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group my-4">
                                             <label for="quartier"><strong>Quartier</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
@@ -86,7 +86,7 @@
                                                 <option value="est">Extrême-Nord</option>
                                             </select>
                                         </div>
-                                        <div class="form-group mt-4">
+                                        <div class="form-group my-4">
                                             <label for="ville"><strong>Ville</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="ville" id="ville" class="form-control"
@@ -125,7 +125,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group mt-4">
+                                        <div class="form-group my-4">
                                             <label for="frequence_paie"><i class="fas fa-calendar"></i>
                                                 <strong>Fréquence de
                                                     paiement</strong>
@@ -141,7 +141,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group mt-4" style="display: none;" id="chambresGroup">
+                                        <div class="form-group" style="display: none;" id="chambresGroup">
                                             <label id="UniciteChambre"><strong>Les chambres sont-elles identiques
                                                     ?</strong> </label> <span style="color: red;">*</span>
                                             <div class="row" style="margin-left:2px;">
@@ -241,7 +241,7 @@
 <h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">${roomTitle}</h6>`;
                 roomFormsContainer.innerHTML += `
         <div class="form-group">
-            <label for="titre_chambre${i}"><strong>Numéro de la chambre </strong><span style="color: red;">*</span></label>
+            <label for="titre_chambre${i}"><strong>Numéro de chambre </strong><span style="color: red;">*</span></label>
             <input type="text" name="titre_chambre${i}" id="titre_chambre${i}" class="form-control" placeholder="Numéro de la chambre" required/>
         </div>
         <!-- add by zidane-->
@@ -254,7 +254,7 @@
             <input type="text" name="cap_chambre${i}" id="cap_chambre${i}" class="form-control" placeholder="Capacité d'accueil" required/>
         </div>
         <div class="form-group mt-4">
-                                    <label for="meuble${i}"><i class="fas fa-calendar"></i> <strong>Meublé ?</strong>
+                                    <label for="meuble${i}"><i class="fas fa-calendar"></i> <strong>Meublée ?</strong>
                                         <span style="color: red;">*</span></label>
                                     <select name="meuble${i}" id="meuble${i}" class="form-control"
                                         required>
@@ -264,8 +264,8 @@
                                         <option value="Non">Non</option>
                                     </select>
                                 </div>
-                                <div class="form-group mt-4">
-                                <label for="disponibilite${i}"><i class="fas fa-calendar-alt"></i><strong>Disponibilité </strong><span style="color: red;">*</span></label>
+                                <div class="form-group my-3">
+                                <label for="disponibilite${i}"><i class="fas fa-calendar-alt"></i> <strong>Disponibilité </strong><span style="color: red;">*</span></label>
         <input type="date" name="disponibilite${i}" id="disponibilite${i}" class="form-control" min="2023-07-01" max="2025-01-01" required />
     </div>
         <div class="form-group">
@@ -343,7 +343,7 @@
     </div>
 </div>
 </div>
-<div class="form-group mt-4">
+<div class="form-group my-3">
     <label for="salle_de_bain${i}"><i class="fas fa-bath"></i> <strong>Salle de bain(s)</strong> <span style="color: red;">*</span></label>
     <input type="number" name="salle_de_bain${i}" id="salle_de_bain${i}" class="form-control" placeholder="Entrez le nombre de salle de bain(s)" min="1" required />
 </div>
@@ -385,7 +385,7 @@
                 });
 
                 if (isValid) {
-                   /// window.location.href = "soumission-offre2";
+                    /// window.location.href = "soumission-offre2";
                 } else {
                     //alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }

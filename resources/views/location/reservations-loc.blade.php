@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historique des réservations - Harmony Housing - La plateforme de réservation en ligne</title>
+    <title>Mes réservations - Harmony Housing - La plateforme de réservation en ligne</title>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" href="css/style2.css">
@@ -13,28 +13,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body style="margin-top: 100px; background-color: #f8f8ff;">
-    @include('commun.header-dashboard-admin')
-
+<body style="margin-top: 70px; background-color: #F8F8FF;">
+    @include('commun.header-dashboard-loc')
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="/profil-admin">Mon profil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/verification-offres">Vérification des offres</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/verification-avis">Vérification des avis</a>
+                <a class="nav-link" href="/profil-locataire">Mon profil</a>
             </li>
             <li class="nav-item active-tab">
-                <a class="nav-link" href="/historique-reservations">Historique des réservations</a>
+                <a class="nav-link" href="/reservation-locataire">Mes réservations</a>
             </li>
         </ul>
 
         <div class="card my-5">
             <div class="card-header profile-card-header" style="font-size: 18px; text-align: center;">
-                Historique des réservations
+                Mes réservations
             </div>
             <div class="card-body">
                 <div class="mt-2">
@@ -49,14 +42,14 @@
                             <option value="all">Tous</option>
                             <option value="reserved">Réservé</option>
                             <option value="pending">En cours</option>
-                            <option value="refunded">Remboursé</option>
                             <option value="cancelled">Annulé</option>
+                            <option value="refunded">Remboursé</option>
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="search">Rechercher :</label>
                         <input id="search" class="form-control" type="text"
-                            placeholder="Nom du locataire, propriétaire, statut, date de réservation, etc.">
+                            placeholder="Nom du propriétaire, type de logement, date de réservation, etc.">
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -64,56 +57,66 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">ID Logement</th>
+                                <th scope="col" style="width: 21%;">Titre du logement</th>
                                 <th scope="col">Type de logement</th>
-                                <th scope="col">Propriétaire</th>
-                                <th scope="col">Nom du locataire</th>
                                 <th scope="col">Date de réservation</th>
+                                <th scope="col">Montant</th>
                                 <th scope="col">Durée</th>
                                 <th scope="col">Statut</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="reservation-row">
                                 <td>1</td>
-                                <td>83321</td>
-                                <td>Appartement</td>
-                                <td>Marc</td>
-                                <td>David</td>
+                                <td>Charmant studio au coeur de la ville</td>
+                                <td>Studio</td>
                                 <td>30/06/2023</td>
+                                <td>5000 FCFA</td>
                                 <td>1 mois</td>
                                 <td><i style="color: green;" class="fas fa-check-circle"></i> Réservé</td>
+                                <td>
+                                    <button class="btn btn-del btn-sm">
+                                        Annuler</button>
+                                </td>
                             </tr>
                             <tr class="reservation-row">
                                 <td>2</td>
-                                <td>83322</td>
-                                <td>Studio</td>
-                                <td>Julio</td>
-                                <td>Paulin</td>
-                                <td>07/07/2023</td>
+                                <td>Appartement de luxe avec piscine et jardin</td>
+                                <td>Appartement</td>
+                                <td>03/07/2023</td>
+                                <td>3400 FCFA</td>
                                 <td>3 mois</td>
                                 <td><span><i style="color: orange;" class="fas fa-clock"></i> En cours</span>
+                                </td>
+                                <td>
+                                    <form action="" method="">
+                                        @csrf
+                                        <input type="hidden" name="reservation_id" value="ID_Réservation">
+                                        <button type="submit" class="btn btn-warning btn-sm"><i
+                                                class="fas fa-hand-holding-usd"></i> Demander un remboursement</button>
+                                    </form>
                                 </td>
                             </tr>
                             <tr class="reservation-row">
                                 <td>3</td>
-                                <td>83323</td>
+                                <td>Chambre confortable et calme chez l’habitant</td>
                                 <td>Chambre</td>
-                                <td>Clémence</td>
-                                <td>Roland</td>
-                                <td>05/07/2023</td>
+                                <td>01/07/2023</td>
+                                <td>2100 FCFA</td>
                                 <td>6 mois</td>
                                 <td><i style="color: red;" class="fas fa-times-circle"></i> Annulé</td>
+                                <td><span class="text-muted">Aucune action possible</span></td>
                             </tr>
                             <tr class="reservation-row">
                                 <td>4</td>
-                                <td>83324</td>
-                                <td>Studio</td>
-                                <td>Philippe</td>
-                                <td>Ghislain</td>
-                                <td>15/07/2023</td>
+                                <td>Appartement cosy et lumineux avec balcon</td>
+                                <td>Appartement</td>
+                                <td>05/07/2023</td>
+                                <td>7150 FCFA</td>
                                 <td>1 an</td>
                                 <td><i style="color: blue;" class="fas fa-hand-holding-usd"></i> Remboursé</td>
+                                <td><span class="text-muted">Aucune action possible</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -149,6 +152,7 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
 </body>
 
 </html>

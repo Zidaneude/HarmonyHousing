@@ -38,9 +38,6 @@
                     <a class="dropdown-item" href="/reservations-prop">
                         <i class="fas fa-calendar-check"></i> Historique de mes réservations
                     </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-undo"></i> Demande de remboursement
-                    </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-question-circle"></i> FAQ - Locataire

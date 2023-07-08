@@ -223,16 +223,39 @@
 }
 
 
-.btn-del {
-    border: 1px solid #a72525;
-    color: #db0d0d;
+.btn-editchambre {
+    border: 1px solid #004aad;
+    color: #004aad;
     background-color: transparent;
     transition: transform 0.3s ease-in-out;
 }
-.btn-del:hover {
-    background-color: #a72525;
+.btn-editchambre:hover {
+    background-color: #0760d4;
     color: white;
     transform: translateY(-2px);
+}
+
+.btn-editlogement {
+    background-color: rgb(7, 168, 115) !important;
+    border-color: rgb(7, 168, 115) !important;
+    transition: transform 0.3s ease-in-out;
+    color: white;
+}
+
+.btn-editlogement:hover {
+    background-color:  #2EB88A !important;
+    border-color: #2EB88A !important;
+    transform: translateY(-2px);
+}
+
+.btn-del {
+    border: 1px solid rgb(185, 33, 33);
+    color: white;
+    background-color: rgb(185, 33, 33);
+}
+.btn-del:hover {
+    background-color: #d12121;
+    color: white;
 }
 
 .btn-success {
