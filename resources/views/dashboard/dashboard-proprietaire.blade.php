@@ -207,9 +207,9 @@
             </div>
         </div>
 
-        <div class="row my-5">
+<div class="row my-5">
             <h4 class="mb-3" style="color: #004aad;">Guides & Conseils</h4>
-            <div class="col-lg-4 btn-primary2">
+            <div class="col-lg-4 col-md-6 col-sm-12 btn-primary2">
                 <a href="#" style="text-decoration: none; color: #004aad;">
                     <div class="card mb-3">
                         <img height="225" src="images/article1.avif" class="card-img-top" alt="Article 1">
@@ -223,7 +223,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 btn-primary2">
+            <div class="col-lg-4 col-md-6 col-sm-12 btn-primary2">
                 <a href="#" style="text-decoration: none; color: #004aad;">
                     <div class="card mb-3">
                         <img height="225" src="images/article2.jpg" class="card-img-top" alt="Article 1">
@@ -238,7 +238,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 btn-primary2">
+            <div class="col-lg-4 col-md-6 col-sm-12 btn-primary2">
                 <a href="#" style="text-decoration: none; color: #004aad;">
                     <div class="card mb-3">
                         <img height="225" src="images/article3.avif" class="card-img-top" alt="Article 1">
