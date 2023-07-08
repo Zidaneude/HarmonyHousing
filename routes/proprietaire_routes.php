@@ -5,6 +5,8 @@ use App\Http\Controllers\ProprietaireController;
 use App\Http\Controllers\Proprietaire\ProfilControlleur;
 use App\Http\Controllers\Proprietaire\SoumissionOffreControlleur;
 use App\Http\Controllers\Proprietaire\SoumissionOfreFormOneControlleur;
+use App\Http\Controllers\Proprietaire\SoumissionOfreFormFinishControlleur;
+use App\Http\Controllers\Proprietaire\SoumissionOfreFormSecondControlleur;
 use App\Http\Controllers\Auth\Proprietaire\RegisteredProprietaireController;
 use App\Http\Controllers\Auth\Proprietaire\NewPasswordProprietaireController;
 use App\Http\Controllers\Auth\Proprietaire\PasswordResetLinkProprietaireController;
@@ -79,6 +81,14 @@ Route::middleware('guest:proprietaire')->group(static function () {
     Route::get('/profil-pro', [ProfilControlleur::class, 'create'])
             ->name('profil.pro');
 
+            //
+            Route::get('/soumission_offre_step2', [SoumissionOfreFormSecondControlleur::class, 'create'])
+            ->name('soumission.offre.step2.create');
+            Route::post('/soumission_offre_step2', [SoumissionOfreFormSecondControlleur::class, 'store'])
+            ->name('soumission.offre.step2.store');
+
+            Route::get('/soumission_offre_step3', [SoumissionOfreFormFinishControlleur::class, 'create'])
+            ->name('soumission.offre.step3.create');
 
     Route::get("/reser",[ProfilControlleur::class, 'aff']);
 
@@ -87,6 +97,7 @@ Route::middleware('guest:proprietaire')->group(static function () {
 
 });
 
-Route::get('/g', [SoumissionOffreControlleur::class, 'test']);
+//Route::get('/g', [SoumissionOffreControlleur::class, 'test']);
+Route::get("/text",[SoumissionOfreFormOneControlleur::class, 't']);
 ?>
 

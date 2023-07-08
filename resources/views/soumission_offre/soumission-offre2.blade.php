@@ -33,7 +33,8 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="">
+                            <form id="msform" action="{{ route('soumission.offre.step2.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <fieldset>
                                     <div class="form-card">
                                         <div class="form-group mb-3">
@@ -48,6 +49,15 @@
                                                 <input type="text" name="video_youtube" id="video_youtube"
                                                     class="form-control"
                                                     placeholder="Exemple : https://youtu.be/yp_4C9JRnM8" />
+
+                                                    @if ($ch_id==false)
+                                                         <!-- cache-->
+                                                    <input type="hidden" name="cache_idem" value="no"/>
+                                                    @else
+                                                    <input type="hidden" name="cache_idem" value="yes"/>
+                                                    @endif
+                                                    <input type="hidden" name="cache_nbre" value="{{$nb}}"/>
+                                                    <input type="hidden" name="id" value="{{$id}}"/>
                                             </div>
 
                                             <label><i class="fas fa-camera"></i> Photos de votre annonce <span
@@ -72,7 +82,7 @@
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Précédent" />
-                                    <input type="button" name="next" class="next action-button" value="Valider" />
+                                    <input type="submit" name="next" class="next action-button" value="Valider" />
                                 </fieldset>
                             </form>
                         </div>
@@ -89,7 +99,10 @@
         $(document).ready(function() {
             var current_fs, next_fs, previous_fs;
             var opacity;
-
+            //var roomCount = {!! json_encode(session('nb'))!!};
+            //var identicalRooms = {!! json_encode(session('ch_id'))!!};
+            var roomCount={!! json_encode($nb)!!};
+            var identicalRooms={!! json_encode($ch_id)!!};
             generateRoomForms(roomCount, identicalRooms);
             $(".next").click(function() {
                 var requiredInputs = $(this).parent().find(
@@ -105,7 +118,7 @@
                 if (isValid) {
                     window.location.href = "soumission-success";
                 } else {
-                    alert("Veuillez remplir tous les champs requis avant de continuer.");
+                    // alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }
             });
 
@@ -115,22 +128,46 @@
 
         });
 
-        function generateRoomForms(roomCount, identicalRooms) {
-            var roomPhotosContainer = document.getElementById('roomPhotosContainer');
 
-            roomPhotosContainer.innerHTML = '';
+        function generateRoomForms(roomCount, identicalRooms)
+        {
+                var roomPhotosContainer = document.getElementById('roomPhotosContainer');
 
-            // Générer de nouveaux formulaires de photo de chambre
-            for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
-                var photoTitle = identicalRooms ? "Photo(s) de la chambre" : "Photo(s) de la chambre " + i;
-                roomPhotosContainer.innerHTML += `
-<div class="form-group">
-    <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
-    <input type="file" name="roomPhoto${i}" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
-</div>
-`;
-            }
+                roomPhotosContainer.innerHTML = '';
+
+                // Générer de nouveaux formulaires de photo de chambre
+                if({!! json_encode($ch_id)!!})
+                {
+
+                    for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
+                    var photoTitle = identicalRooms ? "Photo(s) de la chambre" : "Photo(s) de la chambre " + i;
+                    roomPhotosContainer.innerHTML += `
+                    <div class="form-group">
+                        <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
+                        <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
+                    </div>
+                    <input type="hidden" name="tab_id" value="{{$chaine}}"/>
+                    `;
+                }
+                }
+                else
+                {
+
+                    for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
+                    var photoTitle = identicalRooms ? "Photo(s) de la chambre" : "Photo(s) de la chambre " + i;
+                    roomPhotosContainer.innerHTML += `
+                    <div class="form-group">
+                        <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
+                        <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
+                    </div>
+                    <input type="hidden" name="id${i}" value="{{$chaine}}"/>
+
+                    `;
+                }
+                }
         }
+            //}
+
     </script>
 
 </body>

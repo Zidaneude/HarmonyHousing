@@ -11,10 +11,15 @@
     <link rel="stylesheet" href="css/steps-wizard.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        #UniciteChambre {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
-    @include('commun.header-dashboard-prop')
+   @include('commun.header-dashboard-prop')
 
     <div class="container-fluid">
         <div class="row justify-content-center mt-0">
@@ -42,13 +47,11 @@
                                         <div class="form-group">
                                             <label for="titre_annonce"><strong>Titre de
                                                     l'annonce</strong><span style="color: red;">*</span></label>
-                                            <!--                titre               -->
                                             <input type="text" name="titre_annonce" id="titre_annonce"
                                                 class="form-control" placeholder="Entrez le titre de votre annonce"
                                                 required />
                                         </div>
                                         <div class="form-group">
-                                            <!-- description-->
                                             <label for="description_annonce"><strong>Description</strong></label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
@@ -57,19 +60,16 @@
                                         <div class="form-group">
                                             <label for="adresse">
                                                 <strong>Adresse</strong></label>
-                                            <!--adresse-->
                                             <input type="text" name="adresse" id="adresse" class="form-control"
-                                                placeholder="Indiquez une adresse" />
+                                                placeholder="Indiquez une adresse Ex: face ADYS Hotel " />
                                         </div>
                                         <div class="form-group">
-                                            <!-- quartier-->
                                             <label for="quartier"><strong>Quartier</strong> <span
                                                     style="color: red;">*</span></label>
                                             <input type="text" name="quartier" id="quartier" class="form-control"
                                                 placeholder="Indiquez un quartier" required />
                                         </div>
                                         <div class="form-group">
-                                            <!--religion-->
                                             <label for="region"> <strong>Région</strong> <span
                                                     style="color: red;">*</span></label>
                                             <select name="region" id="region" class="form-control" required>
@@ -89,12 +89,10 @@
                                         <div class="form-group mt-4">
                                             <label for="ville"><strong>Ville</strong> <span
                                                     style="color: red;">*</span></label>
-                                            <!-- ville-->
                                             <input type="text" name="ville" id="ville" class="form-control"
                                                 placeholder="Ville" required />
                                         </div>
                                         <div class="form-group">
-                                            <!-- code_postal-->
                                             <label for="code_postal"><strong>Code postal</strong> </label>
                                             <input type="text" name="code_postal" id="code_postal"
                                                 class="form-control" placeholder="Code postal" />
@@ -103,23 +101,35 @@
                                             du lieu</h5>
                                         <div class="form-group">
                                             <!--type de logement-->
-                                            <label for="type_logement"><i class="fas fa-home"></i><strong>Type de
+                                            <label for="type_logement"><i class="fas fa-home"></i><strong> Type de
                                                     logement</strong>
                                                 <span style="color: red;">*</span></label>
                                             <select name="type_logement" id="type_logement" class="form-control"
                                                 required>
-                                                <option value="">--Sélectionnez un type de logement--</option>
-                                                <option value="chambre">Chambre</option>
-                                                <option value="appartement">Appartement</option>
-                                                <option value="studio">Studio</option>
+                                                <option value=""
+                                                    data-placeholder="--Sélectionnez un type de logement--"
+                                                    data-label="Les chambres sont-elles identiques ?">--Sélectionnez
+                                                    un type de logement--</option>
+                                                <option value="chambre"
+                                                    data-placeholder="Entrez le nombre de chambre(s)"
+                                                    data-label="Les chambres sont-elles identiques ?">Chambre
+                                                </option>
+                                                <option value="appartement"
+                                                    data-placeholder="Entrez le nombre de chambre(s) de votre appartement"
+                                                    data-label="Les chambres de votre appartement sont-elles identiques ?">
+                                                    Appartement</option>
+                                                <option value="studio"
+                                                    data-placeholder="Entrez le nombre de chambre(s) de votre studio"
+                                                    data-label="Les chambres de votre studio sont-elles identiques ?">
+                                                    Studio</option>
                                             </select>
                                         </div>
+
                                         <div class="form-group mt-4">
                                             <label for="frequence_paie"><i class="fas fa-calendar"></i>
                                                 <strong>Fréquence de
                                                     paiement</strong>
                                                 <span style="color: red;">*</span></label>
-                                            <!-- frequence-->
                                             <select name="frequence_paie" id="frequence_paie" class="form-control"
                                                 required>
                                                 <option value="">--Sélectionnez une fréquence de paiement--
@@ -131,9 +141,9 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group mt-4">
-                                            <label><strong>Chambres identiques ?</strong> <span
-                                                    style="color: red;">*</span></label>
+                                        <div class="form-group mt-4" style="display: none;" id="chambresGroup">
+                                            <label id="UniciteChambre"><strong>Les chambres sont-elles identiques
+                                                    ?</strong> </label> <span style="color: red;">*</span>
                                             <div class="row" style="margin-left:2px;">
                                                 <div class="col-md-2 form-check">
                                                     <input type="radio" id="identicalYes" name="chambres"
@@ -148,34 +158,25 @@
                                             </div>
                                         </div>
 
-
                                         <div class="form-group mt-4">
                                             <label for="chambre"><i class="fas fa-bed"></i>
-                                                <strong>Chambre(s)</strong> <span style="color: red;">*</span>
+                                                <strong id="">Nombre de chambre(s)</strong> <span
+                                                    style="color: red;">*</span>
                                                 <a data-toggle="tooltip"
                                                     title="ATTENTION - Ne modifiez pas ce nombre après avoir rempli les détails de chambre(s) au risque de réinitialiser vos données !">
                                                     <i class="fas fa-info-circle" style="color: #004aad;"></i>
                                                 </a>
                                             </label>
                                             <input type="number" name="chambre" id="chambre" class="form-control"
-                                                min="1" max="50" required
-                                                placeholder="Entrez le nombre de chambre(s)"
+                                                min="1" max="50" required placeholder=""
                                                 onchange="generateRoomForms()" />
                                         </div>
 
                                         <div id="roomFormsContainer">
                                         </div>
                                     </div>
-<<<<<<< HEAD
-                                    <div  >
-                                        <input type="submit" class="next action-button"
+                                    <input type="submit" name="next" class="next action-button"
                                         value="Continuer" />
-=======
-                                    <div>
-                                        <input type="submit" name="next" class="next action-button"
-                                            value="Continuer" />
->>>>>>> 5fb751f2ca19dde5b51bc5d80931435c3a318de8
-                                    </div>
                                 </fieldset>
                             </form>
                         </div>
@@ -185,6 +186,32 @@
         </div>
 
     </div>
+
+
+    <script>
+        document.getElementById("type_logement").addEventListener("change", function() {
+            var placeholder = this.options[this.selectedIndex].dataset.placeholder;
+            var label = this.options[this.selectedIndex].dataset.label;
+            document.getElementById("chambre").placeholder = placeholder;
+            document.getElementById("UniciteChambre").textContent = label;
+            var chambresGroup = document.getElementById("chambresGroup");
+            if (this.value === "") {
+                chambresGroup.style.display = "none";
+            } else {
+                chambresGroup.style.display = "block";
+            }
+        });
+
+        function initPlaceholder() {
+            var placeholder = document.getElementById("type_logement").options[0].dataset.placeholder;
+            var label = document.getElementById("type_logement").options[0].dataset.label;
+            document.getElementById("chambre").placeholder = placeholder;
+            document.getElementById("UniciteChambre").textContent = label;
+        }
+
+        window.onload = initPlaceholder;
+    </script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -214,11 +241,20 @@
 <h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">${roomTitle}</h6>`;
                 roomFormsContainer.innerHTML += `
         <div class="form-group">
-            <label for="titre_chambre${i}">Titre de la chambre <span style="color: red;">*</span></label>
-            <input type="text" name="titre_chambre${i}" id="titre_chambre${i}" class="form-control" placeholder="Titre de la chambre" required/>
+            <label for="titre_chambre${i}"><strong>Numéro de la chambre </strong><span style="color: red;">*</span></label>
+            <input type="text" name="titre_chambre${i}" id="titre_chambre${i}" class="form-control" placeholder="Numéro de la chambre" required/>
+        </div>
+        <!-- add by zidane-->
+        <div class="form-group mt-3">
+            <label for="surface_chambre${i}"><strong>Superficie totale de la chambre</strong> <span style="color: red;">*</span></label>
+            <input type="text" name="surface_chambre${i}" id="surface_chambre${i}" class="form-control" placeholder="Superficie totale de la chambre" required/>
+        </div>
+        <div class="form-group mt-3">
+            <label for="cap_chambre${i}"><strong>Capacité d'accueil </strong><span style="color: red;">*</span></label>
+            <input type="text" name="cap_chambre${i}" id="cap_chambre${i}" class="form-control" placeholder="Capacité d'accueil" required/>
         </div>
         <div class="form-group mt-4">
-                                    <label for="meuble${i}"><i class="fas fa-calendar"></i> Meublé ?
+                                    <label for="meuble${i}"><i class="fas fa-calendar"></i> <strong>Meublé ?</strong>
                                         <span style="color: red;">*</span></label>
                                     <select name="meuble${i}" id="meuble${i}" class="form-control"
                                         required>
@@ -229,11 +265,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group mt-4">
-                                <label for="disponibilite${i}"><i class="fas fa-calendar-alt"></i> Disponibilité <span style="color: red;">*</span></label>
+                                <label for="disponibilite${i}"><i class="fas fa-calendar-alt"></i><strong>Disponibilité </strong><span style="color: red;">*</span></label>
         <input type="date" name="disponibilite${i}" id="disponibilite${i}" class="form-control" min="2023-07-01" max="2025-01-01" required />
     </div>
         <div class="form-group">
-        <label for="equipements${i}"><i class="fas fa-tools"></i> Avec équipements ? <span style="color: red;">*</span></label>
+        <label for="equipements${i}"><i class="fas fa-tools"></i> <strong>Avec équipements ?</strong> <span style="color: red;">*</span></label>
         <select name="equipements${i}" id="equipements${i}" class="form-control" onchange="toggleEquipmentsContainer(${i})" required>
             <option value="">--Sélectionnez--</option>
             <option value="oui">Oui</option>
@@ -242,7 +278,7 @@
     </div>
 
     <div class="form-group mt-4" id="equipmentsContainer${i}" style="display: none;">
-<label><i class="fas fa-toolbox"></i> Liste des équipements <span style="color: red;">*</span></label>
+<label><i class="fas fa-toolbox"></i> <strong>Liste des équipements </strong><span style="color: red;">*</span></label>
 <div class="row" style="margin-left:2px;">
 <div class="col-md-4 form-check">
     <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="chauffage${i}" value="Chauffage">
@@ -308,11 +344,11 @@
 </div>
 </div>
 <div class="form-group mt-4">
-    <label for="salle_de_bain${i}"><i class="fas fa-bath"></i> Salle de bain(s) <span style="color: red;">*</span></label>
+    <label for="salle_de_bain${i}"><i class="fas fa-bath"></i> <strong>Salle de bain(s)</strong> <span style="color: red;">*</span></label>
     <input type="number" name="salle_de_bain${i}" id="salle_de_bain${i}" class="form-control" placeholder="Entrez le nombre de salle de bain(s)" min="1" required />
 </div>
 <div class="form-group">
-    <label for="loyer${i}"><i class="fas fa-coins"></i> Loyer <span style="color: red;">*</span></label>
+    <label for="loyer${i}"><i class="fas fa-coins"></i><strong> Loyer </strong><span style="color: red;">*</span></label>
     <input type="number" name="loyer${i}" id="loyer${i}" class="form-control" placeholder="Loyer par mois (en FCFA)" min="1" required />
 </div>
 `;
@@ -349,23 +385,14 @@
                 });
 
                 if (isValid) {
-                    // // On récupère le nombre de chambre
-                    // var roomCount = document.getElementById('chambre').value;
-                    // // On récupère la valeur de identicalRooms
-                    // var identicalRooms = document.getElementById('identicalYes').checked ? "oui" : "non";
-                    // // On ajoute le nombre de chambre et la valeur de identicalRooms à l'URL de la page 2
-                    // window.location.href = "soumission-offre2?chambre=" + roomCount +
-                    //     "&identical=" + identicalRooms;
-
-                    window.location.href = "soumission-offre2";
+                   /// window.location.href = "soumission-offre2";
                 } else {
-                    alert("Veuillez remplir tous les champs requis avant de continuer.");
+                    //alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }
             });
 
         });
     </script>
-
 
 </body>
 

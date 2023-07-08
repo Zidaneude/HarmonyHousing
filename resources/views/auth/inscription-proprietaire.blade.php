@@ -42,7 +42,7 @@
                                     <div class="col-md-2">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="gender"
-                                                id="genderMale" value="male" required>
+                                                id="genderMale" value="Homme" required>
                                             <label class="form-check-label" for="genderMale">
                                                 Homme
                                             </label>
@@ -51,7 +51,7 @@
                                     <div class="col-md-2">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="gender"
-                                                id="genderFemale" value="female" required>
+                                                id="genderFemale" value="Femme" required>
                                             <label class="form-check-label" for="genderFemale">
                                                 Femme
                                             </label>

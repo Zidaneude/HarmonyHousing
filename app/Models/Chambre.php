@@ -12,4 +12,5 @@ class Chambre extends Model
     public function logement(){
         return $this->belongsTo(Logement::class);
     }
+    protected $fillable = ['prix','nbre_bain','disponibilite','titre','logement_id','meuble','capacite','superficie','photos1','photos2','photos3'];
 }

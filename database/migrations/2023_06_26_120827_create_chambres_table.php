@@ -13,8 +13,18 @@ return new class extends Migration
     {
         Schema::create('chambres', function (Blueprint $table) {
             $table->id();
-            $table->integer('nombre_de_Lits');
+            $table->string('titre');
+            $table->String('meuble');
+            $table->date('disponibilite')->nullable();
+            $table->integer('nbre_bain');
+            $table->integer('superficie');
+            $table->integer('capacite');
+            $table->double('prix');
+            $table->string('photos1')->nullable();
+            $table->string('photos2')->nullable();
+            $table->string('photos3')->nullable();
             $table->foreignId('logement_id')->constrained();
+            //$table->integer('nombre_de_Lits');
             $table->timestamps();
         });
     }

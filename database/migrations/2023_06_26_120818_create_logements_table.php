@@ -20,13 +20,13 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('frequence_paie');
             $table->string('region');
-            $table->double('prix')->nullable(false);
-            $table->string('statut')->nullable();
-            $table->string('meuble');
+           // $table->double('prix')->nullable(false);
+           // $table->string('statut')->nullable();
+            //$table->string('meuble');
             $table->string('photos1')->nullable();
             $table->string('photos2')->nullable();
             $table->string('photos3')->nullable();
-           // $table->foreignId('offre_id')->constrained();
+            $table->foreignId('offre_id')->constrained();
             $table->timestamps();
         });
     }
