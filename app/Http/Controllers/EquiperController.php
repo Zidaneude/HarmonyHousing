@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Proprietaire;
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreProprietaireRequest;
-use App\Http\Requests\UpdateProprietaireRequest;
+use App\Models\Equiper;
+use App\Http\Requests\StoreEquiperRequest;
+use App\Http\Requests\UpdateEquiperRequest;
 
-class ProprietaireController extends Controller
+class EquiperController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,20 +21,21 @@ class ProprietaireController extends Controller
      */
     public function create()
     {
-        return view('dashboard.dashboard-proprietaire');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProprietaireRequest $request)
+    public function store(StoreEquiperRequest $request)
     {
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Proprietaire $proprietaire)
+    public function show(Equiper $equiper)
     {
         //
     }
@@ -43,7 +43,7 @@ class ProprietaireController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Proprietaire $proprietaire)
+    public function edit(Equiper $equiper)
     {
         //
     }
@@ -51,7 +51,7 @@ class ProprietaireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Proprietaire $proprietaire)
+    public function update(UpdateEquiperRequest $request, Equiper $equiper)
     {
         //
     }
@@ -59,13 +59,8 @@ class ProprietaireController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Proprietaire $proprietaire)
+    public function destroy(Equiper $equiper)
     {
         //
     }
-    public function soumi_offre()
-    {
-        return view('soumission_offre.soumission-offre-proprietaire');
-    }
-
 }

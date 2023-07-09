@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Proprietaire;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProprietaireController;
 use App\Http\Controllers\Proprietaire\ProfilControlleur;
+use App\Http\Controllers\Proprietaire\ProprietaireController;
 use App\Http\Controllers\Proprietaire\SoumissionOffreControlleur;
 use App\Http\Controllers\Proprietaire\SoumissionOfreFormOneControlleur;
 use App\Http\Controllers\Proprietaire\SoumissionOfreFormFinishControlleur;
@@ -91,6 +92,8 @@ Route::middleware('guest:proprietaire')->group(static function () {
             ->name('soumission.offre.step3.create');
 
     Route::get("/reser",[ProfilControlleur::class, 'aff']);
+    //
+    Route::get("/mes-reservations",[ProprietaireController::class,"reservation"])->name('reservation.show');
 
 
 

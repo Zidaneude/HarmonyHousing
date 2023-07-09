@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('photos2')->nullable();
             $table->string('photos3')->nullable();
             $table->foreignId('logement_id')->constrained();
-            //$table->integer('nombre_de_Lits');
+           // $table->foreignId('appartement_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

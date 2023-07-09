@@ -22,7 +22,7 @@ class ProfilControlleur extends Controller
     public function create()
     {
         $pro=Auth::guard('proprietaire')->user();
-        return view('profil-proprietaire',['proprietaire'=>$pro]) ;
+        return view('profils.profil-proprietaire',['proprietaire'=>$pro]) ;
     }
 
     /**

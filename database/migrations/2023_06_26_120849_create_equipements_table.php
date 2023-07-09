@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('equipements', function (Blueprint $table) {
             $table->id();
-            $table->string('nom'); 
-            $table->foreignId('logement_id')->constrained();
+            $table->string('nom');
+           // $table->foreignId('logement_id')->constrained();
 
         });
     }
