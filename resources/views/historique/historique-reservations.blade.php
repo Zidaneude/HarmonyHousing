@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Vendor CSS Files -->
+    <link href="assets_admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets_admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets_admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets_admin/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets_admin/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets_admin/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets_admin/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets_admin/css/style.css" rel="stylesheet">
+
+    <style>
+        .pagination-outer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
@@ -22,10 +42,10 @@
                 <a class="nav-link" href="/profil-admin">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/verification-offres">Vérification des offres</a>
+                <a class="nav-link" href="/verification-offres">Vérification d'offres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/verification-avis">Vérification des avis</a>
+                <a class="nav-link" href="/verification-avis">Modération d'avis</a>
             </li>
             <li class="nav-item active-tab">
                 <a class="nav-link" href="/historique-reservations">Historique des réservations</a>
@@ -36,7 +56,7 @@
             <div class="card-header profile-card-header" style="font-size: 18px; text-align: center;">
                 Historique des réservations
             </div>
-            <div class="card-body">
+            <div class="card-body mt-3">
                 <div class="mt-2">
                     <button class="btn btn-primary btn-export" style="position: relative; margin-left:85%">
                         Exporter en PDF <i class="fas fa-file-pdf"></i>

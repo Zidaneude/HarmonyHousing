@@ -1,81 +1,238 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Admin - Harmony Housing - La plateforme de réservation en ligne</title>
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/Favicon.png">
-    <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
 
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-custom-nav-propri shadow-bottom">
-    <a style="margin-left: 3%;" class="navbar-brand" href="#">
-        <img src="images/logo.png" height="30" alt="Logo">
-    </a>
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="/admin-dashboard" class="logo d-flex align-items-center">
+                <img src="images/logo.png" alt="Logo Harmony Housing">
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-    </button>
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Rechercher" title="Enter search keyword">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            </form>
+        </div><!-- End Search Bar -->
 
-    <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <div class="circle-icon" style="color: #004aad;">
-                        <i class="fas fa-home"></i>
-                    </div>
-                </a>
-            </li>
-            <li class="nav-item" style="color: ">
-                <a class="nav-link" href="#">
-                    <div class="circle-icon" style="color: #004aad;">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span style="color: black; font-weight: bold;"> <i class="fas fa-bars icon-menu"></i> &nbsp;
-                        Menu</span>
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
 
-                </a>
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuDropdown">
-                    <a class="dropdown-item" href="/profil-admin">
-                        <i class="fas fa-user"></i> Mon profil
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/verification-offres">
-                        <i class="fas fa-check-square"></i> Vérification des offres
-                    </a>
-                    <a class="dropdown-item" href="/verification-avis">
-                        <i class="fas fa-comments"></i> Vérification des avis
-                    </a>
-                    <a class="dropdown-item" href="/historique-reservations">
-                        <i class="fas fa-calendar-alt"></i> Historique des réservations
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/gestion-proprietaire">
-                        <i class="fas fa-users-cog"></i> Gestion des utilisateurs
-                    </a>
-                    <a class="dropdown-item" href="/gestion-remboursements">
-                        <i class="fas fa-undo"></i> Gestion des remboursements
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-sign-out-alt"></i> Déconnexion
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+                <li class="nav-item dropdown">
 
-</body>
-</html>
+                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-bell"></i>
+                        <span class="badge bg-primary badge-number">4</span>
+                    </a><!-- Fin de l'icône de notification -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                        <li class="dropdown-header">
+                            Vous avez 4 nouvelles notifications
+                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Voir tout</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="notification-item">
+                            <i class="bi bi-exclamation-circle text-warning"></i>
+                            <div>
+                                <h4>Nouvelle réservation</h4>
+                                <p>Une nouvelle réservation a été faite pour l'appartement Douala</p>
+                                <p>Il y a 30 min.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="notification-item">
+                            <i class="bi bi-x-circle text-danger"></i>
+                            <div>
+                                <h4>Annulation de réservation</h4>
+                                <p>La réservation pour le studio Yaoundé a été annulée</p>
+                                <p>Il y a 1 h.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="notification-item">
+                            <i class="bi bi-check-circle text-success"></i>
+                            <div>
+                                <h4>Paiement reçu</h4>
+                                <p>Un paiement a été reçu pour la Chambre Bafoussam</p>
+                                <p>Il y a 2 h.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="notification-item">
+                            <i class="bi bi-info-circle text-primary"></i>
+                            <div>
+                                <h4>Nouvel utilisateur inscrit</h4>
+                                <p>Un nouvel utilisateur, David L., s'est inscrit</p>
+                                <p>Il y a 4 h.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="dropdown-footer">
+                            <a href="#">Afficher toutes les notifications</a>
+                        </li>
+
+                    </ul><!-- Fin des éléments déroulants de notification -->
+
+                </li><!-- Fin de la navigation de notification -->
+
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                        <i class="bi bi-chat-left-text"></i>
+                        <span class="badge bg-success badge-number">3</span>
+                    </a><!-- Fin de l'icône des messages -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                        <li class="dropdown-header">
+                            Vous avez 3 nouveaux messages
+                            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">Voir tout</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="message-item">
+                            <a href="#">
+                                <img src="assets_admin/img/messages-1.jpg" alt="" class="rounded-circle">
+                                <div>
+                                    <h4>Clémence</h4>
+                                    <p>J'ai une question concernant la réservation de l'appartement Douala...</p>
+                                    <p>Il y a 4 h.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="message-item">
+                            <a href="#">
+                                <img src="assets_admin/img/messages-2.jpg" alt="" class="rounded-circle">
+                                <div>
+                                    <h4>Julie</h4>
+                                    <p>Je souhaite annuler ma réservation pour le studio Yaoundé...</p>
+                                    <p>Il y a 6 h.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="message-item">
+                            <a href="#">
+                                <img src="assets_admin/img/messages-3.jpg" alt="" class="rounded-circle">
+                                <div>
+                                    <h4>David L.</h4>
+                                    <p>Je suis intéressé par la Chambre Bafoussam, est-elle toujours disponible ?...</p>
+                                    <p>Il y a 8 h.</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li class="dropdown-footer">
+                            <a href="#">Afficher tous les messages</a>
+                        </li>
+
+                    </ul><!-- Fin des éléments déroulants des messages -->
+
+                </li><!-- Fin de la navigation des messages -->
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                        data-bs-toggle="dropdown">
+                        <img src="assets_admin/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">David L.</span>
+                    </a><!-- End Profile Image Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6>David L.</h6>
+                            <span>Modérateur</span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/profil-admin">
+                                <i class="fas fa-user"></i>
+                                <span>Mon profil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/verification-offres">
+                                <i class="fas fa-check-square"></i>
+                                <span>Vérification d'offres</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/verification-avis">
+                                <i class="fas fa-comments"></i>
+                                <span>Modération d'avis</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="/historique-reservations">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Historique des réservations</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Déconnexion</span>
+                            </a>
+                        </li>
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->

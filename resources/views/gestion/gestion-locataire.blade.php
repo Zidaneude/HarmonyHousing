@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vendor CSS Files -->
+    <link href="assets_admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets_admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets_admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets_admin/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets_admin/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets_admin/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets_admin/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets_admin/css/style.css" rel="stylesheet">
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
@@ -32,7 +44,7 @@
             <div class="card-header profile-card-header" style="font-size: 18px; text-align: center;">
                 Gestion des locataires
             </div>
-            <div class="card-body">
+            <div class="card-body mt-4">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>

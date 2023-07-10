@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f6f9ff;
   color: #444444;
 }
@@ -242,10 +242,9 @@ h6 {
 
 .card-header,
 .card-footer {
-  border-color: #ebeef4;
-  background-color: #fff;
-  color: #798eb3;
-  padding: 15px;
+background-color: #004aad;
+color: white;
+padding: 10px;
 }
 
 .card-title {

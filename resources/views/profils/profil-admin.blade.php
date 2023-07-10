@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Vendor CSS Files -->
+    <link href="assets_admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets_admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets_admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets_admin/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets_admin/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets_admin/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets_admin/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets_admin/css/style.css" rel="stylesheet">
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
@@ -21,10 +33,10 @@
                 <a class="nav-link" href="/profil-admin">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/verification-offres">Vérification des offres</a>
+                <a class="nav-link" href="/verification-offres">Vérification d'offres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/verification-avis">Vérification des avis</a>
+                <a class="nav-link" href="/verification-avis">Modération d'avis</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/historique-reservations">Historique des réservations</a>
@@ -36,7 +48,8 @@
             </div>
             <div class="card-body">
                 <form action="">
-                    <h6 class="card-title">Photo de profil</h6>
+                    <h6 class="card-title" style="color: inherit; font-size: inherit; font-weight: bold;">Photo de
+                        profil</h6>
                     <div style="display: flex; justify-content: center;">
                         <img height="60" src="images/upload.png" alt="Upload Image" class="mb-2">
                     </div>
@@ -81,8 +94,8 @@
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-del">Supprimer mon compte</button>
-                        <button type="button" class="btn btn-ins">Changer mon mot de passe</button>
+                        <button type="button" class="btn btn-danger">Supprimer mon compte</button>
+                        <button type="button" class="btn btn-success">Changer mon mot de passe</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
