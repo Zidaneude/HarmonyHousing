@@ -52,4 +52,8 @@ Route::get('/commentaire', function () {
     return view('commentaire.commentaire');
 });
 
+Route::get('/ii', function () {
+    return view('dashboard.dashbord-locataire');
+});
+
 require __DIR__ . '/auth.php';
