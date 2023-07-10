@@ -52,5 +52,4 @@ Route::get('/commentaire', function () {
     return view('commentaire.commentaire');
 });
 
-
 require __DIR__ . '/auth.php';
