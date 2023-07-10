@@ -105,7 +105,7 @@
                                                     logement</strong>
                                                 <span style="color: red;">*</span></label>
                                             <select name="type_logement" id="type_logement" class="form-control"
-                                                required>
+                                                required onchange="apap()">
                                                 <option value=""
                                                     data-placeholder="--Sélectionnez un type de logement--"
                                                     data-label="Les chambres sont-elles identiques ?">--Sélectionnez
@@ -124,6 +124,10 @@
                                                     Studio</option>
                                             </select>
                                         </div>
+                                         <!------           form logement -------->
+                                         <div class="form-group" id="my" style=" position:relative;" >
+
+                                         </div>
 
                                         <div class="form-group my-4">
                                             <label for="frequence_paie"><i class="fas fa-calendar"></i>
@@ -169,7 +173,7 @@
                                             </label>
                                             <input type="number" name="chambre" id="chambre" class="form-control"
                                                 min="1" max="50" required placeholder=""
-                                                onchange="generateRoomForms()" />
+                                                oninput="mutex()"/>
                                         </div>
 
                                         <div id="roomFormsContainer">
@@ -221,11 +225,37 @@
 
         document.getElementById('identicalYes').addEventListener('change', function() {
             identicalRooms = true;
-            generateRoomForms();
+            var tye=document.getElementById("type_logement");
+            var appb = document.getElementById('my');
+            var text=tye.options[tye.selectedIndex].text;
+
+            if(text=="Appartement")
+            {
+                generateRoomForms2()
+
+            }
+            else{
+                generateRoomForms();
+            }
+            //generateRoomForms();
         });
         document.getElementById('identicalNo').addEventListener('change', function() {
             identicalRooms = false;
-            generateRoomForms();
+            ///
+            var tye=document.getElementById("type_logement");
+            var appb = document.getElementById('my');
+            var text=tye.options[tye.selectedIndex].text;
+
+            if(text=="Appartement")
+            {
+
+                generateRoomForms2()
+
+            }else
+            {
+                 generateRoomForms();
+            }
+
         });
 
         function generateRoomForms() {
@@ -240,11 +270,6 @@
                 roomFormsContainer.innerHTML += `
 <h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">${roomTitle}</h6>`;
                 roomFormsContainer.innerHTML += `
-        <div class="form-group">
-            <label for="titre_chambre${i}"><strong>Numéro de chambre </strong><span style="color: red;">*</span></label>
-            <input type="text" name="titre_chambre${i}" id="titre_chambre${i}" class="form-control" placeholder="Numéro de la chambre" required/>
-        </div>
-        <!-- add by zidane-->
         <div class="form-group mt-3">
             <label for="surface_chambre${i}"><strong>Superficie totale de la chambre</strong> <span style="color: red;">*</span></label>
             <input type="text" name="surface_chambre${i}" id="surface_chambre${i}" class="form-control" placeholder="Superficie totale de la chambre" required/>
@@ -392,6 +417,173 @@
             });
 
         });
+
+
+        function apap()
+        {
+
+            var tye=document.getElementById("type_logement");
+            var appb = document.getElementById('my');
+            var text=tye.options[tye.selectedIndex].text;
+
+            appb.innerHTML = '';
+            if(text=="Appartement")
+                    {
+                        appb.innerHTML += `
+
+                        <div class="form-group mt-4">
+                            <label for="salle_de_bain"><i class="fas fa-bath"></i> <strong>Numéro Appartement</strong> <span style="color: red;">*</span></label>
+                            <input type="number" name="salle_de_bain" id="salle_de_bain" class="form-control" placeholder="Entrez le nombre de salle de bain(s)" min="1" required />
+                        </div>
+
+                        <div class="form-group mt-4">
+                                        <label for="disponibilite"><i class="fas fa-calendar-alt"></i><strong>Disponibilité </strong><span style="color: red;">*</span></label>
+                    <input type="date" name="disponibilite" id="disponibilite" class="form-control" min="2023-07-01" max="2025-01-01" required />
+                    </div>
+                        <div class="form-group mt-4">
+                                            <label for="meuble"><i class="fas fa-calendar"></i> <strong>Meublé ?</strong>
+                                                <span style="color: red;">*</span></label>
+                                            <select name="meuble" id="meuble" class="form-control"
+                                                required>
+                                                <option value="">--Sélectionnez--
+                                                </option>
+                                                <option value="Oui">Oui</option>
+                                                <option value="Non">Non</option>
+                                            </select>
+                        </div>
+                        <div class="form-group mt-4">
+                        <label for="salle_de_bain"><i class="fas fa-bath"></i> <strong>Salle de bain(s)</strong> <span style="color: red;">*</span></label>
+                        <input type="number" name="salle_de_bain" id="salle_de_bain" class="form-control" placeholder="Entrez le nombre de salle de bain(s)" min="1" required />
+                    </div>
+                    <div class="form-group">
+                                        <label for="loye"><i class="fas fa-coins"></i><strong> Loyer </strong><span style="color: red;">*</span></label>
+                                        <input type="number" name="loyer" id="loyer" class="form-control" placeholder="Loyer par mois (en FCFA)" min="1" required />
+                        </div>
+                        `;
+
+            }
+        }
+
+
+        function generateRoomForms2() {
+            var roomCount = document.getElementById('chambre').value;
+            var roomFormsContainer = document.getElementById('roomFormsContainer');
+
+            roomFormsContainer.innerHTML = '';
+
+            // Générer de nouveaux formulaires de chambre
+            for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
+                var roomTitle = identicalRooms ? "Détails de la chambre" : "Chambre " + i;
+                roomFormsContainer.innerHTML += `
+                <h6 class="mt-5" style="color:#004aad; font-size:18px; text-align:center;">${roomTitle}</h6>`;
+                roomFormsContainer.innerHTML += `
+                <div class="form-group mt-3">
+                    <label for="surface_chambre${i}"><strong>Superficie totale de la chambre</strong> <span style="color: red;">*</span></label>
+                    <input type="text" name="surface_chambre${i}" id="surface_chambre${i}" class="form-control" placeholder="Superficie totale de la chambre" required/>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="cap_chambre${i}"><strong>Capacité d'accueil </strong><span style="color: red;">*</span></label>
+                    <input type="text" name="cap_chambre${i}" id="cap_chambre${i}" class="form-control" placeholder="Capacité d'accueil" required/>
+                </div>
+
+
+                <div class="form-group">
+                <label for="equipements${i}"><i class="fas fa-tools"></i> <strong>Avec équipements ?</strong> <span style="color: red;">*</span></label>
+                <select name="equipements${i}" id="equipements${i}" class="form-control" onchange="toggleEquipmentsContainer(${i})" required>
+                    <option value="">--Sélectionnez--</option>
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-4" id="equipmentsContainer${i}" style="display: none;">
+        <label><i class="fas fa-toolbox"></i> <strong>Liste des équipements </strong><span style="color: red;">*</span></label>
+        <div class="row" style="margin-left:2px;">
+        <div class="col-md-4 form-check">
+            <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="chauffage${i}" value="Chauffage">
+            <label class="form-check-label" for="chauffage${i}">
+                Chauffage
+                    </label>
+                </div>
+                <div class="col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="fer_a_repasser${i}" value="Fer à repasser">
+                    <label class="form-check-label" for="fer_a_repasser${i}">
+                        Fer à repasser
+                    </label>
+                </div>
+                <div class="col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="ordinateur${i}" value="Ordinateur">
+                    <label class="form-check-label" for="ordinateur${i}">
+                        Ordinateur
+                    </label>
+                </div>
+                </div>
+
+                <div class="row" style="margin-left:2px;">
+                <div class="col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="equipements_hygiene${i}" value="Équipements d'hygiène">
+                    <label class="form-check-label" for="equipements_hygiene${i}">
+                        Équipements d'hygiène
+                    </label>
+                </div>
+                <div class="col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="tv${i}" value="Télévision">
+                    <label class="form-check-label" for="tv${i}">
+                        Télévision
+                    </label>
+                </div>
+                <div class="col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="cintres${i}" value="Cintres pour vêtements">
+                    <label class="form-check-label" for="cintres${i}">
+                        Cintres pour vêtements
+                    </label>
+                </div>
+                </div>
+                <div class="row" style="margin-left:2px;">
+                <div class="col-md-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="climatisation${i}" value="Climatisation">
+
+
+                    <label class="form-check-label" for="climatisation${i}">
+                        Climatisation
+                    </label>
+                </div>
+                <div class="col-md-4 form-check">
+                        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="cuisine_equipee${i}" value="Cuisine équipée">
+                        <label class="form-check-label" for="cuisine_equipee${i}">
+                            Cuisine équipée
+                        </label>
+                    </div>
+                    <div class="col-md-4 form-check">
+                        <input class="form-check-input" type="checkbox" name="equipments${i}[]" id="internet${i}" value="Internet">
+                        <label class="form-check-label" for="internet${i}">
+                            Internet
+                        </label>
+                    </div>
+                </div>
+                </div>
+
+
+                `;
+            }
+        }
+
+        function mutex()
+        {
+            var tye=document.getElementById("type_logement");
+            var appb = document.getElementById('my');
+            var text=tye.options[tye.selectedIndex].text;
+            if(text=="Appartement")
+            {
+
+                generateRoomForms2()
+
+            }
+            else
+            {
+                generateRoomForms();
+            }
+        }
     </script>
 
 </body>

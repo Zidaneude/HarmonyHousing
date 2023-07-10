@@ -12,4 +12,6 @@ class Appartement extends Model
     public function logement(){
         return $this->belongsTo(Logement::class);
     }
+    protected $fillable = ['prix','nbre_bain','nbre_bain','disponibilite','logement_id','meuble'];
 }
+

@@ -94,13 +94,12 @@ Route::middleware('guest:proprietaire')->group(static function () {
     Route::get("/reser",[ProfilControlleur::class, 'aff']);
     //
     Route::get("/mes-reservations",[ProprietaireController::class,"reservation"])->name('reservation.show');
-
-
-
+    Route::get("/disponibilite",[ProprietaireController::class,"disponibilite"])->name('disponibilite.show');
 
 });
 
 //Route::get('/g', [SoumissionOffreControlleur::class, 'test']);
 Route::get("/text",[SoumissionOfreFormOneControlleur::class, 't']);
+
 ?>
 

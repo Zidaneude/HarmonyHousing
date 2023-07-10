@@ -146,6 +146,7 @@
                         <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
                         <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
                     </div>
+
                     <input type="hidden" name="tab_id" value="{{$chaine}}"/>
                     `;
                 }
@@ -160,6 +161,7 @@
                         <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
                         <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
                     </div>
+                   
                     <input type="hidden" name="id${i}" value="{{$chaine}}"/>
 
                     `;

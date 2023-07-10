@@ -55,28 +55,31 @@ class SoumissionOfreFormSecondControlleur extends Controller
                 $imagePrincipale = $request->file("roomPhotoPrincipale");
                 $imagePath=$imagePrincipale->store('proprietaire/offre','public');
 
-                $imageSecondaire1=$request->roomPhoto1[0];
-                $pad=$imageSecondaire1->store('proprietaire/offre','public');
+                if(count($request->roomPhoto1)==2)
+                {
 
-                $imageSecondaire2=$request->roomPhoto1[1];
-                $pad2=$imageSecondaire2->store('proprietaire/offre','public');
-                $logement->photos1=$imagePath;
-                $logement->photos2=$pad;
-                $logement->photos3=$pad2;
-                $logement->save();
-               // dd($logement);
+                    $imageSecondaire1=$request->roomPhoto1[0];
+                    $pad=$imageSecondaire1->store('proprietaire/offre','public');
+
+                    $imageSecondaire2=$request->roomPhoto1[1];
+                    $pad2=$imageSecondaire2->store('proprietaire/offre','public');
+                    $logement->photos1=$imagePath;
+                    $logement->photos2=$pad;
+                    $logement->photos3=$pad2;
+                    $logement->save();
+                    return redirect()->route('soumission.offre.step3.create');
+                }
+                else{
+                    return redirect()->route('soumission.offre.step3.create')->with(['message'=>"Au plus 2 images"]);
+                }
             }
-             return redirect()->route('soumission.offre.step3.create');
-
-
         }
         else
         {
             $i=1;
 
             $stringId=$request->id1;
-            $arrayId=explode('.',$stringId);//for($i;$i< $nb+1;$i++)
-            //dd( $request->all());
+            $arrayId=explode('.',$stringId);
             foreach($arrayId as $item)
             {
 

@@ -17,5 +17,7 @@ class Chambre extends Model
     {
         return $this->belongsToMany(Equipement::class);
     }
+
+   
     protected $fillable = ['prix','nbre_bain','disponibilite','titre','logement_id','meuble','capacite','superficie','photos1','photos2','photos3'];
 }

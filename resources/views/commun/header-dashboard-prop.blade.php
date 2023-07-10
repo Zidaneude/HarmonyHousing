@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item btn-primary2">
-                <a class="nav-link" href="/dashboard-proprietaire">
+                <a class="nav-link" href="/">
                     <div class="circle-icon" style="color: #004aad;">
                         <i class="fas fa-home"></i>
                     </div>
@@ -35,10 +35,10 @@
                     <a class="dropdown-item" href="{{ route('profil.pro') }}">
                         <i class="fas fa-user"></i> Mon profil
                     </a>
-                    <a class="dropdown-item" href="/reservations-prop">
+                    <a class="dropdown-item" href="{{ route('reservation.show') }}">
                         <i class="fas fa-calendar-check"></i> Gérer les réservations
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('disponibilite.show') }}">
                         <i class="fas fa-sync"></i> Mettre à jour la disponibilité
                     </a>
                     <div class="dropdown-divider"></div>

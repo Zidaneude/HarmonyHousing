@@ -36,6 +36,7 @@
                                     <input style="background-color: #F8F8FF;" placeholder="Votre adresse email"
                                         type="email" class="form-control" id="email" name="email" required>
                                 </div>
+
                             </div>
 
                             <div class="form-group">
@@ -54,12 +55,20 @@
                                         </span>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="form-group pt-1">
                                 <a href="{{route('password.request')}}" style="float: right; text-decoration: none;"><span
                                         style="color: #004aad;">Mot de passe
                                         oublié ?</span></a>
                             </div>
+                            @error("password")
+                                <h6  style="color: red" class="mt-3"> {{$message}}</h6>
+                            @enderror
+                            @error("email")
+                                <h6 style="color: red" class="mt-3"> {{$message}}</h6>
+                            @enderror
+
                             <div class="text-center pt-5 pb-3">
                                 <button type="submit" class="btn btn-primary">Se connecter</button>
                             </div>

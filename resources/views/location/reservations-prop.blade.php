@@ -18,13 +18,13 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="/profil-proprietaire">Mon profil</a>
+                <a class="nav-link" href="{{route('profil.pro')}}">Mon profil</a>
             </li>
             <li class="nav-item active-tab">
-                <a class="nav-link" href="/reservations-prop">Mes réservations</a>
+                <a class="nav-link" href="{{route('reservation.show')}}">Mes réservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/disponibilite">Mettre à jour la disponibilité</a>
+                <a class="nav-link" href="{{route('disponibilite.show')}}">Mettre à jour la disponibilité</a>
             </li>
         </ul>
 

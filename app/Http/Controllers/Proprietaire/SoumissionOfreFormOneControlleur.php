@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Proprietaire;
 use App\Models\Offre;
 use App\Models\Chambre;
 use App\Models\Equiper;
+use App\Models\Inclure;
 use App\Models\Logement;
 use App\Models\Equipement;
+use App\Models\Appartement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -24,12 +26,17 @@ class SoumissionOfreFormOneControlleur extends Controller
 
     public function store(Request $request)
     {
-
+      //dd($request);
+        //les chambres sont equipées ?
+        $cham_equip=$request->equipements1;
+       // dd($cham_equip);
         $list_equip=$request->equipments1;
+
         $TYPE_CHAMBRE="chambre";
-        $TYPE_APPARTEMENT="Appartement";
-        $TYPE_STUDIO="Studio";
+        $TYPE_APPARTEMENT="appartement";
+        $TYPE_STUDIO="studio";
         $CHAMBRE_IDENTIQUES="oui";
+        $ID_LOG=0;
 
         //nombre de chambre entrer par le user
         $nombre_chambre=$request->chambre;
@@ -91,14 +98,17 @@ class SoumissionOfreFormOneControlleur extends Controller
         *
         */
 
+
+
          if($type_logement==$TYPE_CHAMBRE)
          {
+            dd($request);
             //si les chambres sont toutes identiques
 
             if($chambres_idem==$CHAMBRE_IDENTIQUES)
             {
                 // id du dernier logement
-                $id=Logement::latest()->first()->id;
+                $ID_LOG=Logement::latest()->first()->id;
                 $cpt=0; // variable de compteur
 
                 // boucler pour inserer autant de chambre
@@ -108,11 +118,11 @@ class SoumissionOfreFormOneControlleur extends Controller
                         [ 'prix'=>$request->loyer1,
                         'nbre_bain'=>$request->salle_de_bain1,
                         'disponibilite'=>$request->disponibilite1,
-                        'titre'=>$request->titre_chambre1,
+                       // 'titre'=>$request->titre_chambre1,
                         'meuble'=>$request->meuble1,
                         'superficie'=>$request->surface_chambre1,
                         'capacite'=>$request->cap_chambre1,
-                        'logement_id'=>$id,]
+                        'logement_id'=> $ID_LOG,]
                     );
 
                     /*
@@ -120,13 +130,17 @@ class SoumissionOfreFormOneControlleur extends Controller
                     * chambre et equipement
                     *
                     */
-                    foreach ($list_equip as $equip)
+                    if( $cham_equip=='oui')
                     {
-                        //id de chaque equip
-                        $id=Equipement::where('nom','=',$equip)->first()->id;
-                        Equiper::create(['chambre_id'=>$idc,'equipement_id'=>$id]);
+                        foreach ($list_equip as $equip)
+                        {
+                            //id de chaque equip
+                            $id=Equipement::where('nom','=',$equip)->first()->id;
+                            Equiper::create(['chambre_id'=>$idc,'equipement_id'=>$id]);
 
+                        }
                     }
+
                     /*
                     * mettre a jour la chaine des id pour recuperer a l"etape 2
                     *
@@ -160,21 +174,24 @@ class SoumissionOfreFormOneControlleur extends Controller
                         'prix'=>$request->input('loyer'.strval($i)),
                         'nbre_bain'=>$request->input('salle_de_bain'.strval($i)),
                         'disponibilite'=>$request->input('disponibilite'.strval($i)),
-                        'titre'=>$request->input('titre_chambre'.strval($i)),
+                        //'titre'=>$request->input('titre_chambre'.strval($i)),
                         'meuble'=>$request->input('meuble'.strval($i)),
                         'superficie'=>$request->input('surface_chambre'.strval($i)),
                         'capacite'=>$request->input('cap_chambre'.strval($i)),
-                        'logement_id'=>$id,
+                        'logement_id'=> $ID_LOG,
                     ]);
 
 
                     $equipement=$request->input('equipments'.strval($i));
-                    foreach ($equipement as $equip)
+                    if( $cham_equip=='oui')
                     {
-                        //id de chaque equip
-                        $id=Equipement::where('nom','=',$equip)->first()->id;
-                        Equiper::create(['chambre_id'=>$last_id,'equipement_id'=>$id]);
+                        foreach ($equipement as $equip)
+                        {
+                            //id de chaque equip
+                            $id=Equipement::where('nom','=',$equip)->first()->id;
+                            Equiper::create(['chambre_id'=>$last_id,'equipement_id'=>$id]);
 
+                        }
                     }
                     if($chaine_tab=="")
                     {
@@ -198,6 +215,119 @@ class SoumissionOfreFormOneControlleur extends Controller
         *
         */
 
+         if($type_logement==$TYPE_APPARTEMENT)
+         {
+              $ID_LOG=Logement::latest()->first()->id;
+                //dd($request);
+                //insertion de l'appartement
+                $idc = Appartement::insertGetId([
+                    'prix'=>$request->loyer,
+                    'nbre_bain'=>$request->salle_de_bain,
+                    'disponibilite'=>$request->disponibilite,
+                    'meuble'=>$request->meuble,
+                    'nombre_chambre'=>$request->chambre,
+                    'logement_id'=>$ID_LOG,]
+                );
+
+            if($chambres_idem==$CHAMBRE_IDENTIQUES)
+            {
+                // id du dernier appartement
+                $id=Appartement::latest()->first()->id;
+                $cpt=0; // variable de compteur
+
+                // boucler pour inserer autant de chambre
+                for($cpt;$cpt<$nombre_chambre;$cpt++)
+                {
+                    $idc = Chambre::insertGetId(
+                        [
+                        'superficie'=>$request->surface_chambre1,
+                        'capacite'=>$request->cap_chambre1,
+                        'logement_id'=>$ID_LOG,
+                        ]
+                    );
+
+                    ///chambre appartient a appar
+                    Inclure::create([
+                        'chambre_id'=>$idc,'appartement_id'=>$id
+                    ]);
+
+                     /*
+                    * mettre à jour la table pivot <<equiper> pour etablie le binding entre la
+                    * chambre et equipement
+                    *
+                    */
+                    if( $cham_equip=='oui')
+                    {
+                        foreach ($list_equip as $equip)
+                        {
+                            //id de chaque equip
+                            $id=Equipement::where('nom','=',$equip)->first()->id;
+                            Equiper::create(['chambre_id'=>$idc,'equipement_id'=>$id]);
+
+                        }
+                    }
+
+                    /*
+                    * mettre a jour la chaine des id pour recuperer a l"etape 2
+                    *
+                    */
+                    if($chaine_tab=="")
+                    {
+                        $chaine_tab=strval($idc);
+                    }
+                    else
+                    {
+                        $chaine_tab=$chaine_tab.'.'.strval($idc);
+                    }
+                }
+                return view('soumission_offre.soumission-offre2',['nb'=>$nombre_chambre, 'ch_id'=> true,'id'=>$id,'chaine'=>$chaine_tab]);
+
+            }
+            else{
+
+                $id=Appartement::latest()->first()->id;
+                $i=1;
+                for($i;$i<$nombre_chambre+1;$i++)
+                {
+
+                    $last_id=Chambre::insertGetId([
+
+                        'superficie'=>$request->input('surface_chambre'.strval($i)),
+                        'capacite'=>$request->input('cap_chambre'.strval($i)),
+                        'logement_id'=>$ID_LOG,
+                    ]);
+
+                     ///chambre appartient a appar
+                     Inclure::create([
+                        'chambre_id'=>$idc,'appartement_id'=>$id
+                    ]);
+
+                    $equipement=$request->input('equipments'.strval($i));
+                    if( $cham_equip=='oui')
+                    {
+                        foreach ($equipement as $equip)
+                        {
+                            //id de chaque equip
+                            $id=Equipement::where('nom','=',$equip)->first()->id;
+                            Equiper::create(['chambre_id'=>$last_id,'equipement_id'=>$id]);
+
+                        }
+                    }
+                    if($chaine_tab=="")
+                    {
+                        $chaine_tab=strval($last_id);
+                    }
+                    else
+                    {
+                        $chaine_tab=$chaine_tab.'.'.strval($last_id);
+                    }
+
+
+                }
+            }
+            return view('soumission_offre.soumission-offre2',['nb'=>$nombre_chambre, 'ch_id'=> true,'id'=>$id,'chaine'=>$chaine_tab]);
+
+         }
 
 
 
