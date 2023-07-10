@@ -37,7 +37,7 @@
 
 <body>
 
-    @include('header-dashboard-admin')
+    @include('commun.header-dashboard-admin')
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
