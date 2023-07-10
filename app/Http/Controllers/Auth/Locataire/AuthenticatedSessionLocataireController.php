@@ -30,13 +30,15 @@ class AuthenticatedSessionLocataireController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginLocataireRequest $request): RedirectResponse
+    public function store(LoginLocataireRequest $request)
     {
         $request->authenticate();
         $request->session()->regenerate();
         $pre=Auth::guard('locataire')->user()->nom;
         toastr()->success('Heureux de vous revoir '.$pre);
-        return redirect()->intended(RouteServiceProvider::DASHBORD_LOCATAIRE);
+        //return redirect()->intended(RouteServiceProvider::DASHBORD_LOCATAIRE);
+        $pro=Auth::guard('locataire')->user();
+        return view('profils.profil-locataire',['locataire'=>$pro]) ;
     }
 
     /**

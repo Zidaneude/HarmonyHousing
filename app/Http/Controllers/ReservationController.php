@@ -21,16 +21,13 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        return view ('location.reservations-loc');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReservationRequest $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -51,10 +48,7 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateReservationRequest $request, Reservation $reservation)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.

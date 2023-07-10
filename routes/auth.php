@@ -70,35 +70,10 @@ Route::middleware('auth')->group(function () {
 
 
 
-// route locataire
-Route::get('connexion-locataire', [AuthenticatedSessionLocataireController::class, 'create'])
-        ->name('connexion.locataire.create');
-
-Route::post('connexion-locataire', [AuthenticatedSessionLocataireController::class, 'store'])
-        ->name('connexion.locataire.store');
-
-Route::get('inscription-locataire', [RegisteredLocataireController::class, 'create'])
-        ->name('inscription.locataire.create');
-
-Route::post('inscription-locataire', [RegisteredLocataireController::class, 'store'])
-        ->name('inscription.locataire.store');
-
- Route::get('forgot-passwordl', [PasswordResetLinkLocataireController::class, 'create'])
-        ->name('password.request.l');
-
-Route::post('forgot-passwordl', [PasswordResetLinkLocataireController::class, 'store'])
-        ->name('password.email.l');
-        
-Route::get('profil-locataire', [LocataireController::class, 'create'])
-        ->name('profil-locataire');
 
 //Addmin
 
-Route::get('connexion-admin', [AuthenticatedSessionAdminController::class, 'create'])
-->name('connexion.admin.create');
 
-Route::post('connexion-admin', [AuthenticatedSessionAdminController::class, 'store'])
-->name('connexion.admin.store');
 
 
 

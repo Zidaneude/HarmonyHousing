@@ -19,10 +19,10 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item active-tab">
-                <a class="nav-link" href="/profil-locataire">Mon profil</a>
+                <a class="nav-link" href="{{ route('profil.locataire.create') }}">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/reservation-locataire">Mes réservations</a>
+                <a class="nav-link" href="{{route('reservation.locataire')}}">Mes réservations</a>
             </li>
         </ul>
         <div class="card profile-card my-5">
@@ -34,16 +34,27 @@
                     <a style="text-decoration: none;" href="#">Voir mon profil public</a>
                 </div>
                 <hr>
-                <form method="" action="">
+                @if ($errors->any())
+                                @foreach ($errors->all() as $item)
+                                    {{ $item }}
+                                @endforeach
+                            @endif
+                <form method="POST" action="{{route('profil.locataire.update',$locataire->id)}}" enctype="multipart/form-data">
+                    @csrf
+
+                <!-- photo de profil            -->
+
                     <h6 class="card-title">Photo de profil</h6>
                     <div style="display: flex; justify-content: center;">
                         <img height="60" src="images/upload.png" alt="Upload Image" class="mb-2">
                     </div>
                     <div class="dashed-border p-3 mb-3">
-                        <input type="file" name="photo-profil" id="photo-profil" accept=".jpg, .jpeg, .png">
+                        <input type="file" name="photo" id="photo-profil" accept=".jpg, .jpeg, .png">
                     </div>
                     <div class="row">
                         <div class="col">
+                        
+                            <!-- sex            -->
                             <div class="form-group">
                                 <label>Civilité</label><br>
                                 <div class="form-check">
@@ -59,29 +70,36 @@
                             </div>
                         </div>
                         <div class="col">
+
+                        <!-- email            -->
                             <div class="form-group">
                                 <label for="email">Adresse e-mail<span style="color: red;">*</span></label>
-                                <input id="email" type="email" class="form-control" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{$locataire->email}}" required>
                                 <a style="text-decoration: none;" href="#" class="mt-1 d-block">Changer mon
                                     adresse email</a>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-3">
+
+                    <!-- prenom            -->
                         <div class="col">
                             <div class="form-group">
                                 <label for="prenom">Prénom<span style="color: red;">*</span></label>
-                                <input id="prenom" type="text" class="form-control" required>
+                                <input id="prenom" type="text" class="form-control" value="{{$locataire->prenom}}" name="prenom" required>
                             </div>
                         </div>
+
+                    <!-- nom            -->
                         <div class="col">
                             <div class="form-group">
                                 <label for="nom">Nom<span style="color: red;">*</span></label>
-                                <input id="nom" type="text" class="form-control" required>
+                                <input id="nom" type="text" class="form-control" value="{{$locataire->nom}}" name="nom" required>
                             </div>
                         </div>
                     </div>
 
+                    <!-- telephone            -->
                     <div class="form-group mt-3">
                         <label for="tel">Numéro de téléphone</label>
                         <div class="input-group">
@@ -90,10 +108,12 @@
                                         <img src="/images/cameroun.jpg" alt="Cameroon Flag" width="25">
                                     </span>&nbsp;+237</span>
                             </div>
-                            <input id="tel" style="background-color: #F8F8FF;" type="tel" class="form-control"
-                                id="phoneNumber" required>
+                            <input id="tel" style="background-color: #F8F8FF;" type="tel" value="{{$locataire->telephone}}" class="form-control"
+                                id="phoneNumber" required name="telephone">
                         </div>
                     </div>
+
+                    <!-- presentation            -->
                     <div class="form-group mt-3">
                         <label for="pres">Présentation</label>
                         <textarea id="pres" class="form-control" rows="3"></textarea>
@@ -101,7 +121,7 @@
                     <div class="form-group mt-4">
                         <h6>Notifications</h6>
                         <div class="form-check">
-                            <input id="in1" class="form-check-input" type="checkbox" value="">
+                            <input id="in1" class="form-check-input" type="checkbox" value="presentation">
                             <label for="in1" class="form-check-label">
                                 Permettre aux propriétaires de me notifier de leurs nouvelles disponibilités</label>
                         </div>

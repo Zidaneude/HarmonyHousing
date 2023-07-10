@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-custom-nav-propri shadow-bottom">
-    <a style="margin-left: 3%;" class="navbar-brand" href="/dashboard-proprietaire">
+    <a style="margin-left: 3%;" class="navbar-brand" href="/">
         <img src="images/logo.png" height="30" alt="Logo">
     </a>
 
@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard-proprietaire">
+                <a class="nav-link" href="/">
                     <div class="circle-icon" style="color: #004aad;">
                         <i class="fas fa-home"></i>
                     </div>
@@ -32,7 +32,7 @@
 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuDropdown">
-                    <a class="dropdown-item" href="{{ route('profil.pro') }}">
+                    <a class="dropdown-item" href="{{ route('profil.locataire.create') }}">
                         <i class="fas fa-user"></i> Mon profil
                     </a>
                     <a class="dropdown-item" href="/reservations-prop">
@@ -46,7 +46,7 @@
                         <i class="fas fa-envelope"></i> Nous contacter
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('logout') }}">
+                    <a class="dropdown-item" href="{{ route('logout.locataire') }}">
                         <i class="fas fa-sign-out-alt"></i> Déconnexion
                     </a>
                 </div>

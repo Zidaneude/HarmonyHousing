@@ -19,6 +19,6 @@ class Locataire extends Authenticate
         return $this->hasMany(Reservation::class);
     }
 
-    protected $fillable = ['nom','prenom','email','sexe','telephone','password'];
+    protected $fillable = ['nom','prenom','email','sexe','telephone','password','profil'];
  
 }
