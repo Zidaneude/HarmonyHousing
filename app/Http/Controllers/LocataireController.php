@@ -22,7 +22,7 @@ class LocataireController extends Controller
      */
     public function create()
     {
-        return view('location.profil-locataire');
+        //
     }
 
     /**
