@@ -69,7 +69,7 @@ Route::middleware('guest:proprietaire')->group(static function () {
 
     Route::post('confirm-password', [ConfirmablePasswordProprietaireController::class, 'store']);
 
-    Route::get('logout', [AuthenticatedSessionProprietaireController::class, 'destroy'])->name('logout');
+    Route::get('proprietaire/logout', [AuthenticatedSessionProprietaireController::class, 'destroy'])->name('logout.pro');
 
     Route::get('proprietaire-dashbord', [ProprietaireController::class, 'create'])
                     ->name('proprietaire-dashbord');

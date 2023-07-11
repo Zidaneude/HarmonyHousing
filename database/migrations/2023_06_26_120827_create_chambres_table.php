@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('chambres', function (Blueprint $table) {
             $table->id();
-           // $table->string('titre');
             $table->String('meuble')->nullable();
             $table->date('disponibilite')->nullable();
             $table->integer('nbre_bain')->nullable();
@@ -24,7 +23,6 @@ return new class extends Migration
             $table->string('photos2')->nullable();
             $table->string('photos3')->nullable();
             $table->foreignId('logement_id')->constrained();
-           // $table->foreignId('appartement_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

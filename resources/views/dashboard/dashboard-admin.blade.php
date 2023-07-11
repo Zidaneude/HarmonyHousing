@@ -22,22 +22,22 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets_admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets_admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets_admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets_admin/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets_admin/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets_admin/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets_admin/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets_admin/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets_admin/css/style.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
 
-    @include('header-dashboard-admin')
+    @include('commun.header-dashboard-admin')
 
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/verification-offres">
+                        <a href="/verification-avis">
                             <i class="bi bi-circle"></i><span>Modérer les avis</span>
                         </a>
                     </li>
@@ -75,6 +75,12 @@
                         class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="proprietaires-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/verification-offres">
+                            <i class="bi bi-circle"></i><span>Vérifier les offres</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="/gestion-proprietaire">
                             <i class="bi bi-circle"></i><span>Gérer les propriétaires</span>
@@ -675,17 +681,17 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="assets_admin/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets_admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets_admin/vendor/chart.js/chart.min.js"></script>
-    <script src="assets_admin/vendor/echarts/echarts.min.js"></script>
-    <script src="assets_admin/vendor/quill/quill.min.js"></script>
-    <script src="assets_admin/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets_admin/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets_admin/vendor/php-email-form/validate.js"></script>
+    <script src="{{ asset('assets_admin/vendor/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/chart.js/chart.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/echarts/echarts.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/quill/quill.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/simple-datatables/simple-datatables.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/php-email-form/validate.js') }}"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets_admin/js/main.js"></script>
+    <script src="{{ asset('assets_admin/js/main.js') }}"></script>
 
 </body>
 

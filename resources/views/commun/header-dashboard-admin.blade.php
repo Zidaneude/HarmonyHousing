@@ -3,7 +3,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="/admin-dashboard" class="logo d-flex align-items-center">
-                <img src="images/logo.png" alt="Logo Harmony Housing">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo Harmony Housing">
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -118,7 +118,7 @@
 
                         <li class="message-item">
                             <a href="#">
-                                <img src="assets_admin/img/messages-1.jpg" alt="" class="rounded-circle">
+                                <img src="{{ asset('assets_admin/img/messages-1.jpg') }}" alt="" class="rounded-circle">
                                 <div>
                                     <h4>Clémence</h4>
                                     <p>J'ai une question concernant la réservation de l'appartement Douala...</p>
@@ -132,7 +132,7 @@
 
                         <li class="message-item">
                             <a href="#">
-                                <img src="assets_admin/img/messages-2.jpg" alt="" class="rounded-circle">
+                                <img src="{{ asset('assets_admin/img/messages-2.jpg') }}" alt="" class="rounded-circle">
                                 <div>
                                     <h4>Julie</h4>
                                     <p>Je souhaite annuler ma réservation pour le studio Yaoundé...</p>
@@ -146,7 +146,7 @@
 
                         <li class="message-item">
                             <a href="#">
-                                <img src="assets_admin/img/messages-3.jpg" alt="" class="rounded-circle">
+                                <img src="{{ asset('assets_admin/img/messages-3.jpg') }}" alt="" class="rounded-circle">
                                 <div>
                                     <h4>David L.</h4>
                                     <p>Je suis intéressé par la Chambre Bafoussam, est-elle toujours disponible ?...</p>
@@ -170,7 +170,7 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
-                        <img src="assets_admin/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="{{ asset('assets_admin/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">David L.</span>
                     </a><!-- End Profile Image Icon -->
 

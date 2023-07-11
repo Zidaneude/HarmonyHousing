@@ -21,9 +21,9 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/';
     public const CONNEXION_PROPRIETAIRE = '/connexion-proprietaire';
     public const DASHBORD = '/proprietaire-dashbord';
-    public const DASHBORD_ADMIN = '/';
+    public const DASHBORD_ADMIN = '/admin/dasboard';
     public const DASHBORD_LOCATAIRE = '/profil-locataire';
-    
+
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

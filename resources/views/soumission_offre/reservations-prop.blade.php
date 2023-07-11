@@ -61,6 +61,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Nom du locataire</th>
                                 <th scope="col">Type de logement</th>
+                                <th scope="col">Titre du logement</th>
                                 <th scope="col">Date de réservation</th>
                                 <th scope="col">Durée</th>
                                 <th scope="col">Statut</th>
@@ -71,18 +72,19 @@
                                 <td>1</td>
                                 <td>David</td>
                                 <td>Appartement</td>
+                                <td>Appartement bon standing</td>
                                 <td>30/06/2023</td>
                                 <td>1 mois</td>
                                 <td><i style="color: green;" class="fas fa-check-circle"></i> Réservé</td>
                             </tr>
                             <tr class="reservation-row">
-                                <td>2</td>
-                                <td>Cabrel</td>
-                                <td>Studio</td>
-                                <td>03/07/2023</td>
-                                <td>3 mois</td>
-                                <td><span><i style="color: orange;" class="fas fa-clock"></i> En cours</span>
-                                </td>
+                                <td>3</td>
+                                <td>Roland</td>
+                                <td>Chambre</td>
+                                <td>Chambre magnifique</td>
+                                <td>01/07/2023</td>
+                                <td>6 mois</td>
+                                <td><i style="color: red;" class="fas fa-times-circle"></i> Annulé</td>
                             </tr>
                             <tr class="reservation-row">
                                 <td>3</td>

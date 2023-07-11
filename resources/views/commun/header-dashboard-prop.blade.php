@@ -49,7 +49,7 @@
                         <i class="fas fa-envelope"></i> Nous contacter
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('logout') }}">
+                    <a class="dropdown-item" href="{{ route('logout.pro') }}">
                         <i class="fas fa-sign-out-alt"></i> Déconnexion
                     </a>
                 </div>
