@@ -22,6 +22,22 @@
 
     <!-- Template Main CSS File -->
     <link href="assets_admin/css/style.css" rel="stylesheet">
+
+    <style>
+        .zoom {
+            overflow: visible;
+        }
+
+        .zoom img {
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .zoom:hover img {
+            transform: scale(1.4);
+        }
+    </style>
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
@@ -50,6 +66,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Photo de profil</th>
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>Email</th>
@@ -60,10 +77,50 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
+                                <td>
+                                    <div class="zoom">
+                                        <img src="assets_admin/img/profile-img.jpg" alt="Profile"
+                                            class="rounded-circle" width="40">
+                                    </div>
+                                </td>
                                 <td>Simo</td>
                                 <td>M.</td>
                                 <td>simo.m@gmail.com</td>
                                 <td>+237 789098765</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
+                                        Supprimer</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <div class="zoom">
+                                        <img src="assets_admin/img/avatar2.jpg" alt="Profile" class="rounded-circle"
+                                            width="40">
+                                    </div>
+                                </td>
+                                <td>Kamga</td>
+                                <td>F.</td>
+                                <td>kamga.f@gmail.com</td>
+                                <td>+237 678987654</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
+                                        Supprimer</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <div class="zoom">
+                                        <img src="assets_admin/img/messages-2.jpg" alt="Profile" class="rounded-circle"
+                                            width="40">
+                                    </div>
+                                </td>
+                                <td>Tchatchouang</td>
+                                <td>F.</td>
+                                <td>tchatchouang.f@gmail.com</td>
+                                <td>+237 567876543</td>
                                 <td>
                                     <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
                                         Supprimer</button>
