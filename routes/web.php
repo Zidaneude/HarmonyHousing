@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
+Route::get('/contactez-nous', function () {
+    return view('help.contactez-nous');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -39,12 +43,7 @@ Route::get('/FAQ-Locataire', function () {
 Route::get('/FAQ-Proprietaire', function () {
     return view('help.FAQ-Proprietaire');
 });
-Route::get('/contactez-nous', function () {
-    return view('help.contactez-nous');
-});
-Route::get('/contacter-nous', function () {
-    return view('help.contacter-nous');
-});
+
 Route::get('/aide', function () {
     return view('help.aide');
 });

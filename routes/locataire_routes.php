@@ -36,9 +36,10 @@ Route::get('profil-locataire', [ProfilLocataireController::class, 'create'])
 Route::post('profil-locataire/{id}', [ProfilLocataireController::class, 'update'])
         ->name('profil.locataire.update');
 
-Route::get('logout', [AuthenticatedSessionLocataireController::class, 'destroy'])
+Route::get('logout-locataire', [AuthenticatedSessionLocataireController::class, 'destroy'])
         ->name('logout.locataire');
-
+Route::get('delete-compte/{id}', [ProfilLocataireController::class, 'destroy'])
+        ->name('delete.locataire');
 
 Route::middleware('auth')->group(function () {
 });
@@ -46,4 +47,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/reservation-locataire', [ReservationController::class, 'create'])
         ->name('reservation.locataire');
 
+Route::get('/affichage-resultats', function () {
+        return view('recherche.affichage-resultats');
+        })->name('affichage.resultat');
+Route::get('/details-offre', function () {
+        return view('recherche.details-offre');
+        });
 ?>

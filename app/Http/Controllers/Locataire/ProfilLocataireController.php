@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class ProfilLocataireController extends Controller
 {
@@ -73,8 +72,9 @@ class ProfilLocataireController extends Controller
         'prenom' => ['required', 'string', 'max:255'],
         'nom' => ['required', 'string', 'max:255'],
         'telephone' => ['required', 'string', 'max:255'],
+        'presentation' => ['required','string','max:500'],
         'gender' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Locataire::class],
+        'email' => ['required', 'string', 'email', 'max:255',],
     ];
 
     if ($request->has("photo")) {
@@ -88,12 +88,11 @@ class ProfilLocataireController extends Controller
     if ($request->has("photo")) {
 
         //On supprime l'ancienne image
-        //Storage::delete($locataire->photo);
 
         $chemin_image = $request->file('photo')->store("locataire",'public');
     }
 
-    // 3. On met à jour les informations du Post
+    // 3. On met à jour les informations du locataire
     $locataire->update([
 
         "profil" => $chemin_image,
@@ -102,6 +101,7 @@ class ProfilLocataireController extends Controller
         'email' => $request->email,
         'sexe' => $request->gender,
         'telephone' => $request->telephone,
+        'presentation' => $request->presentation,
     ]);
     $locataire->save();
     return redirect('/reservation-locataire')->with('success', 'Informations mises à jour avec succès');
@@ -112,11 +112,11 @@ class ProfilLocataireController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //$car = Car::findOrFail($id);
-       // $car->delete();
+        $loc = Locataire::findOrFail($id);
+        $loc->delete();
     
-       // return redirect('/cars')->with('success', 'Voiture supprimer avec succèss');
+       return redirect('/')->with('success', 'compte supprimer avec succèss');
     }
 }

@@ -218,7 +218,7 @@
                                         <p class="price mbr-fonts-style display-5"><strong>35.000
                                                 FCFA/</strong><br><strong>mois</strong>
                                         </p><br>
-                                        <div class="mbr-section-btn"><a href="détails et reservation.html"
+                                        <div class="mbr-section-btn"><a href="/details-offre"
                                                 class="btn btn-primary display-4">Voir les détails</a></div>
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@
                             <p class="mbr-text mbr-fonts-style mb-4 display-7">
                                 Publiez vos offres en toute simplicité quelque soit la ville ou la localité partout au
                                 Cameroun !</p>
-                            <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4" href="#">Je
+                            <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4" href="/connexion-proprietaire">Je
                                     dépose mon annonce</a></div>
                         </div>
                     </div>

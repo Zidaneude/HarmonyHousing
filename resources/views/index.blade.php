@@ -21,7 +21,7 @@
             style="margin-left: 20px;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <form action="">
+                    <form method="POST" action="" >
                         <div class="card" style="border-radius: 10px;">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Vous cherchez un logement à louer?</h5>
@@ -174,7 +174,7 @@
                     réserver votre logement auprès de propriétaires de confiance, tout en bénéficiant d'un
                     accompagnement personnalisé.</p>
                 <br>
-                <a href="#" class="btn btn-primary">Je commence mes recherches</a>
+                <a href="/affichage-resultats" class="btn btn-primary">Je commence mes recherches</a>
                 <br>
                 <br>
                 <br>
