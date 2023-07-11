@@ -16,10 +16,7 @@ return new class extends Migration
             $table->string('titre');
             $table->string('description');
             $table->string('status');
-           // $table->float('prix');
-            //$table->string('disponibilité');
             $table->foreignId('proprietaire_id')->constrained();
-           // $table->foreignId('admin_id')->constrained();
             $table->timestamps();
         });
     }

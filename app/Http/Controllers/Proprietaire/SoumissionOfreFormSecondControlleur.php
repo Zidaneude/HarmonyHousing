@@ -4,19 +4,14 @@ namespace App\Http\Controllers\Proprietaire;
 
 use App\Models\Chambre;
 use App\Models\Logement;
+use App\Models\Appartement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class SoumissionOfreFormSecondControlleur extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,86 +30,232 @@ class SoumissionOfreFormSecondControlleur extends Controller
         //$id_log=$request->id;
 
         $id=Auth::guard('proprietaire')->user()->id;
-        $nb=$request->cache_nbre;
+
+        //nombre de chambre entrer a etape1
+        $nombre_chambre=$request->cache_nbre;
+
+        //les chambres sont identiques ?
         $chambre_idem=$request->cache_idem;
+
+        //type de logement
+        $type_log=$request->type_log;
+
+        $id_log=$request->id_log;
+        $ID_APPART=$request->id_appart;
+        //list des id des inserées a etape 1
         $chaine_id=$request->tab_id;
         $tab_id=explode('.',$chaine_id);
 
-        if( $chambre_idem=='yes')
+        if( $type_log=="chambre")
         {
-
-            $request->validate([
-                'roomPhotoPrincipale' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:5120',
-                'roomPhoto1.*' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:5120',
-            ]);
-            foreach($tab_id as $item)
+            if( $chambre_idem=='yes')
             {
-
-                $logement=Chambre::find(intval($item));
-
+                $request->validate([
+                    'roomPhotoPrincipale' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:5120',
+                    'roomPhoto1.*' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:5120',
+                ]);
+                $logement=Logement::find(intval( $id_log));
                 $imagePrincipale = $request->file("roomPhotoPrincipale");
                 $imagePath=$imagePrincipale->store('proprietaire/offre','public');
+                $logement->photos1=$imagePath;
+                $logement->save();
 
-                if(count($request->roomPhoto1)==2)
+
+                $tab_images=$request->roomPhoto1;
+
+                 //verifier le nombre d'images
+                if(count($tab_images)>1)
                 {
+                    foreach($tab_id as $item)
+                    {
 
-                    $imageSecondaire1=$request->roomPhoto1[0];
-                    $pad=$imageSecondaire1->store('proprietaire/offre','public');
+                        $chambre=Chambre::find(intval($item));
+                        if(count($tab_images)==2)
+                        {
+                            $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
+                            $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
+                        }
+                        else{
+                            $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
+                            $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
+                            $chambre->photos3=$tab_images[2]->store('proprietaire/offre','public');
+                        }
+                        $chambre->save();
 
-                    $imageSecondaire2=$request->roomPhoto1[1];
-                    $pad2=$imageSecondaire2->store('proprietaire/offre','public');
-                    $logement->photos1=$imagePath;
-                    $logement->photos2=$pad;
-                    $logement->photos3=$pad2;
-                    $logement->save();
+                    }
+                }
+                $pre=Auth::guard('proprietaire')->user()->nom;
+                $sexe=Auth::guard('proprietaire')->user()->sexe;
+                if($sexe=='Homme')
+                {
+                    toastr()->success('Mr. '.$pre.' Votre annonce ete envoyée avec succes');
                     return redirect()->route('soumission.offre.step3.create');
                 }
                 else{
-                    return redirect()->route('soumission.offre.step3.create')->with(['message'=>"Au plus 2 images"]);
+                    toastr()->success('Mme. '.$pre.' Votre annonce a ete envoyée avec succes');
+                    return redirect()->route('soumission.offre.step3.create');
                 }
+
+
             }
-        }
-        else
-        {
-            $i=1;
+            ///les chambres ne sont iden
+            else{
 
-            $stringId=$request->id1;
-            $arrayId=explode('.',$stringId);
-            foreach($arrayId as $item)
-            {
-
-                $logement=Chambre::find(intval($item));
+                $logement=Logement::find(intval( $id_log));
                 $imagePrincipale = $request->file("roomPhotoPrincipale");
                 $imagePath=$imagePrincipale->store('proprietaire/offre','public');
-
-                $roomPhoto1=$request->input('roomPhoto'.strval($i));
-
-                $imageSecondaire1=$request->roomPhoto1[0];
-                $pad=$imageSecondaire1->store('proprietaire/offre','public');
-
-                $imageSecondaire2=$request->roomPhoto1[1];
-                $pad2=$imageSecondaire2->store('proprietaire/offre','public');
-
                 $logement->photos1=$imagePath;
-                $logement->photos2=$pad;
-                $logement->photos3=$pad2;
                 $logement->save();
-                $i++;
+
+                $count=1;
+
+                for($count;$count<$nombre_chambre+1;$count++)
+                {
+                    $roomPhoto=$request->file('roomPhoto'.strval($count));
+                    //dd($reque $roomPhotost->get('roomPhoto'.strval($count)));
+                    //dd($request->file('roomPhoto'.strval(1)));
+                    $chambre=Chambre::find($tab_id[$count-1]);
+
+                    if(count($roomPhoto)>1)
+                    {
+                         if(count($roomPhoto)==2)
+                            {
+                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                            }
+                            else{
+                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                                $chambre->photos3= $roomPhoto[2]->store('proprietaire/offre','public');
+                            }
+                          $chambre->save();
+                    }
+                    else{
+                        //erreur
+                    }
+                }
+                $pre=Auth::guard('proprietaire')->user()->nom;
+                $sexe=Auth::guard('proprietaire')->user()->sexe;
+                if($sexe=='Homme')
+                {
+                    toastr()->success('Mr. '.$pre.' Votre annonce ete envoyée avec succes');
+                    return redirect()->route('soumission.offre.step3.create');
+                }
+                else{
+                    toastr()->success('Mme. '.$pre.' Votre annonce a ete envoyée avec succes');
+                    return redirect()->route('soumission.offre.step3.create');
+                }
+
+
             }
-            $pre=Auth::guard('proprietaire')->user()->nom;
-            $sexe=Auth::guard('proprietaire')->user()->sexe;
-            if($sexe=='Homme')
+        }
+
+        /**
+         *
+         *
+         * apparteùent
+         */
+        if($type_log=="appartement")
+        {
+            //dd($request->all());
+
+            $logement=Logement::find(intval( $id_log));
+            $imagePrincipale = $request->file("roomPhotoPrincipale");
+            $imagePath=$imagePrincipale->store('proprietaire/offre','public');
+            $logement->photos1=$imagePath;
+            $logement->save();
+
+            $appartement=Appartement::find($ID_APPART);
+            //dd($ID_APPART);
+            $imagesAppartement=$request->Photoappar;
+            $appartement->photos1=$imagesAppartement[0]->store('proprietaire/offre','public');
+            $appartement->photos2=$imagesAppartement[1]->store('proprietaire/offre','public');
+            $appartement->save();
+
+             //les chambres de appartement sont identiques ?
+            if( $chambre_idem=='yes')
             {
-                toastr()->success('Mr. '.$pre.' Votre annonce ete envoyée avec succes');
-                return redirect()->route('soumission.offre.step3.create');
-            }
-            else{
-                toastr()->success('Mme. '.$pre.' Votre annonce a ete envoyée avec succes');
-                return redirect()->route('soumission.offre.step3.create');
+                $tab_images=$request->roomPhoto1;
+
+                //verifier le nombre d'images
+               if(count($tab_images)>1)
+               {
+                   foreach($tab_id as $item)
+                   {
+
+                       $chambre=Chambre::find(intval($item));
+                       if(count($tab_images)==2)
+                       {
+                           $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
+                           $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
+                       }
+                       else{
+                           $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
+                           $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
+                           $chambre->photos3=$tab_images[2]->store('proprietaire/offre','public');
+                       }
+                       $chambre->save();
+
+                   }
+               }
+               $pre=Auth::guard('proprietaire')->user()->nom;
+               $sexe=Auth::guard('proprietaire')->user()->sexe;
+               if($sexe=='Homme')
+               {
+                   toastr()->success('Mr. '.$pre.' Votre annonce ete envoyée avec succes');
+                   return redirect()->route('soumission.offre.step3.create');
+               }
+               else{
+                   toastr()->success('Mme. '.$pre.' Votre annonce a ete envoyée avec succes');
+                   return redirect()->route('soumission.offre.step3.create');
+               }
+            }else{
+
+                $count=1;
+                for($count;$count<$nombre_chambre+1;$count++)
+                {
+                    $roomPhoto=$request->file('roomPhoto'.strval($count));
+                    $chambre=Chambre::find($tab_id[$count-1]);
+
+                    if(count($roomPhoto)>1)
+                    {
+                         if(count($roomPhoto)==2)
+                            {
+                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                            }
+                            else{
+                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                                $chambre->photos3= $roomPhoto[2]->store('proprietaire/offre','public');
+                            }
+                          $chambre->save();
+                    }
+                    else{
+                        //erreur
+                    }
+                }
+                $pre=Auth::guard('proprietaire')->user()->nom;
+                $sexe=Auth::guard('proprietaire')->user()->sexe;
+                if($sexe=='Homme')
+                {
+                    toastr()->success('Mr. '.$pre.' Votre annonce ete envoyée avec succes');
+                    return redirect()->route('soumission.offre.step3.create');
+                }
+                else{
+                    toastr()->success('Mme. '.$pre.' Votre annonce a ete envoyée avec succes');
+                    return redirect()->route('soumission.offre.step3.create');
+                }
+
+
             }
 
 
         }
+
+
+
+
 
     }
 

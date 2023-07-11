@@ -15,14 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('ville');
             $table->string('code_postal')->nullable();
-           // $table->text('description')->nullable();
             $table->string('quartier');
             $table->string('adresse');
             $table->string('frequence_paie');
             $table->string('region');
-           // $table->double('prix')->nullable(false);
-           // $table->string('statut')->nullable();
-            //$table->string('meuble');
             $table->string('photos1')->nullable();
             $table->string('photos2')->nullable();
             $table->string('photos3')->nullable();

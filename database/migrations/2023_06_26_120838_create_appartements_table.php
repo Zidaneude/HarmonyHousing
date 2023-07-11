@@ -13,15 +13,19 @@ return new class extends Migration
     {
         Schema::create('appartements', function (Blueprint $table) {
             $table->id();
-           // $table->string('titre');
+            $table->integer('num');
+            $table->integer('etage');
             $table->double('prix');
             $table->String('meuble');
             $table->integer('nbre_bain');
             $table->integer('nombre_chambre')->min(1);
             $table->date('disponibilite');
+            $table->string('photos1')->nullable();
+            $table->string('photos2')->nullable();
+            $table->string('photos3')->nullable();
             $table->foreignId('logement_id')->constrained();
             $table->timestamps();
-            // $table->integer('nombre_salles_bain')->min(0)->max(3);
+
         });
     }
 

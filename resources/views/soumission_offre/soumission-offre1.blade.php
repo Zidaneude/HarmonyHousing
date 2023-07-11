@@ -432,8 +432,12 @@
                         appb.innerHTML += `
 
                         <div class="form-group mt-4">
-                            <label for="salle_de_bain"><i class="fas fa-bath"></i> <strong>Numéro Appartement</strong> <span style="color: red;">*</span></label>
-                            <input type="number" name="salle_de_bain" id="salle_de_bain" class="form-control" placeholder="Entrez le nombre de salle de bain(s)" min="1" required />
+                            <label for="numero"><i class="fas fa-bath"></i> <strong>Numéro appartement</strong> <span style="color: red;">*</span></label>
+                            <input type="number" name="numero" id="numero" class="form-control" placeholder="numéro de appartement" min="1" required />
+                        </div>
+                        <div class="form-group mt-4">
+                            <label for="etage"><i class="fas fa-bath"></i> <strong>Etage appartement</strong> <span style="color: red;">*</span></label>
+                            <input type="number" name="etage" id="etage" class="form-control" placeholder="Etage de votre appartement" min="1" required />
                         </div>
 
                         <div class="form-group mt-4">

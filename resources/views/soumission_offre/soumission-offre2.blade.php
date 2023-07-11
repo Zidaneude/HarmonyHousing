@@ -50,14 +50,18 @@
                                                     class="form-control"
                                                     placeholder="Exemple : https://youtu.be/yp_4C9JRnM8" />
 
+                                                      <!-- cache-->
                                                     @if ($ch_id==false)
-                                                         <!-- cache-->
-                                                    <input type="hidden" name="cache_idem" value="no"/>
+                                                       <input type="hidden" name="cache_idem" value="no"/>
                                                     @else
-                                                    <input type="hidden" name="cache_idem" value="yes"/>
+                                                        <input type="hidden" name="cache_idem" value="yes"/>
                                                     @endif
+
                                                     <input type="hidden" name="cache_nbre" value="{{$nb}}"/>
-                                                    <input type="hidden" name="id" value="{{$id}}"/>
+                                                    <input type="hidden" name="id_log" value="{{$id_log}}"/>
+                                                    <input type="hidden" name="type_log" value="{{$type_log}}"/>
+                                                    <input type="hidden" name="id_appart" value="{{$id_appart}}"/>
+
                                             </div>
 
                                             <label><i class="fas fa-camera"></i> Photos de votre annonce <span
@@ -68,13 +72,12 @@
                                                 <i class="fas fa-info-circle" style="color: #004aad;"></i>
                                             </a>
                                             <div class="photo-upload">
-                                                <label for="roomPhotoPrincipale" class="custom-file-upload"><i
-                                                        class="fas fa-plus"></i> Ajoutez les principales photos de
-                                                    votre
-                                                    logement</label>
+                                                <label for="roomPhotoPrincipale" class="custom-file-upload mt-1"><i
+                                                        class="fas fa-plus"></i> Ajoutez la photo principale de
+                                                    votre logement</label>
                                                 <input type="file" name="roomPhotoPrincipale"
-                                                    id="roomPhotoPrincipale" class="form-control"
-                                                    accept=".jpg, .jpeg, .png" multiple required />
+                                                    id="roomPhotoPrincipale" class="form-control mt-1"
+                                                    accept=".jpg, .jpeg, .png"  required />
                                                 <div class="form-group" id="roomPhotosContainer">
                                                 </div>
                                             </div>
@@ -99,10 +102,12 @@
         $(document).ready(function() {
             var current_fs, next_fs, previous_fs;
             var opacity;
-            //var roomCount = {!! json_encode(session('nb'))!!};
-            //var identicalRooms = {!! json_encode(session('ch_id'))!!};
+           // var roomCount = 2;
+            //var identicalRooms = false;
+
             var roomCount={!! json_encode($nb)!!};
             var identicalRooms={!! json_encode($ch_id)!!};
+
             generateRoomForms(roomCount, identicalRooms);
             $(".next").click(function() {
                 var requiredInputs = $(this).parent().find(
@@ -116,7 +121,7 @@
                 });
 
                 if (isValid) {
-                    window.location.href = "soumission-success";
+                  //  window.location.href = "soumission-success";
                 } else {
                     // alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }
@@ -135,40 +140,31 @@
 
                 roomPhotosContainer.innerHTML = '';
 
+                    if({!! json_encode($type_log)!!}=="appartement")
+                    {
+                        roomPhotosContainer.innerHTML += `
+                         <div class="form-group mt-3">
+                        <label for="Photoappar" class="custom-file-upload"><i class="fas fa-plus"></i> Photos de votre Appartement<span style="color: red;">*</span></label>
+                        <input type="file" name="Photoappar[]" id="Photoappar" class="form-control mt-1" accept=".jpg, .jpeg, .png"  multiple required />
+                        </div> `;
+                    }
                 // Générer de nouveaux formulaires de photo de chambre
-                if({!! json_encode($ch_id)!!})
-                {
 
                     for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
-                    var photoTitle = identicalRooms ? "Photo(s) de la chambre" : "Photo(s) de la chambre " + i;
+                    var photoTitle = identicalRooms ? "Photo(s) de la chambre :<strong>min(2)</strong>" : "Photo(s) de la chambre " + i+":<strong>min(2)</strong>";
                     roomPhotosContainer.innerHTML += `
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
-                        <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
+                        <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control mt-1" accept=".jpg, .jpeg, .png"  multiple required />
                     </div>
 
                     <input type="hidden" name="tab_id" value="{{$chaine}}"/>
                     `;
                 }
-                }
-                else
-                {
 
-                    for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
-                    var photoTitle = identicalRooms ? "Photo(s) de la chambre" : "Photo(s) de la chambre " + i;
-                    roomPhotosContainer.innerHTML += `
-                    <div class="form-group">
-                        <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
-                        <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control" accept=".jpg, .jpeg, .png" multiple required />
-                    </div>
-                   
-                    <input type="hidden" name="id${i}" value="{{$chaine}}"/>
+            }
 
-                    `;
-                }
-                }
-        }
-            //}
+
 
     </script>
 
