@@ -22,6 +22,22 @@
 
     <!-- Template Main CSS File -->
     <link href="assets_admin/css/style.css" rel="stylesheet">
+
+    <style>
+        .zoom {
+            overflow: visible;
+        }
+
+        .zoom img {
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .zoom:hover img {
+            transform: scale(1.4);
+        }
+    </style>
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
@@ -50,6 +66,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Photo de profil</th>
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>Email</th>
@@ -60,10 +77,50 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>David</td>
-                                <td>L.</td>
-                                <td>david.l@gmail.com</td>
-                                <td>+237 653628392</td>
+                                <td>
+                                    <div class="zoom">
+                                        <img src="assets_admin/img/avatar1.jpg" alt="Profile" class="rounded-circle"
+                                            width="40">
+                                    </div>
+                                </td>
+                                <td>Ngono</td>
+                                <td>M.</td>
+                                <td>ngono.m@gmail.com</td>
+                                <td>+237 456765432</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
+                                        Supprimer</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <div class="zoom">
+                                        <img src="assets_admin/img/messages-3.jpg" alt="Profile" class="rounded-circle"
+                                            width="40">
+                                    </div>
+                                </td>
+                                <td>Fotso</td>
+                                <td>F.</td>
+                                <td>fotso.f@gmail.com</td>
+                                <td>+237 345654321</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
+                                        Supprimer</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <div class="zoom">
+                                        <img src="assets_admin/img/messages-1.jpg" alt="Profile" class="rounded-circle"
+                                            width="40">
+                                    </div>
+                                </td>
+                                <td>Sorelle</td>
+                                <td>M.</td>
+                                <td>sorelle.m@gmail.com</td>
+                                <td>+237 234543210</td>
                                 <td>
                                     <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
                                         Supprimer</button>

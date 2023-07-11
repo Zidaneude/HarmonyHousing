@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/verification-offres">
+                        <a href="/verification-avis">
                             <i class="bi bi-circle"></i><span>Modérer les avis</span>
                         </a>
                     </li>
@@ -75,6 +75,12 @@
                         class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="proprietaires-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/verification-offres">
+                            <i class="bi bi-circle"></i><span>Vérifier les offres</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="/gestion-proprietaire">
                             <i class="bi bi-circle"></i><span>Gérer les propriétaires</span>

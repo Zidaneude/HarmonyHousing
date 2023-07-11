@@ -35,7 +35,7 @@
                     <a class="dropdown-item" href="{{ route('profil.locataire.create') }}">
                         <i class="fas fa-user"></i> Mon profil
                     </a>
-                    <a class="dropdown-item" href="/reservations-prop">
+                    <a class="dropdown-item" href="#">
                         <i class="fas fa-calendar-check"></i> Historique de mes réservations
                     </a>
                     <div class="dropdown-divider"></div>
