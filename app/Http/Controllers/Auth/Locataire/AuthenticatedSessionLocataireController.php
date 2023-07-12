@@ -38,7 +38,7 @@ class AuthenticatedSessionLocataireController extends Controller
         toastr()->success('Heureux de vous revoir '.$pre);
         //return redirect()->intended(RouteServiceProvider::DASHBORD_LOCATAIRE);
         $locataire=Auth::guard('locataire')->user();
-        return view('profils.profil-locataire',['locataire'=>$locataire]) ;
+        return view('dashboard.dashbord-locataire',['locataire'=>$locataire]) ;
     }
 
     /**

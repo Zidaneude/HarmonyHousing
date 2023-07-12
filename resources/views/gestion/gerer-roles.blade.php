@@ -70,7 +70,7 @@
 
                                 <!-- Ajout d'un formulaire pour saisir les informations du nouvel admin -->
 
-                                <form id="create-admin-form">
+                                <form id="create-admin-form" method="POST" action="{{route('gerer.roles.store')}}">
 
                                     <!-- Ajout d'un champ pour le nom -->
 

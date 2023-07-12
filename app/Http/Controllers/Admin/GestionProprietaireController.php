@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth\Admin;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Admin;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 
-class RegisteredAdminController extends Controller
+class GestionProprietaireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +20,7 @@ class RegisteredAdminController extends Controller
      */
     public function create()
     {
-        return view('gestion.gerer-roles');
+        //
     }
 
     /**
@@ -32,26 +28,7 @@ class RegisteredAdminController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Admin::class],
-            'password' => ['required'],
-        ]);
-
-        $admin = Admin::create([
-            'nom' => $request->nom,
-            'prenom' =>$request->prenom,
-            'email' => $request->email,
-            'sexe' => $request->gender,
-            'telephone' => $request->telephone,
-            'password' => Hash::make($request->password),
-
-        ]);
-
-        event(new Registered($admin));
- 
-        Auth::login($admin);
-
-        return view('dashboard.dashboard-admin');
+        //
     }
 
     /**
