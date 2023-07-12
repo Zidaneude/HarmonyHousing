@@ -47,7 +47,6 @@ class RegisteredLocataireController extends Controller
             'sexe' => $request->gender,
             'telephone' => $request->telephone,
             'password' => Hash::make($request->password),
-
         ]);
 
         event(new Registered($locataire));
