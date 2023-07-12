@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class RegisteredAdminController extends Controller
 {
@@ -20,7 +24,7 @@ class RegisteredAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('ajouter-admin');
     }
 
     /**
@@ -28,7 +32,26 @@ class RegisteredAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Admin::class],
+            'password' => ['required'],
+        ]);
+
+        $admin = Admin::create([
+            'nom' => $request->nom,
+            'prenom' =>$request->prenom,
+            'email' => $request->email,
+            'sexe' => $request->gender,
+            'telephone' => $request->telephone,
+            'password' => Hash::make($request->password),
+
+        ]);
+
+        event(new Registered($admin));
+ 
+        Auth::login($admin);
+
+        return view('dashboard.dashboard-admin');
     }
 
     /**

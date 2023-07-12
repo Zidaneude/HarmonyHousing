@@ -35,15 +35,11 @@
                     <a class="dropdown-item" href="{{ route('profil.locataire.create') }}">
                         <i class="fas fa-user"></i> Mon profil
                     </a>
-<<<<<<< HEAD
                     <a class="dropdown-item" href="/reservation-locataire">
-=======
-                    <a class="dropdown-item" href="#">
->>>>>>> b5c42a918c71cbf9a7bff4107463246ef841e910
                         <i class="fas fa-calendar-check"></i> Historique de mes réservations
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/FAQ-Locataire">
                         <i class="fas fa-question-circle"></i> FAQ - Locataire
                     </a>
                     <a class="dropdown-item" href="/contactez-nous">
