@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-search"></i> Rechercher</a>
+                    <a class="nav-link" href="/affichage-resultats"><i class="fas fa-search"></i> Rechercher</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/"><i class="fas fa-home"></i> Accueil</a>
@@ -19,7 +19,7 @@
                     <a class="nav-link" href="/connexion-locataire"><i class="fas fa-user"></i> Se connecter</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-question"></i> FAQ</a>
+                    <a class="nav-link" href="/FAQ-Proprietaire"><i class="fas fa-question"></i> FAQ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contactez-nous"><i class="fas fa-envelope"></i> Contactez-nous</a>

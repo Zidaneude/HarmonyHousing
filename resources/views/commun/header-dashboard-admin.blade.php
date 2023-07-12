@@ -225,7 +225,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="{{route('logout.admin')}}">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <span>Déconnexion</span>
                             </a>

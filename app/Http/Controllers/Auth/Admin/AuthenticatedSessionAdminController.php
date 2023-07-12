@@ -71,14 +71,14 @@ class AuthenticatedSessionAdminController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $pre=Auth::guard('admin')->user()->nom;
+        $ad=Auth::guard('admin')->user()->nom;
         Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        toastr()->success(' Au revoir '.$pre.' à la prochaine !');
+        toastr()->success(' Au revoir '.$ad.' à la prochaine !');
         return redirect('/');
     } 
 }

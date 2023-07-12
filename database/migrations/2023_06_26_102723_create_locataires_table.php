@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PHPUnit\Framework\Constraint\IsFalse;
 
 return new class extends Migration
 {
@@ -17,8 +18,9 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('email')->unique();
             $table->string('telephone')->unique();
-            $table->string('password');
+            $table->string('password')->unique();
             $table->string('sexe');
+            $table->string('presentation');
             $table->date('date_naissance')->nullable();
             $table->string('profil')->nullable();
             $table->timestamp('email_verified_at')->nullable();

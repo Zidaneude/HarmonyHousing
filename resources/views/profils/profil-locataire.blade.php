@@ -41,7 +41,7 @@
                             @endif
                 <form method="POST" action="{{route('profil.locataire.update',$locataire->id)}}" enctype="multipart/form-data">
                     @csrf
-
+                   
                 <!-- photo de profil            -->
 
                     <h6 class="card-title">Photo de profil</h6>
@@ -53,20 +53,34 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                        
+        
                             <!-- sex            -->
                             <div class="form-group">
                                 <label>Civilité</label><br>
-                                <div class="form-check">
-                                    <input id="homme" class="form-check-input" type="radio" name="gender"
-                                        value="homme" checked>
-                                    <label for="homme" class="form-check-label">Homme</label>
-                                </div>
-                                <div class="form-check">
-                                    <input id="femme" class="form-check-input" type="radio" name="gender"
-                                        value="femme">
-                                    <label for="femme" class="form-check-label">Femme</label>
-                                </div>
+                                @if ($locataire->sexe=='homme')
+                                    <div class="form-check">
+                                        <input id="homme" class="form-check-input" type="radio" name="gender"
+                                            value="homme" checked>
+                                        <label for="homme" class="form-check-label">Homme</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="femme" class="form-check-input" type="radio" name="gender"
+                                            value="femme">
+                                        <label for="femme" class="form-check-label">Femme</label>
+                                    </div>  
+                                @else
+                                    <div class="form-check">
+                                        <input id="homme" class="form-check-input" type="radio" name="gender"
+                                            value="homme" >
+                                        <label for="homme" class="form-check-label">Homme</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="femme" class="form-check-input" type="radio" name="gender"
+                                            value="femme" checked>
+                                        <label for="femme" class="form-check-label">Femme</label>
+                                    </div>  
+                                @endif
+                                
                             </div>
                         </div>
                         <div class="col">
@@ -116,7 +130,7 @@
                     <!-- presentation            -->
                     <div class="form-group mt-3">
                         <label for="pres">Présentation</label>
-                        <textarea id="pres" class="form-control" rows="3"></textarea>
+                        <textarea id="pres" class="form-control" rows="3" name="presentation" value="{{$locataire->presentation}}"></textarea>
                     </div>
                     <div class="form-group mt-4">
                         <h6>Notifications</h6>
@@ -129,7 +143,7 @@
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-del">Supprimer mon compte</button>
+                        <a class="btn btn-del" href="{{route('delete.locataire',$locataire->id)}}">Supprimer mon compte</a>
                         <button type="button" class="btn btn-ins">Changer mon mot de passe</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
