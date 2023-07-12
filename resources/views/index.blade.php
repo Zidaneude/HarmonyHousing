@@ -217,7 +217,7 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 <br>
-                                <a href="#" class="btn btn-primary">En savoir plus</a>
+                                <a href="/comment-ca-marche" class="btn btn-primary">En savoir plus</a>
                             </div>
                         </div>
                     </div>
@@ -325,7 +325,7 @@
                 contre les impayés et les dégradations, tout en bénéficiant de l'assistance de notre équipe d'experts.
             </p>
             <div class="text-center">
-                <a href="#" class="btn btn-custom">En savoir plus</a>
+                <a href="/FAQ-Proprietaire" class="btn btn-custom">En savoir plus</a>
             </div>
         </div>
     </div>

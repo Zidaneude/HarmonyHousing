@@ -41,9 +41,9 @@
 
 							<h5 class="card-title">
 								<font style="vertical-align: inherit;"> <span> <i
-										class="fas fa-list fa-3x" aria-hidden="true"></i>
+										class="fas fa-list fa-2x" aria-hidden="true"></i>
 								</span> <font style="vertical-align: inherit;" class="test-align">
-										Détaillez vosconditions </font>
+										Détaillez vos conditions </font>
 								</font>
 							</h5>
 							<br>
@@ -68,7 +68,7 @@
 							<h5 class="card-title">
 
 								<font style="vertical-align: inherit;"> <span> <i
-										class="fab fa-gratipay fa-3x" aria-hidden="true"></i>
+										class="fab fa-gratipay fa-2x" aria-hidden="true"></i>
 								</span> <font style="vertical-align: inherit;" class="test-align">
 										Ciblez votre logement </font>
 								</font>
@@ -93,7 +93,7 @@
 					<div class="card ml" id="border">
 						<div class="card-body">
 							<h5 class="card-title">
-								<span> <i class="fas fa-handshake fa-3x"
+								<span> <i class="fas fa-handshake fa-2x"
 									aria-hidden="true"></i>
 								</span> <font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;" class="test-align">
@@ -121,7 +121,7 @@
 
 								<h5 class="card-title">
 									<span> <i
-										class="fa fa-american-sign-language-interpreting fa-3x"
+										class="fa fa-american-sign-language-interpreting fa-2x"
 										aria-hidden="true"></i>
 									</span> <font style="vertical-align: inherit;"> <font
 										style="vertical-align: inherit;" class="test-align">

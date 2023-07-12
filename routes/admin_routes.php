@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GererRolesController;
-use App\Http\Controllers\Auth\Admin\RegisteredAdminController;
 use App\Http\Controllers\Auth\Admin\AuthenticatedSessionAdminController;
 
 
@@ -21,8 +20,15 @@ Route::get('logout-admin', [AuthenticatedSessionAdminController::class, 'destroy
 
 Route::get('gerer-roles', [GererRolesController::class, 'create'])
        ->name('gerer.roles.create');
+       
 Route::post('gerer-roles', [GererRolesController::class, 'store'])
        ->name('gerer.roles.store');
+
+Route::get('delete-compte/{id}', [GererRolesController::class, 'destroy'])
+       ->name('delete.compte.destroy');
+       
+Route::post('gerer-roles-update/{id}', [GererRolesController::class, 'update'])
+       ->name('roles.update');
 
 Route::get('admin/verify-offre', [AdminController::class, 'gestionOfrre'])
 ->name('admin.dasboard.gestion_offre');
@@ -36,5 +42,7 @@ Route::get('admin/approuver/{id}', [AdminController::class, 'ApprouverOfrre'])
 
 Route::get('admin/detail/{id}', [AdminController::class, 'DetailOffre'])
 ->name('admin.dasboard.detail.offre');
+
+
 
 ?>

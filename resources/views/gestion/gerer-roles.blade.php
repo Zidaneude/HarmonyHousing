@@ -71,16 +71,7 @@
                                 <!-- Ajout d'un formulaire pour saisir les informations du nouvel admin -->
 
                                 <form id="create-admin-form" method="POST" action="{{route('gerer.roles.store')}}">
-
-                                    <!-- Ajout d'un champ pour le nom -->
-
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">Nom</label>
-                                        <input type="text" id="name" name="name" required
-                                            placeholder="Entrez le nom du nouvel admin"
-                                            class="form-control form-control-lg">
-                                    </div>
-
+                                    @csrf
                                     <!-- Ajout d'un champ pour l'email -->
 
                                     <div class="mb-3">
@@ -104,7 +95,7 @@
                                     <div class="mb-3">
                                         <label for="confirm-password" class="form-label">Confirmation du mot de
                                             passe</label>
-                                        <input type="password" id="confirm-password" name="confirm-password" required
+                                        <input type="password" id="confirm-password" name="confirm_password" required
                                             placeholder="Confirmez le mot de passe du nouvel admin"
                                             class="form-control form-control-lg">
                                     </div>
@@ -128,27 +119,26 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nom</th>
+                                <th scope="col">Id</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Rôle</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Paul M.</td>
-                                <td>paul.m@gmail.com</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm" data-bs-target="#create-admin-modal"
-                                        data-bs-action="Modifier"><i class="fas fa-edit"></i>
-                                        Modifier</button>
-                                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>
-                                        Supprimer</button>
-                                </td>
-                            </tr>
+                            @foreach ($admin as $item)
+                                <tr>
+                                    <td>{{$item->id}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>
+                                        <a class="btn-primary btn-sm" data-bs-target="#create-admin-modal"
+                                            data-bs-action="Modifier" href="{{route('roles.update',$item->id)}}"><i class="fas fa-edit"></i>
+                                            Modifier</a>
+                                        <a class="btn btn-danger btn-sm" href="{{route('delete.compte.destroy',$item->id)}}"><i class="fas fa-trash"></i>
+                                            Supprimer</a>
+                                    </td>
+                                </tr> 
+                            @endforeach
+                            
 
                             <!-- Ajoutez d'autres lignes ici -->
 
