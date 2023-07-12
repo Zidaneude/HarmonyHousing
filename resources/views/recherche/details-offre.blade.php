@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="generator" content="Mobirise v5.8.14, mobirise.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> 
+    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
+
     <meta name="description" content="">
 
     <title>Détails du logement - Harmony Housing</title>
@@ -30,7 +31,7 @@
 </head>
 
 <body class="pt-5">
-    @include('commun/header');
+    @include('commun.header')
     <section data-bs-version="5.1" class="gallery6 mbr-gallery cid-tIWkkBEfM2" id="gallery6-1l">
         <div class="container-fluid">
             <div class="row mbr-gallery mt-4">
