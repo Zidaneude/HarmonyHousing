@@ -101,7 +101,7 @@
                                     voyageurs.</td>
                                 <td><span><i style="color: orange;" class="fas fa-clock"></i> En attente</span></td>
                                 <td>
-                                    <button class="btn btn-primary btn-sm"
+                                    <button class="btn btn-primary btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
                                         style="transform: inherit; transition: inherit;">Approuver</button>
                                     <button class="btn btn-danger btn-sm">Rejeter</button>
                                 </td>

@@ -89,22 +89,25 @@
                         </thead>
                         <tbody>
                             @foreach ($offre as $item)
-
-
-                            <tr>
-                                <td>{{$item->id}}</td>
-                                <td>{{$item->proprietaire->nom}}</td>
-                                <td>{{$item->titre}}</td>
-                                <td>{{$item->type}}</td>
-                                <td>{{$item->created_at}}</td>
-                                <td><span><i style="color: orange;" class="fas fa-clock"></i> {{$item->status}}</span></td>
-                                <td>
-                                    <a class="btn btn-success btn-sm" href="{{ route('admin.dasboard.detail.offre',$item->id) }}"><i class="fas fa-eye"></i>  Voir</a>
-                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.dasboard.gestion_offre_approuver',$item->id) }}"
-                                        style="transform: inherit; transition: inherit;">Approuver</a>
-                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.dasboard.gestion_offre_rejeter',$item->id) }}">Rejeter</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->proprietaire->nom }}</td>
+                                    <td>{{ $item->titre }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td><span><i style="color: orange;" class="fas fa-clock"></i>
+                                            {{ $item->status }}</span></td>
+                                    <td>
+                                        <a class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
+                                            href="{{ route('admin.dasboard.detail.offre', $item->id) }}"><i
+                                                class="fas fa-eye"></i> Voir</a>
+                                        <a class="btn btn-primary btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
+                                            href="{{ route('admin.dasboard.gestion_offre_approuver', $item->id) }}"
+                                            style="transform: inherit; transition: inherit;">Approuver</a>
+                                        <a class="btn btn-danger btn-sm"
+                                            href="{{ route('admin.dasboard.gestion_offre_rejeter', $item->id) }}">Rejeter</a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

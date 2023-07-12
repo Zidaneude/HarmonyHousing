@@ -11,7 +11,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
+    <style>
+        @media (min-width: 992px) {
+            .mr-lg-3 {
+                margin-right: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body style="margin-top: 70px; background-color: #F8F8FF;">
@@ -22,7 +28,7 @@
                 <a class="nav-link" href="{{ route('profil.locataire.create') }}">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('reservation.locataire')}}">Mes réservations</a>
+                <a class="nav-link" href="{{ route('reservation.locataire') }}">Mes réservations</a>
             </li>
         </ul>
         <div class="card profile-card my-5">
@@ -35,14 +41,15 @@
                 </div>
                 <hr>
                 @if ($errors->any())
-                                @foreach ($errors->all() as $item)
-                                    {{ $item }}
-                                @endforeach
-                            @endif
-                <form method="POST" action="{{route('profil.locataire.update',$locataire->id)}}" enctype="multipart/form-data">
+                    @foreach ($errors->all() as $item)
+                        {{ $item }}
+                    @endforeach
+                @endif
+                <form method="POST" action="{{ route('profil.locataire.update', $locataire->id) }}"
+                    enctype="multipart/form-data">
                     @csrf
-                   
-                <!-- photo de profil            -->
+
+                    <!-- photo de profil            -->
 
                     <h6 class="card-title">Photo de profil</h6>
                     <div style="display: flex; justify-content: center;">
@@ -53,11 +60,11 @@
                     </div>
                     <div class="row">
                         <div class="col">
-        
+
                             <!-- sex            -->
                             <div class="form-group">
                                 <label>Civilité</label><br>
-                                @if ($locataire->sexe=='homme')
+                                @if ($locataire->sexe == 'homme')
                                     <div class="form-check">
                                         <input id="homme" class="form-check-input" type="radio" name="gender"
                                             value="homme" checked>
@@ -67,28 +74,29 @@
                                         <input id="femme" class="form-check-input" type="radio" name="gender"
                                             value="femme">
                                         <label for="femme" class="form-check-label">Femme</label>
-                                    </div>  
+                                    </div>
                                 @else
                                     <div class="form-check">
                                         <input id="homme" class="form-check-input" type="radio" name="gender"
-                                            value="homme" >
+                                            value="homme">
                                         <label for="homme" class="form-check-label">Homme</label>
                                     </div>
                                     <div class="form-check">
                                         <input id="femme" class="form-check-input" type="radio" name="gender"
                                             value="femme" checked>
                                         <label for="femme" class="form-check-label">Femme</label>
-                                    </div>  
+                                    </div>
                                 @endif
-                                
+
                             </div>
                         </div>
                         <div class="col">
 
-                        <!-- email            -->
+                            <!-- email            -->
                             <div class="form-group">
                                 <label for="email">Adresse e-mail<span style="color: red;">*</span></label>
-                                <input id="email" type="email" class="form-control" name="email" value="{{$locataire->email}}" required>
+                                <input id="email" type="email" class="form-control" name="email"
+                                    value="{{ $locataire->email }}" required>
                                 <a style="text-decoration: none;" href="#" class="mt-1 d-block">Changer mon
                                     adresse email</a>
                             </div>
@@ -96,19 +104,21 @@
                     </div>
                     <div class="row mt-3">
 
-                    <!-- prenom            -->
+                        <!-- prenom            -->
                         <div class="col">
                             <div class="form-group">
                                 <label for="prenom">Prénom<span style="color: red;">*</span></label>
-                                <input id="prenom" type="text" class="form-control" value="{{$locataire->prenom}}" name="prenom" required>
+                                <input id="prenom" type="text" class="form-control"
+                                    value="{{ $locataire->prenom }}" name="prenom" required>
                             </div>
                         </div>
 
-                    <!-- nom            -->
+                        <!-- nom            -->
                         <div class="col">
                             <div class="form-group">
                                 <label for="nom">Nom<span style="color: red;">*</span></label>
-                                <input id="nom" type="text" class="form-control" value="{{$locataire->nom}}" name="nom" required>
+                                <input id="nom" type="text" class="form-control"
+                                    value="{{ $locataire->nom }}" name="nom" required>
                             </div>
                         </div>
                     </div>
@@ -122,15 +132,17 @@
                                         <img src="/images/cameroun.jpg" alt="Cameroon Flag" width="25">
                                     </span>&nbsp;+237</span>
                             </div>
-                            <input id="tel" style="background-color: #F8F8FF;" type="tel" value="{{$locataire->telephone}}" class="form-control"
-                                id="phoneNumber" required name="telephone">
+                            <input id="tel" style="background-color: #F8F8FF;" type="tel"
+                                value="{{ $locataire->telephone }}" class="form-control" id="phoneNumber" required
+                                name="telephone">
                         </div>
                     </div>
 
                     <!-- presentation            -->
                     <div class="form-group mt-3">
                         <label for="pres">Présentation</label>
-                        <textarea id="pres" class="form-control" rows="3" name="presentation" value="{{$locataire->presentation}}"></textarea>
+                        <textarea id="pres" class="form-control" rows="3" name="presentation"
+                            value="{{ $locataire->presentation }}"></textarea>
                     </div>
                     <div class="form-group mt-4">
                         <h6>Notifications</h6>
@@ -142,9 +154,12 @@
                         <button class="btn btn-ins mt-3">Gérer mes communications</button>
                     </div>
                     <hr>
-                    <div class="d-flex justify-content-between">
-                        <a class="btn btn-del" href="{{route('delete.locataire',$locataire->id)}}">Supprimer mon compte</a>
-                        <button type="button" class="btn btn-ins">Changer mon mot de passe</button>
+                    <div class="d-flex flex-column flex-md-row">
+                        <a class="btn btn-del mb-2 mb-md-0 mr-2 mr-lg-3"
+                            href="{{ route('delete.locataire', $locataire->id) }}">Supprimer mon
+                            compte</a>
+                        <button type="button" class="btn btn-ins mb-2 mb-md-0 mr-2 mr-lg-3">Changer mon mot de
+                            passe</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>

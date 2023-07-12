@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        @media (min-width: 992px) {
+            .mr-lg-3 {
+                margin-right: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body style="margin-top: 70px; background-color: #F8F8FF;">
@@ -17,13 +24,13 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item active-tab">
-                <a class="nav-link" href="{{route('profil.pro')}}">Mon profil</a>
+                <a class="nav-link" href="{{ route('profil.pro') }}">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('reservation.show')}}">Gérer les réservations</a>
+                <a class="nav-link" href="{{ route('reservation.show') }}">Gérer les réservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('disponibilite.show')}}">Mettre à jour la disponibilité</a>
+                <a class="nav-link" href="{{ route('disponibilite.show') }}">Mettre à jour la disponibilité</a>
             </li>
         </ul>
         <div class="card profile-card my-5">
@@ -135,9 +142,11 @@
                         <button class="btn btn-ins mt-3">Gérer mes communications</button>
                     </div>
                     <hr>
-                    <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-del">Supprimer mon compte</button>
-                        <button type="button" class="btn btn-ins">Changer mon mot de passe</button>
+                    <div class="d-flex flex-column flex-md-row">
+                        <button type="button" class="btn btn-del mb-2 mb-md-0 mr-2 mr-lg-3">Supprimer mon
+                            compte</button>
+                        <button type="button" class="btn btn-ins mb-2 mb-md-0 mr-2 mr-lg-3">Changer mon mot de
+                            passe</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>

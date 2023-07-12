@@ -85,7 +85,8 @@
                                 <td>02/07/2023</td>
                                 <td><i style="color: orange;" class="fas fa-clock"></i> En attente</td>
                                 <td>
-                                    <button class="btn btn-success btn-sm"><i class="fas fa-check-circle"></i>
+                                    <button class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"><i
+                                            class="fas fa-check-circle"></i>
                                         Approuver</button>
                                     <button class="btn btn-danger btn-sm"><i class="fas fa-times-circle"></i>
                                         Rejeter</button>

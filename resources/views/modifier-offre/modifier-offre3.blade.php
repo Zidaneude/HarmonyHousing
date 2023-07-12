@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publier une annonce | Harmony Housing - La plateforme de réservation en ligne</title>
+    <title>Modifier une annonce | Harmony Housing - La plateforme de réservation en ligne</title>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" href="css/style2.css">
@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center">
-                <p style="color: #004aad; font-weight: bold;">Étapes de publication</p>
+                <p style="color: #004aad; font-weight: bold;">Modifier votre offre</p>
                 <ul id="progressbar">
                     <li class="active" id="details"><strong>Détails de l'annonce</strong></li>
                     <li class="active" id="photos"><strong>Photos & Médias</strong></li>
@@ -36,7 +36,7 @@
                             <form id="msform" action="">
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title text-center">Félicitations ! 🎉</h2>
+                                        <h2 class="fs-title text-center">Bravo ! 🎉</h2>
                                         <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-3">
@@ -46,7 +46,8 @@
                                         <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-12 text-center">
-                                                <h5>Votre annonce est désormais en attente
+                                                <h5>Votre annonce a été modifiée avec succès!
+                                                    Elle est donc désormais en attente
                                                     d'approbation par l'équipe d'administration. Merci pour votre
                                                     patience pendant ce processus. Nous travaillons pour s'assurer que
                                                     tout est parfait !</h5>

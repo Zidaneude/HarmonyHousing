@@ -81,7 +81,8 @@
                                 <td><span><i style="color: green;" class="fas fa-check-circle"></i> Disponible</span>
                                 </td>
                                 <td>
-                                    <button class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Voir</button>
+                                    <button class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"><i
+                                            class="fas fa-eye"></i> Voir</button>
                                     <button class="btn btn-warning btn-sm"
                                         style="transform: inherit; transition: inherit;">Rendre indisponible</button>
 
@@ -96,7 +97,8 @@
                                 <td>15000 FCFA</td>
                                 <td><span><i style="color: orange;" class="fas fa-clock"></i> Réservé</span></td>
                                 <td>
-                                    <button class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Voir</button>
+                                    <button class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"><i
+                                            class="fas fa-eye"></i> Voir</button>
                                     <button class="btn btn-danger btn-sm">Annuler la réservation</button>
                                 </td>
                             </tr>
@@ -110,7 +112,8 @@
                                 <td><span><i style="color: red;" class="fas fa-times-circle"></i> Indisponible</span>
                                 </td>
                                 <td>
-                                    <button class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Voir</button>
+                                    <button class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"><i
+                                            class="fas fa-eye"></i> Voir</button>
                                     <button class="btn btn-primary btn-sm"
                                         style="transform: inherit; transition: inherit;">Rendre disponible</button>
                                 </td>

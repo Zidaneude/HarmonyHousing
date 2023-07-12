@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publier une annonce | Harmony Housing - La plateforme de réservation en ligne</title>
+    <title>Modifier une annonce | Harmony Housing - La plateforme de réservation en ligne</title>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" href="css/style2.css">
@@ -24,7 +24,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center">
-                <p style="color: #004aad; font-weight: bold;">Étapes de publication</p>
+                <p style="color: #004aad; font-weight: bold;">Modifier votre offre</p>
                 <ul id="progressbar">
                     <li class="active" id="details"><strong>Détails de l'annonce</strong></li>
                     <li id="photos"><strong>Photos & Médias</strong></li>
@@ -124,10 +124,10 @@
                                                     Studio</option>
                                             </select>
                                         </div>
-                                         <!------           form logement -------->
-                                         <div class="form-group" id="my" style=" position:relative;" >
+                                        <!------           form logement -------->
+                                        <div class="form-group" id="my" style=" position:relative;">
 
-                                         </div>
+                                        </div>
 
                                         <div class="form-group my-4">
                                             <label for="frequence_paie"><i class="fas fa-calendar"></i>
@@ -173,7 +173,7 @@
                                             </label>
                                             <input type="number" name="chambre" id="chambre" class="form-control"
                                                 min="1" max="50" required placeholder=""
-                                                oninput="mutex()"/>
+                                                oninput="mutex()" />
                                         </div>
 
                                         <div id="roomFormsContainer">
@@ -225,16 +225,14 @@
 
         document.getElementById('identicalYes').addEventListener('change', function() {
             identicalRooms = true;
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
-            if(text=="Appartement")
-            {
+            if (text == "Appartement") {
                 generateRoomForms2()
 
-            }
-            else{
+            } else {
                 generateRoomForms();
             }
             //generateRoomForms();
@@ -242,18 +240,16 @@
         document.getElementById('identicalNo').addEventListener('change', function() {
             identicalRooms = false;
             ///
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
-            if(text=="Appartement")
-            {
+            if (text == "Appartement") {
 
                 generateRoomForms2()
 
-            }else
-            {
-                 generateRoomForms();
+            } else {
+                generateRoomForms();
             }
 
         });
@@ -419,17 +415,15 @@
         });
 
 
-        function apap()
-        {
+        function apap() {
 
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
             appb.innerHTML = '';
-            if(text=="Appartement")
-                    {
-                        appb.innerHTML += `
+            if (text == "Appartement") {
+                appb.innerHTML += `
 
                         <div class="form-group mt-4">
                             <label for="numero"><i class="fas fa-bath"></i> <strong>Numéro appartement</strong> <span style="color: red;">*</span></label>
@@ -572,19 +566,15 @@
             }
         }
 
-        function mutex()
-        {
-            var tye=document.getElementById("type_logement");
+        function mutex() {
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
-            if(text=="Appartement")
-            {
+            var text = tye.options[tye.selectedIndex].text;
+            if (text == "Appartement") {
 
                 generateRoomForms2()
 
-            }
-            else
-            {
+            } else {
                 generateRoomForms();
             }
         }

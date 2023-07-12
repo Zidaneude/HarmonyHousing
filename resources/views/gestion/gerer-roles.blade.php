@@ -70,7 +70,7 @@
 
                                 <!-- Ajout d'un formulaire pour saisir les informations du nouvel admin -->
 
-                                <form id="create-admin-form" method="POST" action="{{route('gerer.roles.store')}}">
+                                <form id="create-admin-form" method="POST" action="{{ route('gerer.roles.store') }}">
                                     @csrf
                                     <!-- Ajout d'un champ pour l'email -->
 
@@ -127,18 +127,21 @@
                         <tbody>
                             @foreach ($admin as $item)
                                 <tr>
-                                    <td>{{$item->id}}</td>
-                                    <td>{{$item->email}}</td>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->email }}</td>
                                     <td>
-                                        <a class="btn-primary btn-sm" data-bs-target="#create-admin-modal"
-                                            data-bs-action="Modifier" href="{{route('roles.update',$item->id)}}"><i class="fas fa-edit"></i>
+                                        <a class="btn-primary btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
+                                            data-bs-target="#create-admin-modal" data-bs-action="Modifier"
+                                            href="{{ route('roles.update', $item->id) }}"><i class="fas fa-edit"></i>
                                             Modifier</a>
-                                        <a class="btn btn-danger btn-sm" href="{{route('delete.compte.destroy',$item->id)}}"><i class="fas fa-trash"></i>
+                                        <a class="btn btn-danger btn-sm"
+                                            href="{{ route('delete.compte.destroy', $item->id) }}"><i
+                                                class="fas fa-trash"></i>
                                             Supprimer</a>
                                     </td>
-                                </tr> 
+                                </tr>
                             @endforeach
-                            
+
 
                             <!-- Ajoutez d'autres lignes ici -->
 

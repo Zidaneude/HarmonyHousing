@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publier une annonce | Harmony Housing - La plateforme de réservation en ligne</title>
+    <title>Modifier une annonce | Harmony Housing - La plateforme de réservation en ligne</title>
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" href="css/style2.css">
@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center">
-                <p style="color: #004aad; font-weight: bold;">Étapes de publication</p>
+                <p style="color: #004aad; font-weight: bold;">Modifier votre offre</p>
                 <ul id="progressbar">
                     <li class="active" id="details"><strong>Détails de l'annonce</strong></li>
                     <li class="active" id="photos"><strong>Photos & Médias</strong></li>
@@ -33,7 +33,8 @@
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" action="{{ route('soumission.offre.step2.store') }}" method="POST" enctype="multipart/form-data">
+                            <form id="msform" action="{{ route('soumission.offre.step2.store') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <fieldset>
                                     <div class="form-card">
@@ -50,17 +51,17 @@
                                                     class="form-control"
                                                     placeholder="Exemple : https://youtu.be/yp_4C9JRnM8" />
 
-                                                      <!-- cache-->
-                                                    @if ($ch_id==false)
-                                                       <input type="hidden" name="cache_idem" value="no"/>
-                                                    @else
-                                                        <input type="hidden" name="cache_idem" value="yes"/>
-                                                    @endif
+                                                <!-- cache-->
+                                                @if ($ch_id == false)
+                                                    <input type="hidden" name="cache_idem" value="no" />
+                                                @else
+                                                    <input type="hidden" name="cache_idem" value="yes" />
+                                                @endif
 
-                                                    <input type="hidden" name="cache_nbre" value="{{$nb}}"/>
-                                                    <input type="hidden" name="id_log" value="{{$id_log}}"/>
-                                                    <input type="hidden" name="type_log" value="{{$type_log}}"/>
-                                                    <input type="hidden" name="id_appart" value="{{$id_appart}}"/>
+                                                <input type="hidden" name="cache_nbre" value="{{ $nb }}" />
+                                                <input type="hidden" name="id_log" value="{{ $id_log }}" />
+                                                <input type="hidden" name="type_log" value="{{ $type_log }}" />
+                                                <input type="hidden" name="id_appart" value="{{ $id_appart }}" />
 
                                             </div>
 
@@ -77,7 +78,7 @@
                                                     votre logement</label>
                                                 <input type="file" name="roomPhotoPrincipale"
                                                     id="roomPhotoPrincipale" class="form-control mt-1"
-                                                    accept=".jpg, .jpeg, .png"  required />
+                                                    accept=".jpg, .jpeg, .png" required />
                                                 <div class="form-group" id="roomPhotosContainer">
                                                 </div>
                                             </div>
@@ -102,11 +103,11 @@
         $(document).ready(function() {
             var current_fs, next_fs, previous_fs;
             var opacity;
-           // var roomCount = 2;
+            // var roomCount = 2;
             //var identicalRooms = false;
 
-            var roomCount={!! json_encode($nb)!!};
-            var identicalRooms={!! json_encode($ch_id)!!};
+            var roomCount = {!! json_encode($nb) !!};
+            var identicalRooms = {!! json_encode($ch_id) !!};
 
             generateRoomForms(roomCount, identicalRooms);
             $(".next").click(function() {
@@ -121,7 +122,7 @@
                 });
 
                 if (isValid) {
-                  //  window.location.href = "soumission-success";
+                    //  window.location.href = "soumission-success";
                 } else {
                     // alert("Veuillez remplir tous les champs requis avant de continuer.");
                 }
@@ -134,38 +135,34 @@
         });
 
 
-        function generateRoomForms(roomCount, identicalRooms)
-        {
-                var roomPhotosContainer = document.getElementById('roomPhotosContainer');
+        function generateRoomForms(roomCount, identicalRooms) {
+            var roomPhotosContainer = document.getElementById('roomPhotosContainer');
 
-                roomPhotosContainer.innerHTML = '';
+            roomPhotosContainer.innerHTML = '';
 
-                    if({!! json_encode($type_log)!!}=="appartement")
-                    {
-                        roomPhotosContainer.innerHTML += `
+            if ({!! json_encode($type_log) !!} == "appartement") {
+                roomPhotosContainer.innerHTML += `
                          <div class="form-group mt-3">
                         <label for="Photoappar" class="custom-file-upload"><i class="fas fa-plus"></i> Photos de votre Appartement<span style="color: red;">*</span></label>
                         <input type="file" name="Photoappar[]" id="Photoappar" class="form-control mt-1" accept=".jpg, .jpeg, .png"  multiple required />
                         </div> `;
-                    }
-                // Générer de nouveaux formulaires de photo de chambre
+            }
+            // Générer de nouveaux formulaires de photo de chambre
 
-                    for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
-                    var photoTitle = identicalRooms ? "Photo(s) de la chambre :<strong>min(2)</strong>" : "Photo(s) de la chambre " + i+":<strong>min(2)</strong>";
-                    roomPhotosContainer.innerHTML += `
+            for (var i = 1; i <= (identicalRooms ? 1 : roomCount); i++) {
+                var photoTitle = identicalRooms ? "Photo(s) de la chambre :<strong>min(2)</strong>" :
+                    "Photo(s) de la chambre " + i + ":<strong>min(2)</strong>";
+                roomPhotosContainer.innerHTML += `
                     <div class="form-group mt-3">
                         <label for="roomPhoto${i}" class="custom-file-upload"><i class="fas fa-plus"></i> ${photoTitle} <span style="color: red;">*</span></label>
                         <input type="file" name="roomPhoto${i}[]" id="roomPhoto${i}" class="form-control mt-1" accept=".jpg, .jpeg, .png"  multiple required />
                     </div>
 
-                    <input type="hidden" name="tab_id" value="{{$chaine}}"/>
+                    <input type="hidden" name="tab_id" value="{{ $chaine }}"/>
                     `;
-                }
-
             }
 
-
-
+        }
     </script>
 
 </body>
