@@ -14,4 +14,7 @@ Route::post('connexion-admin', [AuthenticatedSessionAdminController::class, 'sto
 
 Route::get('admin/dasboard', [AdminController::class, 'create'])
 ->name('admin.dasboard.create');
+
+Route::get('admin/verufy-offre', [AdminController::class, 'gestionOfrre'])
+->name('admin.dasboard.gestion_offre');
 ?>

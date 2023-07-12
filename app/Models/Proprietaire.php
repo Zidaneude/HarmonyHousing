@@ -19,7 +19,7 @@ class Proprietaire extends Authenticate implements MustVerifyEmail
     {
         return $this->hasMany(Offre::class);
     }
-    protected $fillable = ['nom','prenom','email','sexe','telephone','password'];
+    protected $fillable = ['nom','prenom','email','sexe','telephone','password','presentation'];
     /**
      * The attributes that should be hidden for serialization.
      *

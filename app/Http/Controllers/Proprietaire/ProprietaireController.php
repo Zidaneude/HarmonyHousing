@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Proprietaire;
 
-use App\Http\Controllers\Controller;
+use App\Models\Offre;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProprietaireController extends Controller
 {
@@ -20,7 +22,11 @@ class ProprietaireController extends Controller
      */
     public function create()
     {
-        return view('dashboard.dashboard-proprietaire');
+        //id proprietaire connecté
+        $id=Auth::guard('proprietaire')->user()->id;
+
+        $offre=Offre::where('proprietaire_id','=',$id);
+        return view('dashboard.dashboard-proprietaire',['offre'=>$offre]);
     }
 
     /**
