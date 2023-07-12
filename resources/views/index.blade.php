@@ -21,7 +21,7 @@
             style="margin-left: 20px;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <form method="POST" action="" >
+                    <form method="POST" action="">
                         <div class="card" style="border-radius: 10px;">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Vous cherchez un logement à louer?</h5>
@@ -183,31 +183,31 @@
             </div>
         </div>
 
+
         <div class="row">
             <div class="col-12">
                 <div class="card bg-light mb-3">
                     <div class="card-body stepscard">
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
                                 <h5 class="card-title sous-titre"><i class="fas fa-check-circle circle-icon"></i>
                                     Précisez vos conditions</h5>
-                                <br>
                                 <p class="card-text">Indiquez vos critères de location, nous sélectionnons des offres
                                     adaptées à vos besoins. Ici, tout est personnalisé.</p>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
                                 <h5 class="card-title sous-titre"><i class="fas fa-home circle-icon"></i> Choisissez
                                     votre logement</h5>
                                 <p class="card-text">Un logement vous plaît ? Communiquez avec le propriétaire via
                                     notre messagerie instantanée.</p>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
                                 <h5 class="card-title sous-titre"><i class="fas fa-credit-card circle-icon"></i>
                                     Réservez et payez en ligne</h5>
                                 <p class="card-text">Finalisez votre réservation en effectuant le premier paiement sur
                                     notre plateforme, en toute sécurité.</p>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
                                 <h5 class="card-title sous-titre"><i class="fas fa-smile circle-icon"></i> Souriez,
                                     vous êtes guidés</h5>
                                 <p class="card-text">Du début à la fin de votre location, nous vous accompagnons et
@@ -217,7 +217,7 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 <br>
-                                <a href="/comment-ca-marche" class="btn btn-primary">En savoir plus</a>
+                                <a href="#" class="btn btn-primary">En savoir plus</a>
                             </div>
                         </div>
                     </div>
