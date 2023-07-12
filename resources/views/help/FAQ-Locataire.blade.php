@@ -8,9 +8,9 @@
 	rel="stylesheet">
 <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css"
 	rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/style3.css">
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style3.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style2.css') }}">
 <link rel="icon" href="images/favicon.png">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

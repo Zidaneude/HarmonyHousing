@@ -62,4 +62,9 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function gestionOfrre()
+    {
+        return view('verification.verification-offre-admin');
+    }
 }
