@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Offre;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -65,6 +66,28 @@ class AdminController extends Controller
 
     public function gestionOfrre()
     {
-        return view('verification.verification-offre-admin');
+        ///$id=Auth::guard('proprietaire')->user()->id;
+        $offre=Offre::all();
+        return view('verification.verification-offre-admin',['offre'=>$offre]);
+    }
+
+    public function RejeterOfrre(string $id)
+    {
+        $offre=Offre::find($id);
+        $offre->status="Réjétée";
+        $offre->save();
+        return redirect()->route('admin.dasboard.gestion_offre');
+    }
+
+    public function ApprouverOfrre(string $id)
+    {
+        $offre=Offre::find($id);
+        $offre->status="Approuvée";
+        $offre->save();
+        return redirect()->route('admin.dasboard.gestion_offre');
+    }
+    public function DetailOffre(string $id)
+    {
+
     }
 }
