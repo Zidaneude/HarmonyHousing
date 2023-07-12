@@ -430,7 +430,8 @@ class SoumissionOfreFormOneControlleur extends Controller
             $offre=Offre::create([
                 'titre'=>$request->titre_annonce,
                 'description'=>$request->description_annonce,
-                'status'=>"En attente de validation",
+                'status'=>"En attente",
+                'type'=>$request->type_logement,
                 'proprietaire_id'=>$id,]);
         }
 

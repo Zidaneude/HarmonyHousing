@@ -55,6 +55,7 @@
             <div class="card-header profile-card-header" style="font-size: 18px; text-align: center;">
                 Vérification d'offres
             </div>
+
             <div class="card-body mt-4">
                 <div class="row mb-3">
                     <div class="col-md-6">
@@ -72,6 +73,7 @@
                             placeholder="Nom du propriétaire, titre de l'annonce, etc.">
                     </div>
                 </div>
+
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -86,45 +88,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($offre as $item)
+
+
                             <tr>
-                                <td>1</td>
-                                <td>Simo</td>
-                                <td>Appartement moderne au centre-ville</td>
-                                <td>Appartement</td>
-                                <td>30/06/2023</td>
-                                <td><span><i style="color: orange;" class="fas fa-clock"></i> En attente</span></td>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->proprietaire->nom}}</td>
+                                <td>{{$item->titre}}</td>
+                                <td>{{$item->type}}</td>
+                                <td>{{$item->created_at}}</td>
+                                <td><span><i style="color: orange;" class="fas fa-clock"></i> {{$item->status}}</span></td>
                                 <td>
-                                    <button class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Voir</button>
-                                    <button class="btn btn-primary btn-sm"
-                                        style="transform: inherit; transition: inherit;">Approuver</button>
-                                    <button class="btn btn-danger btn-sm">Rejeter</button>
+                                    <a class="btn btn-success btn-sm" href="{{ route('admin.dasboard.detail.offre',$item->id) }}"><i class="fas fa-eye"></i>  Voir</a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('admin.dasboard.gestion_offre_approuver',$item->id) }}"
+                                        style="transform: inherit; transition: inherit;">Approuver</a>
+                                    <a class="btn btn-danger btn-sm" href="{{ route('admin.dasboard.gestion_offre_rejeter',$item->id) }}">Rejeter</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>David</td>
-                                <td>Chambre confortable avec vue sur la mer</td>
-                                <td>Chambre</td>
-                                <td>01/07/2023</td>
-                                <td><span><i style="color: green;" class="fas fa-check-circle"></i> Approuvé</span></td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Voir</a>
-                                    <button class="btn btn-danger btn-sm">Rejeter</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Xavier</td>
-                                <td>Appartement meublé très chic</td>
-                                <td>Appartement</td>
-                                <td>01/07/2023</td>
-                                <td><span><i style="color: red;" class="fas fa-times-circle"></i> Rejeté</span></td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-eye"></i> Voir</a>
-                                    <button class="btn btn-primary btn-sm"
-                                        style="transform: inherit; transition: inherit;">Approuver</button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

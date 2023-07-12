@@ -17,8 +17,18 @@ Route::get('admin/dasboard', [AdminController::class, 'create'])
 ->name('admin.dasboard.create');
 Route::get('logout-admin', [AuthenticatedSessionAdminController::class, 'destroy'])
         ->name('logout.admin');
-Route::get('ajouter-admin', [RegisteredAdminController::class, 'create'])
-        ->name('ajouter.admin.create');
-Route::post('ajouter-admin', [RegisteredAdminController::class, 'store'])
-->name('ajouter.admin.store');
+
+Route::get('admin/verify-offre', [AdminController::class, 'gestionOfrre'])
+->name('admin.dasboard.gestion_offre');
+
+
+Route::get('admin/rejeter/{id}', [AdminController::class, 'RejeterOfrre'])
+->name('admin.dasboard.gestion_offre_rejeter');
+
+Route::get('admin/approuver/{id}', [AdminController::class, 'ApprouverOfrre'])
+->name('admin.dasboard.gestion_offre_approuver');
+
+Route::get('admin/detail/{id}', [AdminController::class, 'DetailOffre'])
+->name('admin.dasboard.detail.offre');
+
 ?>

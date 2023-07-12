@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('titre');
             $table->string('description');
             $table->string('status');
+            $table->string('type');
             $table->foreignId('proprietaire_id')->constrained();
             $table->timestamps();
         });
