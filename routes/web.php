@@ -72,7 +72,3 @@ Route::get('/commentaire', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('gerer-roles', [GererRolesController::class, 'create'])
-       ->name('gerer.roles.create');
-Route::post('gerer-roles', [GererRolesController::class, 'store'])
-       ->name('gerer.roles.store');
