@@ -40,7 +40,7 @@ Route::post('profil-locataire/{id}', [ProfilLocataireController::class, 'update'
         ->name('profil.locataire.update');
 
 
-Route::get('delete-compte/{id}', [ProfilLocataireController::class, 'destroy'])
+Route::delete('delete-compte/{id}', [ProfilLocataireController::class, 'destroy'])
         ->name('delete.locataire');
 
 Route::middleware('auth')->group(function () {

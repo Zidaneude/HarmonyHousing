@@ -10,14 +10,14 @@
 
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item btn-primary2">
+            <li class="nav-item btn-primary2 mb-2 mb-md-0 mr-2 mr-lg-3">
                 <a class="nav-link" href="/">
                     <div class="circle-icon" style="color: #004aad;">
                         <i class="fas fa-home"></i>
                     </div>
                 </a>
             </li>
-            <li class="nav-item btn-primary2">
+            <li class="nav-item btn-primary2 mb-2 mb-md-0 mr-2 mr-lg-3">
                 <a class="nav-link" href="#">
                     <div class="circle-icon" style="color: #004aad;">
                         <i class="fas fa-envelope"></i>

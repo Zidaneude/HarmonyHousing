@@ -219,8 +219,9 @@
         </div>
 
         <div class="container my-5" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-            <h5><strong><span style="color: #004aad; font-weight: bold;">{{count($logements)}} logements disponibles</span>
-                         </strong></h5>
+            <h5><strong><span style="color: #004aad; font-weight: bold;">{{ count($logements) }} logements
+                        disponibles</span>
+                </strong></h5>
         </div>
 
         <style>
@@ -234,76 +235,87 @@
 
         <div class="container mb-5">
             @forelse ($logements as $item)
-            <div class="card">
+                <div class="card">
 
-                <div class="card-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4">
-                            <div class="image-wrapper">
-                                @if ($item->photos1)
-                                <a href="détails et reservation.html"><img height="200" style="border-radius: 5px;"
-                                    src=" /storage/{{$item->photos1}}"
-                                    alt="Mobirise Website Builder"></a>
-                                @endif
-
-                            </div>
-                        </div>
-                        <div class="col-12 col-md">
-                            <div class="card-box">
-                                <div class="row">
-                                    <!--------- cas de  la chambre------>
-                                    @if ($item->type=='chambre')
-                                        <div class="col-md">
-                                            @if ($item->meuble=='Oui')
-                                                <h6 class="card-title mbr-fonts-style display-7"><strong>{{ucfirst($item->type)}} Meublé</strong><br></h6>
-                                            @else
-                                                <h6 class="card-title mbr-fonts-style display-7"><strong>{{$item->type}} Non meublé</strong><br></h6>
-                                            @endif
-
-                                            <p class="mbr-text mbr-fonts-style display-7">
-                                                <i class="fas fa-map-marker-alt"></i> {{$item->ville}},  {{ucfirst($item->quartier)}}<br>
-                                                <i class="fas fa-clock"></i> Disponible:  <?php $month = array();$month['07']='Juin';$date=explode('-',strval($item->disponibilite)) ;echo ''.$date[2].'  '.$month['07'].'   '.$date[0];?>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-auto">
-                                            <p class="price mbr-fonts-style display-5"><strong>{{$item->prix}} Fcfa /mois</strong>
-                                            </p><br>
-                                            <div class="mbr-section-btn"><a href="/details-offre"
-                                                    class="btn btn-primary display-4">Voir les détails</a></div>
-                                        </div>
-                                       <!--------- cas de appartement------>
-                                    @else
-                                    <div class="col-md">
-                                        @if ($item->meuble =='Oui')
-                                            <h6 class="card-title mbr-fonts-style display-7"><strong>{{ucfirst($item->type)}} Meublé</strong><br></h6>
-                                        @else
-                                            <h6 class="card-title mbr-fonts-style display-7"><strong>{{$item->type}} Non meublé</strong><br></h6>
-                                        @endif
-
-                                        <p class="mbr-text mbr-fonts-style display-7">
-
-
-
-                                            <i class="fas fa-map-marker-alt"></i> {{$item->ville}},  {{ucfirst($item->quartier)}}<br>
-                                            <i class="fas fa-clock"></i> Disponible:  {{
-                                            $item->disponibilite}}
-                                        </p>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <p class="price mbr-fonts-style display-5"><strong>{{$item->prix}} Fcfa /mois</strong>
-                                        </p><br>
-                                        <div class="mbr-section-btn"><a href="/details-offre"
-                                                class="btn btn-primary display-4">Voir les détails</a></div>
-                                    </div>
+                    <div class="card-wrapper">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-4">
+                                <div class="image-wrapper">
+                                    @if ($item->photos1)
+                                        <a href="détails et reservation.html"><img height="200"
+                                                style="border-radius: 5px;" src="/storage/{{ $item->photos1 }}"
+                                                alt="Mobirise Website Builder"></a>
                                     @endif
 
+                                </div>
+                            </div>
+                            <div class="col-12 col-md">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <!--------- cas de  la chambre------>
+                                        @if ($item->type == 'chambre')
+                                            <div class="col-md">
+                                                @if ($item->meuble == 'Oui')
+                                                    <h6 class="card-title mbr-fonts-style display-7">
+                                                        <strong>{{ ucfirst($item->type) }} Meublé</strong><br></h6>
+                                                @else
+                                                    <h6 class="card-title mbr-fonts-style display-7">
+                                                        <strong>{{ $item->type }} Non meublé</strong><br></h6>
+                                                @endif
 
+                                                <p class="mbr-text mbr-fonts-style display-7">
+                                                    <i class="fas fa-map-marker-alt"></i> {{ $item->ville }},
+                                                    {{ ucfirst($item->quartier) }}<br>
+                                                    <i class="fas fa-clock"></i> Disponible: <?php $month = [];
+                                                    $month['07'] = 'Juin';
+                                                    $date = explode('-', strval($item->disponibilite));
+                                                    echo '' . $date[2] . '  ' . $month['07'] . '   ' . $date[0]; ?>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-auto">
+                                                <p class="price mbr-fonts-style display-5"><strong>{{ $item->prix }}
+                                                        Fcfa /mois</strong>
+                                                </p><br>
+                                                <div class="mbr-section-btn"><a href="/details-offre"
+                                                        class="btn btn-primary display-4">Voir les détails</a></div>
+                                            </div>
+                                            <!--------- cas de appartement------>
+                                        @else
+                                            <div class="col-md">
+                                                @if ($item->meuble == 'Oui')
+                                                    <h6 class="card-title mbr-fonts-style display-7">
+                                                        <strong>{{ ucfirst($item->type) }} Meublé</strong><br></h6>
+                                                @else
+                                                    <h6 class="card-title mbr-fonts-style display-7">
+                                                        <strong>{{ $item->type }} Non meublé</strong><br></h6>
+                                                @endif
+
+                                                <p class="mbr-text mbr-fonts-style display-7">
+
+
+
+                                                    <i class="fas fa-map-marker-alt"></i> {{ $item->ville }},
+                                                    {{ ucfirst($item->quartier) }}<br>
+                                                    <i class="fas fa-clock"></i> Disponible:
+                                                    {{ $item->disponibilite }}
+                                                </p>
+                                            </div>
+                                            <div class="col-md-auto">
+                                                <p class="price mbr-fonts-style display-5"><strong>{{ $item->prix }}
+                                                        Fcfa /mois</strong>
+                                                </p><br>
+                                                <div class="mbr-section-btn"><a href="/details-offre"
+                                                        class="btn btn-primary display-4">Voir les détails</a></div>
+                                            </div>
+                                        @endif
+
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @empty
                 <h1>sdfghjksdfghjkldfghj</h1>
             @endforelse
@@ -323,7 +335,8 @@
                             <p class="mbr-text mbr-fonts-style mb-4 display-7">
                                 Publiez vos offres en toute simplicité quelque soit la ville ou la localité partout au
                                 Cameroun !</p>
-                            <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4" href="/connexion-proprietaire">Je
+                            <div class="mbr-section-btn mt-3"><a class="btn btn-primary display-4"
+                                    href="/connexion-proprietaire">Je
                                     dépose mon annonce</a></div>
                         </div>
                     </div>
