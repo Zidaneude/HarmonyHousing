@@ -72,8 +72,8 @@
             </div>
 
             <form class="mt-3"
-                style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;">
-                <input type="text" name="search" placeholder="entrez une ville ou un quartier" required
+                style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;" method="GET" action="{{route('resultat.from.homme')}}">>
+                <input type="text" name="search" placeholder="entrez une ville ou un quartier" 
                     style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
                 <select name="type" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
                     <option value="">Type de logement</option>
