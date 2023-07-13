@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
   }
-  
+
   /* Style des inputs */
   input[type=text], input[type=email], select, textarea {
     width: 100%;
@@ -11,7 +11,7 @@
     margin-bottom: 16px;
     resize: vertical;
   }
-  
+
   input[type=submit] {
     background-color: #04AA6D;
     color: white;
@@ -19,11 +19,11 @@
     border: none;
     cursor: pointer;
   }
-  
+
   input[type=submit]:hover {
     background-color: #45a049;
   }
-  
+
   /* Style du conteneur/section de contact */
   .contact-container {
     border-radius: 5px;
@@ -33,9 +33,10 @@
   .aborder-type{
      background-color: rgb(215, 224, 250);
      margin-top: 15px;
-     margin-left: 100px;
-     margin-right: 100px;
+     margin-left: (0 ,100px);
+     margin-right: (0 ,100px);
      border-radius: 15px;
+
   }
   /* Création de deux colonnes qui flottent l'une à côté de l'autre */
   .column {
@@ -44,14 +45,14 @@
     margin-top: 6px;
     padding: 20px;
   }
-  
+
   /* Effacement des flottants après les colonnes */
   .row:after {
     content: "";
     display: table;
     clear: both;
   }
-  
+
   /* Mise en page responsive - lorsque l'écran est inférieur à 600px de largeur, les deux colonnes s'empilent l'une sur l'autre au lieu d'être côte à côte */
   @media screen and (max-width: 600px) {
     .column, input[type=submit] {
@@ -138,5 +139,4 @@
      color: black;
      text-decoration : none;
   }
-  
-  
+
