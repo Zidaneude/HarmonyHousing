@@ -21,7 +21,7 @@
             style="margin-left: 20px;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <form method="POST" action="">
+                    <form method="GET" action="{{route('recherche.from.homme')}}">
                         <div class="card" style="border-radius: 10px;">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Vous cherchez un logement à louer?</h5>

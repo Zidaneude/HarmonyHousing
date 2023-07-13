@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('nbre_bain');
             $table->integer('nombre_chambre')->min(1);
             $table->date('disponibilite');
+            $table->string('equipe_bool')->nullable();
             $table->string('photos1')->nullable();
             $table->string('photos2')->nullable();
             $table->string('photos3')->nullable();

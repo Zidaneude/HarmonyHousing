@@ -228,6 +228,97 @@ class RechercheController extends Controller
 
 
     }
+    public function search(Request $request)
+    {
+        // on récupère les paramètres de recherche du formulaire
+        $search = $request->input('search');
+        $type = $request->input('type');
+        $chambres = $request->input('chambres');
+        $budget_min = $request->input('budget_min');
+        $budget_max = $request->input('budget_max');
+        $meuble = $request->input('meuble');
+        $equipements = $request->input('equipements');
+        $frequence = $request->input('frequence');
+        $disponibilite = $request->input('disponibilite');
+
+        if($type=="chambre")
+        {
+            $logements=DB::table('logements')
+                ->join('chambres','logements.id','=','chambres.logement_id')
+                ->join('offres','offres.id','=','logements.offre_id')
+                ->where('offres.status', '=', "Approuvée")
+                ->where('prix', '>=', "$budget_min")
+                ->where('prix', '<=', "$budget_max")
+                ->where('meuble', 'like', "$meuble")
+                ->where('quartier', 'like', "$search")
+                ->where('frequence_paie', '<=', "$frequence")
+                ->where('equipe_bool', '<=', " $equipements")
+                ->where('disponibilite', '>=', "$disponibilite")
+                ->where('ville', 'like', "%{$search}%")
+                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1')
+                ->get();
+                return view('recherche.affichage-resultats', ['logements' => $logements]);
+
+        }
+
+        if($type=="appartement")
+        {
+            $logements=DB::table('logements')
+            ->join('appartements','logements.id','=','appartements.logement_id')
+            ->join('offres','offres.id','=','logements.offre_id')
+            ->where('offres.status', '=', "Approuvée")
+            ->where('prix', '>=', "$budget_min")
+            ->where('prix', '<=', "$budget_max")
+            ->where('meuble', 'like', "$meuble")
+            ->where('quartier', 'like', "$search")
+            ->where('frequence_paie', '<=', "$frequence")
+            ->where('equipe_bool', '<=', " $equipements")
+            ->where('disponibilite', '>=', "$disponibilite")
+            ->where('ville', 'like', "%{$search}%")
+            ->where('nombre_chambre', '=', $chambres )
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1')
+            ->get();
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+
+
+
+
+        }
+
+        $logements1=DB::table('logements')
+            ->join('appartements','logements.id','=','appartements.logement_id')
+            ->join('offres','offres.id','=','logements.offre_id')
+            ->where('offres.status', '=', "Approuvée")
+            ->where('prix', '>=', "$budget_min")
+            ->where('prix', '<=', "$budget_max")
+            ->where('meuble', 'like', "$meuble")
+            ->where('quartier', 'like', "$search")
+            ->where('frequence_paie', '<=', "$frequence")
+            ->where('equipe_bool', '<=', " $equipements")
+            ->where('disponibilite', '>=', "$disponibilite")
+            ->where('ville', 'like', "%{$search}%")
+            ->where('nombre_chambre', '=', $chambres )
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1')
+            ->get();
+
+        $logements2=DB::table('logements')
+            ->join('chambres','logements.id','=','chambres.logement_id')
+            ->join('offres','offres.id','=','logements.offre_id')
+            ->where('offres.status', '=', "Approuvée")
+            ->where('prix', '>=', "$budget_min")
+            ->where('prix', '<=', "$budget_max")
+            ->where('meuble', 'like', "$meuble")
+            ->where('quartier', 'like', "$search")
+            ->where('frequence_paie', '<=', "$frequence")
+            ->where('equipe_bool', '<=', " $equipements")
+            ->where('disponibilite', '>=', "$disponibilite")
+            ->where('ville', 'like', "%{$search}%")
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1')
+            ->get();
+
+        $logements=$logements1->merge($logements2);
+        return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
 
 
 }

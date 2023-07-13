@@ -141,7 +141,7 @@
         }
 
         .overlay {
-            margin-top: 15px;
+            margin-top: 30px;
             height: 50%;
             width: 0;
             position: fixed;
@@ -219,8 +219,8 @@
         </div>
 
         <div class="container my-5" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-            <h5><strong><span style="color: #004aad; font-weight: bold;">2 logements disponibles</span> <span
-                        style="color: rgb(207, 201, 201)">sur 25</span> </strong></h5>
+            <h5><strong><span style="color: #004aad; font-weight: bold;">{{count($logements)}} logements disponibles</span>
+                         </strong></h5>
         </div>
 
         <style>
@@ -233,8 +233,9 @@
         </style>
 
         <div class="container mb-5">
-            @foreach ($logements as $item)
+            @forelse ($logements as $item)
             <div class="card">
+
                 <div class="card-wrapper">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-4">
@@ -244,7 +245,7 @@
                                     src=" /storage/{{$item->photos1}}"
                                     alt="Mobirise Website Builder"></a>
                                 @endif
-                                
+
                             </div>
                         </div>
                         <div class="col-12 col-md">
@@ -303,6 +304,9 @@
                     </div>
                 </div>
             </div>
+            @empty
+                <h1>sdfghjksdfghjkldfghj</h1>
+            @endforelse
         </div>
 
     </section>
@@ -325,7 +329,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+
 
         </div>
     </section>

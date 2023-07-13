@@ -366,6 +366,7 @@ class SoumissionOfreFormOneControlleur extends Controller
             'ville'=>$request->ville,
             'code_postal'=>$request->code_postal,
             'frequence_paie'=>$request->frequence_paie,
+            'type'=>$request->type_logement,
             'offre_id'=>Offre::latest()->first()->id,
 
         ]);
@@ -381,6 +382,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                 'meuble' => $request->meuble1,
                 'superficie' => $request->surface_chambre1,
                 'capacite' => $request->cap_chambre1,
+                'equipe_bool'=>$request->equipements1,
                 'logement_id' => $ID_LOG,
             ]
         );
@@ -396,6 +398,7 @@ class SoumissionOfreFormOneControlleur extends Controller
             'meuble' => $request->input('meuble' . strval($i)),
             'superficie' => $request->input('surface_chambre' . strval($i)),
             'capacite' => $request->input('cap_chambre' . strval($i)),
+            'equipe_bool'=>$request->input('equipements' . strval($i)),
             'logement_id' => $ID_LOG,
         ]);
         return $id;
@@ -436,6 +439,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                 'num' => $request->numero,
                 'etage' => $request->etage,
                 'nombre_chambre' => $request->chambre,
+                'equipe_bool'=>$request->equipements1,
                 'logement_id' => $ID_LOG,
             ]
         );

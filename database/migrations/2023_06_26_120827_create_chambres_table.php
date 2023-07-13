@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('superficie');
             $table->integer('capacite');
             $table->double('prix')->nullable();
+            $table->string('equipe_bool')->nullable();
             $table->string('photos1')->nullable();
             $table->string('photos2')->nullable();
             $table->string('photos3')->nullable();
