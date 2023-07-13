@@ -329,7 +329,7 @@ class SoumissionOfreFormOneControlleur extends Controller
 
                         if ($chaine_tab == "") {
                             $chaine_tab = strval($id_chambre);
-                            dd($id_chambre);
+                          
                         } else {
                             $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                         }

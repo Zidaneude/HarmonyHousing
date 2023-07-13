@@ -231,6 +231,8 @@ class RechercheController extends Controller
     }
     public function search(Request $request)
     {
+
+
         // on récupère les paramètres de recherche du formulaire
         $search = $request->input('search');
         $type = $request->input('type');
@@ -244,19 +246,20 @@ class RechercheController extends Controller
 
         if($type=="chambre")
         {
+
             $logements=DB::table('logements')
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
-                ->where('prix', '>=', "$budget_min")
+                 ->where('prix', '>=', "$budget_min")
                 ->where('prix', '<=', "$budget_max")
-                ->where('meuble', 'like', "$meuble")
-                ->where('quartier', 'like', "$search")
-                ->where('frequence_paie', '<=', "$frequence")
-                ->where('equipe_bool', '<=', " $equipements")
-                ->where('disponibilite', '>=', "$disponibilite")
+                // ->where('meuble', 'like', "$meuble")
+                // ->where('quartier', 'like', "$search")
+                // ->where('frequence_paie', '<=', "$frequence")
+                // ->where('equipe_bool', '<=', " $equipements")
+                // ->where('disponibilite', '>=', "$disponibilite")
                 ->where('ville', 'like', "%{$search}%")
-                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
                 ->get();
                 return view('recherche.affichage-resultats', ['logements' => $logements]);
 
@@ -286,6 +289,7 @@ class RechercheController extends Controller
 
         }
 
+
         $logements1=DB::table('logements')
             ->join('appartements','logements.id','=','appartements.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
@@ -302,6 +306,7 @@ class RechercheController extends Controller
             ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1')
             ->get();
 
+
         $logements2=DB::table('logements')
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
@@ -314,8 +319,9 @@ class RechercheController extends Controller
             ->where('equipe_bool', '<=', " $equipements")
             ->where('disponibilite', '>=', "$disponibilite")
             ->where('ville', 'like', "%{$search}%")
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
             ->get();
+
 
         $logements=$logements1->merge($logements2);
         return view('recherche.affichage-resultats', ['logements' => $logements]);
