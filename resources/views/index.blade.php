@@ -21,7 +21,8 @@
             style="margin-left: 20px;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <form method="POST" action="" >
+                    <form method="GET" action="{{route('recherche.from.homme')}}" >
+
                         <div class="card" style="border-radius: 10px;">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Vous cherchez un logement à louer?</h5>
@@ -33,26 +34,24 @@
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" id="city"
-                                            placeholder="Entrez la ville">
+                                            placeholder="Entrez la ville" name="ville">
                                     </div>
                                 </div>
                                 <div class="form-group mt-2">
-                                    <input type="number" class="form-control" placeholder="Budget maximum (en FCFA)">
+                                    <input type="number" class="form-control" placeholder="Budget maximum (en FCFA)" name="budget_max">
                                 </div>
+
                                 <div class="form-group my-3">
                                     <div class="row">
-                                        <div class="col form-check" style="margin-left: 12px;">
-                                            <input class="form-check-input" type="checkbox" id="chambre">
+                                        <div class="col form-check" style="margin-left: 5px;">
+                                            <input class="form-check-input" name="type" type="radio" id="chambre" value="chambre">
                                             <label class="form-check-label" for="chambre">Chambre</label>
                                         </div>
                                         <div class="col form-check">
-                                            <input class="form-check-input" type="checkbox" id="appartement">
+                                            <input class="form-check-input" name="type" type="radio" id="appartement" value="appartement">
                                             <label class="form-check-label" for="appartement">Appartement</label>
                                         </div>
-                                        <div class="col form-check">
-                                            <input class="form-check-input" type="checkbox" id="studio">
-                                            <label class="form-check-label" for="studio">Studio</label>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <button style="width: 100%;" type="submit" class="btn btn-primary">Chercher</button>
@@ -118,42 +117,42 @@
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/douala.jpg')">
+                    <a href="/search?ville=douala" class="city-card" style="background-image: url('images/douala.jpg')">
                         <h4 class="city-title">Douala</h4>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/yaounde.jpg')">
-                        <h4 class="city-title">Yaoundé</h4>
-                    </a>
+                        <a href="/search?ville=yaoundé" class="city-card" style="background-image: url('images/yaounde.jpg')">
+                            <h4 class="city-title">Yaoundé</h4>
+                        </a>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/dschang.jpg')">
+                    <a href="/search?ville=dschang" class="city-card" style="background-image: url('images/dschang.jpg')">
                         <h4 class="city-title">Dschang</h4>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/bafoussam.jpg')">
+                    <a href="/search?ville=bafoussam" class="city-card" style="background-image: url('images/bafoussam.jpg')">
                         <h4 class="city-title">Bafoussam</h4>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/bertoua.jpg')">
+                    <a href="/search?ville=bertoua" class="city-card" style="background-image: url('images/bertoua.jpg')">
                         <h4 class="city-title">Bertoua</h4>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/ebolowa.webp')">
+                    <a href="/search?ville=ebolowa" class="city-card" style="background-image: url('images/ebolowa.webp')">
                         <h4 class="city-title">Ebolowa</h4>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/garoua.webp')">
+                    <a href="/search?ville=garoua" class="city-card" style="background-image: url('images/garoua.webp')">
                         <h4 class="city-title">Garoua</h4>
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                    <a href="#" class="city-card" style="background-image: url('images/ngaoundere.jpg')">
+                    <a href="/search?ville=ngaoundéré" class="city-card" style="background-image: url('images/ngaoundere.jpg')">
                         <h4 class="city-title">Ngaoundéré</h4>
                     </a>
                 </div>

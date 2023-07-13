@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('frequence_paie');
             $table->string('region');
+            $table->string('type');
             $table->string('photos1')->nullable();
             $table->string('photos2')->nullable();
             $table->string('photos3')->nullable();

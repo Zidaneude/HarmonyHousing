@@ -34,7 +34,7 @@ class SoumissionOfreFormOneControlleur extends Controller
 
         //les chambres sont equipées ?
         $cham_equip=$request->equipements1;
-
+       // dd($request);
         $TYPE_CHAMBRE="chambre";
         $TYPE_APPARTEMENT="appartement";
         $TYPE_STUDIO="studio";
@@ -444,6 +444,7 @@ class SoumissionOfreFormOneControlleur extends Controller
             'region'=>$request->region,
             'ville'=>$request->ville,
             'code_postal'=>$request->code_postal,
+            'type'=>$request->type_logement,
             'frequence_paie'=>$request->frequence_paie,
             'offre_id'=>Offre::latest()->first()->id,
 

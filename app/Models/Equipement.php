@@ -12,4 +12,5 @@ class Equipement extends Model
     {
         return $this->belongsTo(Logement::class);
     }
+    protected $fillable = ['nom'];
 }

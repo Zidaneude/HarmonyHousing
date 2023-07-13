@@ -38,16 +38,16 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="/profil-admin">Mon profil</a>
+                <a class="nav-link" href="{{route('admin.profil')}}">Mon profil</a>
             </li>
             <li class="nav-item active-tab">
-                <a class="nav-link" href="/verification-offres">Vérification d'offres</a>
+                <a class="nav-link" href="{{route('admin.dasboard.gestion_offre')}}">Vérification d'offres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/verification-avis">Modération d'avis</a>
+                <a class="nav-link" href="{{route('admin.dasboard.avis')}}">Modération d'avis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/historique-reservations">Historique des réservations</a>
+                <a class="nav-link" href="{{route('admin.historique.reservation')}}">Historique des réservations</a>
             </li>
         </ul>
 
@@ -97,7 +97,16 @@
                                 <td>{{$item->titre}}</td>
                                 <td>{{$item->type}}</td>
                                 <td>{{$item->created_at}}</td>
-                                <td><span><i style="color: orange;" class="fas fa-clock"></i> {{$item->status}}</span></td>
+                                @if($item->status=="Approuvée")
+                                    <td><span><i style="color: green;" class="fas fa-clock"></i> {{$item->status}}</span></td>
+                                @endif
+                                @if($item->status=="Réjétée")
+                                    <td><span><i style="color: red;" class="fas fa-clock"></i> {{$item->status}}</span></td>
+                                @endif
+                                @if($item->status=="En attente")
+                                    <td><span><i style="color:orange;" class="fas fa-clock"></i> {{$item->status}}</span></td>
+                                @endif
+
                                 <td>
                                     <a class="btn btn-success btn-sm" href="{{ route('admin.dasboard.detail.offre',$item->id) }}"><i class="fas fa-eye"></i>  Voir</a>
                                     <a class="btn btn-primary btn-sm" href="{{ route('admin.dasboard.gestion_offre_approuver',$item->id) }}"
@@ -139,6 +148,7 @@
     </div>
 
 
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

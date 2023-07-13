@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\auth\ContactController;
+use App\Http\Controllers\Recherche\RechercheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,5 +71,10 @@ Route::get('/commentaire', function () {
     return view('commentaire.commentaire');
 });
 
+
+Route::get('recherche',[RechercheController::class,'Recherche'])->name('recherche.from.homme');
+
+Route::get('/search',[RechercheController::class,'find'])->name('search.search');
+//Route::get()
 require __DIR__ . '/auth.php';
 

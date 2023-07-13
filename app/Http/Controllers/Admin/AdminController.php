@@ -66,7 +66,6 @@ class AdminController extends Controller
 
     public function gestionOfrre()
     {
-        ///$id=Auth::guard('proprietaire')->user()->id;
         $offre=Offre::all();
         return view('verification.verification-offre-admin',['offre'=>$offre]);
     }
@@ -86,8 +85,19 @@ class AdminController extends Controller
         $offre->save();
         return redirect()->route('admin.dasboard.gestion_offre');
     }
+
     public function DetailOffre(string $id)
     {
-
     }
+
+    public function AvisManager()
+    {
+        return view('verification.verification-avis');
+    }
+
+    public function HistoriqueResevation()
+    {
+        return view('historique.historique-reservations');
+    }
+
 }

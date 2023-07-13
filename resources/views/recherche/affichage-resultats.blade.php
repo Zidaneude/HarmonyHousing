@@ -233,78 +233,78 @@
         </style>
 
         <div class="container mb-5">
+            @foreach ($logements as $item)
             <div class="card">
                 <div class="card-wrapper">
                     <div class="row align-items-center">
                         <div class="col-12 col-md-4">
                             <div class="image-wrapper">
+                                @if ($item->photos1)
                                 <a href="détails et reservation.html"><img height="200" style="border-radius: 5px;"
-                                        src="assets/images/502d0f906d18e6e1568af5e39875b5f9-816x461.jpg"
-                                        alt="Mobirise Website Builder"></a>
+                                    src=" /storage/{{$item->photos1}}"
+                                    alt="Mobirise Website Builder"></a>
+                                @endif
+                                
                             </div>
                         </div>
                         <div class="col-12 col-md">
                             <div class="card-box">
                                 <div class="row">
-                                    <div class="col-md">
-                                        <h6 class="card-title mbr-fonts-style display-7"><strong>Appartement
-                                                meublé 2 chambres</strong><br></h6>
-                                        <p class="mbr-text mbr-fonts-style display-7">
-                                            <i class="fas fa-bed"></i> 2 chambres<br>
-                                            <i class="fas fa-map-marker-alt"></i> Yaoundé, Soa<br>
-                                            <i class="fas fa-clock"></i> Disponible actuellement
-                                        </p>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <p class="price mbr-fonts-style display-5"><strong>60 000
-                                                FCFA/<br>mois</strong>
-                                        </p><br>
-                                        <div class="mbr-section-btn"><a href="/details-offre"
-                                                class="btn btn-primary display-4">Voir les détails</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    <!--------- cas de  la chambre------>
+                                    @if ($item->type=='chambre')
+                                        <div class="col-md">
+                                            @if ($item->meuble=='Oui')
+                                                <h6 class="card-title mbr-fonts-style display-7"><strong>{{ucfirst($item->type)}} Meublé</strong><br></h6>
+                                            @else
+                                                <h6 class="card-title mbr-fonts-style display-7"><strong>{{$item->type}} Non meublé</strong><br></h6>
+                                            @endif
 
-            <div class="card">
-                <div class="card-wrapper">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-4">
-                            <div class="image-wrapper">
-                                <a href="détails et reservation.html"><img height="200" style="border-radius: 5px;"
-                                        src="assets/images/hilton-yaounde-550x363.jpg"
-                                        alt="Mobirise Website Builder"></a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md">
-                            <div class="card-box">
-                                <div class="row">
+                                            <p class="mbr-text mbr-fonts-style display-7">
+                                                <i class="fas fa-map-marker-alt"></i> {{$item->ville}},  {{ucfirst($item->quartier)}}<br>
+                                                <i class="fas fa-clock"></i> Disponible:  <?php $month = array();$month['07']='Juin';$date=explode('-',strval($item->disponibilite)) ;echo ''.$date[2].'  '.$month['07'].'   '.$date[0];?>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <p class="price mbr-fonts-style display-5"><strong>{{$item->prix}} Fcfa /mois</strong>
+                                            </p><br>
+                                            <div class="mbr-section-btn"><a href="/details-offre"
+                                                    class="btn btn-primary display-4">Voir les détails</a></div>
+                                        </div>
+                                       <!--------- cas de appartement------>
+                                    @else
                                     <div class="col-md">
-                                        <h6 class="card-title mbr-fonts-style display-7"><strong>Chambre
-                                                moderne</strong></h6>
+                                        @if ($item->meuble =='Oui')
+                                            <h6 class="card-title mbr-fonts-style display-7"><strong>{{ucfirst($item->type)}} Meublé</strong><br></h6>
+                                        @else
+                                            <h6 class="card-title mbr-fonts-style display-7"><strong>{{$item->type}} Non meublé</strong><br></h6>
+                                        @endif
+
                                         <p class="mbr-text mbr-fonts-style display-7">
-                                            <i class="fas fa-bed"></i> 1 chambres<br>
-                                            <i class="fas fa-map-marker-alt"></i> Yaoundé, Ngousso<br>
-                                            <i class="fas fa-clock"></i> Disponible à partir du 20 juillet
-                                            2023
+
+
+
+                                            <i class="fas fa-map-marker-alt"></i> {{$item->ville}},  {{ucfirst($item->quartier)}}<br>
+                                            <i class="fas fa-clock"></i> Disponible:  {{
+                                            $item->disponibilite}}
                                         </p>
                                     </div>
                                     <div class="col-md-auto">
-                                        <p class="price mbr-fonts-style display-5"><strong>35.000
-                                                FCFA/</strong><br><strong>mois</strong>
+                                        <p class="price mbr-fonts-style display-5"><strong>{{$item->prix}} Fcfa /mois</strong>
                                         </p><br>
                                         <div class="mbr-section-btn"><a href="/details-offre"
                                                 class="btn btn-primary display-4">Voir les détails</a></div>
                                     </div>
+                                    @endif
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
     </section>
 
     <section data-bs-version="5.1" class="info3 cid-tIC9SJU1Cs" id="info3-1b">
@@ -325,6 +325,8 @@
                     </div>
                 </div>
             </div>
+            @endforeach
+
         </div>
     </section>
 

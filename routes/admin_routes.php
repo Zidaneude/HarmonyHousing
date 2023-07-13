@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\Profil;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\GererRolesController;
 use App\Http\Controllers\Auth\Admin\RegisteredAdminController;
@@ -36,5 +37,10 @@ Route::get('admin/approuver/{id}', [AdminController::class, 'ApprouverOfrre'])
 
 Route::get('admin/detail/{id}', [AdminController::class, 'DetailOffre'])
 ->name('admin.dasboard.detail.offre');
+
+Route::get('admin/avis', [AdminController::class, 'AvisManager'])
+->name('admin.dasboard.avis');
+Route::get('admin/profil',[Profil::class,'create'])->name('admin.profil');
+Route::get('admin/historique-reservation',[AdminController::class,'HistoriqueResevation'])->name('admin.historique.reservation');
 
 ?>
