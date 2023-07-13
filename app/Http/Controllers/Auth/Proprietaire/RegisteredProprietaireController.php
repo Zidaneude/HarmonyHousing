@@ -29,7 +29,7 @@ class RegisteredProprietaireController extends Controller
         return view('auth.inscription-proprietaire');
     }
 
-   /**
+    /**
      * Handle an incoming registration request.
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -41,15 +41,15 @@ class RegisteredProprietaireController extends Controller
 
             'prenom' => ['required', 'string', 'max:255'],
             'nom' => ['required', 'string', 'max:255'],
-            'telephone' => ['required', 'string', 'min:9','max:9', 'unique:'.Proprietaire::class],
+            'telephone' => ['required', 'string', 'min:9', 'max:9', 'unique:' . Proprietaire::class],
             'gender' => ['required', 'string', 'max:15'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:'.Proprietaire::class],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:' . Proprietaire::class],
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
         $proprietaire = Proprietaire::create([
             'nom' => $request->nom,
-            'prenom' =>$request->prenom,
+            'prenom' => $request->prenom,
             'email' => $request->email,
             'sexe' => $request->gender,
             'telephone' => $request->telephone,
@@ -58,10 +58,10 @@ class RegisteredProprietaireController extends Controller
         ]);
         toastr()->success('creation du compte  propriétaire reussie');
 
-       // event(new Registered($proprietaire));
+        // event(new Registered($proprietaire));
 
         Auth::guard('proprietaire')->login($proprietaire);
 
-        return redirect(RouteServiceProvider::DASHBORD );
+        return redirect(RouteServiceProvider::DASHBORD);
     }
 }

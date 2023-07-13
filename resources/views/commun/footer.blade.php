@@ -29,7 +29,7 @@
                     <li><a class="text-muted" href="#">Location à Bertoua</a></li>
                 </ul>
             </div>
-            <div class="col-12 col-md-2 order-4 order-md-4">
+            <div class="col-12 col-md-2 order-5 order-md-4">
                 <h5>Rejoignez-nous !</h5>
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="#">Nous contacter</a></li>
@@ -42,7 +42,7 @@
                 </ul>
             </div>
 
-            <div class="col-12 col-md-2 order-5 order-md-5">
+            <div class="col-12 col-md-2 order-4 order-md-5">
                 <h5>Application</h5>
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="#">Télécharger</a></li>
