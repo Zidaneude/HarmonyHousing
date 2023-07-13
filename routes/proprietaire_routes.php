@@ -85,6 +85,7 @@ Route::middleware('guest:proprietaire')->group(static function () {
             //
             Route::get('/soumission_offre_step2', [SoumissionOfreFormSecondControlleur::class, 'create'])
             ->name('soumission.offre.step2.create');
+
             Route::post('/soumission_offre_step2', [SoumissionOfreFormSecondControlleur::class, 'store'])
             ->name('soumission.offre.step2.store');
 
@@ -100,6 +101,3 @@ Route::middleware('guest:proprietaire')->group(static function () {
 
 //Route::get('/g', [SoumissionOffreControlleur::class, 'test']);
 Route::get("/text",[SoumissionOfreFormOneControlleur::class, 't']);
-
-?>
-

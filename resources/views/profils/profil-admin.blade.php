@@ -20,8 +20,16 @@
    <link href="{{ asset('assets_admin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
    <link href="{{ asset('assets_admin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
-   <!-- Template Main CSS File -->
-   <link href="{{ asset('assets_admin/css/style.css') }}" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('assets_admin/css/style.css') }}" rel="stylesheet">
+
+    <style>
+        @media (min-width: 992px) {
+            .mr-lg-3 {
+                margin-right: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
@@ -93,9 +101,11 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-danger">Supprimer mon compte</button>
-                        <button type="button" class="btn btn-success">Changer mon mot de passe</button>
+                    <div class="d-flex flex-column flex-md-row">
+                        <button type="button" class="btn btn-danger mb-2 mb-md-0 mr-2 mr-lg-3">Supprimer mon
+                            compte</button>
+                        <button type="button" class="btn btn-success mb-2 mb-md-0 mr-2 mr-lg-3">Changer mon mot de
+                            passe</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>

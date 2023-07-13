@@ -39,7 +39,9 @@ class AuthenticatedSessionAdminController extends Controller
         $request->session()->regenerate();
         $pre=Auth::guard('admin')->user()->nom;
         toastr()->success('Heureux de vous revoir '.$pre);
-        return redirect()->intended(RouteServiceProvider::DASHBORD_ADMIN);
+       // return redirect()->intended(RouteServiceProvider::DASHBORD_ADMIN);
+        $admin=Auth::guard('admin')->user();
+        return view('dashboard.dashboard-admin',['locataire'=>$admin]) ;
     }
 
     /**

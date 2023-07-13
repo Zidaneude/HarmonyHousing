@@ -24,6 +24,18 @@ Route::get('/contactez-nous', function () {
     return view('help.contactez-nous');
 });
 
+Route::get('/comment-ca-marche', function () {
+    return view('help.comment-ca-marche');
+});
+
+Route::get('/FAQ-Locataire', function () {
+    return view('help.FAQ-Locataire');
+});
+
+Route::get('/FAQ-Proprietaire', function () {
+    return view('help.FAQ-Proprietaire');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -39,17 +51,9 @@ Route::post('/contact', [ContactController::class, 'store']);
 Route::get('/contact', function () {
     return view('mails.contact');
 });
-Route::get('/comment-ca-marche', function () {
-    return view('help.comment-ca-marche');
-});
+
 Route::get('/mension-legale', function () {
     return view('help.mension-legale');
-});
-Route::get('/FAQ-Locataire', function () {
-    return view('help.FAQ-Locataire');
-});
-Route::get('/FAQ-Proprietaire', function () {
-    return view('help.FAQ-Proprietaire');
 });
 
 Route::get('/politique-confidentialite', function () {

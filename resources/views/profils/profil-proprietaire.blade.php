@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes paramètres - Harmony Housing - La plateforme de réservation en ligne</title>
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/flavicon.png">
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="icon" href="{{ asset('images/flavicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        @media (min-width: 992px) {
+            .mr-lg-3 {
+                margin-right: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body style="margin-top: 70px; background-color: #F8F8FF;">
@@ -17,13 +24,13 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item active-tab">
-                <a class="nav-link" href="{{route('profil.pro')}}">Mon profil</a>
+                <a class="nav-link" href="{{ route('profil.pro') }}">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('reservation.show')}}">Gérer les réservations</a>
+                <a class="nav-link" href="{{ route('reservation.show') }}">Gérer les réservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('disponibilite.show')}}">Mettre à jour la disponibilité</a>
+                <a class="nav-link" href="{{ route('disponibilite.show') }}">Mettre à jour la disponibilité</a>
             </li>
         </ul>
         <div class="card profile-card my-5">
@@ -39,7 +46,7 @@
                     <!--profil -->
                     <h6 class="card-title">Photo de profil</h6>
                     <div style="display: flex; justify-content: center;">
-                        <img height="60" src="images/upload.png" alt="Upload Image" class="mb-2">
+                        <img height="60" src="{{ asset('images/upload.png') }}" alt="Upload Image" class="mb-2">
                     </div>
                     <div class="dashed-border p-3 mb-3">
                         <input type="file" name="photo-profil" id="photo-profil" accept=".jpg, .jpeg, .png">
@@ -98,7 +105,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <span>
-                                        <img src="/images/cameroun.jpg" alt="Cameroon Flag" width="25">
+                                        <img src="{{ asset('/images/cameroun.jpg') }}" alt="Cameroon Flag" width="25">
                                     </span>&nbsp;+237</span>
                             </div>
                             <input id="tel" style="background-color: #F8F8FF;" type="tel"
@@ -135,9 +142,11 @@
                         <button class="btn btn-ins mt-3">Gérer mes communications</button>
                     </div>
                     <hr>
-                    <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-del">Supprimer mon compte</button>
-                        <button type="button" class="btn btn-ins">Changer mon mot de passe</button>
+                    <div class="d-flex flex-column flex-md-row">
+                        <button type="button" class="btn btn-del mb-2 mb-md-0 mr-2 mr-lg-3">Supprimer mon
+                            compte</button>
+                        <button type="button" class="btn btn-ins mb-2 mb-md-0 mr-2 mr-lg-3">Changer mon mot de
+                            passe</button>
                         <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>

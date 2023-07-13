@@ -10,6 +10,25 @@
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .btn-del {
+            color: #ffffff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-del:hover {
+            color: #ffffff;
+            background-color: #bd2130;
+            border-color: #bd2130;
+        }
+
+        @media (min-width: 992px) {
+            .mr-lg-3 {
+                margin-right: 1rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body style="margin-top: 100px; background-color: #f8f8ff;">
@@ -47,34 +66,35 @@
                                         {{-- A ce niveau, utilisez forelse au lieu de foreach pour afficher le message : "Vous n'avez aucune annonce active actuellement." si la liste est vide --}}
                                         <div class="card mb-3">
                                             <div class="row no-gutters">
-                                                <div class="col-md-4">
+                                                <div class="col-12 col-md-4">
                                                     <img height="225" src="images/appart.jpg" class="card-img"
                                                         alt="Photo">
                                                 </div>
-                                                <div class="col-md-8">
+                                                <div class="col-12 col-md-8">
                                                     <div class="card-body">
-                                                        <p style="font-size: 15px;" class="card-text">
-                                                            Identifiant : 83321&nbsp;&nbsp;&nbsp;
-                                                            <span
-                                                                style="text-align: center; font-size: 15px; font-weight: 500;"
-                                                                class="text-center">État : 🟢</span>
-                                                            <span
-                                                                style="float: right; font-size: 15px; font-weight: 500;">Prix
-                                                                : De 100 000F à 180
+                                                        <p
+                                                            class="card-text d-flex flex-wrap justify-content-between align-items-center">
+                                                            <span>Identifiant : 83321</span>
+                                                            <span class="text-center">État : 🟢</span>
+                                                            <span style="font-weight: 500;">Prix : De 100 000F à 180
                                                                 000F</span>
                                                         </p>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <h5 style="color: #004aad" class="card-title">Hilton
+                                                        <a href="#" class="text-decoration-none">
+                                                            <h5 class="card-title" style="color: #004aad;">Hilton
                                                                 Yaoundé</h5>
                                                         </a>
-                                                        <p style="color: #004aad" class="card-text">Bd du 20 mai,
+                                                        <p class="card-text" style="color: #004aad;">Bd du 20 mai,
                                                             Yaoundé</p>
                                                         <p class="card-text"> <span
-                                                                style="font-weight: 500;">Disponibilité :</span>
-                                                            Les locataires peuvent voir
-                                                            l'annonce</p>
-                                                        <a href="#" class="btn btn-primary">Modifier l'annonce</a>
-                                                        <a href="#" class="btn btn-del">Supprimer l'annonce</a>
+                                                                style="font-weight: 500;">Disponibilité :</span> Les
+                                                            locataires peuvent voir l'annonce</p>
+                                                        <div class="d-flex flex-column flex-md-row">
+                                                            <a href="#"
+                                                                class="btn btn-primary mb-2 mb-md-0 mr-2 mr-lg-3">Modifier
+                                                                l'annonce</a>
+                                                            <a href="#" class="btn btn-del">Supprimer
+                                                                l'annonce</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,34 +102,35 @@
 
                                         <div class="card mb-3">
                                             <div class="row no-gutters">
-                                                <div class="col-md-4">
+                                                <div class="col-12 col-md-4">
                                                     <img height="225" src="images/appart2.webp" class="card-img"
                                                         alt="Photo">
                                                 </div>
-                                                <div class="col-md-8">
+                                                <div class="col-12 col-md-8">
                                                     <div class="card-body">
-                                                        <p style="font-size: 15px;" class="card-text">
-                                                            Identifiant : 83322&nbsp;&nbsp;&nbsp;
-                                                            <span
-                                                                style="text-align: center; font-size: 15px; font-weight: 500;"
-                                                                class="text-center">État : 🔴</span>
-                                                            <span
-                                                                style="float: right; font-size: 15px; font-weight: 500;">Prix
-                                                                : De 150 000F à 200
+                                                        <p
+                                                            class="card-text d-flex flex-wrap justify-content-between align-items-center">
+                                                            <span>Identifiant : 83322</span>
+                                                            <span class="text-center">État : 🔴</span>
+                                                            <span style="font-weight: 500;">Prix : De 150 000F à 200
                                                                 000F</span>
                                                         </p>
-                                                        <a href="#" style="text-decoration: none;">
-                                                            <h5 style="color: #004aad" class="card-title">La Falaise
+                                                        <a href="#" class="text-decoration-none">
+                                                            <h5 class="card-title" style="color: #004aad;">La Falaise
                                                                 Yaoundé</h5>
                                                         </a>
-                                                        <p style="color: #004aad" class="card-text">Ave Merechal Foch,
+                                                        <p class="card-text" style="color: #004aad;">Ave Merechal Foch,
                                                             Yaoundé</p>
                                                         <p class="card-text"> <span
-                                                                style="font-weight: 500;">Disponibilité :</span>
-                                                            Les locataires ne peuvent pas voir
-                                                            l'annonce</p>
-                                                        <a href="#" class="btn btn-primary">Modifier l'annonce</a>
-                                                        <a href="#" class="btn btn-del">Retirer l'annonce</a>
+                                                                style="font-weight: 500;">Disponibilité :</span> Les
+                                                            locataires ne peuvent pas voir l'annonce</p>
+                                                        <div class="d-flex flex-column flex-md-row">
+                                                            <a href="#"
+                                                                class="btn btn-primary mb-2 mb-md-0 mr-2 mr-lg-3">Modifier
+                                                                l'annonce</a>
+                                                            <a href="#" class="btn btn-del">Supprimer
+                                                                l'annonce</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,7 +228,7 @@
             </div>
         </div>
 
-<div class="row my-5">
+        <div class="row my-5">
             <h4 class="mb-3" style="color: #004aad;">Guides & Conseils</h4>
             <div class="col-lg-4 col-md-6 col-sm-12 btn-primary2">
                 <a href="#" style="text-decoration: none; color: #004aad;">

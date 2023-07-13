@@ -1,214 +1,383 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-
-    <title>Dashbord locataire | Harmony Housing</title>
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="assets/dropdown/css/style.css">
-    <link rel="stylesheet" href="assets/socicon/css/styles.css">
-    <link rel="stylesheet" href="assets/theme/css/style.css">
-    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rechercher mon logement - Harmony Housing - La plateforme de réservation en ligne</title>
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="icon" href="images/Favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Add some CSS to style the button -->
     <style>
-        .nav-link {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        @media (max-width: 600px) {
-            #extra-filters {
-                flex-direction: column;
-            }
-        }
-    </style>
-    <style>
-        .filter {
-            color: #004aad;
-        }
-
-        .overlay {
-            height: 50%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.3);
-            overflow-x: hidden;
-            transition: 0.5s;
-        }
-
-        .overlay-content {
-            position: relative;
-            top: 20%;
-            width: 100%;
-            text-align: center;
-        }
-
-        .overlay a {
+        .favorite-btn {
+            /* Remove the transparency */
+            opacity: 1;
+            /* Add a white background */
+            background-color: white;
+            /* Add a border */
+            border: 1px solid #ddd;
+            /* Add some padding */
             padding: 8px;
-            text-decoration: none;
-            font-size: 36px;
-            color: #ffffff;
-            display: block;
-            transition: 0.3s;
+            /* Make it a circle */
+            border-radius: 50%;
+            /* Adjust the width and height to make it round */
+            width: 32px;
+            height: 32px;
+            /* Center the icon in the button */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .overlay a:hover,
-        .overlay a:focus {
-            color: #f1f1f1;
+        /* Add a hover effect to change the color and fill of the icon */
+        .favorite-btn:hover i {
+            color: red;
+            font-weight: 900;
         }
 
-        .overlay .closebtn {
-            position: absolute;
-            top: 20px;
-            right: 45px;
-            font-size: 60px;
+        .bg-lightblue {
+            background-color: #e6f2ff;
         }
 
-        @media screen and (max-height: 450px) {
-            .overlay a {
-                font-size: 20px
-            }
+        .mb-1 {
+            /* Use a smaller margin bottom */
+            margin-bottom: 0.25rem;
+        }
 
-            .overlay .closebtn {
-                font-size: 40px;
-                top: 15px;
-                right: 35px;
+        /* Ajouter un effet d'ombre portée sur la carte */
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Arrondir les coins de la carte et de l'image */
+        .card {
+            border-radius: 10px;
+        }
+
+        .card-img-top {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        /* Changer la couleur de fond de la carte au survol */
+        .card:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Ajouter un peu d'espace entre le texte et les bords de la carte */
+        .card-body {
+            padding: 20px;
+        }
+
+        fieldset {
+            /* Add a border around the fieldset */
+            border: 1px solid #ddd;
+            /* Add some padding around the content */
+            padding: 10px;
+            /* Add some margin around the fieldset */
+            margin: 10px;
+        }
+
+        legend {
+            /* Add some padding around the legend */
+            padding: 5px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        @media (min-width: 992px) {
+            .modal-dialog {
+                width: 35%;
             }
         }
     </style>
 </head>
 
-<body class="pt-5">
+<body style="margin-top: 100px; background-color: #f8f8ff;">
     @include('commun.header-dashboard-loc')
+    <div class="container">
 
-    <section data-bs-version="5.1" class="features8 cid-tIoXg5qdPf" xmlns="http://www.w3.org/1999/html"
-        id="features9-c">
+        <div class="card shadow-sm border-0 p-2">
+            <div class="row my-4">
+                <div class="col-md-3 mb-3">
+                    <label for="ville" style="font-weight: bold;">Ville</label>
+                    <input type="text" id="ville" name="ville" class="form-control" placeholder="Ex: Douala">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="quartier" style="font-weight: bold;">Quartier</label>
+                    <input type="text" id="quartier" name="quartier" class="form-control"
+                        placeholder="Ex: Bonamoussadi">
+                </div>
 
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Accueil</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Logement à Dschang</a></li>
-
-                </ol>
-            </nav>
-        </div>
-
-        <div class="container my-5" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-            <h5><strong><span style="color: #004aad; font-weight: bold;">2 logements disponibles</span> <span
-                        style="color: rgb(207, 201, 201)">sur 25</span> </strong></h5>
-        </div>
-
-        <style>
-            .res {
-                padding-top: 15px;
-                padding-bottom: 5px;
-                text-align: center;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-        </style>
-
-        <div class="container">
-
-            <div class="row mt-4">
-                <div class="item features-image сol-12 col-md-6 col-lg-4 active">
-                    <div class="item-wrapper">
-                        <div class="item-img">
-                            <a href="détails et reservation.html"><img src="assets1/images/hilton-yaounde-550x363.jpg"
-                                    alt="Mobirise Website Builder" data-slide-to="0" data-bs-slide-to="0"></a>
-                        </div>
-                        <div class="item-content">
-                            <h5 class="item-title mbr-fonts-style display-7"><strong>65000 FCFA/ mois</strong></h5>
-
-                            <p class="mbr-text mbr-fonts-style mt-3 display-7">Appartement meublé pour
-                                étudiants<br>Dschang-foto</p>
-                        </div>
-                        <div class="mbr-section-btn item-footer mt-2"><a href="détails et reservation.html"
-                                class="btn btn-primary item-btn display-7" target="_blank">voir les détails</a></div>
+                <div class="col-md-3">
+                    <label style="font-weight: bold;">Type de logement</label>
+                    <div class="form-check">
+                        <input type="radio" id="apartment" name="type" class="form-check-input">
+                        <label for="apartment" class="form-check-label">Appartement</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="room" name="type" class="form-check-input">
+                        <label for="room" class="form-check-label">Chambre</label>
                     </div>
                 </div>
-                <div class="item features-image сol-12 col-md-6 col-lg-4">
-                    <div class="item-wrapper">
-                        <div class="item-img">
-                            <a href="détails et reservation.html"><img
-                                    src="assets1/images/hilton-yaounde-habitacion-c4dc94a-816x502.jpg"
-                                    alt="Mobirise Website Builder" data-slide-to="1" data-bs-slide-to="1"></a>
-                        </div>
-                        <div class="item-content">
-                            <p class="mbr-text mbr-fonts-style mt-3 display-7">
-                                Chambre moderne&nbsp;<br>Douala-Bonabéri</p>
-
-                            <h5 class="item-title mbr-fonts-style display-7"><strong>45000 FCFA/ mois</strong></h5>
-
-
-                        </div>
-                        <div class="mbr-section-btn item-footer mt-2"><a href="détails et reservation.html"
-                                class="btn btn-primary item-btn display-7" target="_blank">voir les détails</a></div>
-                    </div>
+                <div class="col-md-3 d-flex align-items-end justify-content-end">
+                    <button type="button" class="btn btn-success me-2" data-bs-toggle="modal"
+                        data-bs-target="#plus-de-filtres">Plus de filtres</button>
+                    <button type="submit" class="btn btn-primary">Rechercher</button>
                 </div>
-                <div class="item features-image сol-12 col-md-6 col-lg-4">
-                    <div class="item-wrapper">
-                        <div class="item-img">
-                            <a href="détails et reservation.html"><img
-                                    src="assets1/images/queen-executive-room-700x433.jpg" alt="Mobirise Website Builder"
-                                    data-slide-to="2" data-bs-slide-to="2"></a>
-                        </div>
-                        <div class="item-content">
-                            <h5 class="item-title mbr-fonts-style display-7"><strong>55000 FCFA/ mois</strong></h5>
+            </div>
 
-                            <p class="mbr-text mbr-fonts-style mt-3 display-7">Studio avec cuisine<br>Yaoundé-Ngousso
-                            </p>
+            <!-- Modal -->
+            <div class="modal fade" id="plus-de-filtres" tabindex="-1" aria-labelledby="plus-de-filtres-label"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="plus-de-filtres-label">Plus de filtres</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
-                        <div class="mbr-section-btn item-footer mt-2"><a href="détails et reservation.html"
-                                class="btn btn-primary item-btn display-7" target="_blank">voir les détails</a></div>
+                        <div class="modal-body">
+                            <!-- Budget -->
+                            <fieldset class="mb-3">
+                                <legend>Budget</legend>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="budget-min">Budget min</label>
+                                        <input type="number" id="budget-min" name="budget-min" class="form-control"
+                                            placeholder="Ex: 10000 FCFA" min="0">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="budget-max">Budget max</label>
+                                        <input type="number" id="budget-max" name="budget-max" class="form-control"
+                                            placeholder="Ex: 50000 FCFA" min="0">
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Meublé -->
+                            <fieldset class="mb-3">
+                                <legend>Meublé ?</legend>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="meuble-oui" name="meuble" value="oui"
+                                        class="form-check-input">
+                                    <label for="meuble-oui" class="form-check-label">Oui</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="meuble-non" name="meuble" value="non"
+                                        class="form-check-input">
+                                    <label for="meuble-non" class="form-check-label">Non</label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Avec équipements -->
+                            <fieldset class="mb-3">
+                                <legend>Avec équipements ?</legend>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="equipement-oui" name="equipement" value="oui"
+                                        class="form-check-input">
+                                    <label for="equipement-oui" class="form-check-label">Oui</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="equipement-non" name="equipement" value="non"
+                                        class="form-check-input">
+                                    <label for="equipement-non" class="form-check-label">Non</label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Fréquence de paiement -->
+                            <fieldset class="mb-3">
+                                <legend>Fréquence de paiement</legend>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="frequence-1-mois" name="frequence" value="1 mois"
+                                        class="form-check-input">
+                                    <label for="frequence-1-mois" class="form-check-label">1 mois</label>
+                                </div>
+                                <div class="form-check form-check-inline mb-3">
+                                    <input type="radio" id="frequence-3-mois" name="frequence" value="3 mois"
+                                        class="form-check-input">
+                                    <label for="frequence-3-mois" class="form-check-label">3 mois</label>
+                                </div>
+                                <div class="form-check form-check-inline mb-3">
+                                    <input type="radio" id="frequence-6-mois" name="frequence" value="6 mois"
+                                        class="form-check-input">
+                                    <label for="frequence-6-mois" class="form-check-label">6 mois</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="frequence-1-an" name="frequence" value="1 an"
+                                        class="form-check-input">
+                                    <label for="frequence-1-an" class="form-check-label">1 an</label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Disponibilité -->
+                            <fieldset class="mb-3">
+                                <legend>Disponibilité</legend>
+                                <div class="form-group">
+                                    <label for="dispo-date">À partir du :</label>
+                                    <input type="date" id="dispo-date" name="dispo" class="form-control"
+                                        min="">
+                                </div>
+                            </fieldset>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-success">Appliquer</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    @include('commun.footer')
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="assets/ytplayer/index.js"></script>
-    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-    <script src="assets/theme/js/script.js"></script>
-    <script src="assets/formoid/formoid.min.js"></script>
 
-    <script>
-        var moreFiltersButton = document.getElementById('more-filters');
-        var extraFilters = document.getElementById('extra-filters');
-        moreFiltersButton.addEventListener('click', function() {
-            if (extraFilters.style.maxHeight === '0px') {
-                extraFilters.style.maxHeight = extraFilters.scrollHeight + 'px';
-            } else {
-                extraFilters.style.maxHeight = '0px';
-            }
-        });
-    </script>
-    <script>
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
+        <h5 class="my-5" style="color:#02469e; font-weight: bold;">+60 logements disponibles</h5>
+        <div class="row">
 
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card mb-4 shadow-sm btn-primary2" onclick="location.href='#';" style="cursor: pointer;">
+                    <img src="/images/bafoussam.jpg" class="card-img-top position-relative" alt="Property image"
+                        height="200">
+                    <a href="#" class="btn btn-circle btn-white favorite-btn position-absolute top-0 end-0 m-2"
+                        onclick="event.stopPropagation()"><i class="far fa-heart"></i></a>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p style="font-size: 15px;" class="mb-1">Appartement</p>
+                                <h5 class="card-title" style="font-size: 16px;">Appartement moderne au centre-ville
+                                </h5>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="card-text" style="font-size: 21px; line-height: 1"><b>25 500 F</b> <span
+                                        style="font-size: 16px;">/ mois</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <p class="card-text" style="font-size: 13px;">65m² - 12 chambres - Meublé
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-lightblue border-0">
+                        <p class="card-text text-success" style="font-size: 14px;"><i
+                                class="fas fa-check-circle"></i>
+                            Disponible <span class="text-dark"> actuellement</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card mb-4 shadow-sm btn-primary2" onclick="location.href='#';" style="cursor: pointer;">
+                    <img src="/images/appart2.webp" class="card-img-top position-relative" alt="Property image"
+                        height="200">
+                    <a href="#" class="btn btn-circle btn-white favorite-btn position-absolute top-0 end-0 m-2"
+                        onclick="event.stopPropagation()"><i class="far fa-heart"></i></a>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p style="font-size: 15px;" class="mb-1">Chambre</p>
+                                <h5 class="card-title" style="font-size: 16px;">Chambre confortable avec vue sur la
+                                    mer
+                                </h5>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="card-text" style="font-size: 21px; line-height: 1"><b>15 700 F</b> <span
+                                        style="font-size: 16px;">/ mois</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <p class="card-text" style="font-size: 13px;">75m² - 9 chambres - Non Meublé
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-lightblue border-0">
+                        <p class="card-text text-success" style="font-size: 14px;"><i
+                                class="fas fa-check-circle"></i>
+                            Disponible <span class="text-dark"> actuellement</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card mb-4 shadow-sm btn-primary2" onclick="location.href='#';" style="cursor: pointer;">
+                    <img src="/images/dschang.jpg" class="card-img-top position-relative" alt="Property image"
+                        height="200">
+                    <a href="#" class="btn btn-circle btn-white favorite-btn position-absolute top-0 end-0 m-2"
+                        onclick="event.stopPropagation()"><i class="far fa-heart"></i></a>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p style="font-size: 15px;" class="mb-1">Appartement</p>
+                                <h5 class="card-title" style="font-size: 16px;">Appartement meublé très chic
+                                </h5>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="card-text" style="font-size: 21px; line-height: 1"><b>52 000 F</b> <span
+                                        style="font-size: 16px;">/ mois</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <p class="card-text" style="font-size: 13px;">65m² - 12 chambres - Meublé
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-lightblue border-0">
+                        <p class="card-text text-success" style="font-size: 14px;"><i
+                                class="fas fa-clock text-warning"></i>
+                            Disponible à partir du <span class="text-dark"> 16 juil. 2023</span></p>
+                    </div>
+                </div>
+            </div>
+        </div> {{-- Fin de la row --}}
+
+        <div class="demo my-5">
+            <nav class="pagination-outer" aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">«</span>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">4</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Next">
+                            <span aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script>
+            // Créer une variable qui contient la date du jour au format YYYY-MM-DD
+            var today = new Date().toISOString().slice(0, 10);
+            // Sélectionner l'input de type date
+            var input = document.getElementById("dispo-date");
+            // Mettre la date du jour comme valeur et comme minimum de l'input
+            input.value = today;
+            input.min = today;
+        </script>
+
 </body>
 
 </html>

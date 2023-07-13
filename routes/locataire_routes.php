@@ -17,6 +17,9 @@ Route::get('connexion-locataire', [AuthenticatedSessionLocataireController::clas
 
 Route::post('connexion-locataire', [AuthenticatedSessionLocataireController::class, 'store'])
         ->name('connexion.locataire.store');
+        
+Route::get('logout-locataire', [AuthenticatedSessionLocataireController::class, 'destroy'])
+        ->name('logout.locataire');
 
 Route::get('inscription-locataire', [RegisteredLocataireController::class, 'create'])
         ->name('inscription.locataire.create');
@@ -36,8 +39,7 @@ Route::get('profil-locataire', [ProfilLocataireController::class, 'create'])
 Route::post('profil-locataire/{id}', [ProfilLocataireController::class, 'update'])
         ->name('profil.locataire.update');
 
-Route::get('logout-locataire', [AuthenticatedSessionLocataireController::class, 'destroy'])
-        ->name('logout.locataire');
+
 Route::get('delete-compte/{id}', [ProfilLocataireController::class, 'destroy'])
         ->name('delete.locataire');
 

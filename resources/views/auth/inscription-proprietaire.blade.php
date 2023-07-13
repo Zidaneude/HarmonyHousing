@@ -9,6 +9,7 @@
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+
 </head>
 
 <body class="pt-5">
@@ -24,15 +25,15 @@
                             propriétaire</h4>
 
 
-                            <form method="POST" action="{{route('inscription.proprietaire.store')}}">
-                                @csrf
+                        <form method="POST" action="{{ route('inscription.proprietaire.store') }}">
+                            @csrf
                             <!-- email                          -->
                             <div class="form-group mt-5">
                                 <input style="background-color: #F8F8FF;" placeholder="Adresse e-mail" type="email"
                                     class="form-control" id="email" name="email" required>
                             </div>
-                            @error("email")
-                            <h6 style="color: red"> {{$message}}</h6>
+                            @error('email')
+                                <h6 style="color: red"> {{ $message }}</h6>
                             @enderror
 
 
@@ -59,7 +60,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <!-- prenom                                -->
+                            <!-- prenom                                -->
                             <div class="form-group my-3">
                                 <input style="background-color: #F8F8FF;" placeholder="Prénom" type="text"
                                     class="form-control" id="firstName" name="prenom" required>
@@ -78,17 +79,17 @@
                                                 <img src="/images/cameroun.jpg" alt="Cameroon Flag" width="25">
                                             </span>&nbsp;+237</span>
                                     </div>
-                                <!-- telephone                          -->
+                                    <!-- telephone                          -->
                                     <input style="background-color: #F8F8FF;" placeholder="Numéro de téléphone"
                                         type="tel" class="form-control" id="phoneNumber" name="telephone" required>
                                 </div>
                             </div>
-                            @error("telephone")
-                            <h6 style="color: red"> {{$message}}</h6>
+                            @error('telephone')
+                                <h6 style="color: red"> {{ $message }}</h6>
                             @enderror
                             <div class="form-group mt-3 mb-4">
                                 <div class="input-group">
-                                <!-- password                          -->
+                                    <!-- password                          -->
                                     <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
                                         class="form-control" id="password" name="password" required>
 
@@ -98,8 +99,8 @@
                                         </span>
                                     </div>
                                 </div>
-                                @error("password")
-                                <h6 style="color: red"> {{$message}}</h6>
+                                @error('password')
+                                    <h6 style="color: red"> {{ $message }}</h6>
                                 @enderror
                             </div>
 
@@ -139,10 +140,6 @@
 
 
     @include('commun.footer')
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <script>
         const togglePassword = document.querySelector('#togglePassword');

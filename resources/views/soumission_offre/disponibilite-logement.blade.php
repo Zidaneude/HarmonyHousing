@@ -81,7 +81,7 @@
                                             Plus d'options
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#">Modifier l'annonce</a></li>
+                                            <li><a class="dropdown-item" href="{{route('soumission.offre')}}">Modifier l'annonce</a></li>
                                             <li><a class="dropdown-item" href="#">Voir l'annonce</a></li>
                                             <li><a class="dropdown-item" href="#">Supprimer l'annonce</a>
                                             </li>
