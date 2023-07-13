@@ -116,7 +116,7 @@
                 <div class="col-md-3">
                     <label style="font-weight: bold;">Type de logement</label>
                     <div class="form-check">
-                        <input type="radio" id="apartment" name="type" class="form-check-input" checked>
+                        <input type="radio" id="apartment" name="type" class="form-check-input">
                         <label for="apartment" class="form-check-label">Appartement</label>
                     </div>
                     <div class="form-check">
@@ -217,17 +217,13 @@
                             <!-- Disponibilité -->
                             <fieldset class="mb-3">
                                 <legend>Disponibilité</legend>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="dispo-actuellement" name="dispo"
-                                        value="actuellement" class="form-check-input">
-                                    <label for="dispo-actuellement" class="form-check-label">Actuellement</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="dispo-futur" name="dispo" value="futur"
-                                        class="form-check-input">
-                                    <label for="dispo-futur" class="form-check-label">Futur</label>
+                                <div class="form-group">
+                                    <label for="dispo-date">À partir du :</label>
+                                    <input type="date" id="dispo-date" name="dispo" class="form-control"
+                                        min="">
                                 </div>
                             </fieldset>
+
 
                         </div>
                         <div class="modal-footer">
@@ -372,6 +368,15 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script>
+            // Créer une variable qui contient la date du jour au format YYYY-MM-DD
+            var today = new Date().toISOString().slice(0, 10);
+            // Sélectionner l'input de type date
+            var input = document.getElementById("dispo-date");
+            // Mettre la date du jour comme valeur et comme minimum de l'input
+            input.value = today;
+            input.min = today;
+        </script>
 
 </body>
 
