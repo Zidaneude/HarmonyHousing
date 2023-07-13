@@ -23,8 +23,8 @@ class ProfilLocataireController extends Controller
      */
     public function create()
     {   
-        $loc=Auth::guard('proprietaire')->user();
-        return view('profils.profil-locataire',['locataire'=>$loc]) ;
+        $locataire=Auth::guard('locataire')->user();
+        return view('profils.profil-locataire',['locataire'=>$locataire]) ;
 
     }
 
@@ -114,8 +114,8 @@ class ProfilLocataireController extends Controller
      */
     public function destroy($id)
     {
-        $loc = Locataire::findOrFail($id);
-        $loc->delete();
+        $locataire = Locataire::findOrFail($id);
+        $locataire->delete();
     
        return redirect('/')->with('success', 'compte supprimer avec succèss');
     }
