@@ -215,7 +215,7 @@
                         <div class="row">
                             <div class="col-12 text-center">
                                 <br>
-                                <a href="#" class="btn btn-primary">En savoir plus</a>
+                                <a href="/FAQ-Locataire" class="btn btn-primary">En savoir plus</a>
                             </div>
                         </div>
                     </div>

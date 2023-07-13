@@ -32,7 +32,7 @@
             <div class="col-12 col-md-2 order-5 order-md-4">
                 <h5>Rejoignez-nous !</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Nous contacter</a></li>
+                    <li><a class="text-muted" href="/contactez-nous">Nous contacter</a></li>
                 </ul>
                 <ul class="list-inline">
                     <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>

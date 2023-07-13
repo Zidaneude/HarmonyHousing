@@ -33,10 +33,9 @@
   .aborder-type{
      background-color: rgb(215, 224, 250);
      margin-top: 15px;
-     margin-left: (0 ,100px);
-     margin-right: (0 ,100px);
+     margin-left: 0px;
+     margin-right: 0px;
      border-radius: 15px;
-
   }
   /* Création de deux colonnes qui flottent l'une à côté de l'autre */
   .column {
@@ -111,8 +110,8 @@
       margin-top: 90px;
   }
   .text-border{
-      margin-left: 50px;
-      margin-right: 50px;
+      margin-left: 25px;
+      margin-right: 25px;
       color: #36417D;
   }
   .text-border-space{

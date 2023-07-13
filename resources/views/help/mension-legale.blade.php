@@ -14,37 +14,38 @@
         <link rel="icon" href="images/favicon.png">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/contact-style.css">
         <link rel="stylesheet"
             href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 
     </head>
-    <body class="arriere-plan">
+    <body class="arriere-plan" style="margin-top: 60px;">
         @include('commun/header');
-            <div class="card py-5 card-space ">
+            <div class="card  text-border "><br>
                     <div>
                         <h1 class="container text-border">Mensions Légales</h1>
-                    
-                    </div ><br><br><br>
+
+                    </div ><br><br>
                     <div class="text-border-space">
                         <p>Harmony Horsing est l’éditeur de la plateforme en ligne, le responsable de la publication et le propriétaire de tout le contenu.</p>
                         <br>
                         <p>Harmony Horsing est un nom de domaine exploité par la société par actions simplifiée (SAS)
-                        Harmony Horsing au capital social de 8000 Francs. La société est immatriculée au registre du 
+                        Harmony Horsing au capital social de 8000 Francs. La société est immatriculée au registre du
                         commerce et des sociétés depuis le 13 jullet 2023. Siège social : DCHANG, UDS – 95520 Faculté des sciences.</p>
                         <br>
-                        <p>Numéro d’identification : Departement MATH-INFO. Numéro Orias : INFORMATIQUE 3. 
-                            Déclaration à la Commission nationale de l’informatique et des libertés (CNIL) N°1836642v0 
-                            en date du 13 jullet 2023. Site : https://www.orias.com/ Harmony Horsing est également soumis au 
-                            contrôle de l’Autorité de contrôle prudentiel et de résolution (ACPR). Adresse : 4 Place 
+                        <p>Numéro d’identification : Departement MATH-INFO. Numéro Orias : INFORMATIQUE 3.
+                            Déclaration à la Commission nationale de l’informatique et des libertés (CNIL) N°1836642v0
+                            en date du 13 jullet 2023. Site : https://www.orias.com/ Harmony Horsing est également soumis au
+                            contrôle de l’Autorité de contrôle prudentiel et de résolution (ACPR). Adresse : 4 Place
                             de Budapest CS 92459, 75436 Paris. Site : https://acpr.banque-cameroun.com/.</p>
                         <br>
                         <p>En cas de réclamation, consultez d’abord votre interlocuteur habituel chez HARMONY HORSING.</p>
                         <br>
-                        <p>Si sa réponse ne vous satisfait pas, vous pourrez faire appel au service réclamation de 
+                        <p>Si sa réponse ne vous satisfait pas, vous pourrez faire appel au service réclamation de
                             l’assureur dont les coordonnées figurent dans les Dispositions Générales.</p>
                         <br>
-                        <p>Si votre litige ne trouvait pas sa solution auprès de l’assureur, vous pourrez vous adresser au 
-                                médiateur indépendant dont les coordonnées sont les suivantes :</p> 
+                        <p>Si votre litige ne trouvait pas sa solution auprès de l’assureur, vous pourrez vous adresser au
+                                médiateur indépendant dont les coordonnées sont les suivantes :</p>
                     <br>
                         <p>www.mediation-assurance.com</p>
                                 <p>La Médiation de l’Assurance</p>
@@ -53,10 +54,10 @@
                                 <br>
                                 <p>Pour toute question sur l’entreprise, vous pouvez nous envoyer un email à l’adresse <a href="/contactez-nous">contact@harmonyHorsing.com</a>.</p>
                     </div>
-                    
+
             </div><br><br>
-        
+
         @include('commun/footer');
-            
+
     </body>
 </html>

@@ -51,7 +51,7 @@
 					aria-labelledby="headingOne" data-bs-parent="#accordionExample"
 					style="">
 					<div class="accordion-body" id="family">
-						<strong><font style="vertical-align: inherit;"><font
+						<font style="vertical-align: inherit;"><font
 								style="vertical-align: inherit;">
 									<p>Afin de devenir un profil vérifié, c’est très simple.
 										Après avoir déposé votre annonce, sur votre tableau de bord
