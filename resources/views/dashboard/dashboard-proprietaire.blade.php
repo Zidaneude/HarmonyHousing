@@ -35,7 +35,7 @@
     @include('commun.header-dashboard-prop')
     <div class="container">
         <div style="color: #004aad;">
-            <h4>👋🏼 Bienvenue,{{ Auth::guard('proprietaire')->user()->nom }}!</h4>
+            <h4>👋🏼 Bienvenue, {{ Auth::guard('proprietaire')->user()->nom }}!</h4>
         </div>
 
         <div class="row">
