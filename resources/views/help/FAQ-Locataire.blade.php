@@ -51,7 +51,7 @@
 					aria-labelledby="headingOne" data-bs-parent="#accordionExample"
 					style="">
 					<div class="accordion-body" id="family">
-						<strong><font style="vertical-align: inherit;"><font
+						<font style="vertical-align: inherit;"><font
 								style="vertical-align: inherit;"> La plateforme vous
 									permet de trouver une chambre à louer chez un hébergeur qui
 									vous accueille dans son logement pour une courte ou longue

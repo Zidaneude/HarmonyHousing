@@ -8,7 +8,7 @@
             rel="stylesheet">
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
             rel="stylesheet">
-      
+
         <link rel="stylesheet"
             href="assets/plugins/bootstrap/css/bootstrap.min.css">
         <link rel="icon" href="images/favicon.png">
@@ -20,7 +20,7 @@
 </head>
 <body>
     @include('commun/header')
-   
+
     <div class="contact-container">
 
     <br><br><br>
@@ -43,44 +43,44 @@
             <!-- La deuxieme colone de la page de contact -->
 
           <div class="column form-group pb-3">
-          
+
 
             <form id="contact-form" action="/action_page.php" method="post" enctype="multipart/form-data">
 
                     <!-- Ca  c'est le champ du NOM de celui qui soumet le formulaire -->
               <label for="name">Nom</label>
-              
+
                       <input style="background-color: #F8F8FF;" placeholder="Entrez votre nom"
                         type="text" class="form-control" id="name" required>
-               
+
                    <!-- Ca  c'est le champ dE L'ADRSSE EMAIL du contact-->
                    <label for="email">Email</label>
                       <input style="background-color: #F8F8FF;" placeholder="Entrez votre adresse email"
                         type="email" class="form-control" id="email" required>
-                
-            
+
+
 
                       <!-- Ca  c'est le champ du SUJET du contact-->
               <label for="sujet">Sujet</label>
                 <input style="background-color: #F8F8FF;" placeholder="Entrez votre suggestion"
                         type="text" class="form-control" id="sujet" required>
-                
+
 
                       <!-- Ca  c'est le champ du contenu du MESSAGE a envoyer-->
               <label for="message">Message</label>
-                <textarea id="message" name="message" class="form-control" placeholder="Écrivez quelque chose.." style="background-color: #F8F8FF;" required></textarea>
-              
+                <textarea id="message" name="message" class="form-control" placeholder="Écrivez quelque chose.." style="background-color: #F8F8FF; height:150px;" required></textarea>
+
 
                   <!-- BOUTON de soumission du formulaire -->
-              <input type="submit" value="Envoyer">
+              <input type="submit" value="Envoyer" style="border-radius: 15px">
             </form>
           </div>
-          
+
         </div>
   </div>
   <br><br>
   </div>
-    
+
     @include('commun/footer')
 </body>
 </html>
