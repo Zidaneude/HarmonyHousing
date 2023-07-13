@@ -41,6 +41,7 @@ class RechercheController extends Controller
     public function Recherche(Request $request){
 
 
+      //  dd($request);
         $city = $request->ville;
         $budget_max = $request->budget_max;
         $type = $request->type;

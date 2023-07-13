@@ -157,7 +157,7 @@ class SoumissionOfreFormOneControlleur extends Controller
             }
             //les chambres ne sont pas identiques
             else {
-                dd($request);
+               // dd($request);
                 // on stock l'offre
                 $this->storeOffre($request);
                 // on stock le logement

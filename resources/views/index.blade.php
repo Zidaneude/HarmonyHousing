@@ -172,7 +172,7 @@
                     réserver votre logement auprès de propriétaires de confiance, tout en bénéficiant d'un
                     accompagnement personnalisé.</p>
                 <br>
-                <a href="/affichage-resultats" class="btn btn-primary">Je commence mes recherches</a>
+                <a href="search" class="btn btn-primary">Je commence mes recherches</a>
                 <br>
                 <br>
                 <br>

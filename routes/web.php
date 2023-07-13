@@ -78,6 +78,7 @@ Route::get('/commentaire', function () {
 
 Route::get('recherche',[RechercheController::class,'Recherche'])->name('recherche.from.homme');
 
+
 Route::get('/search',[RechercheController::class,'find'])->name('search.search');
 //Route::get()
 require __DIR__ . '/auth.php';
