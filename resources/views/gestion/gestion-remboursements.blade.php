@@ -46,7 +46,7 @@
             </div>
             <div class="card-body mt-4">
                 <div class="row mb-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="filter">Filtrer par :</label>
                         <select id="filter" class="form-select">
                             <option value="all">Tous</option>

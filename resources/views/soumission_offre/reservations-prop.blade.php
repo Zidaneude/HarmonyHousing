@@ -33,13 +33,15 @@
                 Mes réservations
             </div>
             <div class="card-body">
-                <div class="mt-2">
-                    <button class="btn btn-primary btn-export" style="position: relative; margin-left:85%">
-                        Exporter en PDF <i class="fas fa-file-pdf"></i>
-                    </button>
+                <div class="row my-3">
+                    <div class="col-12 text-end">
+                        <button class="btn btn-primary btn-export" style="width: 160px;">
+                            Exporter en PDF <i class="fas fa-file-pdf"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="filter">Filtrer par :</label>
                         <select id="filter" class="form-select">
                             <option value="all">Tous</option>

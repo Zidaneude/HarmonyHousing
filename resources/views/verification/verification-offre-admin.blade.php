@@ -38,16 +38,16 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.profil')}}">Mon profil</a>
+                <a class="nav-link" href="{{ route('admin.profil') }}">Mon profil</a>
             </li>
             <li class="nav-item active-tab">
-                <a class="nav-link" href="{{route('admin.dasboard.gestion_offre')}}">Vérification d'offres</a>
+                <a class="nav-link" href="{{ route('admin.dasboard.gestion_offre') }}">Vérification d'offres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.dasboard.avis')}}">Modération d'avis</a>
+                <a class="nav-link" href="{{ route('admin.dasboard.avis') }}">Modération d'avis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.historique.reservation')}}">Historique des réservations</a>
+                <a class="nav-link" href="{{ route('admin.historique.reservation') }}">Historique des réservations</a>
             </li>
         </ul>
 
@@ -58,7 +58,7 @@
 
             <div class="card-body mt-4">
                 <div class="row mb-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="filter">Filtrer par :</label>
                         <select id="filter" class="form-select">
                             <option value="all">Tous</option>
@@ -95,42 +95,45 @@
                                     <td>{{ $item->titre }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->created_at }}</td>
-                                    @if($item->status=="Approuvée")
-                                    <td><span><i style="color: green;" class="fas fa-clock"></i> {{$item->status}}</span></td>
+                                    @if ($item->status == 'Approuvée')
+                                        <td><span><i style="color: green;" class="fas fa-clock"></i>
+                                                {{ $item->status }}</span></td>
                                     @endif
-                                    @if($item->status=="Réjétée")
-                                        <td><span><i style="color: red;" class="fas fa-clock"></i> {{$item->status}}</span></td>
+                                    @if ($item->status == 'Réjétée')
+                                        <td><span><i style="color: red;" class="fas fa-clock"></i>
+                                                {{ $item->status }}</span></td>
                                     @endif
-                                    @if($item->status=="En attente")
-                                        <td><span><i style="color:orange;" class="fas fa-clock"></i> {{$item->status}}</span></td>
+                                    @if ($item->status == 'En attente')
+                                        <td><span><i style="color:orange;" class="fas fa-clock"></i>
+                                                {{ $item->status }}</span></td>
                                     @endif
 
                                     <td>
-                                        @if($item->status=="Approuvée")
+                                        @if ($item->status == 'Approuvée')
                                             <a class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
-                                            href="{{ route('admin.dasboard.detail.offre', $item->id) }}"><i
-                                                class="fas fa-eye"></i> Voir</a>
-                                                <a class="btn btn-danger btn-sm"
-                                            href="{{ route('admin.dasboard.gestion_offre_rejeter', $item->id) }}">Rejeter</a>
+                                                href="{{ route('admin.dasboard.detail.offre', $item->id) }}"><i
+                                                    class="fas fa-eye"></i> Voir</a>
+                                            <a class="btn btn-danger btn-sm"
+                                                href="{{ route('admin.dasboard.gestion_offre_rejeter', $item->id) }}">Rejeter</a>
                                         @endif
-                                        @if($item->status=="Réjétée")
+                                        @if ($item->status == 'Réjétée')
                                             <a class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
-                                            href="{{ route('admin.dasboard.detail.offre', $item->id) }}"><i
-                                                class="fas fa-eye"></i> Voir</a>
+                                                href="{{ route('admin.dasboard.detail.offre', $item->id) }}"><i
+                                                    class="fas fa-eye"></i> Voir</a>
 
                                             <a class="btn btn-primary btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
-                                            href="{{ route('admin.dasboard.gestion_offre_approuver', $item->id) }}"
-                                            style="transform: inherit; transition: inherit;">Approuver</a>
+                                                href="{{ route('admin.dasboard.gestion_offre_approuver', $item->id) }}"
+                                                style="transform: inherit; transition: inherit;">Approuver</a>
                                         @endif
-                                        @if($item->status=="En attente")
+                                        @if ($item->status == 'En attente')
                                             <a class="btn btn-success btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
-                                            href="{{ route('admin.dasboard.detail.offre', $item->id) }}"><i
-                                                class="fas fa-eye"></i> Voir</a>
-                                                <a class="btn btn-primary btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
-                                            href="{{ route('admin.dasboard.gestion_offre_approuver', $item->id) }}"
-                                            style="transform: inherit; transition: inherit;">Approuver</a>
-                                                <a class="btn btn-danger btn-sm"
-                                            href="{{ route('admin.dasboard.gestion_offre_rejeter', $item->id) }}">Rejeter</a>
+                                                href="{{ route('admin.dasboard.detail.offre', $item->id) }}"><i
+                                                    class="fas fa-eye"></i> Voir</a>
+                                            <a class="btn btn-primary btn-sm mb-2 mb-md-0 mr-2 mr-lg-3"
+                                                href="{{ route('admin.dasboard.gestion_offre_approuver', $item->id) }}"
+                                                style="transform: inherit; transition: inherit;">Approuver</a>
+                                            <a class="btn btn-danger btn-sm"
+                                                href="{{ route('admin.dasboard.gestion_offre_rejeter', $item->id) }}">Rejeter</a>
                                         @endif
 
 
