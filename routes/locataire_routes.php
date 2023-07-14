@@ -43,6 +43,7 @@ Route::post('profil-locataire/{id}', [ProfilLocataireController::class, 'update'
 Route::delete('delete-compte/{id}', [ProfilLocataireController::class, 'destroy'])
         ->name('delete.locataire');
 
+
 Route::middleware('auth')->group(function () {
 });
 

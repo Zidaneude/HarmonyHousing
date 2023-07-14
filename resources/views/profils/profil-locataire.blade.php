@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon profil - Harmony Housing - La plateforme de réservation en ligne</title>
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="images/Favicon.png">
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="icon" href="{{ asset('images/Favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -48,12 +48,12 @@
                 <form method="POST" action="{{ route('profil.locataire.update', $locataire->id) }}"
                     enctype="multipart/form-data">
                     @csrf
-
+    
                     <!-- photo de profil            -->
 
                     <h6 class="card-title">Photo de profil</h6>
                     <div style="display: flex; justify-content: center;">
-                        <img height="60" src="images/upload.png" alt="Upload Image" class="mb-2">
+                        <img height="60" src="{{ asset('images/upload.png') }}" alt="Upload Image" class="mb-2">
                     </div>
                     <div class="dashed-border p-3 mb-3">
                         <input type="file" name="photo" id="photo-profil" accept=".jpg, .jpeg, .png">
@@ -139,11 +139,14 @@
                     </div>
 
                     <!-- presentation            -->
+                    
                     <div class="form-group mt-3">
                         <label for="pres">Présentation</label>
-                        <textarea id="pres" class="form-control" rows="3" name="presentation"
-                            value="{{ $locataire->presentation }}"></textarea>
-                    </div>
+                        <!-- Mettre la valeur entre les balises textarea -->
+                        <textarea id="pres" class="form-control" rows="3" name="presentation" placeholder="Ex: winner étudiant à l'université de dschang">{{ $locataire->presentation }}</textarea>
+                    </div> 
+
+                    
                     <div class="form-group mt-4">
                         <h6>Notifications</h6>
                         <div class="form-check">

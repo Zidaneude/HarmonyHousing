@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-custom-nav-propri shadow-bottom">
     <a style="margin-left: 3%;" class="navbar-brand" href="/">
-        <img src="images/logo.png" height="30" alt="Logo">
+        <img src="{{ asset('images/logo.png') }}" height="30" alt="Logo">
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
