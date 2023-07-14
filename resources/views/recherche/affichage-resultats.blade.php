@@ -72,14 +72,16 @@
             </div>
 
             <form class="mt-3"
+            
                 style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;" method="GET" action="{{route('resultat.from.homme')}}">>
-                <input type="text" name="search" placeholder="entrez une ville ou un quartier" 
+                <input type="text" name="search" placeholder="entrez une ville ou un quartier"
                     style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
+
                 <select name="type" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
                     <option value="">Type de logement</option>
                     <option value="chambre">Chambre</option>
                     <option value="appartement">Appartement</option>
-                    <option value="studio">Studio</option>
+
                 </select>
 
                 <button type="button" id="more-filters"
@@ -92,38 +94,39 @@
 
                     <div class="overlay-content">
                         <h4 style="color: #ffffff;">Sélectionnez vos critères ici</h4>
-                        <input type="number" name="chambres" min="1" placeholder="Nombre de chambres"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; width: 175px;">
+                        {{-- <input type="number" name="chambres" min="1" placeholder="Nombre de chambres"
+                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; width: 175px;"> --}}
                         <input type="number" name="budget_min" min="0" placeholder="Budget min"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
                         <input type="number" name="budget_max" min="0" placeholder="Budget max"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
-                        <select name="meuble"
+                        {{-- <select name="meuble"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
                             <option value="">Meublé ou pas ?</option>
                             <option value="meuble">Meublé</option>
                             <option value="non_meuble">Non meublé</option>
-                        </select>
-                        <select name="equipements"
+                        </select> --}}
+                        {{-- <select name="equipements"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
                             <option value="">Avec ou sans équipements ?</option>
                             <option value="avec">Avec équipements</option>
                             <option value="sans">Sans équipements</option>
-                        </select>
-                        <select name="frequence"
+                        </select> --}}
+                        {{-- <select name="frequence"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
                             <option value="">Fréquence de paiement</option>
                             <option value="Un_Mois">1 mois</option>
                             <option value="Trois_Mois">3 mois</option>
                             <option value="Six_Mois">6 mois</option>
                             <option value="Un_An">1 an</option>
-                        </select>
-                        <select name="disponibilite"
+                        </select> --}}
+                        {{-- <select name="disponibilite"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
                             <option value="">Disponibilité</option>
                             <option value="actuellement">Actuellement</option>
                             <option value="futur">Futur</option>
-                        </select>
+                        </select> --}}
+                        <input style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;" type="date" name="disponibilite"/>
                     </div>
                 </div>
 
@@ -276,7 +279,7 @@
                                                 <p class="price mbr-fonts-style display-5"><strong>{{ $item->prix }}
                                                         Fcfa /mois</strong>
                                                 </p><br>
-                                                <div class="mbr-section-btn"><a href="/details-offre"
+                                                <div class="mbr-section-btn"><a href="{{route('detail.chambre', $item->id)}}"
                                                         class="btn btn-primary display-4">Voir les détails</a></div>
                                             </div>
                                             <!--------- cas de appartement------>
@@ -304,7 +307,7 @@
                                                 <p class="price mbr-fonts-style display-5"><strong>{{ $item->prix }}
                                                         Fcfa /mois</strong>
                                                 </p><br>
-                                                <div class="mbr-section-btn"><a href="/details-offre"
+                                                <div class="mbr-section-btn"><a href="{{route('detail.appartement', $item->id)}}"
                                                         class="btn btn-primary display-4">Voir les détails</a></div>
                                             </div>
                                         @endif

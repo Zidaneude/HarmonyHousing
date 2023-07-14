@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\auth\ContactController;
 use App\Http\Controllers\Recherche\RechercheController;
+use App\Http\Controllers\Recherche\DetailOffreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,11 @@ Route::get('recherche',[RechercheController::class,'Recherche'])->name('recherch
 Route::get('resultat',[RechercheController::class,'search'])->name('resultat.from.homme');
 
 Route::get('/search',[RechercheController::class,'find'])->name('search.search');
+
+//routes details chambre et appartement
+Route::get('/detail-chambre/{id}',[DetailOffreController::class,'DetailChambre'])->name('detail.chambre');
+Route::get('/detail-appartement{id}',[DetailOffreController::class,'DetailAppartement'])->name('detail.appartement');
+
 //Route::get()
 require __DIR__ . '/auth.php';
 

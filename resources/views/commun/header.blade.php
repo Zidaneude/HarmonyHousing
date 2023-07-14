@@ -1,7 +1,7 @@
 <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light bg-white scrolled fixed-top shadow-bottom">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="images/logo.png" height="40" alt="Logo Harmony Housing">
+            <img src="{{ asset('images/logo.png') }}" height="40" alt="Logo Harmony Housing">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/search"><i class="fas fa-search"></i> Rechercher</a>
+                    <a class="nav-link" href="/search "><i class="fas fa-search"></i> Rechercher</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/"><i class="fas fa-home"></i> Accueil</a>
