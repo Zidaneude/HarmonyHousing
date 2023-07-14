@@ -46,6 +46,14 @@
             .section-cta {
                 margin-top: 20px !important;
             }
+
+            .hide-on-small {
+                display: none !important;
+            }
+
+            .center-on-small {
+                text-align: center !important;
+            }
         }
     </style>
 </head>
@@ -110,11 +118,10 @@
                             <i class="fas fa-bullhorn" style="animation: zoom 1s infinite alternate;"></i>
                         </div>
                         <div style="text-align: left;">
-                            <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis
-                                propriétaire</div>
-                            <small class="text-muted" style="font-size: 12px;">Je souhaite annoncer un
-                                logement
-                                gratuitement</small>
+                            <div class="h5 mb-0 center-on-small" style="font-size: 16px; text-transform: uppercase;">Je
+                                suis propriétaire</div>
+                            <small class="text-muted hide-on-small" style="font-size: 12px;">Je souhaite annoncer un
+                                logement gratuitement</small>
                         </div>
                     </a>
                     <a href="{{ route('connexion.locataire.create') }}"
@@ -123,9 +130,10 @@
                         <i class="fas fa-search"
                             style="margin-right: 10px; animation: pulse 1s infinite alternate;"></i>
                         <div style="text-align: left;">
-                            <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis locataire
-                            </div>
-                            <small class="text-muted" style="font-size: 12px;">Je cherche une maison à louer</small>
+                            <div class="h5 mb-0 center-on-small" style="font-size: 16px; text-transform: uppercase;">Je
+                                suis locataire</div>
+                            <small class="text-muted hide-on-small" style="font-size: 12px;">Je cherche une maison à
+                                louer</small>
                         </div>
                     </a>
                 </div>

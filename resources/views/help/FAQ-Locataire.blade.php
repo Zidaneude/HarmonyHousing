@@ -15,6 +15,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>FAQ Locataire</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 </head>
 <body>
 	@include('commun/header')
@@ -108,7 +109,7 @@
 						sécurité de notre plateforme de paiement. Si vous créez un compte
 						pour une personne morale, renseignez simplement les informations
 						personnelles de la personne physique qui gère le compte Harmony
-						Horsing au sein de votre société.
+						Housing au sein de votre société.
 
 						</p>
 					</div>
@@ -221,7 +222,7 @@
 						aria-expanded="false" aria-controls="collapseSix">
 						<font style="vertical-align: inherit;"><font
 							style="vertical-align: inherit;"> Parcoursup I Faciliter
-								la recherche de logement pour les étudiants avec Harmony Horsing
+								la recherche de logement pour les étudiants avec Harmony Housing
 						</font></font>
 					</button>
 				</h2>
@@ -250,11 +251,11 @@
 					<button class="accordion-button collapsed" type="button"
 						data-bs-toggle="collapse" data-bs-target="#collapseSeven"
 						aria-expanded="false" aria-controls="collapseSeven">Les
-						valeurs de la communauté Harmony Hosing</button>
+						valeurs de la communauté Harmony Housing</button>
 				</h2>
 				<div id="collapseSeven" class="accordion-collapse collapse"
 					aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-					<div class="accordion-body" id="family">Chez Harmony Hosing,
+					<div class="accordion-body" id="family">Chez Harmony Housing,
 						on se lève chaque matin pour faire des locations une expérience
 						plus simple et humaine. Une expérience juste et efficace où chacun
 						est maître de sa location. Pour cela, on crée une culture commune
@@ -269,12 +270,12 @@
 					<button class="accordion-button collapsed" type="button"
 						data-bs-toggle="collapse" data-bs-target="#collapseHeigth"
 						aria-expanded="false" aria-controls="collapseHeigth">
-						Quel type d'annonces puis-je trouver chez Harmony Hosing ?</button>
+						Quel type d'annonces puis-je trouver chez Harmony Housing ?</button>
 				</h2>
 				<div id="collapseHeigth" class="accordion-collapse collapse"
 					aria-labelledby="headingHeigth" data-bs-parent="#accordionExample">
 					<div class="accordion-body" id="family">
-						<p>Chez Harmony Horsing, nous proposons des milliers
+						<p>Chez Harmony Housing, nous proposons des milliers
 							d’annonces partout au cameroun. Il s’agit essentiellement de
 							petites et moyennes surfaces, meublées ou non. Peu importe la
 							durée, pour un stage de fin d’études comme une licence entière :
