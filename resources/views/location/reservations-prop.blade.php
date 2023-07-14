@@ -18,13 +18,13 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="{{route('profil.pro')}}">Mon profil</a>
+                <a class="nav-link" href="{{ route('profil.pro') }}">Mon profil</a>
             </li>
             <li class="nav-item active-tab">
-                <a class="nav-link" href="{{route('reservation.show')}}">Mes réservations</a>
+                <a class="nav-link" href="{{ route('reservation.show') }}">Mes réservations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('disponibilite.show')}}">Mettre à jour la disponibilité</a>
+                <a class="nav-link" href="{{ route('disponibilite.show') }}">Mettre à jour la disponibilité</a>
             </li>
         </ul>
 
@@ -33,13 +33,15 @@
                 Mes réservations
             </div>
             <div class="card-body">
-                <div class="mt-2">
-                    <button class="btn btn-primary btn-export" style="position: relative; margin-left:85%">
-                        Exporter en PDF <i class="fas fa-file-pdf"></i>
-                    </button>
+                <div class="row my-3">
+                    <div class="col-12 text-end">
+                        <button class="btn btn-primary btn-export" style="width: 160px;">
+                            Exporter en PDF <i class="fas fa-file-pdf"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="filter">Filtrer par :</label>
                         <select id="filter" class="form-select">
                             <option value="all">Tous</option>

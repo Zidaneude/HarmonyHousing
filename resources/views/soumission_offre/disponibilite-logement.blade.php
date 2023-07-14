@@ -9,8 +9,8 @@
     <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </head>
 
 <body style="margin-top: 70px; background-color: #F8F8FF;">
@@ -18,13 +18,13 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="{{route('profil.pro')}}">Mon profil</a>
+                <a class="nav-link" href="{{ route('profil.pro') }}">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('reservation.show')}}">Mes réservations</a>
+                <a class="nav-link" href="{{ route('reservation.show') }}">Mes réservations</a>
             </li>
             <li class="nav-item active-tab">
-                <a class="nav-link" href="{{route('disponibilite.show')}}">Mettre à jour la disponibilité</a>
+                <a class="nav-link" href="{{ route('disponibilite.show') }}">Mettre à jour la disponibilité</a>
             </li>
         </ul>
 
@@ -70,7 +70,8 @@
                                 </td>
                                 <td>1 mois</td>
                                 <td>
-                                    25/07/2023 <button class="btn btn-editlogement btn-sm" type="button">
+                                    25/07/2023 <button class="btn btn-editlogement btn-sm" type="button"
+                                        data-bs-date="2023-07-25">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                 </td>
@@ -81,7 +82,8 @@
                                             Plus d'options
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="{{route('soumission.offre')}}">Modifier l'annonce</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('soumission.offre') }}">Modifier
+                                                    l'annonce</a></li>
                                             <li><a class="dropdown-item" href="#">Voir l'annonce</a></li>
                                             <li><a class="dropdown-item" href="#">Supprimer l'annonce</a>
                                             </li>
@@ -270,89 +272,73 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
     <script>
-        function openPopup(button) {
-            // Vérifier si le bouton est un bouton d'édition de logement ou de chambre
-            var isRoomButton = button.classList.contains("btn-editchambre");
-            var isPropertyButton = button.classList.contains("btn-editlogement");
+        var buttons = document.querySelectorAll(".btn-editchambre, .btn-editlogement");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].setAttribute("data-bs-toggle", "modal");
+            buttons[i].setAttribute("data-bs-target", "#modal");
+            // Ajoutez un attribut data-bs-logement ou data-bs-chambre pour indiquer le type de bouton
+            if (buttons[i].classList.contains("btn-editchambre")) {
+                buttons[i].setAttribute("data-bs-chambre", "true");
+            } else if (buttons[i].classList.contains("btn-editlogement")) {
+                buttons[i].setAttribute("data-bs-logement", "true");
+            }
+        }
+    </script>
 
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalLabel">Modifier la disponibilité</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mt-4">
+                        <label for="date">Disponible à partir du</label>
+                        <input type="date" class="form-control" id="date">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="frequency">Fréquence de paiement</label>
+                        <select class="form-control" id="frequency">
+                            <option>1 mois</option>
+                            <option>3 mois</option>
+                            <option>6 mois</option>
+                            <option>1 an</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Enregistrer les modifications</button>
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var modal = document.getElementById("modal");
+        modal.addEventListener("show.bs.modal", function(event) {
+            // Récupérer le bouton qui a activé le modal
+            var button = event.relatedTarget;
             // Définir le titre en fonction du type de bouton
             var title;
-            if (isRoomButton) {
+            if (button.hasAttribute("data-bs-chambre")) {
                 title = "Modifier la disponibilité de la chambre";
-            } else if (isPropertyButton) {
+            } else if (button.hasAttribute("data-bs-logement")) {
                 title = "Modifier la disponibilité du logement";
             }
             // Récupérer la fréquence de paiement et la date de disponibilité
             var frequency = button.closest("tr").querySelector("td:nth-child(2)").textContent;
-            var date = button.closest("tr").querySelector("td:nth-child(3)").textContent.split(" ")[0];
-            // Créer un élément qui recouvre toute la page
-            var overlay = document.createElement("div");
-            overlay.className = "overlay";
-            overlay.style.position = "fixed";
-            overlay.style.top = "0";
-            overlay.style.left = "0";
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-            // Ajouter l'élément au document
-            document.body.appendChild(overlay);
-            // Créer la fenêtre popup
-            var popup = document.createElement("div");
-            popup.className = "popup";
-            popup.style.position = "fixed";
-            popup.style.top = "55%";
-            popup.style.left = "50%";
-            popup.style.transform = "translate(-50%, -50%)";
-            popup.style.width = "500px";
-            popup.style.height = "auto";
-            popup.style.backgroundColor = "white";
-            popup.style.border = "1px solid white";
-            popup.style.borderRadius = "10px";
-            popup.style.zIndex = "9999";
-            // Créer le contenu de la fenêtre popup
-            var content = document.createElement("div");
-            content.className = "popup-content";
-            content.style.padding = "20px";
-            content.innerHTML = `
-            <h4 style="text-align:center;">${title}</h4>
-            <div class="form-group mt-4">
-                <label for="date">Disponible à partir du</label>
-                <input type="date" class="form-control" id="date" value="${date}">
-            </div>
-            <div class="form-group mt-2">
-                <label for="frequency">Fréquence de paiement</label>
-                <select class="form-control" id="frequency">
-                    <option ${frequency == "1 mois" ? "selected" : ""}>1 mois</option>
-                    <option ${frequency == "3 mois" ? "selected" : ""}>3 mois</option>
-                    <option ${frequency == "6 mois" ? "selected" : ""}>6 mois</option>
-                    <option ${frequency == "1 an" ? "selected" : ""}>1 an</option>
-                </select>
-            </div>
-            <div class="form-group mt-4" style="text-align:center;">
-                <button class="btn btn-primary">Enregistrer les modifications</button>
-                <button class="btn btn-danger" onclick="closePopup(this)">Annuler</button>
-            </div>
-        `;
-            // Ajouter le contenu à la fenêtre popup
-            popup.appendChild(content);
-            document.body.appendChild(popup);
-        }
-
-        // Fonction pour fermer la fenêtre popup
-        function closePopup(button) {
-            var popup = button.closest(".popup");
-            document.body.removeChild(popup);
-            var overlay = document.querySelector(".overlay");
-            document.body.removeChild(overlay);
-        }
-    </script>
-
-    <!-- Code pour ajouter un attribut onclick aux boutons d'édition de disponibilité -->
-    <script>
-        var buttons = document.querySelectorAll(".btn-editchambre, .btn-editlogement");
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].setAttribute("onclick", "openPopup(this)");
-        }
+            var date = button.getAttribute("data-bs-date");
+            // Modifier le titre du modal
+            modal.querySelector(".modal-title").textContent = title;
+            // Modifier la valeur du champ date du modal
+            modal.querySelector("#date").value = date;
+            // Modifier la valeur du champ fréquence du modal
+            modal.querySelector("#frequency").value = frequency;
+        });
     </script>
 
 </body>

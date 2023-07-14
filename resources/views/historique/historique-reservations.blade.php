@@ -13,16 +13,16 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Vendor CSS Files -->
-   <link href="{{ asset('assets_admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets_admin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets_admin/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets_admin/vendor/quill/quill.snow.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets_admin/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets_admin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets_admin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_admin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
-   <!-- Template Main CSS File -->
-   <link href="{{ asset('assets_admin/css/style.css') }}" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('assets_admin/css/style.css') }}" rel="stylesheet">
 
     <style>
         .pagination-outer {
@@ -39,16 +39,16 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.profil')}}">Mon profil</a>
+                <a class="nav-link" href="{{ route('admin.profil') }}">Mon profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.dasboard.gestion_offre')}}">Vérification d'offres</a>
+                <a class="nav-link" href="{{ route('admin.dasboard.gestion_offre') }}">Vérification d'offres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.dasboard.avis')}}">Modération d'avis</a>
+                <a class="nav-link" href="{{ route('admin.dasboard.avis') }}">Modération d'avis</a>
             </li>
             <li class="nav-item active-tab">
-                <a class="nav-link" href="{{route('admin.historique.reservation')}}">Historique des réservations</a>
+                <a class="nav-link" href="{{ route('admin.historique.reservation') }}">Historique des réservations</a>
             </li>
         </ul>
 
@@ -57,13 +57,15 @@
                 Historique des réservations
             </div>
             <div class="card-body mt-3">
-                <div class="mt-2">
-                    <button class="btn btn-primary btn-export" style="position: relative; margin-left:85%">
-                        Exporter en PDF <i class="fas fa-file-pdf"></i>
-                    </button>
+                <div class="row my-3">
+                    <div class="col-12 text-end">
+                        <button class="btn btn-primary btn-export" style="width: 160px;">
+                            Exporter en PDF <i class="fas fa-file-pdf"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="filter">Filtrer par :</label>
                         <select id="filter" class="form-select">
                             <option value="all">Tous</option>
