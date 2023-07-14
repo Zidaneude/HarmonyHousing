@@ -30,8 +30,8 @@
         <div class="card aborder-type">
             <div style="text-align:center">
                 <h2 class="mt-4">Contactez-nous</h2>
-                <p>Vous pouvez nous contacter en remplissant le formulaire ci-dessous. Vous pouvez également joindre un
-                    fichier si besoin.</p>
+                <p>Vous pouvez nous contacter en remplissant le formulaire ci-dessous. Nous vous répondrons dans les
+                    plus brefs délais.</p>
             </div>
 
             <!-- La toute premieier colone de la page de contact -->

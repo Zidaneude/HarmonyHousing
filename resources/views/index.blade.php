@@ -112,7 +112,8 @@
                         <div style="text-align: left;">
                             <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis
                                 propriétaire</div>
-                            <small class="text-muted" style="font-size: 12px;">Je souhaite annoncer un logement
+                            <small class="text-muted" style="font-size: 12px;">Je souhaite annoncer un
+                                logement
                                 gratuitement</small>
                         </div>
                     </a>

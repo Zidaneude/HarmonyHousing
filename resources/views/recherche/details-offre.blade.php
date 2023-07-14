@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="generator" content="Mobirise v5.8.14, mobirise.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
 
     <meta name="description" content="">
@@ -30,10 +30,12 @@
     <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
 </head>
 
-<body class="pt-5">
+<body>
     @include('commun.header')
     <section data-bs-version="5.1" class="gallery6 mbr-gallery cid-tIWkkBEfM2" id="gallery6-1l">
+
         <div class="container-fluid">
+
             <div class="row mbr-gallery mt-4">
                 <div class="col-12 col-md-6 col-lg-4 item gallery-image">
                     <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#tIWCMqyrrd-modal"
@@ -132,12 +134,16 @@
 
     <section data-bs-version="5.1" class="features12 cid-tIyP0hsNzW" id="features13-10">
 
-        <div class="fil-d'ariane">
-            </h2>
-            <ul class="breadcrumb">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="index.html">Trouver mon logement</a></li>
-            </ul><br><br>
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="/">Mon dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/">Mes annonces</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Détails de l'annonce</a></li>
+
+                </ol>
+            </nav>
         </div>
         <style>
             ul.breadcrumb {
@@ -174,41 +180,37 @@
 
 
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-6">
+            <div class="row">
+                <div class="col-12 col-lg-12">
                     <div class="card-wrapper">
                         <div class="card-box align-left">
-                            <h4 class="card-title mbr-fonts-style mb-4 display-7"><strong>Appartement meublé Face à
-                                    Santa Lucia Ngousso-Yaoundé</strong></h4>
+                            <h3 class="card-title mbr-fonts-style mb-4 display-7" style="font-size: 22px;">
+                                <strong>Appartement meublé Face à
+                                    Santa Lucia Ngousso-Yaoundé</strong>
+                            </h3>
                             <h5 class="card-subtitle"><strong>Equipements du logement</strong></h5>
                             <style>
                                 .card-subtitle {
                                     color: black;
-                                    width: auto;
-                                    padding-top: 20px;
+                                    padding-top: 5px;
                                     padding-bottom: 20px;
                                     background-color: #fcfbfb;
                                     font-family: poppins;
-                                    font-size: large;
+
                                 }
                             </style>
                         </div>
+
                     </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <p class="mbr-text mbr-fonts-style mb-4 display-5"><strong>65000 FCFA/mois</strong></p>
 
                 </div>
+
 
             </div>
         </div>
     </section>
 
     <section data-bs-version="5.1" class="features12 cid-tIEPMOJNFj" id="features13-1e">
-
-
-
-
 
         <div class="container">
             <div class="row justify-content-center">
@@ -290,7 +292,7 @@
                     <div class="item mbr-flex">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                value="something" disabled>
+                                value="something" checked disabled>
                         </div>
                         <div class="icon-box">
                             <span class="mbr-iconfont mobi-mbri-mobirise mobi-mbri"
@@ -330,81 +332,143 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
-    </section>
+        </div>
+    </section><br>
 
-    <section data-bs-version="5.1" class="features12 cid-tIEPNzBDX3" id="features13-1f">
-
+    <section data-bs-version="5.1" class="features12 cid-tIEPMOJNFj" id="features13-1e">
 
         <div class="container">
             <div class="row justify-content-center">
+
                 <div class="col-12 col-lg-6">
-                    <p class="mbr-text mbr-fonts-style mb-4 display-5"><strong>65000 FCFA/mois</strong></p>
-                    <div class="mbr-section-btn"><a class="btn btn-success display-4" href="https://mobiri.se"><span
-                                class="mobi-mbri mobi-mbri-shopping-cart mbr-iconfont mbr-iconfont-btn"
-                                style="color: rgb(255, 255, 255);"></span>Reservez maintenant</a> <a
-                            class="btn btn-success-outline display-4" href="https://mobiri.se"><span
-                                class="mbrib-hearth mbr-iconfont mbr-iconfont-btn"
-                                style="color: rgb(49, 140, 58);"></span>aimer</a></div><br><br>
+
+                    <div class="card">
+                        <div class="card-wrapper">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4">
+                                    <div class="image-wrapper">
+                                        <a href="détails et reservation.html"><img height="200"
+                                                style="border-radius: 5px;"
+                                                src="assets/images/502d0f906d18e6e1568af5e39875b5f9-816x461.jpg"
+                                                alt="Mobirise Website Builder"></a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md">
+                                    <div class="card-box">
+                                        <div class="row">
+                                            <div class="col-md">
+                                                <h6 class="card-title mbr-fonts-style display-7"><strong>Chambre 01
+                                                    </strong><br></h6>
+                                                <p class="mbr-text mbr-fonts-style display-7"
+                                                    style="margin-left: 0px;">
+                                                    Meublé<br>
+                                                    Penderie<br>
+                                                    douche interne
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
                 </div>
                 <div class="col-12 col-lg-6">
 
 
+                    <div class="card">
+                        <div class="card-wrapper">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4">
+                                    <div class="image-wrapper">
+                                        <a href="détails et reservation.html"><img height="200"
+                                                style="border-radius: 5px;"
+                                                src="assets/images/hilton-yaounde-550x363.jpg"
+                                                alt="Mobirise Website Builder"></a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md">
+                                    <div class="card-box">
+                                        <div class="row">
+                                            <div class="col-md">
+                                                <h6 class="card-title mbr-fonts-style display-7"><strong>Chambre 02
+                                                    </strong><br></h6>
+                                                <p class="mbr-text mbr-fonts-style display-7">
+                                                    vide<br>
+
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <section data-bs-version="5.1" class="info3 cid-tIC9SJU1Cs" id="info3-1b">
-
-
-        <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(17, 105, 113);">
-        </div>
+    <section data-bs-version="5.1" class="features12 cid-tIEPMOJNFj" id="features13-1e">
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="card col-12 col-lg-10">
-                    <div class="card-wrapper">
-                        <div class="card-box align-center">
-                            <h4 class="card-title mbr-fonts-style align-center mb-4 display-2">Donnez votre avis le
-                                logement</h4>
-                            <div class="note">
-                                <h5>Note globlale des usagers:</h5>
-                            </div>
-                            <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                            <div class="avis">
-                                <h6>Votre avis ici</h6>
-                                <form>
-                                    <div class="rating">
-                                        <!--
-                                --><a href="#5" title="Donner 5 étoiles">☆</a>
-                                        <!--
-                                --><a href="#4" title="Donner 4 étoiles">☆</a>
-                                        <!--
-                                --><a href="#3" title="Donner 3 étoiles">☆</a>
-                                        <!--
-                                --><a href="#2" title="Donner 2 étoiles">☆</a>
-                                        <!--
-                                --><a href="#1" title="Donner 1 étoile">☆</a>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
-                                        <p>
 
-                                            <textarea class="form-control" rows="5" id="comment" placeholder="écrire un commentaire"></textarea>
-                                            <button type="submit"
-                                                class="btn btn-primary display-4">Soumettre</button>
-                                        </p>
-                                    </div>
-                                </form>
-                            </div>
+                <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-6">
+                        <p class="mbr-text mbr-fonts-style mb-4 display-5"><strong>75000 FCFA/mois</strong></p>
+
+                    </div>
+                    <div class="item mbr-flex">
+                        <div class="text-box">
+                            <h4 class="icon-title mbr-black mbr-fonts-style display-7">Nombre de chambres dans
+                                l'appartement: <strong>02</strong></h4>
 
                         </div>
                     </div>
+                    <div class="item mbr-flex">
+                        <div class="text-box">
+                            <h4 class="icon-title mbr-black mbr-fonts-style display-7">Disponibilité:
+                                <strong>Actuellement disponible</strong>
+                            </h4>
+
+                        </div>
+                    </div>
+                    <div class="item mbr-flex">
+                        <div class="text-box">
+                            <h4 class="icon-title mbr-black mbr-fonts-style display-7">Fréquence de paiement: <strong>6
+                                    mois</strong></h4>
+
+                        </div>
+                    </div>
+                    <div class="item mbr-flex">
+                        <div class="text-box">
+                            <h4 class="icon-title mbr-black mbr-fonts-style display-7">Localisation:
+                                <strong>Youndé-Ngousso,A 100m de Santa Lucia</strong>
+                            </h4>
+
+                        </div>
+                    </div>
+
                 </div>
+
+                <div class="col-12 col-lg-6">
+
+
+                </div>
+
+
             </div>
         </div>
     </section>
+
 
     <style>
         .container2 {
