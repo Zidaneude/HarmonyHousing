@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Recherche;
-
+//include('./UtilitySearch.php');
+use App\SearchUtils;
 use App\Models\Logement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+
+
+
+
 
 class RechercheController extends Controller
 {
@@ -19,7 +24,7 @@ class RechercheController extends Controller
          ->join('offres','offres.id','=','logements.offre_id')
          ->where('offres.status', '=', "Approuvée")
          ->where('logements.ville', 'like', "%{$ville}%")
-         ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
+         ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
          ->get();
 
          $logements2=DB::table('logements')
@@ -27,11 +32,10 @@ class RechercheController extends Controller
          ->join('offres','offres.id','=','logements.offre_id')
          ->where('offres.status', '=', "Approuvée")
          ->where('ville', 'like', "%{$ville}%")
-         ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1')
+         ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1','appartements.id')
          ->get();
 
         $logements=$logements1->merge($logements2);
-        //dd($logements);
         return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
 
@@ -40,8 +44,6 @@ class RechercheController extends Controller
 
     public function Recherche(Request $request){
 
-
-      //  dd($request);
         $city = $request->ville;
         $budget_max = $request->budget_max;
         $type = $request->type;
@@ -53,7 +55,7 @@ class RechercheController extends Controller
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
-                 ->where('logements.ville', 'like', "%{$city}%")
+                 ->where('ville', 'like', "%{$city}%")
                  ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
                  ->get();
             $logements2=DB::table('logements')
@@ -65,7 +67,6 @@ class RechercheController extends Controller
                  ->get();
 
             $logements=$logements1->merge($logements2);
-            //dd($logements);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
        }
 
@@ -87,7 +88,6 @@ class RechercheController extends Controller
                         ->get();
 
             $logements=$logements1->merge($logements2);
-            //dd($logements);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
        }
 
@@ -102,7 +102,6 @@ class RechercheController extends Controller
                 ->where('offres.status', '=', "Approuvée")
                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
                 ->get();
-                //dd($logements);
                 return view('recherche.affichage-resultats', ['logements' => $logements]);
             }else{
                 $logements=DB::table('logements')
@@ -111,7 +110,6 @@ class RechercheController extends Controller
                 ->where('offres.status', '=', "Approuvée")
                 ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1')
                 ->get();
-                //dd($logements);
                 return view('recherche.affichage-resultats', ['logements' => $logements]);
             }
 
@@ -229,155 +227,279 @@ class RechercheController extends Controller
 
 
     }
-//     ////
-//     public function search(Request $request)
-// {
+
+public function search(Request $request)
+{
 
 
-//     //----------------------------------------------
-//     $search = $request->input('search');
-
-//     $type = $request->input('type');
-//     $chambres = $request->input('chambres');
-//     $budget_min = $request->input('budget_min', 0);
-//     $budget_max = $request->input('budget_max', 0);
-//     $meuble = $request->input('meuble');
-//     $equipements = $request->input('equipements');
-//     $frequence = $request->input('frequence');
-//     $disponibilite = $request->input('disponibilite');
+    $search = $request->input('search');
+    $type = $request->input('type');
+    $budget_min = $request->input('budget_min');
+    $budget_max = $request->input('budget_max');
+    $disponibilite = $request->input('disponibilite');
 
 
+    ///single search
 
-//     // on récupère les paramètres de recherche du formulaire
-//     $search = $request->get('search');
-//     $type = $request->get('type');
-//     $chambres = $request->get('chambres');
-//     $budget_min = $request->get('budget_min', 0);
-//     $budget_max = $request->get('budget_max', 0);
-//     $meuble = $request->get('meuble', '%');
-//     $equipements = $request->get('equipements');
-//     $frequence = $request->get('frequence');
-//     $disponibilite = $request->get('disponibilite');
+    $single_type= $search==null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite==null;
+    $single_villeOrQuartier= $search!=null && $type==null && $budget_min==null && $budget_max==null && $disponibilite==null;
+    $single_budget_min= $search==null && $type==null && $budget_min!=null && $budget_max==null && $disponibilite==null;
+    $single_budget_max= $search==null && $type==null && $budget_min==null && $budget_max!=null && $disponibilite==null;
+    $single_disponibilite= $search==null && $type==null && $budget_min==null && $budget_max==null && $disponibilite!=null;
 
-//     // on crée une variable qui contient la requête commune à tous les logements
-//     $logements = DB::table('logements')
-//         ->join('offres','offres.id','=','logements.offre_id')
-//         ->where('offres.status', '=', "Approuvée")
-//         ->when($budget_min, function ($query, $budget_min) {
-//             return $query->where('prix', '>=', $budget_min);
-//         })
-//         ->when($budget_max, function ($query, $budget_max) {
-//             return $query->where('prix', '<=', $budget_max);
-//         })
-//         ->when($meuble, function ($query, $meuble) {
-//             return $query->where('meuble', 'like', $meuble);
-//         })
+    //more criteres (2)
+    //$type_And_type= $search==null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite==null;
+    $type_And_villeOrQuartier= $search!=null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite==null;
+    $type_And_budget_min= $search==null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite==null;
+    $type_And_budget_max= $search==null && $type!=null && $budget_min==null && $budget_max!=null && $disponibilite==null;
+    $type_And_disponibilite= $search==null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite!=null;
 
-//         ->where('quartier', 'like', '%' . $search . '%')
-//         ->when($frequence, function ($query, $frequence) {
-//             return $query->where('frequence_paie', '<=', $frequence);
-//         })
-//         ->when($equipements, function ($query, $equipements) {
-//             return $query->where('equipe_bool', '<=', $equipements);
-//         })
-//         ->when($disponibilite, function ($query, $disponibilite) {
-//             return $query ->where('disponibilite', '>=', $disponibilite);
-//         })
-//         ->where('ville', 'like', '%' . $search . '%')
-//         ->join('chambres','logements.id','=','chambres.logement_id')
-//             ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
-//             ->get();
-//             return view('recherche.affichage-resultats', ['logements' => $logements]);
+    $ville_And_budget_min= $search!=null && $type==null && $budget_min!=null && $budget_max==null && $disponibilite==null;
+    $ville_And_budget_max= $search!=null && $type==null && $budget_min==null && $budget_max!=null && $disponibilite==null;
+    $ville_And_disponibilite= $search!=null && $type==null && $budget_min==null && $budget_max==null && $disponibilite!=null;
 
-//     // on ajoute les conditions spécifiques selon le type de logement
-//     /*
-//     if($type=="chambre")
-//     {
-//         $logements = $query
-//             ->join('chambres','logements.id','=','chambres.logement_id')
-//             ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
-//             ->get();
-//     }
-//     else
-//     {
-//         $logements = $query
-//             ->join('appartements','logements.id','=','appartements.logement_id')
-//             ->where('nombre_chambre', '=', $chambres )
-//             ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1')
-//             ->get();
-//     }
+    $disponibilite_And_budget_max= $search==null && $type==null && $budget_min==null && $budget_max!=null && $disponibilite!=null;
+    $disponibilite_And_budget_min= $search==null && $type==null && $budget_min!=null && $budget_max==null && $disponibilite!=null;
 
-//     // on renvoie la vue avec les logements trouvés
-//     return view('recherche.affichage-resultats', ['logements' => $logements]);*/
-// }
-
-public function search(Request $request) {
-    // Récupération des paramètres de recherche du formulaire
-    $search = $request->input('search', '%');
-    $type = $request->input('type', '%');
-    $chambres = $request->input('chambres', '%');
-
-    $budget_min =0;// $request->input('budget_min', 0);
+    $budget_max_And_budget_min= $search==null && $type==null && $budget_min!=null && $budget_max!=null && $disponibilite==null;
 
 
-    $budget_min1 =$request->input('budget_min');
-    if( $budget_min1!=null)
-    {
-        $budget_min =$request->input('budget_min');
-    }
-    $budget_max =111111000000000;
-    $budget_max1 = $request->input('budget_max');
-    if( $budget_min1!=null){
 
-        $budget_max = $request->input('budget_max' );
-    }
-
+    ///03 criteres
+    $max_min_dispo= $search==null && $type==null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
+    $ville_min_dispo= $search!=null && $type==null && $budget_min!=null && $budget_max==null && $disponibilite!=null;
+    $ville_max_dispo= $search!=null && $type==null && $budget_min==null && $budget_max!=null && $disponibilite!=null;
+    $type_ville_min= $search!=null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite==null;
+    $max_min_dispo= $search==null && $type==null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
     //
-    $meuble ="non";
-    $meuble1 = $request->input('meuble', '%');
-    if( $meuble1!=null)
+    $type_ville_max= $search==null && $type==null && $budget_min==null && $budget_max!=null && $disponibilite==null;
+    $type_ville_dispo= $search!=null && $type!=null && $budget_min==null && $budget_max!=null && $disponibilite!=null;
+    $type_max_min= $search==null && $type!=null && $budget_min!=null && $budget_max!=null && $disponibilite==null;
+
+    //04 criteres
+    $type_ville_min_dispo= $search!=null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite!=null;
+    $type_dispo_max_min= $search==null && $type!=null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
+    $type_ville_max_min= $search!=null && $type!=null && $budget_min!=null && $budget_max!=null && $disponibilite==null;
+    $dispo_ville_max_min= $search!=null && $type==null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
+    $dispo_ville_max_type= $search!=null && $type!=null && $budget_min==null && $budget_max!=null && $disponibilite!=null;
+
+    $all= $search!=null && $type!=null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
+
+
+    /*
+    *appels des fonctions
+    */
+
+    //1
+    if($single_type)
     {
-        $meuble = $request->input('meuble');
+            $logements= SearchUtils::searchType($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //2
+    if($single_villeOrQuartier)
+    {
+            $logements= SearchUtils::searchVileOrQuartier($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //3
+    if($single_budget_min)
+    {
+            $logements= SearchUtils::searchBudgetMin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //4
+    if($single_budget_max)
+    {
+            $logements= SearchUtils::searchBudgetMax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //5
+    if($single_disponibilite)
+    {
+            $logements= SearchUtils::Disponibilite($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //6
+    if($single_disponibilite)
+    {
+            $logements= SearchUtils::Disponibilite($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //7
+    if( $budget_max_And_budget_min)
+    {
+            $logements= SearchUtils::search_BudgetMin_And_BudgetMax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //8
+    if( $type_And_villeOrQuartier)
+    {
+            $logements= SearchUtils::searchType_and_Ville($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //9
+    if( $type_And_budget_min)
+    {
+            $logements= SearchUtils::searchType_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //10
+    if($type_And_budget_max)
+    {
+            $logements= SearchUtils::searchType_and_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //11
+    if($type_And_disponibilite)
+    {
+            $logements= SearchUtils::searchdisponibilite_type($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //12
+    if($ville_And_budget_min)
+    {
+            $logements= SearchUtils::searchVille_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //13
+    if($ville_And_budget_max)
+    {
+            $logements= SearchUtils::searchQuartier_and_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //14
+    if($ville_And_disponibilite)
+    {
+            $logements= SearchUtils::searchDisponibilite_ville($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //15
+    if($disponibilite_And_budget_max)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //16
+    if($disponibilite_And_budget_min)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
 
-    $equipements = $request->input('equipements', '%');
-    $frequence = $request->input('frequence', '%');
-    $disponibilite = $request->input('disponibilite', '%');
-
-    // Construction de la requête
-    $logements = DB::table('logements')
-        ->join('chambres','logements.id','=','chambres.logement_id')
-        ->join('offres','offres.id','=','logements.offre_id')
-        ->where('offres.status', '=', "Approuvée")
-
-
-        //->where('quartier', 'like', "%{$search}%")
-        // ->where('logements.frequence_paie', 'like', $frequence)
-        // ->where('logements.equipe_bool', 'like', $equipements)
-        // ->where('logements.disponibilite', '>=', $disponibilite)
-        ->where('logements.ville', 'like', "%{$search}%")
-        ->where('meuble', 'like', $meuble)
-        ->where('prix', '>=', $budget_min)
-        ->where('prix', '<=', $budget_max)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1')
-        ->get();
-        return view('recherche.affichage-resultats', ['logements' => $logements]);
-
-/*
-    if($type === "chambre") {
-        $logements = $logementsQuery
-            ->join('chambres','logements.id','=','chambres.logement_id')
-            ->select('logements.prix','logements.quartier','logements.ville','logements.type','logements.meuble','logements.disponibilite','logements.photos1')
-            ->get();
-    } else {
-        $logements = $logementsQuery
-            ->join('appartements','logements.id','=','appartements.logement_id')
-            ->where('appartements.nombre_chambre', 'like', $chambres)
-            ->select('logements.prix','logements.quartier','logements.ville','logements.type','logements.meuble','logements.nombre_chambre','logements.disponibilite','logements.photos1')
-            ->get();*/
+    //////03 criteres
+    //17
+    if( $max_min_dispo)
+    {
+            $logements= SearchUtils::searchDisponibilite_Bmin_and_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //18
+    if($ville_min_dispo)
+    {
+            $logements= SearchUtils::searchDisponibilite_ville_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //19
+    if( $ville_max_dispo)
+    {
+            $logements= SearchUtils::searchDisponibilite_ville_and_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //20
+    if( $type_ville_min)
+    {
+            $logements= SearchUtils::searchVille_type_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //21
+    if( $max_min_dispo)
+    {
+            $logements= SearchUtils::searchDisponibilite_Bmin_and_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //22
+    if( $max_min_dispo)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
 
-   // return view('recherche.affichage-resultats', ['logements' => $logements]);
+
+    ////04 criteres
+
+
+
+
+
+    //23
+    if($type_ville_min_dispo)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //24
+    if( $type_dispo_max_min)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //25
+    if(  $type_ville_max_min)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //26
+    if( $dispo_ville_max_min)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    //27
+    if( $dispo_ville_max_type)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+     //28
+    if($type_ville_max)
+    {
+            $logements= SearchUtils::searchVille_type_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    if( searchdisponibilite_type_ville)
+    {
+            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    if( $type_max_min)
+    {
+            $logements= SearchUtils::search_type_Bmax_and_Bmin($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+
+
+
+    /////all
+
+    if($all)
+    {
+            $logements= SearchUtils::searchdisponibilite_type_ville_Bmin_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+
+
+
+
+
+
+
+
+
+    }
+
+
 }
 
 

@@ -2,7 +2,7 @@
     <div class="container py-4">
         <div class="row">
             <div class="col-12 col-md-3 order-1 order-md-1">
-                <a href="#"> <img class="img-fluid" style="height: 40px;" src="images/Logo_Transparent.png"
+                <a href="#"> <img class="img-fluid" style="height: 40px;" src="{{ asset('images/Logo_Transparent.png') }}"
                         alt="Logo Harmony Housing"></a>
                 <ul class="list-unstyled text-small">
                     <li><a class="text-muted" href="#">Espace propriétaire</a></li>
