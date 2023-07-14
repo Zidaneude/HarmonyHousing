@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Validator;
 use Illuminate\Auth\Events\Registered;
 use App\Http\Requests\Auth\LoginProprietaireRequest;
 

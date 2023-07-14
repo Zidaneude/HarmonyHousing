@@ -65,14 +65,14 @@ class ProfilLocataireController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request->all());
+        ($request->all());
         $locataire = Locataire::findOrFail($request->id);
 
     $rules = [
         'prenom' => ['required', 'string', 'max:255'],
         'nom' => ['required', 'string', 'max:255'],
         'telephone' => ['required', 'string', 'max:255'],
-        'presentation' => ['required','string','max:500'],
+        'presentation' => ['nullable','string','max:500'],
         'gender' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255',],
     ];
@@ -80,10 +80,12 @@ class ProfilLocataireController extends Controller
     if ($request->has("photo")) {
         $rules["photo"] = ['bail','required','image','max:1024'];
     }
+  
+   
 
     $this->validate($request, $rules);
 
-    // 2. On upload l'image dans "/storage/app/public/posts"
+    // On upload l'image dans "/storage/app/public/posts"
     $chemin_image='';
     if ($request->has("photo")) {
 
@@ -92,21 +94,21 @@ class ProfilLocataireController extends Controller
         $chemin_image = $request->file('photo')->store("locataire",'public');
     }
 
-    // 3. On met à jour les informations du locataire
-    $locataire->update([
-
-        "profil" => $chemin_image,
+    //  On met à jour les informations du locataire
+    // Pas besoin de faire un if ici, on utilise fill au lieu de update
+    $locataire->fill([
         'nom' => $request->nom,
         'prenom' =>$request->prenom,
         'email' => $request->email,
         'sexe' => $request->gender,
         'telephone' => $request->telephone,
         'presentation' => $request->presentation,
-    ]);
-    $locataire->save();
-    return redirect('/reservation-locataire')->with('success', 'Informations mises à jour avec succès');
-
+    ])->save();
+    
+    return redirect('/profil-locataire')->with('success', 'Informations mises à jour avec succès');
+    //return view('profils.profil-locataire',['locataire'=>$locataire]);
     }
+
 
 
     /**
@@ -114,6 +116,7 @@ class ProfilLocataireController extends Controller
      */
     public function destroy($id)
     {
+        dd(true);
         $locataire = Locataire::findOrFail($id);
         $locataire->delete();
     
