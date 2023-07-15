@@ -628,7 +628,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->where('offres.status', '=', "Approuvée")
                 ->where('ville', 'like', "%{$search}%")
                 ->orwhere('quartier', 'like', "%{$search}%")
-                ->where('appartements.prix','<=',$budget_min)
+                ->where('appartements.prix','<=',$budget_max)
                 ->where('appartements.disponibilite','>=',$disponibilite)
                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
                 ->get();
@@ -990,6 +990,46 @@ public static function searchdisponibilite_type_ville_Bmin_Bmax(Request $request
         return $logements;
     }
 }
+
+
+// 30 recherche la ville ou le quartier  et le type et la disponibilite et le budget max
+public static function searchVille_type_Bmin_Bmax(Request $request)
+{
+    $search = $request->search;
+    $budget_min = $request->budget_min;
+    $type = $request->type;
+    $budget_max = $request->budget_max;
+    $disponibilite = $request->disponibilite;
+
+    if($type=="chambre")
+    {
+        $logements=DB::table('logements')
+        ->join('chambres','logements.id','=','chambres.logement_id')
+        ->join('offres','offres.id','=','logements.offre_id')
+        ->where('offres.status', '=', "Approuvée")
+        ->where('ville', 'like', "%{$search}%")
+        ->orwhere('quartier', 'like', "%{$search}%")
+        ->where('chambres.prix','>=',$budget_min)
+        ->where('chambres.prix','<=',$budget_max)
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+        ->get();
+        return $logements;
+    }else
+    {
+        $logements=DB::table('logements')
+        ->join('appartements','logements.id','=','appartements.logement_id')
+        ->join('offres','offres.id','=','logements.offre_id')
+        ->where('offres.status', '=', "Approuvée")
+        ->where('ville', 'like', "%{$search}%")
+        ->orwhere('quartier', 'like', "%{$search}%")
+        ->where('appartements.prix','>=',$budget_min)
+        ->where('appartements.prix','<=',$budget_max)
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+        ->get();
+        return $logements;
+    }
+}
+
 
 }
 ?>

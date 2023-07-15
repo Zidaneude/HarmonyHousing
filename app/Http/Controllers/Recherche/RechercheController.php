@@ -283,6 +283,7 @@ public function search(Request $request)
 
     //04 criteres
     $type_ville_min_dispo= $search!=null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite!=null;
+    $type_ville_max_dispo= $search!=null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite!=null;
     $type_dispo_max_min= $search==null && $type!=null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
     $type_ville_max_min= $search!=null && $type!=null && $budget_min!=null && $budget_max!=null && $disponibilite==null;
     $dispo_ville_max_min= $search!=null && $type==null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
@@ -431,19 +432,24 @@ public function search(Request $request)
     //23
     if($type_ville_min_dispo)
     {
-            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            $logements= SearchUtils::ssearchdisponibilite_type_ville_Bmin($request);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
     //24
     if( $type_dispo_max_min)
     {
-            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            $logements= SearchUtils::searchdisponibilite_type_ville_Bmin_Bmax($request);
+            return view('recherche.affichage-resultats', ['logements' => $logements]);
+    }
+    if($type_ville_max_dispo)
+    {
+            $logements= SearchUtils::searchdisponibilite_type_ville_Bmax($request);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
     //25
     if(  $type_ville_max_min)
     {
-            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            $logements= SearchUtils::searchVille_type_Bmin_Bmax($request);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
     //26
