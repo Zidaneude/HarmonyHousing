@@ -17,8 +17,9 @@ class RechercheController extends Controller
     //Fonction qui recherche un logement par la ville uniquement
     public function find(Request $request)
     {
-        $request->flash();
+        //$request->flash();
         $ville=$request->ville;
+        //dd(true);
 
         $logements1=DB::table('logements')
          ->join('chambres','logements.id','=','chambres.logement_id')
