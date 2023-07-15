@@ -55,6 +55,33 @@
                 text-align: center !important;
             }
         }
+
+        .circle-icon {
+            /* votre style actuel ici */
+        }
+
+        .animated-icon {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .animated-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .stats-text {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stats-text::before {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 50px;
+            background: #2EB88A;
+            margin: 10px auto;
+        }
     </style>
 </head>
 
@@ -148,22 +175,22 @@
     <div class="container">
         <div class="row justify-content-center text-center my-4">
             <div class="col-4">
-                <div class="circle-icon">
+                <div class="circle-icon animated-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <p>+500 utilisateurs satisfaits</p>
+                <p class="stats-text">+500 utilisateurs satisfaits</p>
             </div>
             <div class="col-4">
-                <div class="circle-icon">
+                <div class="circle-icon animated-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <p>+30 annonces vérifiées</p>
+                <p class="stats-text">+30 annonces vérifiées</p>
             </div>
             <div class="col-4">
-                <div class="circle-icon">
+                <div class="circle-icon animated-icon">
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <p>4,5 / 5 sur +25 avis</p>
+                <p class="stats-text">4,5 / 5 sur +25 avis</p>
             </div>
         </div>
 
