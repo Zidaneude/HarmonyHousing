@@ -71,34 +71,33 @@
                 </div>
             </div>
 
-            <form class="mt-3"
-
-                style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;" method="GET" action="{{route('resultat.from.homme')}}">>
+            <form class="mt-3" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;" method="GET" action="{{route('resultat.from.homme')}}">
                 <input type="text" name="search" placeholder="Entrez une ville ou un quartier"
-                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;"
+                    value="{{ old('search') }}">
 
                 <select name="type" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
                     <option value="">Type de logement</option>
-                    <option value="chambre">Chambre</option>
-                    <option value="appartement">Appartement</option>
-
+                    <option value="chambre" {{ old('type') == 'chambre' ? 'selected' : '' }}>Chambre</option>
+                    <option value="appartement" {{ old('type') == 'appartement' ? 'selected' : '' }}>Appartement</option>
                 </select>
 
                 <button type="button" id="more-filters"
                     style="padding: 10px; border-radius: 5px; border: none; background-color: #004aad; color: white; cursor: pointer;"
-                    onclick="openNav()">Plus
-                    de filtres</button>
+                    onclick="openNav()">Plus de filtres</button>
 
                 <div id="myNav" class="overlay">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
                     <div class="overlay-content">
                         <h4 style="color: #ffffff;">Sélectionnez vos critères ici</h4>
                         <input type="number" name="budget_min" min="0" placeholder="Budget min"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
+                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;"
+                            value="{{ old('budget_min') }}">
                         <input type="number" name="budget_max" min="0" placeholder="Budget max"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
-                        <input style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;" type="date" name="disponibilite"/>
+                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;"
+                            value="{{ old('budget_max') }}">
+                        <input style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;" type="date" name="disponibilite"
+                            value="{{ old('disponibilite') }}"/>
                     </div>
                 </div>
 
@@ -106,7 +105,6 @@
                     value="Rechercher"
                     style="padding: 10px; border-radius: 5px; border: none; background-color: #004aad; color: white; cursor: pointer;">
             </form>
-
         </div>
     </section>
 

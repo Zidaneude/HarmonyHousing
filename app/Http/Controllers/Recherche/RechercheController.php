@@ -17,6 +17,7 @@ class RechercheController extends Controller
     //Fonction qui recherche un logement par la ville uniquement
     public function find(Request $request)
     {
+        $request->flash();
         $ville=$request->ville;
 
         $logements1=DB::table('logements')
@@ -47,6 +48,7 @@ class RechercheController extends Controller
         $city = $request->ville;
         $budget_max = $request->budget_max;
         $type = $request->type;
+        $request->flash();
 
        // 1 uniquement avec la ville
        if($city!=null && $budget_max==null && $type==null)
@@ -235,7 +237,7 @@ class RechercheController extends Controller
 
 public function search(Request $request)
 {
-
+    $request->flash();
 
     $search = $request->input('search');
     $type = $request->input('type');
