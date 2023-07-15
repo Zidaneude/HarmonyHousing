@@ -1,414 +1,549 @@
 <!DOCTYPE html>
 <html  >
 <head>
-  <!-- Site made with Mobirise Website Builder v5.8.14, https://mobirise.com -->
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Mobirise v5.8.14, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('assets_detail/images/logo5.png') }}" type="image/x-icon">
   <meta name="description" content="">
 
 
-  <title>détails et reservation</title>
-  <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons2/mobirise2.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap-grid.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap-reboot.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/dropdown/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/socicon/css/styles.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css') }}">
+  <title>Détails et reservtion</title>
+  <link rel="stylesheet" href="{{ asset('assets_detail/web/assets_detail/mobirise-icons2/mobirise2.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets_detail/web/assets_detail/mobirise-icons-bold/mobirise-icons-bold.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets_detail/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets_detail/bootstrap/css/bootstrap-grid.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets_detail/bootstrap/css/bootstrap-reboot.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets_detail/socicon/css/styles.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets_detail/theme/css/style.css') }}">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap"></noscript>
+  <link rel="preload" as="style" href="{{ asset('assets_detail/mobirise/css/mbr-additional.css') }}"><link rel="stylesheet" href="{{ asset('assets_detail/mobirise/css/mbr-additional.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}"><link rel="stylesheet" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}" type="text/css">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 
 
 
 </head>
-<body>
-
+<body class="mt-5">
     @include('commun/header')
 
-<section data-bs-version="5.1" class="gallery6 mbr-gallery cid-tIWkkBEfM2" id="gallery6-1l">
+  <section data-bs-version="5.1" class="slider4 mbr-embla cid-tK1pFfGeaG" id="slider4-6">
 
+    <div class="mbr-overlay"></div>
+    <div class="position-relative text-center">
 
-
-
-
-    <div class="container-fluid">
-
-        <div class="row mbr-gallery mt-4">
-            <div class="col-12 col-md-6 col-lg-4 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#tIWCMqyrrd-modal" data-bs-target="#tIWCMqyrrd-modal">
-                    <img class="w-100" src="{{ asset('assets/images/hilton-yaounde-habitacion-c4dc94a-1000x615.jpg') }}" alt="Mobirise Website Builder" data-slide-to="0" data-bs-slide-to="0" data-target="#lb-tIWCMqyrrd" data-bs-target="#lb-tIWCMqyrrd">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#tIWCMqyrrd-modal" data-bs-target="#tIWCMqyrrd-modal">
-                    <img class="w-100" src="{{ asset('assets/images/hotel-la-falaise-yaounde-habitacion-ba97e4e-500x333.jpg') }}" alt="Mobirise Website Builder" data-slide-to="1" data-bs-slide-to="1" data-target="#lb-tIWCMqyrrd" data-bs-target="#lb-tIWCMqyrrd">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#tIWCMqyrrd-modal" data-bs-target="#tIWCMqyrrd-modal">
-                    <img class="w-100" src="{{ asset('assets/images/hotel-la-falaise-yaund-28-500x332.jpg') }}" alt="Mobirise Website Builder" data-slide-to="2" data-bs-slide-to="2" data-target="#lb-tIWCMqyrrd" data-bs-target="#lb-tIWCMqyrrd">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="tIWCMqyrrd-modal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="carousel slide" id="lb-tIWCMqyrrd" data-interval="5000" data-bs-interval="5000">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="assets/images/hilton-yaounde-habitacion-c4dc94a-1000x615.jpg" alt="Mobirise Website Builder">
+        <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="5" data-draggable="true">
+            <div class="embla__viewport container">
+                <div class="embla__container">
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem; height: 300px;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="/storage/{{ $logements[0]->photos1 }}" alt="Mobirise Website Builder">
+                                    <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaounde-habitacion-ba97e4e.jpg') }}" alt="Mobirise Website Builder">
                                 </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/hotel-la-falaise-yaounde-habitacion-ba97e4e-500x333.jpg" alt="Mobirise Website Builder">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/hotel-la-falaise-yaund-28-500x332.jpg" alt="Mobirise Website Builder">
-                                </div>
-
                             </div>
-                            <ol class="carousel-indicators">
-                                <li data-slide-to="0" data-bs-slide-to="0" class="active" data-target="#lb-tIWCMqyrrd" data-bs-target="#lb-tIWCMqyrrd"></li>
-                                <li data-slide-to="1" data-bs-slide-to="1" data-target="#lb-tIWCMqyrrd" data-bs-target="#lb-tIWCMqyrrd"></li>
-                                <li data-slide-to="2" data-bs-slide-to="2" data-target="#lb-tIWCMqyrrd" data-bs-target="#lb-tIWCMqyrrd"></li>
 
-                            </ol>
-                            <a role="button" href="" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
-                            </a>
-                            <a class="carousel-control-prev carousel-control" role="button" data-slide="prev" data-bs-slide="prev" href="#lb-tIWCMqyrrd">
-                                <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
-                                <span class="sr-only visually-hidden">Previous</span>
-                            </a>
-                            <a class="carousel-control-next carousel-control" role="button" data-slide="next" data-bs-slide="next" href="#lb-tIWCMqyrrd">
-                                <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
-                                <span class="sr-only visually-hidden">Next</span>
-                            </a>
+
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem; height: 300px;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaounde-habitacion-ba97e4e.jpg') }}" alt="Mobirise Website Builder">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem; height: 300px;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaund-28.jpg') }}" alt="Mobirise Website Builder">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem; height: 300px;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="{{ asset('assets_detail/images/queen-executive-room.jpg') }}" alt="Mobirise Website Builder">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+            <button class="embla__button embla__button--prev">
+                <span class="mobi-mbri mobi-mbri-arrow-prev mbr-iconfont" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden visually-hidden">Previous</span>
+            </button>
+            <button class="embla__button embla__button--next">
+                <span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </section>
 
+<div class="container" style="margin-top: 20px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="/">Mon dashboard locataire</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Détails du logement</a></li>
+
+        </ol>
+    </nav>
+</div>
 
 
-<section data-bs-version="5.1" class="features12 cid-tIyP0hsNzW" id="features13-10">
-
-    <div class="fil-d'ariane"></h2>
-        <ul class="breadcrumb">
-            <li><a href="#">Accueil</a></li>
-            <li><a href="index.html">Trouver mon logement</a></li>
-        </ul><br><br>
-    </div>
-    <style>
-        ul.breadcrumb {
-          width: auto;
-          padding: 10px 315px;
-          list-style: none;
-          background-color: #eee;
-        }
-        ul.breadcrumb li {
-          display: inline;
-          font-size: 18px;
-        }
-        ul.breadcrumb li+li:before {
-          padding: 8px;
-          color: black;
-          content: ">\00a0";
-        }
-        ul.breadcrumb li a {
-          color: #004aad;
-          text-decoration: none;
-          font-family: poppins;
-          text-align: center;
-        }
-        ul.breadcrumb li a:hover {
-          color: #01447e;
-          text-decoration:solid;
-        }
-        </style>
-
-
+<section data-bs-version="5.1" class="features14 cid-tK1RfOyPo5" id="features15-f">
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-6">
+            <div class="card col-12 col-md-6">
                 <div class="card-wrapper">
-                    <div class="card-box align-left">
-                        <h4 class="card-title mbr-fonts-style mb-4 display-7"><strong>Appartement meublé Face à Santa Lucia Ngousso-Yaoundé</strong></h4>
-                        <h5 class="card-subtitle"><strong>Equipements du logement</strong></h5>
-                        <style>
-                            .card-subtitle {
-                              color: black;
-                              width: auto;
-                              padding-top: 20px;
-                              padding-bottom: 20px;
-                              background-color: #fcfbfb;
-                              font-family: poppins;
-                              font-size:large;
-                            }
-                            </style>
-                    </div>
+
+                    @if ($logements[0]->meuble == 'Oui')
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-5" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);"><strong>{{ucfirst($logements[0]->type)}} Meublé  {{$logements[0]->ville}}-{{ucfirst($logements[0]->quartier)}}</strong></h4>
+
+                        </div>
+                    @else
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-5" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);"><strong>{{ucfirst($logements[0]->type)}} non meublé {{$logements[0]->ville}}-{{ucfirst($logements[0]->quartier)}} </strong></h4>
+
+                        </div>
+                    @endif
+
                 </div>
             </div>
-            <div class="col-12 col-lg-6">
-                <p class="mbr-text mbr-fonts-style mb-4 display-5"><strong>65000 FCFA/mois</strong></p>
 
-            </div>
+
 
         </div>
     </div>
 </section>
 
-<section data-bs-version="5.1" class="features12 cid-tIEPMOJNFj" id="features13-1e">
-
-
-
-
+<section data-bs-version="5.1" class="features17 cid-tK1uerIJsL" id="features18-c">
 
     <div class="container">
+        <div class="mbr-section-head">
+            <div class="col-12">
+                <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-7"><strong>Equipements du logement</strong></h4><br>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<section data-bs-version="5.1" class="features14 cid-tK1sB26v3q" id="features15-8" >
+
+
+    <div class="container"  style="box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);">
+
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-6">
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont mbrib-wifi" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
+
+            @if ($chambres->equipements->contains('nom', 'Internet'))
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked disabled>
+                        </div>
+
+                        <i class="fa-solid fa-wifi mt-2 mr-2" style="font-size:12px" ></i>
+                        <div class="card-box">
+
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Internet</h4>
+
+                        </div>
                     </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">
-                            internet</h4>
+                </div>
+            @else
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mobi-mbri-wifi mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Internet</h4>
+
+                        </div>
+                    </div>
+                </div>
+             @endif
+
+             @if ($chambres->equipements->contains('nom', 'Chauffage'))
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" checked disabled>
+                                <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto socicon-curse socicon" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
+
+                        </div>
+                    </div>
+                </div>
+             @else
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" checked disabled>
+                                <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto socicon-curse socicon" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
+
+                        </div>
+                    </div>
+                </div>
+             @endif
+
+            @if ($chambres->equipements->contains('nom', 'Ordinateur'))
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something" checked disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mbrib-desktop" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
+
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something" disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mbrib-desktop" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
+                        </div>
 
                     </div>
                 </div>
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont mbrib-desktop" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
-                    </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">Ordinateur</h4>
+            @endif
+
+            @if ($chambres->equipements->contains('nom', 'Climatisation'))
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something" checked disabled>
+
+                        </div>
+                        <span class="mbr-iconfont m-auto mbrib-desktop" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
+
+                        </div>
 
                     </div>
                 </div>
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont mobi-mbri-video-play mobi-mbri" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
-                    </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">TV</h4>
+            @else
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check3" name="option3" value="something" disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mbrib-desktop" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
+                        </div>
 
                     </div>
                 </div>
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont mobi-mbri-website-theme mobi-mbri" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
-                    </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">Cintres pour vetements</h4>
+            @endif
 
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-6">
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont socicon-curse socicon" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
-                    </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">Chaufage</h4>
-
-                    </div>
-                </div>
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont mobi-mbri-mobirise mobi-mbri" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
-                    </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">Climatisation</h4>
-
-                    </div>
-                </div>
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont mbrib-protect" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
-                    </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">Equipements d'hygiène</h4>
-
-                    </div>
-                </div>
-                <div class="item mbr-flex">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
-                      </div>
-                    <div class="icon-box">
-                        <span class="mbr-iconfont mbrib-success" style="color: rgb(0, 0, 0); fill: rgb(0, 0, 0);"></span>
-                    </div>
-                    <div class="text-box">
-                        <h4 class="icon-title mbr-black mbr-fonts-style display-7">Fer à repasser</h4>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
 
-<section data-bs-version="5.1" class="features12 cid-tIEPNzBDX3" id="features13-1f">
+<section data-bs-version="5.1" class="features14 cid-tK1sLIbu62" id="features15-a">
 
-
-    <div class="container">
+    <div class="container"  style="box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);  margin-bottom: 5px;">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-6">
-                <p class="mbr-text mbr-fonts-style mb-4 display-5"><strong>65000 FCFA/mois</strong></p>
-                        <div class="mbr-section-btn"><a class="btn btn-success display-4" href="https://mobiri.se"><span class="mobi-mbri mobi-mbri-shopping-cart mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>Reservez maintenant</a> <a class="btn btn-success-outline display-4" href="https://mobiri.se"><span class="mbrib-hearth mbr-iconfont mbr-iconfont-btn" style="color: rgb(49, 140, 58);"></span>aimer</a></div><br><br>
-            </div>
+            @if ($chambres->equipements->contains('nom', 'Télévision'))
+                    <div class="card col-12 col-md-6 col-lg-3">
+                        <div class="card-wrapper">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked disabled>
+                            </div>
+                            <span class="mbr-iconfont m-auto mobi-mbri-video-play mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <div class="card-box">
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Télévision</h4>
 
-        </div>
-    </div>
-</section>
+                            </div>
+                        </div>
+                    </div>
+            @else
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mobi-mbri-protect mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
 
-<section data-bs-version="5.1" class="info3 cid-tIC9SJU1Cs" id="info3-1b">
+                        </div>
+                    </div>
+                </div>
+            @endif
 
+            @if ($chambres->equipements->contains('nom', "Cintres pour vêtements"))
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked  disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">
+                                Cintres pour vetements</h4>
 
-    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(17, 105, 113);">
-    </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">
+                                Cintres pour vetements</h4>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-10">
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if ($chambres->equipements->contains('nom', 'Fer à repasser'))
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
+
+                        </div>
+                    </div>
+                </div>
+            @else
+            <div class="card col-12 col-md-6 col-lg-3">
                 <div class="card-wrapper">
-                    <div class="card-box align-center">
-                        <h4 class="card-title mbr-fonts-style align-center mb-4 display-2">Donnez votre avis le logement</h4>
-                        <div class="note">
-                            <h5>Note globlale des usagers:</h5>
-                         </div>
-                        <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                            <div class="avis">
-                                <h6>Votre avis ici</h6>
-                                <form>
-                                <div class="rating"><!--
-                                --><a href="#5" title="Donner 5 étoiles">☆</a><!--
-                                --><a href="#4" title="Donner 4 étoiles">☆</a><!--
-                                --><a href="#3" title="Donner 3 étoiles">☆</a><!--
-                                --><a href="#2" title="Donner 2 étoiles">☆</a><!--
-                                --><a href="#1" title="Donner 1 étoile">☆</a>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
-                                    <p>
-
-                                        <textarea class="form-control" rows="5" id="comment" placeholder="écrire un commentaire"></textarea>
-                                        <button type="submit" class="btn btn-primary display-4">Soumettre</button>
-                                    </p>
-                                </div>
-                                </form>
-                             </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
+                    </div>
+                    <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
 
                     </div>
                 </div>
             </div>
+            @endif
+
+
+            @if ($chambres->equipements->contains('nom', "Équipements d'hygiène"))
+                <div class="card col-12 col-md-6 col-lg-3">
+                    <div class="card-wrapper">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked  disabled>
+                        </div>
+                        <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                        <div class="card-box">
+                            <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
+
+                        </div>
+                    </div>
+                </div>
+            @else
+            <div class="card col-12 col-md-6 col-lg-3">
+                <div class="card-wrapper">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"  disabled>
+                    </div>
+                    <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri" style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                    <div class="card-box">
+                        <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
+
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </section>
 
-<style>
+<section data-bs-version="5.1" class="gallery3 cid-tK1fvTOz0k" id="gallery3-5">
 
-.container2 {
-   font-family: poppins;
-   text-align: center;
-   padding: auto;
-   height: 500px;
- }
+    @if ($logements[0]->type=='appartement')
+    <div class="container">
+        <div class="mbr-section-head">
 
- .form-group {
-   border-color: #091729;
-   width: 750px;
-   margin-left: 550px;
- }
+            <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-7"><strong>Pièces du logement</strong></h5>
+        </div>
+        <div class="row mt-4">
+            <div class="item features-image сol-12 col-md-6 col-lg-3 active" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
+                <div class="item-wrapper">
+                    <div class="item-img">
+                        <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaund-28.jpg') }}" alt="Mobirise Website Builder" data-slide-to="0" data-bs-slide-to="0">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-7">
+                            <strong>Chambre 01</strong></h5>
 
- .tit {
-   padding-top: 20px;
- }
- .note {
-   padding-top: 15px;
-   font-family: poppins;
-   color: white;
- }
- .avis {
-   padding-top: 15px;
-   font-family: poppins;
-   color: white;
- }
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">*Penderie<br>*Douche interne<br>*Meubles</p>
+                    </div>
 
- .rating {
-    direction: rtl;
-    text-align:center;
- }
- .rating a {
-    color: #acafae;
-    text-decoration: none;
-    font-size: 3em;
-    transition: color .4s;
- }
- .rating a:hover,
- .rating a:focus,
- .rating a:hover ~ a,
- .rating a:focus ~ a {
-    color: orange;
-    cursor: pointer;
- }
-</style>
+                </div>
+            </div><div class="item features-image сol-12 col-md-6 col-lg-3" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
+                <div class="item-wrapper">
+                    <div class="item-img">
+                        <img src="{{ asset('assets_detail/images/hilton-yaounde-habitacion-c4dc94a.jpg') }}" alt="Mobirise Website Builder" data-slide-to="1" data-bs-slide-to="1">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-7">
+                            <strong>Salon</strong></h5>
+
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">*Meublé<br>*Equipements</p>
+                    </div>
+
+                </div>
+            </div><div class="item features-image сol-12 col-md-6 col-lg-3" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
+                <div class="item-wrapper">
+                    <div class="item-img">
+                        <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaounde-habitacion-ba97e4e.jpg') }}" alt="Mobirise Website Builder" data-slide-to="2" data-bs-slide-to="2">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-7">
+                            <strong>Chambre 02</strong></h5>
+
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">Vide</p>
+                    </div>
+
+                </div>
+            </div><div class="item features-image сol-12 col-md-6 col-lg-3" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
+                <div class="item-wrapper">
+                    <div class="item-img">
+                        <img src="{{ asset('assets_detail/images/hilton-yaounde.jpg') }}" alt="Mobirise Website Builder" data-slide-to="3" data-bs-slide-to="3">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-7">
+                            <strong>Cuisine</strong></h5>
+
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">Vide</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+        @endif
+        <div class="container" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);  margin-bottom: 5px;" >
+            <div class="row">
+
+                <div class="card col-12 col-md-4 col-lg-2 p-3" >
+                    <div class="card-wrapper">
+                        <div class="card-box align-center">
+                            <span class="mbr-iconfont mobi-mbri-clock mobi-mbri" style="font-size: 30px;"></span>
+                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                <strong>disponible: </strong></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-3 col-12 col-md-4 col-lg-2">
+                    <div class="card-wrapper">
+                        <div class="card-box align-center">
+                            <span class="mbr-iconfont socicon-mix socicon" style="font-size: 30px;"></span>
+                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7"><strong>Fréquence de paiement: </strong>3 mois</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-3 col-12 col-md-4 col-lg-2">
+                    <div class="card-wrapper">
+                        <div class="card-box align-center">
+                            <span class="mbr-iconfont socicon-googlemaps socicon" style="font-size: 30px;"></span>
+                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                <strong>Localisation: </strong>A&nbsp;100m de<strong> </strong>Santa Lucia</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-3 col-12 col-md-4 col-lg-2">
+                    <div class="card-wrapper">
+                        <div class="card-box align-center">
+                            <span class="mbr-iconfont mobi-mbri-laptop mobi-mbri" style="font-size: 30px;"></span>
+                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
+                                <strong>Nombre de chambre: </strong>02</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <h3 class="mbr-section-title align-center mb-4 mbr-fonts-style display-5"><strong>75000 FCFA/mois</strong></h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </section>
 
+<section data-bs-version="5.1" class="features13 cid-tK1beoHo8i" id="features14-2">
 
-<script src="{{ asset('assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/smoothscroll/smooth-scroll.js') }}"></script>
-<script src="{{ asset('assets/ytplayer/index.js') }}"></script>
-<script src="{{ asset('assets/dropdown/js/navbar-dropdown.js') }}"></script>
-<script src="{{ asset('assets/theme/js/script.js') }}"></script>
-<script src="{{ asset('assets/formoid/formoid.min.js') }}"></script>
+
+
+
+
+</section>
+
+<section data-bs-version="5.1" class="content11 cid-tK1NzbVgLh" id="content11-e">
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-8">
+                <div class="mbr-section-btn align-center">
+                    <a class="btn btn-primary display-5" href="#"><span class="mobi-mbri mobi-mbri-credit-card mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>Reservez maintenant</a>
+                     <a class="btn btn-black display-5" href="#"><span class="mobi-mbri mobi-mbri-like mbr-iconfont mbr-iconfont-btn " style="color: rgb(250, 250, 250);"></span>J'aime</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+@include('commun/footer')
+<script src="{{ asset('assets_detail/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets_detail/smoothscroll/smooth-scroll.js') }}"></script>
+<script src="{{ asset('assets_detail/ytplayer/index.js') }}"></script>
+<script src="{{ asset('assets_detail/embla/embla.min.js') }}"></script>
+<script src="{{ asset('assets_detail/embla/script.js') }}"></script>
+<script src="{{ asset('assets_detail/theme/js/script.js') }}"></script>
 
 
 </body>

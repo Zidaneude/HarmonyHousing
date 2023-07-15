@@ -22,20 +22,23 @@ class RechercheController extends Controller
         //dd(true);
 
         $logements1=DB::table('logements')
-         ->join('chambres','logements.id','=','chambres.logement_id')
-         ->join('offres','offres.id','=','logements.offre_id')
-         ->where('offres.status', '=', "Approuvée")
-         ->where('logements.ville', 'like', "%{$ville}%")
-         ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
-         ->get();
+            ->join('chambres','logements.id','=','chambres.logement_id')
+           // ->leftJoin('inclures','chambres.id','=','inclures.chambre_id')
+            ->join('offres','offres.id','=','logements.offre_id')
+            ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->get();
 
          $logements2=DB::table('logements')
-         ->join('appartements','logements.id','=','appartements.logement_id')
-         ->join('offres','offres.id','=','logements.offre_id')
-         ->where('offres.status', '=', "Approuvée")
-         ->where('ville', 'like', "%{$ville}%")
-         ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1','appartements.id')
-         ->get();
+            ->join('appartements','logements.id','=','appartements.logement_id')
+            ->join('offres','offres.id','=','logements.offre_id')
+            ->where('offres.status', '=', "Approuvée")
+            ->where('ville', 'like', "%{$ville}%")
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','nombre_chambre','logements.photos1','appartements.id')
+            ->get();
 
         $logements=$logements1->merge($logements2);
         return view('recherche.affichage-resultats', ['logements' => $logements]);
@@ -54,13 +57,16 @@ class RechercheController extends Controller
        // 1 uniquement avec la ville
        if($city!=null && $budget_max==null && $type==null)
        {
-            $logements1=DB::table('logements')
-                ->join('chambres','logements.id','=','chambres.logement_id')
-                ->join('offres','offres.id','=','logements.offre_id')
-                ->where('offres.status', '=', "Approuvée")
-                 ->where('ville', 'like', "%{$city}%")
-                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
-                 ->get();
+        $logements1=DB::table('logements')
+        ->join('chambres','logements.id','=','chambres.logement_id')
+       // ->leftJoin('inclures','chambres.id','=','inclures.chambre_id')
+        ->join('offres','offres.id','=','logements.offre_id')
+        ->where('offres.status', '=', "Approuvée")
+        ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+        })
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+        ->get();
             $logements2=DB::table('logements')
                  ->join('appartements','logements.id','=','appartements.logement_id')
                  ->join('offres','offres.id','=','logements.offre_id')

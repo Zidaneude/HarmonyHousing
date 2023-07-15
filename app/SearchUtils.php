@@ -14,7 +14,6 @@ class SearchUtils{
         {
             $logements=DB::table('logements')
             ->join('chambres','logements.id','=','chambres.logement_id')
-           // ->leftJoin('inclures','chambres.id','=','inclures.chambre_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
             ->whereNotIn('chambres.id',function($query){
@@ -22,7 +21,7 @@ class SearchUtils{
             })
             ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
             ->get();
-            //dd( $logements);
+        
             return $logements;
 
         }else{

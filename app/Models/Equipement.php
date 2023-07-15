@@ -12,5 +12,10 @@ class Equipement extends Model
     {
         return $this->belongsTo(Logement::class);
     }
+
+    public function equipements()
+    {
+        return $this->hasMany(Equipement::class);
+    }
     protected $fillable = ['nom'];
 }

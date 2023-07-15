@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Proprietaire;
 use toastr;
 use App\Models\Offre;
 use App\Models\Chambre;
-use App\Models\Equiper;
 use App\Models\Inclure;
 use App\Models\Equiper2;
 use App\Models\Logement;
 use App\Models\Equipement;
 use App\Models\Appartement;
 use Illuminate\Http\Request;
+use App\Models\Chambre_equipement;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -119,7 +119,7 @@ class SoumissionOfreFormOneControlleur extends Controller
 
                                 //id de chaque equipement
                                 $id = Equipement::where('nom', '=', $equip)->first()->id;
-                                Equiper::create(['chambre_id' => $id_chambre, 'equipement_id' => $id]);
+                                chambre_equipement::create(['chambre_id' => $id_chambre, 'equipement_id' => $id]);
                             }
 
                             // mettre a jour la chaine des id pour recuperer a l"etape 2
@@ -183,7 +183,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                             foreach ($list_equip as $equip) {
 
                                 $id = Equipement::where('nom', '=', $equip)->first()->id;
-                                Equiper::create(['chambre_id' => $id_chambre, 'equipement_id' => $id]);
+                                Chambre_equipement::create(['chambre_id' => $id_chambre, 'equipement_id' => $id]);
                             }
 
                             if ($chaine_tab == "") {
