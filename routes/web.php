@@ -53,7 +53,7 @@ Route::get('/contact', function () {
     return view('mails.contact');
 });
 
-Route::get('/mension-legale', function () {
+Route::get('/mentions-legales', function () {
     return view('help.mension-legale');
 });
 
@@ -77,15 +77,14 @@ Route::get('/commentaire', function () {
 });
 
 
-Route::get('recherche',[RechercheController::class,'Recherche'])->name('recherche.from.homme');
-Route::get('resultat',[RechercheController::class,'search'])->name('resultat.from.homme');
+Route::get('recherche', [RechercheController::class, 'Recherche'])->name('recherche.from.homme');
+Route::get('resultat', [RechercheController::class, 'search'])->name('resultat.from.homme');
 
-Route::get('/search',[RechercheController::class,'find'])->name('search.search');
+Route::get('/search', [RechercheController::class, 'find'])->name('search.search');
 
 //routes details chambre et appartement
-Route::get('/detail-chambre/{id}',[DetailOffreController::class,'DetailChambre'])->name('detail.chambre');
-Route::get('/detail-appartement{id}',[DetailOffreController::class,'DetailAppartement'])->name('detail.appartement');
+Route::get('/detail-chambre/{id}', [DetailOffreController::class, 'DetailChambre'])->name('detail.chambre');
+Route::get('/detail-appartement{id}', [DetailOffreController::class, 'DetailAppartement'])->name('detail.appartement');
 
 //Route::get()
 require __DIR__ . '/auth.php';
-

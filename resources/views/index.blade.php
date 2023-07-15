@@ -46,6 +46,41 @@
             .section-cta {
                 margin-top: 20px !important;
             }
+
+            .hide-on-small {
+                display: none !important;
+            }
+
+            .center-on-small {
+                text-align: center !important;
+            }
+        }
+
+        .circle-icon {
+            /* votre style actuel ici */
+        }
+
+        .animated-icon {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .animated-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .stats-text {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stats-text::before {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 50px;
+            background: #2EB88A;
+            margin: 10px auto;
         }
     </style>
 </head>
@@ -110,10 +145,10 @@
                             <i class="fas fa-bullhorn" style="animation: zoom 1s infinite alternate;"></i>
                         </div>
                         <div style="text-align: left;">
-                            <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis
-                                propriétaire</div>
-                            <small class="text-muted" style="font-size: 12px;">Je souhaite annoncer un logement
-                                gratuitement</small>
+                            <div class="h5 mb-0 center-on-small" style="font-size: 16px; text-transform: uppercase;">Je
+                                suis propriétaire</div>
+                            <small class="text-muted hide-on-small" style="font-size: 12px;">Je souhaite annoncer un
+                                logement gratuitement</small>
                         </div>
                     </a>
                     <a href="{{ route('connexion.locataire.create') }}"
@@ -122,9 +157,10 @@
                         <i class="fas fa-search"
                             style="margin-right: 10px; animation: pulse 1s infinite alternate;"></i>
                         <div style="text-align: left;">
-                            <div class="h5 mb-0" style="font-size: 16px; text-transform: uppercase;">Je suis locataire
-                            </div>
-                            <small class="text-muted" style="font-size: 12px;">Je cherche une maison à louer</small>
+                            <div class="h5 mb-0 center-on-small" style="font-size: 16px; text-transform: uppercase;">Je
+                                suis locataire</div>
+                            <small class="text-muted hide-on-small" style="font-size: 12px;">Je cherche une maison à
+                                louer</small>
                         </div>
                     </a>
                 </div>
@@ -139,22 +175,22 @@
     <div class="container">
         <div class="row justify-content-center text-center my-4">
             <div class="col-4">
-                <div class="circle-icon">
+                <div class="circle-icon animated-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <p>+500 utilisateurs satisfaits</p>
+                <p class="stats-text">+500 utilisateurs satisfaits</p>
             </div>
             <div class="col-4">
-                <div class="circle-icon">
+                <div class="circle-icon animated-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
-                <p>+30 annonces vérifiées</p>
+                <p class="stats-text">+30 annonces vérifiées</p>
             </div>
             <div class="col-4">
-                <div class="circle-icon">
+                <div class="circle-icon animated-icon">
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <p>4,5 / 5 sur +25 avis</p>
+                <p class="stats-text">4,5 / 5 sur +25 avis</p>
             </div>
         </div>
 
@@ -214,7 +250,7 @@
         </div>
 
         <div class="text-center my-4">
-            <a href="#" class="btn btn-primary ">Voir d'autres villes</a>
+            <a href="/search" class="btn btn-primary ">Voir d'autres villes</a>
         </div>
     </div>
 
@@ -235,7 +271,6 @@
             <div class="col-lg-6 background-image">
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-12">
