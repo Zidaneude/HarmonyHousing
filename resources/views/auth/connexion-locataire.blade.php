@@ -43,6 +43,9 @@
                                       <!-- email                -->
                                     <input style="background-color: #F8F8FF;" placeholder="Votre adresse email"
                                         type="email" class="form-control" id="email" name="email" required>
+                                    @error("email")
+                                        <h6 style="color: red" class="mt-3"> {{$message}}</h6>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -55,6 +58,9 @@
                                       <!-- password                -->
                                     <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
                                         class="form-control" id="password" name="password" required>
+                                        @error("password")
+                                            <h6  style="color: red" class="mt-3"> {{$message}}</h6>
+                                        @enderror
                                     <div class="input-group-append">
                                         <span class="input-group-text toggle-password">
                                             <i class="fas fa-eye"></i>
@@ -67,10 +73,12 @@
                                         style="color: #004aad;">Mot de passe
                                         oublié ?</span></a>
                             </div>
+                            
                             <div class="text-center pt-5 pb-3">
                                 <button type="submit" class="btn btn-primary">Se connecter</button>
                             </div>
                         </form>
+                        
                         <div class="mt-3">
                             <p class="text-center">
                                 Vous n'avez pas de compte ? <a href="{{route('inscription.locataire.create')}}"

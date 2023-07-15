@@ -34,10 +34,10 @@ class RegisteredLocataireController extends Controller
 
             'prenom' => ['required', 'string', 'max:255'],
             'nom' => ['required', 'string', 'max:255'],
-            'telephone' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'min:9', 'max:9', 'unique:' . Locataire::class],
             'gender' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Locataire::class],
-            'password' => ['required'],
+            'password' => ['required', Rules\Password::defaults()],
         ]);
 
         $locataire = Locataire::create([
