@@ -23,7 +23,7 @@ class DetailOffreController extends Controller
         ->select('*')
         ->get();
         $chambres=Chambre::find($id);
-       // dd($logements);
+      //  dd($chambres->equipements);
 
         return view('recherche.details-offre', ['logements' => $logements,'chambres'=>$chambres]);
     }

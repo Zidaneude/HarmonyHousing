@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Paiement;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\auth\ContactController;
 use App\Http\Controllers\Recherche\RechercheController;
 use App\Http\Controllers\Recherche\DetailOffreController;
@@ -87,4 +89,9 @@ Route::get('/detail-chambre/{id}', [DetailOffreController::class, 'DetailChambre
 Route::get('/detail-appartement{id}', [DetailOffreController::class, 'DetailAppartement'])->name('detail.appartement');
 
 //Route::get()
+
+
+
+
+Route::post('/payer/{chambre_id}', [PaiementController::class, 'payer'])->name('payer');
 require __DIR__ . '/auth.php';

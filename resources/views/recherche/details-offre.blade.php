@@ -531,7 +531,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-8">
                 <div class="mbr-section-btn align-center">
-                    <a class="btn btn-primary display-5" href="#"><span class="mobi-mbri mobi-mbri-credit-card mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>Reservez maintenant</a>
+                    <a class="btn btn-primary display-5" href="{{ route('test') }}"><span class="mobi-mbri mobi-mbri-credit-card mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>Reservez maintenant</a>
                      <a class="btn btn-black display-5" href="#"><span class="mobi-mbri mobi-mbri-like mbr-iconfont mbr-iconfont-btn " style="color: rgb(250, 250, 250);"></span>J'aime</a></div>
             </div>
         </div>
@@ -545,6 +545,6 @@
 <script src="{{ asset('assets_detail/embla/script.js') }}"></script>
 <script src="{{ asset('assets_detail/theme/js/script.js') }}"></script>
 
-
+<script type="text/javascript" src="https://fr.monetbil.com/widget/v2/monetbil.min.js"></script>
 </body>
 </html>
