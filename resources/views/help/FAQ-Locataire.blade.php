@@ -28,7 +28,7 @@
         <br>
         <br>
         <div class="accordion-item mb-5">
-            <p>Comment vous connecter, gerez vos logement en ligne, contacter
+            <p>Comment vous connecter, gérez vos logement en ligne, contacter
                 l'équipe... On répond ici à toutes vos questions !</p>
         </div>
 

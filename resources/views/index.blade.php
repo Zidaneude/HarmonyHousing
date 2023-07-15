@@ -250,7 +250,7 @@
         </div>
 
         <div class="text-center my-4">
-            <a href="#" class="btn btn-primary ">Voir d'autres villes</a>
+            <a href="/search" class="btn btn-primary ">Voir d'autres villes</a>
         </div>
     </div>
 
@@ -271,7 +271,6 @@
             <div class="col-lg-6 background-image">
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-12">
