@@ -982,8 +982,8 @@ public static function searchdisponibilite_type_ville_Bmin_Bmax(Request $request
         ->where('offres.status', '=', "Approuvée")
         ->where('ville', 'like', "%{$search}%")
         ->orwhere('quartier', 'like', "%{$search}%")
-        ->where('apartements.prix','>=',$budget_min)
-        ->where('apartements.prix','<=',$budget_max)
+        ->where('appartements.prix','>=',$budget_min)
+        ->where('appartements.prix','<=',$budget_max)
         ->where('appartements.disponibilite','>=',$disponibilite)
         ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
         ->get();
