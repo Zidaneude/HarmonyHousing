@@ -253,7 +253,7 @@ public function search(Request $request)
     $single_disponibilite= $search==null && $type==null && $budget_min==null && $budget_max==null && $disponibilite!=null;
 
     //more criteres (2)
-    //$type_And_type= $search==null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite==null;
+    
     $type_And_villeOrQuartier= $search!=null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite==null;
     $type_And_budget_min= $search==null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite==null;
     $type_And_budget_max= $search==null && $type!=null && $budget_min==null && $budget_max!=null && $disponibilite==null;
@@ -275,10 +275,10 @@ public function search(Request $request)
     $ville_min_dispo= $search!=null && $type==null && $budget_min!=null && $budget_max==null && $disponibilite!=null;
     $ville_max_dispo= $search!=null && $type==null && $budget_min==null && $budget_max!=null && $disponibilite!=null;
     $type_ville_min= $search!=null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite==null;
-    $max_min_dispo= $search==null && $type==null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
+   // $max_min_dispo= $search==null && $type==null && $budget_min!=null && $budget_max!=null && $disponibilite!=null;
     //
-    $type_ville_max= $search==null && $type==null && $budget_min==null && $budget_max!=null && $disponibilite==null;
-    $type_ville_dispo= $search!=null && $type!=null && $budget_min==null && $budget_max!=null && $disponibilite!=null;
+    $type_ville_max= $search!=null && $type!=null && $budget_min==null && $budget_max!=null && $disponibilite==null;
+    $type_ville_dispo= $search!=null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite!=null;
     $type_max_min= $search==null && $type!=null && $budget_min!=null && $budget_max!=null && $disponibilite==null;
 
     //04 criteres
@@ -326,11 +326,7 @@ public function search(Request $request)
             return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
     //6
-    if($single_disponibilite)
-    {
-            $logements= SearchUtils::Disponibilite($request);
-            return view('recherche.affichage-resultats', ['logements' => $logements]);
-    }
+
     //7
     if( $budget_max_And_budget_min)
     {
@@ -423,12 +419,7 @@ public function search(Request $request)
             $logements= SearchUtils::searchDisponibilite_Bmin_and_Bmax($request);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
-    //22
-    if( $max_min_dispo)
-    {
-            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
-            return view('recherche.affichage-resultats', ['logements' => $logements]);
-    }
+
 
 
     ////04 criteres

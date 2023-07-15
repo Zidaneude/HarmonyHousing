@@ -72,9 +72,9 @@
             </div>
 
             <form class="mt-3"
-            
+
                 style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;" method="GET" action="{{route('resultat.from.homme')}}">>
-                <input type="text" name="search" placeholder="entrez une ville ou un quartier"
+                <input type="text" name="search" placeholder="Entrez une ville ou un quartier"
                     style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
 
                 <select name="type" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
@@ -94,38 +94,10 @@
 
                     <div class="overlay-content">
                         <h4 style="color: #ffffff;">Sélectionnez vos critères ici</h4>
-                        {{-- <input type="number" name="chambres" min="1" placeholder="Nombre de chambres"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; width: 175px;"> --}}
                         <input type="number" name="budget_min" min="0" placeholder="Budget min"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
                         <input type="number" name="budget_max" min="0" placeholder="Budget max"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
-                        {{-- <select name="meuble"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
-                            <option value="">Meublé ou pas ?</option>
-                            <option value="meuble">Meublé</option>
-                            <option value="non_meuble">Non meublé</option>
-                        </select> --}}
-                        {{-- <select name="equipements"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
-                            <option value="">Avec ou sans équipements ?</option>
-                            <option value="avec">Avec équipements</option>
-                            <option value="sans">Sans équipements</option>
-                        </select> --}}
-                        {{-- <select name="frequence"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
-                            <option value="">Fréquence de paiement</option>
-                            <option value="Un_Mois">1 mois</option>
-                            <option value="Trois_Mois">3 mois</option>
-                            <option value="Six_Mois">6 mois</option>
-                            <option value="Un_An">1 an</option>
-                        </select> --}}
-                        {{-- <select name="disponibilite"
-                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;">
-                            <option value="">Disponibilité</option>
-                            <option value="actuellement">Actuellement</option>
-                            <option value="futur">Futur</option>
-                        </select> --}}
                         <input style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;" type="date" name="disponibilite"/>
                     </div>
                 </div>
@@ -269,10 +241,23 @@
                                                 <p class="mbr-text mbr-fonts-style display-7">
                                                     <i class="fas fa-map-marker-alt"></i> {{ $item->ville }},
                                                     {{ ucfirst($item->quartier) }}<br>
-                                                    <i class="fas fa-clock"></i> Disponible: <?php $month = [];
-                                                    $month['07'] = 'Juin';
+                                                    <i class="fas fa-clock"></i> Disponible:
+                                                    <?php
+                                                    $month = [];
+                                                    $month['01'] = 'Jan';
+                                                    $month['02'] = 'Fev';
+                                                    $month['03'] = 'Mars';
+                                                    $month['04'] = 'Avril';
+                                                    $month['05'] = 'Mai';
+                                                    $month['06'] = 'Juin';
+                                                    $month['07'] = 'Juil';
+                                                    $month['08'] = 'Aout';
+                                                    $month['09'] = 'Sep';
+                                                    $month['10'] = 'Oct';
+                                                    $month['11'] = 'Nov';
+                                                    $month['12'] = 'Déc';
                                                     $date = explode('-', strval($item->disponibilite));
-                                                    echo '' . $date[2] . '  ' . $month['07'] . '   ' . $date[0]; ?>
+                                                    echo '' . $date[2] . '  ' . $month[$date[1]] . '   ' . $date[0];?>
                                                 </p>
                                             </div>
                                             <div class="col-md-auto">
@@ -294,13 +279,25 @@
                                                 @endif
 
                                                 <p class="mbr-text mbr-fonts-style display-7">
-
-
-
                                                     <i class="fas fa-map-marker-alt"></i> {{ $item->ville }},
                                                     {{ ucfirst($item->quartier) }}<br>
                                                     <i class="fas fa-clock"></i> Disponible:
-                                                    {{ $item->disponibilite }}
+                                                    <?php
+                                                    $month = [];
+                                                    $month['01'] = 'Jan';
+                                                    $month['02'] = 'Fev';
+                                                    $month['03'] = 'Mars';
+                                                    $month['04'] = 'Avril';
+                                                    $month['05'] = 'Mai';
+                                                    $month['06'] = 'Juin';
+                                                    $month['07'] = 'Juil';
+                                                    $month['08'] = 'Aout';
+                                                    $month['09'] = 'Sep';
+                                                    $month['10'] = 'Oct';
+                                                    $month['11'] = 'Nov';
+                                                    $month['12'] = 'Déc';
+                                                    $date = explode('-', strval($item->disponibilite));
+                                                    echo '' . $date[2] . '  ' . $month[$date[1]] . '   ' . $date[0];?>
                                                 </p>
                                             </div>
                                             <div class="col-md-auto">

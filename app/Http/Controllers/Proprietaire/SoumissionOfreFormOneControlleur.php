@@ -7,6 +7,7 @@ use App\Models\Offre;
 use App\Models\Chambre;
 use App\Models\Equiper;
 use App\Models\Inclure;
+use App\Models\Equiper2;
 use App\Models\Logement;
 use App\Models\Equipement;
 use App\Models\Appartement;
@@ -32,7 +33,7 @@ class SoumissionOfreFormOneControlleur extends Controller
 
     public function store(Request $request)
     {
-        //dd($request);
+
         //les chambres sont equipées ?
         $cham_equip=$request->equipements1;
 
@@ -58,12 +59,9 @@ class SoumissionOfreFormOneControlleur extends Controller
         $request->validate([
             'titre_annonce' => ['required', 'string', 'max:255'],
             'description_annonce' => ['required', 'string'],
-            'adresse' => ['required', 'string'],
             'quartier' => ['required', 'string', 'max:255'],
             'region' => ['required', 'string'],
             'ville' => ['required', 'string'],
-            'quartier' => ['required', 'string', 'max:255'],
-
         ]);
 
 
@@ -97,6 +95,12 @@ class SoumissionOfreFormOneControlleur extends Controller
 
                 //les chambres sont equipées
                 if ($cham_equip == $CHAMBRE_EQUIPEE) {
+
+                    $request->validate([
+                        'equipments1.*' => ['required', 'string', 'min:1'],
+
+                    ]);
+
                     // la liste des equipement n'est nulle
                     if ($request->equipments1 != null) {
                         // on stock l'offre
@@ -129,7 +133,7 @@ class SoumissionOfreFormOneControlleur extends Controller
 
                         return view('soumission_offre.soumission-offre2', ['nb' => $nombre_chambre, 'ch_id' => true, 'id_log' => $ID_LOG, 'chaine' => $chaine_tab, "type_log" => $type_logement, 'id_appart' => 0]);
                     } else {
-                        //toastr()->error('Sélctionnez au moins un equipement');
+                        toastr()->error('Sélctionnez au moins un equipement');
                         return view('soumission_offre.soumission-offre1');
                     }
                 }
@@ -215,54 +219,78 @@ class SoumissionOfreFormOneControlleur extends Controller
 
         if ($type_logement == $TYPE_APPARTEMENT) {
             $chaine_tab == "";
-            //dd($request);
-            if ($chambres_idem == $CHAMBRE_IDENTIQUES) {
-                if ($cham_equip == $CHAMBRE_EQUIPEE) {
-                    if ($request->equipments1 != null) {
-                        // on stock l'offre
-                        $this->storeOffre($request);
-                        // on stock le logement
+            $appart_equip=$request->equipements;
+           // dd($request);
+            if ($appart_equip=="oui")
+            {
+                //dd($request);
+                if ($request->equipments != null) {
+                     // on stock l'offre
+                     $this->storeOffre($request);
+                     // on stock le logement
 
-                        $ID_LOG = $this->storeLogement($request);
-                        $list_equip = $request->equipments1;
+                     $ID_LOG = $this->storeLogement($request);
+                     $list_equip = $request->equipments;
+                     $cpt = 0; // variable de compteur
+                     $ID_App = $this->storeAppartement($request, $ID_LOG);
 
-                        $cpt = 0; // variable de compteur
-                        $chaine_tab = "";
-                        $ID_App = $this->storeAppartement($request, $ID_LOG);
-                        // boucler pour inserer autant de chambre
+
+                     foreach ($list_equip as $equip) {
+                        //id de chaque equipement
+                        //dd($list_equip);
+                        $id = Equipement::where('nom', '=', $equip)->first()->id;
+                        Equiper2::create(['appartement_id' => $ID_App, 'equipement_id' => $id]);
+                    }
+                    if ($chambres_idem == $CHAMBRE_IDENTIQUES)
+                    {
 
                         for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                             $id_chambre = $this->storeChambreInAppart($request, $ID_LOG);
                             ///chambre appartient a appar
                             Inclure::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
-                            foreach ($list_equip as $equip) {
-                                //id de chaque equipement
-                                $id = Equipement::where('nom', '=', $equip)->first()->id;
-                                Equiper::create(['chambre_id' => $id_chambre, 'equipement_id' => $id]);
-                            }
-
                             if ($chaine_tab == "") {
                                 $chaine_tab = strval($id_chambre);
                             } else {
                                 $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                             }
                         }
-                    } else {
-                        //erreur
+
+                    }
+                    else{
+                         //dd($request);
+                         $cpt = 1;
+                        for ($cpt; $cpt < $nombre_chambre; $cpt++) {
+                            $id_chambre = $this->storeChambreInAppartVariable($request, $ID_LOG, $cpt);
+                            Inclure::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
+
+                            if ($chaine_tab == "") {
+                                $chaine_tab = strval($id_chambre);
+
+                            } else {
+                                $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
+                            }
+                        }
                     }
                     return view('soumission_offre.soumission-offre2', ['nb' => $nombre_chambre, 'ch_id' => true, 'chaine' => $chaine_tab, 'id_log' => $ID_LOG, "type_log" => $type_logement, 'id_appart' => $ID_App]);
-                } else {
-                    // on stock l'offre
-                    $this->storeOffre($request);
-                    // on stock le logement
 
-                    $ID_LOG = $this->storeLogement($request);
-                    $list_equip = $request->equipments1;
+                }else{
+                    ///erreur
+                }
+            }else{
 
-                    $cpt = 0; // variable de compteur
-                    $chaine_tab = "";
-                    $ID_App = $this->storeAppartement($request, $ID_LOG);
-                    // boucler pour inserer autant de chambre
+                 // on stock l'offre
+                 $this->storeOffre($request);
+                 // on stock le logement
+
+                 $ID_LOG = $this->storeLogement($request);
+
+                 $cpt = 0; // variable de compteur
+                 $ID_App = $this->storeAppartement($request, $ID_LOG);
+
+
+                if ($chambres_idem == $CHAMBRE_IDENTIQUES)
+                {
+
                     for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                         $id_chambre = $this->storeChambreInAppart($request, $ID_LOG);
                         ///chambre appartient a appar
@@ -273,71 +301,26 @@ class SoumissionOfreFormOneControlleur extends Controller
                             $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                         }
                     }
+
                 }
-                return view('soumission_offre.soumission-offre2', ['nb' => $nombre_chambre, 'ch_id' => true, 'chaine' => $chaine_tab, 'id_log' => $ID_LOG, "type_log" => $type_logement, 'id_appart' => $ID_App]);
-            } else {
-                //les chambres non identiques
+                else{
 
-                // on stock l'offre
-                $this->storeOffre($request);
-                // on stock le logement
-
-                $ID_LOG = $this->storeLogement($request);
-                $count = 1;
-                $chaine_tab == "";
-
-                $nombre_chambre = $request->chambre;
-
-                $ID_App = $this->storeAppartement($request, $ID_LOG);
-
-                for ($count; $count < $nombre_chambre + 1; $count++) {
-                    $cham_equip = $request->input('equipements' . strval($count));
-
-                    if ($cham_equip == $CHAMBRE_EQUIPEE) {
-                        if ($request->input('equipments' . strval($count)) != null) {
-                            $id_chambre = $this->storeChambreInAppartVariable($request, $ID_LOG, $count);
-                            Inclure::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
-
-                            $list_equip = $request->input('equipments' . strval($count));
-                            foreach ($list_equip as $equip) {
-
-                                $id = Equipement::where('nom', '=', $equip)->first()->id;
-                                Equiper::create(['chambre_id' => $id_chambre, 'equipement_id' => $id]);
-                            }
-
-                            if ($chaine_tab == "") {
-                                $chaine_tab = strval($id_chambre);
-                            } else {
-                                $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
-                            }
-                        } else {
-                            //erreur
-                        }
-                    } else {
-                        // on stock l'offre
-                        $this->storeOffre($request);
-                        // on stock le logement
-
-                        $ID_LOG = $this->storeLogement($request);
-                        $list_equip = $request->equipments1;
-
-                        $cpt = 0; // variable de compteur
-                        $ID_App = $this->storeAppartement($request, $ID_LOG);
-
-                        $id_chambre = $this->storeChambreInAppartVariable($request, $ID_LOG, $count);
+                    for ($cpt; $cpt < $nombre_chambre; $cpt++) {
+                        $id_chambre = $this->storeChambreInAppartVariable($request, $ID_LOG, $cpt);
                         Inclure::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
 
                         if ($chaine_tab == "") {
                             $chaine_tab = strval($id_chambre);
-                          
+
                         } else {
                             $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                         }
                     }
                 }
+                return view('soumission_offre.soumission-offre2', ['nb' => $nombre_chambre, 'ch_id' => true, 'chaine' => $chaine_tab, 'id_log' => $ID_LOG, "type_log" => $type_logement, 'id_appart' => $ID_App]);
 
-                return view('soumission_offre.soumission-offre2', ['nb' => $nombre_chambre, 'ch_id' => false, 'chaine' => $chaine_tab, 'id_log' => $ID_LOG, "type_log" => $type_logement, 'id_appart' => $ID_App]);
             }
+
         }
     }
 
