@@ -282,6 +282,7 @@ class SearchUtils{
 
         $budget_min = $request->budget_min;
         $type = $request->type;
+        $search = $request->search;
 
         if($type=="chambre")
         {
