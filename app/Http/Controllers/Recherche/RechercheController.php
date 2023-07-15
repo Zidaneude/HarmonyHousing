@@ -253,7 +253,7 @@ public function search(Request $request)
     $single_disponibilite= $search==null && $type==null && $budget_min==null && $budget_max==null && $disponibilite!=null;
 
     //more criteres (2)
-    
+
     $type_And_villeOrQuartier= $search!=null && $type!=null && $budget_min==null && $budget_max==null && $disponibilite==null;
     $type_And_budget_min= $search==null && $type!=null && $budget_min!=null && $budget_max==null && $disponibilite==null;
     $type_And_budget_max= $search==null && $type!=null && $budget_min==null && $budget_max!=null && $disponibilite==null;
@@ -466,7 +466,7 @@ public function search(Request $request)
     }
     if($type_ville_dispo)
     {
-            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            $logements= SearchUtils::searchdisponibilite_type_ville($request);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
     if( $type_max_min)
