@@ -1,7 +1,7 @@
 <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light bg-white scrolled fixed-top shadow-bottom">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/logo.png') }}" height="40" alt="Logo Harmony Housing">
+            <img src="{{ asset('images/Logo.png') }}" height="40" alt="Logo Harmony Housing">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

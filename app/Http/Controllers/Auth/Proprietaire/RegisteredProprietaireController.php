@@ -56,7 +56,7 @@ class RegisteredProprietaireController extends Controller
             'password' => Hash::make($request->password),
 
         ]);
-        toastr()->success('creation du compte  propriétaire reussie');
+       // toastr()->success('creation du compte  propriétaire reussie');
 
         // event(new Registered($proprietaire));
 

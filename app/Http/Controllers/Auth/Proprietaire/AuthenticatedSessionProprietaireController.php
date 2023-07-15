@@ -31,7 +31,7 @@ class AuthenticatedSessionProprietaireController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
         $pre=Auth::guard('proprietaire')->user()->nom;
-        toastr()->success('Heureux de vous revoir '.$pre);
+        // toastr()->success('Heureux de vous revoir '.$pre);
         return redirect()->intended(RouteServiceProvider::DASHBORD);
     }
 
@@ -47,7 +47,7 @@ class AuthenticatedSessionProprietaireController extends Controller
 
         $request->session()->regenerateToken();
 
-        toastr()->success(' Au revoir '.$pre.' à la prochaine !');
+//        toastr()->success(' Au revoir '.$pre.' à la prochaine !');
         return redirect('/');
     }
 }

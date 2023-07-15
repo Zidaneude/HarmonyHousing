@@ -23,16 +23,18 @@
                             style="font-weight: bold; color: #0f0f11;">Connexion
                             locataire</h4>
 
-                            <div> 
+                            {{-- <div> 
                                 @if($errors->any())  
                                     @foreach ($errors->all() as $item)
                                     {{$item}}
                                     @endforeach     
                                 @endif
-                            </div>
+                            </div> --}}
                             <form method="POST" action="{{route('connexion.locataire.store')}}">
                                 @csrf
-                            
+                                @error("email")
+                                    <h6 style="color: red" class="mt-3"> {{$message}}</h6>
+                                @enderror
                             <div class="form-group mt-5">
                                 <div class="input-group pb-3">
                                     <div class="input-group-prepend">
@@ -43,11 +45,12 @@
                                       <!-- email                -->
                                     <input style="background-color: #F8F8FF;" placeholder="Votre adresse email"
                                         type="email" class="form-control" id="email" name="email" required>
-                                    @error("email")
-                                        <h6 style="color: red" class="mt-3"> {{$message}}</h6>
-                                    @enderror
+                                    
                                 </div>
                             </div>
+                            @error("password")
+                                    <h6  style="color: red" class="mt-3"> {{$message}}</h6>
+                            @enderror
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -58,9 +61,7 @@
                                       <!-- password                -->
                                     <input style="background-color: #F8F8FF;" placeholder="Mot de passe" type="password"
                                         class="form-control" id="password" name="password" required>
-                                        @error("password")
-                                            <h6  style="color: red" class="mt-3"> {{$message}}</h6>
-                                        @enderror
+                                        
                                     <div class="input-group-append">
                                         <span class="input-group-text toggle-password">
                                             <i class="fas fa-eye"></i>
@@ -73,6 +74,7 @@
                                         style="color: #004aad;">Mot de passe
                                         oublié ?</span></a>
                             </div>
+                            
                             
                             <div class="text-center pt-5 pb-3">
                                 <button type="submit" class="btn btn-primary">Se connecter</button>

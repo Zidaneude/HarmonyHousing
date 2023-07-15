@@ -42,10 +42,10 @@
                         <i class="fas fa-sync"></i> Mettre à jour la disponibilité
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/FAQ-Proprietaire">
                         <i class="fas fa-question-circle"></i> FAQ - Propriétaire
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/contactez-nous">
                         <i class="fas fa-envelope"></i> Nous contacter
                     </a>
                     <div class="dropdown-divider"></div>
