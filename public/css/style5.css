@@ -1,0 +1,153 @@
+main {
+    width: 70%;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .box-flotant {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 120px;
+    background: none;
+  }
+  .box-flotant .container {
+    position: sticky;
+    top: 80px;
+    width: 100%;
+  }
+  .box-flotant-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5vw 3vw;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .box-flotant-container .prix-box {
+    margin: 15px 0 5px;
+  }
+  .box-flotant-container .prix-box p {
+    text-align: center;
+    color: #004aad;
+  }
+  .box-flotant-container .prix-box p strong {
+    font-size: 25px;
+    color: #004aad;
+  }
+  .box-flotant .semaine-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 5px;
+    margin-block: 5px;
+  }
+  .box-flotant .semaine-box select {
+    display: block;
+    height: 30px;
+    margin-left: 10px;
+    padding: 5px;
+  }
+  .box-flotant .reserver {
+    background: #004aad;
+    color: #f3f3ff;
+    padding: 7px;
+    margin-block: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .box-flotant .prix-reservation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px 0;
+  }
+  .box-total {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 10px 0;
+    font-weight: bold;
+  }
+  .box-flotant hr {
+    margin: 5px 0;
+  }
+  @media (max-width: 1000px) {
+    main{
+      width: 100%;
+    }
+    main.principal {
+      width: 100%;
+    }
+    .box-flotant .container {
+      top: auto;
+      bottom: 0;
+      padding: 0;
+      margin: 0 auto;
+      max-width: none;
+      position: fixed;
+      bottom: 5px;
+    }
+    .box-flotant {
+      width: 100%;
+      position: none;
+    }
+    .box-flotant-container{
+      border-radius: 0px;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-inline: 3vw;
+    }
+    .box-flotant .prix-reservation ,
+    .box-total{
+      display: none;
+    }
+    .box-flotant .reserver{
+      width:30%;
+      max-width: 195px;
+    }
+    .box-flotant-container .prix-box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 10px;
+      flex-shrink: 1;
+    }
+    .itemfloat{
+      margin-inline: 5px;
+    }
+  }
+  @media (max-width: 600px){
+    .box-flotant-container{
+      height: 15vh;
+    }
+    .box-flotant-container .prix-box p strong {
+      font-size: 20px;
+    }
+    .box-flotant .semaine-box{
+      font-size: 14px;
+    }
+    .box-flotant .semaine-box select{
+      height: 30px;
+      font-size: 14px;
+    }
+    .box-flotant .reserver{
+      padding: 0 7px;
+      line-height: 30px;
+      max-width: 100px;
+    }
+
+  }
