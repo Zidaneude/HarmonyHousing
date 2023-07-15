@@ -106,7 +106,7 @@
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" id="city"
-                                            placeholder="Entrez la ville" name="ville">
+                                            placeholder="Entrez la ville" name="ville" required>
                                     </div>
                                 </div>
                                 <div class="form-group mt-2">
