@@ -463,7 +463,7 @@ public function search(Request $request)
     //27
     if( $dispo_ville_max_type)
     {
-            $logements= SearchUtils::searchDisponibilite_and_Bmin($request);
+            $logements= SearchUtils::searchdisponibilite_type_ville_Bmax($request);
             return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
      //28
