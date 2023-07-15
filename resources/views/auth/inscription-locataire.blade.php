@@ -22,13 +22,13 @@
                         <h4 class="card-title text-center title-accueil mt-3"
                             style="font-weight: bold; color: #0f0f11;">Inscription
                             locataire</h4>
-                        <div>
+                        {{-- <div>
                             @if ($errors->any())
                                 @foreach ($errors->all() as $item)
                                     {{ $item }}
                                 @endforeach
                             @endif
-                        </div>
+                        </div> --}}
                         <form method="POST" action="{{ route('inscription.locataire.store') }}">
                             @csrf
 
@@ -37,6 +37,9 @@
                                 <input style="background-color: #F8F8FF;" placeholder="Adresse e-mail" type="email"
                                     class="form-control" id="email" name="email" required>
                             </div>
+                            @error('email')
+                                <h6 style="color: red"> {{ $message }}</h6>
+                            @enderror
 
                             <!--sexe                             -->
                             <div class="form-group my-3">
@@ -89,6 +92,9 @@
                                         type="tel" class="form-control" id="phoneNumber" name="telephone" required>
                                 </div>
                             </div>
+                            @error('telephone')
+                                <h6 style="color: red"> {{ $message }}</h6>
+                            @enderror
 
                             <!--   password -->
 
@@ -103,6 +109,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @error('password')
+                                <h6 style="color: red"> {{ $message }}</h6>
+                            @enderror
 
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="dataProcessing" required>
@@ -119,6 +128,7 @@
                                     Harmony Housing
                                 </label>
                             </div>
+                        
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary mt-3">Je m'inscris</button>
                             </div>
