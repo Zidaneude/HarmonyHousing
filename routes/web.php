@@ -88,10 +88,7 @@ Route::get('/search', [RechercheController::class, 'find'])->name('search.search
 Route::get('/detail-chambre/{id}', [DetailOffreController::class, 'DetailChambre'])->name('detail.chambre');
 Route::get('/detail-appartement{id}', [DetailOffreController::class, 'DetailAppartement'])->name('detail.appartement');
 
-//Route::get()
 
+Route::get('/payment/{type}/{id}', [PaiementController::class, 'getPaymentLink']);
 
-
-
-Route::post('/payer/{chambre_id}', [PaiementController::class, 'payer'])->name('payer');
 require __DIR__ . '/auth.php';
