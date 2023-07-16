@@ -57,7 +57,7 @@ class SoumissionOfreFormSecondControlleur extends Controller
                 $logement=Logement::find(intval( $id_log));
                 $imagePrincipale = $request->file("roomPhotoPrincipale");
                 $imagePath=$imagePrincipale->store('proprietaire/offre','public');
-                $logement->photos1=$imagePath;
+                $logement->l_photos1=$imagePath;
                 $logement->save();
 
 
@@ -72,13 +72,13 @@ class SoumissionOfreFormSecondControlleur extends Controller
                         $chambre=Chambre::find(intval($item));
                         if(count($tab_images)==2)
                         {
-                            $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
-                            $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
+                            $chambre->c_photos1=$tab_images[0]->store('proprietaire/offre','public');
+                            $chambre->c_photos2=$tab_images[1]->store('proprietaire/offre','public');
                         }
                         else{
-                            $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
-                            $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
-                            $chambre->photos3=$tab_images[2]->store('proprietaire/offre','public');
+                            $chambre->c_photos1=$tab_images[0]->store('proprietaire/offre','public');
+                            $chambre->c_photos2=$tab_images[1]->store('proprietaire/offre','public');
+                            $chambre->c_photos3=$tab_images[2]->store('proprietaire/offre','public');
                         }
                         $chambre->save();
 
@@ -104,7 +104,7 @@ class SoumissionOfreFormSecondControlleur extends Controller
                 $logement=Logement::find(intval( $id_log));
                 $imagePrincipale = $request->file("roomPhotoPrincipale");
                 $imagePath=$imagePrincipale->store('proprietaire/offre','public');
-                $logement->photos1=$imagePath;
+                $logement->l_photos1=$imagePath;
                 $logement->save();
 
                 $count=1;
@@ -120,13 +120,13 @@ class SoumissionOfreFormSecondControlleur extends Controller
                     {
                          if(count($roomPhoto)==2)
                             {
-                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
-                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                                $chambre->c_photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->c_photos2= $roomPhoto[1]->store('proprietaire/offre','public');
                             }
                             else{
-                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
-                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
-                                $chambre->photos3= $roomPhoto[2]->store('proprietaire/offre','public');
+                                $chambre->c_photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->c_photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                                $chambre->c_photos3= $roomPhoto[2]->store('proprietaire/offre','public');
                             }
                           $chambre->save();
                     }
@@ -162,14 +162,14 @@ class SoumissionOfreFormSecondControlleur extends Controller
             $logement=Logement::find(intval( $id_log));
             $imagePrincipale = $request->file("roomPhotoPrincipale");
             $imagePath=$imagePrincipale->store('proprietaire/offre','public');
-            $logement->photos1=$imagePath;
+            $logement->l_photos1=$imagePath;
             $logement->save();
 
             $appartement=Appartement::find($ID_APPART);
             //dd($ID_APPART);
             $imagesAppartement=$request->Photoappar;
-            $appartement->photos1=$imagesAppartement[0]->store('proprietaire/offre','public');
-            $appartement->photos2=$imagesAppartement[1]->store('proprietaire/offre','public');
+            $appartement->a_photos1=$imagesAppartement[0]->store('proprietaire/offre','public');
+            $appartement->a_photos2=$imagesAppartement[1]->store('proprietaire/offre','public');
             $appartement->save();
 
              //les chambres de appartement sont identiques ?
@@ -186,13 +186,13 @@ class SoumissionOfreFormSecondControlleur extends Controller
                        $chambre=Chambre::find(intval($item));
                        if(count($tab_images)==2)
                        {
-                           $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
-                           $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
+                           $chambre->c_photos1=$tab_images[0]->store('proprietaire/offre','public');
+                           $chambre->c_photos2=$tab_images[1]->store('proprietaire/offre','public');
                        }
                        else{
-                           $chambre->photos1=$tab_images[0]->store('proprietaire/offre','public');
-                           $chambre->photos2=$tab_images[1]->store('proprietaire/offre','public');
-                           $chambre->photos3=$tab_images[2]->store('proprietaire/offre','public');
+                           $chambre->c_photos1=$tab_images[0]->store('proprietaire/offre','public');
+                           $chambre->c_photos2=$tab_images[1]->store('proprietaire/offre','public');
+                           $chambre->c_photos3=$tab_images[2]->store('proprietaire/offre','public');
                        }
                        $chambre->save();
 
@@ -221,13 +221,13 @@ class SoumissionOfreFormSecondControlleur extends Controller
                     {
                          if(count($roomPhoto)==2)
                             {
-                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
-                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                                $chambre->c_photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->c_photos2= $roomPhoto[1]->store('proprietaire/offre','public');
                             }
                             else{
-                                $chambre->photos1= $roomPhoto[0]->store('proprietaire/offre','public');
-                                $chambre->photos2= $roomPhoto[1]->store('proprietaire/offre','public');
-                                $chambre->photos3= $roomPhoto[2]->store('proprietaire/offre','public');
+                                $chambre->c_photos1= $roomPhoto[0]->store('proprietaire/offre','public');
+                                $chambre->c_photos2= $roomPhoto[1]->store('proprietaire/offre','public');
+                                $chambre->c_photos3= $roomPhoto[2]->store('proprietaire/offre','public');
                             }
                           $chambre->save();
                     }

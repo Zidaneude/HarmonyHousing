@@ -21,9 +21,9 @@ return new class extends Migration
             $table->integer('nombre_chambre')->min(1);
             $table->date('disponibilite');
             $table->string('equipe_bool')->nullable();
-            $table->string('photos1')->nullable();
-            $table->string('photos2')->nullable();
-            $table->string('photos3')->nullable();
+            $table->string('a_photos1')->nullable();
+            $table->string('a_photos2')->nullable();
+            $table->string('a_photos3')->nullable();
             $table->foreignId('logement_id')->constrained();
             $table->timestamps();
 

@@ -36,5 +36,5 @@ class Logement extends Model
         return  $this->hasOne(Appartement::class);
         }
 
-    protected $fillable = ['adresse','quartier','region','ville','code_postal','frequence_paie','photos1','photos2','photos3','offre_id','type'];
+    protected $fillable = ['adresse','quartier','region','ville','code_postal','frequence_paie','c_photos1','c_photos2','c_photos3','offre_id','type'];
 }

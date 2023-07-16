@@ -214,9 +214,9 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-4">
                                 <div class="image-wrapper">
-                                    @if ($item->photos1)
+                                    @if ($item->l_photos1)
                                         <a href="détails et reservation.html"><img height="200"
-                                                style="border-radius: 5px;" src="/storage/{{ $item->photos1 }}"
+                                                style="border-radius: 5px;" src="/storage/{{ $item->l_photos1 }}"
                                                 alt="Mobirise Website Builder"></a>
                                     @endif
 

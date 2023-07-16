@@ -19,5 +19,5 @@ class Chambre extends Model
         return $this->belongsToMany(Equipement::class, 'chambre_equipements');
     }
 
-    protected $fillable = ['prix','nbre_bain','equipe_bool','disponibilite','titre','logement_id','meuble','capacite','superficie','photos1','photos2','photos3'];
+    protected $fillable = ['prix','nbre_bain','equipe_bool','disponibilite','titre','logement_id','meuble','capacite','superficie','c_photos1','c_photos2','c_photos3'];
 }

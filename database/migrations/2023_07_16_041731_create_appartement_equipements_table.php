@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equiper2s', function (Blueprint $table) {
+        Schema::create('appartement_equipements', function (Blueprint $table) {
             $table->foreignIdFor(Appartement::class)->onDelete('cascade');
             $table->foreignIdFor(Equipement::class)->onDelete('cascade');
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equiper2s');
+        Schema::dropIfExists('appartement_equipements');
     }
 };

@@ -53,10 +53,10 @@
                             <div class="slide-content">
                                 <div class="item-wrapper">
                                     <div class="item-img">
-                                        <img src="/storage/{{ $logements[0]->photos1 }}"
+                                        <img src="/storage/{{ $logements[0]->l_photos1 }}"
                                             alt="Mobirise Website Builder">
-                                        <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaounde-habitacion-ba97e4e.jpg') }}"
-                                            alt="Mobirise Website Builder">
+                                        {{-- <img src="/storage/{{ $logements[0]->l_photos1 }}"
+                                            alt="Mobirise Website Builder"> --}}
                                     </div>
                                 </div>
 
@@ -68,7 +68,7 @@
                             <div class="slide-content">
                                 <div class="item-wrapper">
                                     <div class="item-img">
-                                        <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaounde-habitacion-ba97e4e.jpg') }}"
+                                        <img src="/storage/{{ $logements[0]->c_photos1 }}"
                                             alt="Mobirise Website Builder">
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                             <div class="slide-content">
                                 <div class="item-wrapper">
                                     <div class="item-img">
-                                        <img src="{{ asset('assets_detail/images/hotel-la-falaise-yaund-28.jpg') }}"
+                                        <img src="/storage/{{ $logements[0]->c_photos2 }}"
                                             alt="Mobirise Website Builder">
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                             <div class="slide-content">
                                 <div class="item-wrapper">
                                     <div class="item-img">
-                                        <img src="{{ asset('assets_detail/images/queen-executive-room.jpg') }}"
+                                        <img src="/storage/{{ $logements[0]->l_photos1 }}"
                                             alt="Mobirise Website Builder">
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
                         @if ($logements[0]->meuble == 'Oui')
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-5"
-                                    style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
+                                style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
                                     <strong>{{ ucfirst($logements[0]->type) }} Meublé
                                         {{ $logements[0]->ville }}-{{ ucfirst($logements[0]->quartier) }}</strong>
                                 </h4>
@@ -144,7 +144,7 @@
                         @else
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-5"
-                                    style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
+                                style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
                                     <strong>{{ ucfirst($logements[0]->type) }} non meublé
                                         {{ $logements[0]->ville }}-{{ ucfirst($logements[0]->quartier) }} </strong>
                                 </h4>
@@ -193,7 +193,8 @@
                                     value="something" checked disabled>
                             </div>
 
-                            <i class="fa-solid fa-wifi mt-2 mr-2" style="font-size:12px"></i>
+                            {{-- <i class="fa-solid fa-wifi mt-2 mr-2" style="font-size:12px"></i> --}}
+                            <i class="fa-solid fa-wifi mt-2"></i>
                             <div class="card-box">
 
                                 <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Internet</h4>
@@ -204,14 +205,14 @@
                 @else
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="card-wrapper">
+
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-wifi mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-solid fa-wifi mt-1" ></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Internet</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Internet</h4>
 
                             </div>
                         </div>
@@ -224,13 +225,10 @@
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="check2" name="option2"
                                     value="something" checked disabled>
-                                <input type="checkbox" class="form-check-input" id="check2" name="option2"
-                                    value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto socicon-curse socicon"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-solid fa-fire mt-1"></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Chauffage</h4>
 
                             </div>
                         </div>
@@ -240,14 +238,11 @@
                         <div class="card-wrapper">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="check2" name="option2"
-                                    value="something" checked disabled>
-                                <input type="checkbox" class="form-check-input" id="check2" name="option2"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto socicon-curse socicon"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-solid fa-fire mt-1" ></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Chauffage</h4>
 
                             </div>
                         </div>
@@ -261,10 +256,9 @@
                                 <input type="checkbox" class="form-check-input" id="check3" name="option3"
                                     value="something" checked disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-solid fa-computer mt-1"></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Ordinateur</h4>
 
                             </div>
                         </div>
@@ -276,10 +270,9 @@
                                 <input type="checkbox" class="form-check-input" id="check3" name="option3"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-solid fa-computer mt-1"></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Ordinateur</h4>
                             </div>
 
                         </div>
@@ -291,14 +284,11 @@
                         <div class="card-wrapper">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="check3" name="option3"
-                                    value="something" checked disabled>
-
+                                     checked disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-sharp fa-solid fa-fan mt-1"></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
-
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Climatisation</h4>
                             </div>
 
                         </div>
@@ -310,10 +300,9 @@
                                 <input type="checkbox" class="form-check-input" id="check3" name="option3"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-sharp fa-solid fa-fan mt-1"></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Climatisation</h4>
                             </div>
 
                         </div>
@@ -335,10 +324,9 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" checked disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-video-play mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-solid fa-tv mt-1"></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Télévision</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Télévision</h4>
 
                             </div>
                         </div>
@@ -350,10 +338,9 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-protect mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-solid fa-tv mt-1"></i>
                             <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
+                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Télévision</h4>
 
                             </div>
                         </div>
@@ -367,8 +354,6 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" checked disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-7">
                                     Cintres pour vetements</h4>
@@ -383,8 +368,6 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-7">
                                     Cintres pour vetements</h4>
@@ -401,8 +384,7 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" checked disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-regular fa-siren"></i>
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
 
@@ -416,8 +398,7 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-regular fa-siren"></i>
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
 
@@ -434,8 +415,7 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" checked disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-sharp fa-solid fa-clothes-hanger"></i>
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
 
@@ -449,8 +429,7 @@
                                 <input type="checkbox" class="form-check-input" id="check1" name="option1"
                                     value="something" disabled>
                             </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                            <i class="fa-sharp fa-solid fa-clothes-hanger"></i>
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
 
@@ -546,69 +525,35 @@
 
                 </div>
         @endif
+
         <div class="container" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);  margin-bottom: 5px;">
-            <div class="row">
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <h4 >  Disponible:</h4>
+                  </div>
+                  <div class="col-sm">
+                    <h4 >Fréquence de paiement:{{$logements[0]->frequence_paie}} </h4>
+                  </div>
+                  <div class="col-sm">
+                    <h4>   Localisation:{{$logements[0]->adresse}}</h4>
+                  </div>
+                </div>
+              </div>
 
-                <div class="card col-12 col-md-4 col-lg-2 p-3">
-                    <div class="card-wrapper">
-                        <div class="card-box align-center">
-                            <span class="mbr-iconfont mobi-mbri-clock mobi-mbri" style="font-size: 30px;"></span>
-                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
-                                <strong>disponible: </strong>
-                            </h4>
-                        </div>
-                    </div>
+              <div class="container mt-3">
+                <div class="row">
+                  <div class="col-sm">
+                    <h4 >  Ville:{{$logements[0]->ville}}</h4>
+                  </div>
+                  <div class="col-sm">
+                    <h4 >Quartier:{{$logements[0]->quartier}} </h4>
+                  </div>
+                  <div class="col-sm">
+                    <h4>   Loyer:{{$logements[0]->prix}} Fcfa</h4>
+                  </div>
                 </div>
-                <div class="card p-3 col-12 col-md-4 col-lg-2">
-                    <div class="card-wrapper">
-                        <div class="card-box align-center">
-                            <span class="mbr-iconfont socicon-mix socicon" style="font-size: 30px;"></span>
-                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7"><strong>Fréquence
-                                    de paiement: </strong>3 mois</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="card p-3 col-12 col-md-4 col-lg-2">
-                    <div class="card-wrapper">
-                        <div class="card-box align-center">
-                            <span class="mbr-iconfont socicon-googlemaps socicon" style="font-size: 30px;"></span>
-                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
-                                <strong>Localisation: </strong>A&nbsp;100m de<strong> </strong>Santa Lucia
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="card p-3 col-12 col-md-4 col-lg-2">
-                    <div class="card-wrapper">
-                        <div class="card-box align-center">
-                            <span class="mbr-iconfont mobi-mbri-laptop mobi-mbri" style="font-size: 30px;"></span>
-                            <h4 class="card-title align-center mbr-black mbr-fonts-style display-7">
-                                <strong>Nombre de chambre: </strong>02
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <h3 class="mbr-section-title align-center mb-4 mbr-fonts-style display-5"><strong>75000
-                            FCFA/mois</strong></h3>
-                </div>
-
-            </div>
         </div>
-        </div>
-
-
-    </section>
-
-    <section data-bs-version="5.1" class="features13 cid-tK1beoHo8i" id="features14-2">
-
-
-
-
-
-    </section>
-
-    <section data-bs-version="5.1" class="content11 cid-tK1NzbVgLh" id="content11-e">
 
         <div class="container mb-5">
             <div class="row justify-content-center">
@@ -628,7 +573,14 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
     </section>
+
+
     @include('commun/footer')
     <script src="{{ asset('assets_detail/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets_detail/smoothscroll/smooth-scroll.js') }}"></script>
