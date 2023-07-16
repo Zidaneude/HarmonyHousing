@@ -234,11 +234,11 @@
                                             <div class="col-md">
                                                 @if ($item->meuble == 'Oui')
                                                     <h6 class="card-title mbr-fonts-style display-7">
-                                                        <strong>{{ ucfirst($item->type) }} Meublé</strong><br>
+                                                        <strong>{{ ucfirst($item->type) }} meublé</strong><br>
                                                     </h6>
                                                 @else
                                                     <h6 class="card-title mbr-fonts-style display-7">
-                                                        <strong>{{ $item->type }} Non meublé</strong><br>
+                                                        <strong>{{ $item->type }} non meublé</strong><br>
                                                     </h6>
                                                 @endif
 
@@ -325,7 +325,7 @@
                     </div>
                 </div>
             @empty
-                <h6>Aucun logement trouvé ! 😞</h6>
+                <h5>Aucun logement trouvé ! 😞</h5>
             @endforelse
         </div>
 

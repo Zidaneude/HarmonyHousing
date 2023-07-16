@@ -81,16 +81,16 @@
                                                     style="color: red;">*</span></label>
                                             <select name="region" id="region" class="form-control" required>
                                                 <option value="">--Sélectionnez une région--</option>
-                                                <option value="nord">Nord</option>
-                                                <option value="sud">Sud</option>
-                                                <option value="est">Est</option>
-                                                <option value="ouest">Ouest</option>
-                                                <option value="littoral">Littoral</option>
-                                                <option value="adamaoua">Adamaoua</option>
-                                                <option value="nord-ouest">Nord-Ouest</option>
-                                                <option value="sud-ouest">Sud-Ouest</option>
-                                                <option value="centre">Centre</option>
-                                                <option value="est">Extrême-Nord</option>
+                                                <option value="Nord">Nord</option>
+                                                <option value="Sud">Sud</option>
+                                                <option value="Est">Est</option>
+                                                <option value="Ouest">Ouest</option>
+                                                <option value="Littoral">Littoral</option>
+                                                <option value="Adamaoua">Adamaoua</option>
+                                                <option value="Nord-Ouest">Nord-Ouest</option>
+                                                <option value="Sud-Ouest">Sud-Ouest</option>
+                                                <option value="Centre">Centre</option>
+                                                <option value="Est">Extrême-Nord</option>
                                             </select>
                                         </div>
                                         <div class="form-group my-4">
@@ -117,11 +117,11 @@
                                                     data-placeholder="--Sélectionnez un type de logement--"
                                                     data-label="Les chambres sont-elles identiques ?">--Sélectionnez
                                                     un type de logement--</option>
-                                                <option value="chambre"
+                                                <option value="Chambre"
                                                     data-placeholder="Entrez le nombre de chambre(s)"
                                                     data-label="Les chambres sont-elles identiques ?">Chambre
                                                 </option>
-                                                <option value="appartement"
+                                                <option value="Appartement"
                                                     data-placeholder="Entrez le nombre de chambre(s) de votre appartement"
                                                     data-label="Les chambres de votre appartement sont-elles identiques ?">
                                                     Appartement</option>
@@ -154,12 +154,12 @@
                                             <div class="row" style="margin-left:2px;">
                                                 <div class="col-md-2 form-check">
                                                     <input type="radio" id="identicalYes" name="chambres"
-                                                        value="oui" class="form-check-input" required>
+                                                        value="Oui" class="form-check-input" required>
                                                     <label for="identicalYes" class="form-check-label">Oui</label>
                                                 </div>
                                                 <div class="col-md-4 form-check">
                                                     <input type="radio" id="identicalNo" name="chambres"
-                                                        value="non" class="form-check-input" required>
+                                                        value="Non" class="form-check-input" required>
                                                     <label for="identicalNo" class="form-check-label">Non</label>
                                                 </div>
                                             </div>
@@ -296,8 +296,8 @@
         <label for="equipements${i}"><i class="fas fa-tools"></i> <strong>Avec équipements ?</strong> <span style="color: red;">*</span></label>
         <select name="equipements${i}" id="equipements${i}" class="form-control" onchange="toggleEquipmentsContainer(${i})" required>
             <option value="">--Sélectionnez--</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
         </select>
     </div>
 
