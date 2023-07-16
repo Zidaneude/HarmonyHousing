@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers\Auth\Proprietaire;
 
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\RedirectResponse;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Request;
 
-class ConfirmablePasswordLocataireController extends Controller
+class ConfirmablePasswordProprietaireController extends Controller
 {
     /**
      * Show the confirm password view.

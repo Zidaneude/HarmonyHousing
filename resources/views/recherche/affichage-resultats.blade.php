@@ -71,7 +71,9 @@
                 </div>
             </div>
 
-            <form class="mt-3" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;" method="GET" action="{{route('resultat.from.homme')}}">
+            <form class="mt-3"
+                style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;"
+                method="GET" action="{{ route('resultat.from.homme') }}">
                 <input type="text" name="search" placeholder="Entrez une ville ou un quartier"
                     style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;"
                     value="{{ old('search') }}">
@@ -79,7 +81,8 @@
                 <select name="type" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;">
                     <option value="">Type de logement</option>
                     <option value="chambre" {{ old('type') == 'chambre' ? 'selected' : '' }}>Chambre</option>
-                    <option value="appartement" {{ old('type') == 'appartement' ? 'selected' : '' }}>Appartement</option>
+                    <option value="appartement" {{ old('type') == 'appartement' ? 'selected' : '' }}>Appartement
+                    </option>
                 </select>
 
                 <button type="button" id="more-filters"
@@ -96,8 +99,9 @@
                         <input type="number" name="budget_max" min="0" placeholder="Budget max"
                             style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;"
                             value="{{ old('budget_max') }}">
-                        <input style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;" type="date" name="disponibilite"
-                            value="{{ old('disponibilite') }}"/>
+                        <input
+                            style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1; margin: 5px;"
+                            type="date" name="disponibilite" value="{{ old('disponibilite') }}" />
                     </div>
                 </div>
 
@@ -214,9 +218,9 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-4">
                                 <div class="image-wrapper">
-                                    @if ($item->l_photos1)
+                                    @if ($item->photos1)
                                         <a href="détails et reservation.html"><img height="200"
-                                                style="border-radius: 5px;" src="/storage/{{ $item->l_photos1 }}"
+                                                style="border-radius: 5px;" src="/storage/{{ $item->photos1 }}"
                                                 alt="Mobirise Website Builder"></a>
                                     @endif
 
@@ -230,10 +234,12 @@
                                             <div class="col-md">
                                                 @if ($item->meuble == 'Oui')
                                                     <h6 class="card-title mbr-fonts-style display-7">
-                                                        <strong>{{ ucfirst($item->type) }} Meublé</strong><br></h6>
+                                                        <strong>{{ ucfirst($item->type) }} meublé</strong><br>
+                                                    </h6>
                                                 @else
                                                     <h6 class="card-title mbr-fonts-style display-7">
-                                                        <strong>{{ $item->type }} Non meublé</strong><br></h6>
+                                                        <strong>{{ $item->type }} non meublé</strong><br>
+                                                    </h6>
                                                 @endif
 
                                                 <p class="mbr-text mbr-fonts-style display-7">
@@ -255,14 +261,15 @@
                                                     $month['11'] = 'Nov';
                                                     $month['12'] = 'Déc';
                                                     $date = explode('-', strval($item->disponibilite));
-                                                    echo '' . $date[2] . '  ' . $month[$date[1]] . '   ' . $date[0];?>
+                                                    echo '' . $date[2] . '  ' . $month[$date[1]] . '   ' . $date[0]; ?>
                                                 </p>
                                             </div>
                                             <div class="col-md-auto">
                                                 <p class="price mbr-fonts-style display-5"><strong>{{ $item->prix }}
                                                         Fcfa /mois</strong>
                                                 </p><br>
-                                                <div class="mbr-section-btn"><a href="{{route('detail.chambre', $item->id)}}"
+                                                <div class="mbr-section-btn"><a
+                                                        href="{{ route('detail.chambre', $item->id) }}"
                                                         class="btn btn-primary display-4">Voir les détails</a></div>
                                             </div>
                                             <!--------- cas de appartement------>
@@ -270,10 +277,12 @@
                                             <div class="col-md">
                                                 @if ($item->meuble == 'Oui')
                                                     <h6 class="card-title mbr-fonts-style display-7">
-                                                        <strong>{{ ucfirst($item->type) }} Meublé</strong><br></h6>
+                                                        <strong>{{ ucfirst($item->type) }} Meublé</strong><br>
+                                                    </h6>
                                                 @else
                                                     <h6 class="card-title mbr-fonts-style display-7">
-                                                        <strong>{{ $item->type }} Non meublé</strong><br></h6>
+                                                        <strong>{{ $item->type }} Non meublé</strong><br>
+                                                    </h6>
                                                 @endif
 
                                                 <p class="mbr-text mbr-fonts-style display-7">
@@ -295,14 +304,15 @@
                                                     $month['11'] = 'Nov';
                                                     $month['12'] = 'Déc';
                                                     $date = explode('-', strval($item->disponibilite));
-                                                    echo '' . $date[2] . '  ' . $month[$date[1]] . '   ' . $date[0];?>
+                                                    echo '' . $date[2] . '  ' . $month[$date[1]] . '   ' . $date[0]; ?>
                                                 </p>
                                             </div>
                                             <div class="col-md-auto">
                                                 <p class="price mbr-fonts-style display-5"><strong>{{ $item->prix }}
                                                         Fcfa /mois</strong>
                                                 </p><br>
-                                                <div class="mbr-section-btn"><a href="{{route('detail.appartement', $item->id)}}"
+                                                <div class="mbr-section-btn"><a
+                                                        href="{{ route('detail.appartement', $item->id) }}"
                                                         class="btn btn-primary display-4">Voir les détails</a></div>
                                             </div>
                                         @endif
@@ -315,7 +325,7 @@
                     </div>
                 </div>
             @empty
-                <h1>sdfghjksdfghjkldfghj</h1>
+                <h5>Aucun logement trouvé ! 😞</h5>
             @endforelse
         </div>
 

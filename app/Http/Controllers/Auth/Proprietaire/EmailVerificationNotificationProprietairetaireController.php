@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Auth\Proprietaire;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 
 class EmailVerificationNotificationProprietairetaireController extends Controller
 {
