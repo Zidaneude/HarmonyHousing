@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Proprietaire;
 use toastr;
 use App\Models\Offre;
 use App\Models\Chambre;
-use App\Models\Inclure;
 use App\Models\Appartement_equipement;
 use App\Models\Logement;
+use App\Models\Appartement_chambre;
 use App\Models\Equipement;
 use App\Models\Appartement;
 use Illuminate\Http\Request;
@@ -247,7 +247,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                         for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                             $id_chambre = $this->storeChambreInAppart($request, $ID_LOG);
                             ///chambre appartient a appar
-                            Inclure::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
+                            Appartement_chambre::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
                             if ($chaine_tab == "") {
                                 $chaine_tab = strval($id_chambre);
                             } else {
@@ -294,7 +294,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                     for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                         $id_chambre = $this->storeChambreInAppart($request, $ID_LOG);
                         ///chambre appartient a appar
-                        Inclure::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
+                        Appartement_chambre::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
                         if ($chaine_tab == "") {
                             $chaine_tab = strval($id_chambre);
                         } else {

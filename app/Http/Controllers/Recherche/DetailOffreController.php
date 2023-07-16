@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Recherche;
 
 use App\Models\Chambre;
 use App\Models\Equiper;
+use App\Models\Appartement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -34,8 +35,12 @@ class DetailOffreController extends Controller
         $logements = DB::table('logements')
             ->join('appartements', 'logements.id', '=', 'appartements.logement_id')
             ->join('offres', 'offres.id', '=', 'logements.offre_id')
-            ->select('prix', 'quartier', 'ville', 'logements.type', 'meuble', 'disponibilite', 'logements.photos1', 'appartements.id')
+            ->where('appartements.id', '=', $id)
+            ->select('*')
             ->get();
-        return view('recherche.details-offre', ['logements' => $logements]);
+
+
+           $appartement=Appartement::find($id);
+           return view('recherche.details_appartement', ['logements' => $logements, 'appartement' => $appartement]);
     }
 }

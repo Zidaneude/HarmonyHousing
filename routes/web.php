@@ -86,7 +86,7 @@ Route::get('/search', [RechercheController::class, 'find'])->name('search.search
 
 //routes details chambre et appartement
 Route::get('/detail-chambre/{id}', [DetailOffreController::class, 'DetailChambre'])->name('detail.chambre');
-Route::get('/detail-appartement{id}', [DetailOffreController::class, 'DetailAppartement'])->name('detail.appartement');
+Route::get('/detail-appartement/{id}', [DetailOffreController::class, 'DetailAppartement'])->name('detail.appartement');
 
 
 Route::get('/payment/{type}/{id}', [PaiementController::class, 'getPaymentLink']);

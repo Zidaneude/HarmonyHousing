@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Recherche;
-//include('./UtilitySearch.php');
 use App\SearchUtils;
 use App\Models\Logement;
 use Illuminate\Http\Request;
@@ -23,8 +22,9 @@ class RechercheController extends Controller
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->where('ville', 'like', "%{$ville}%")
             ->whereNotIn('chambres.id',function($query){
-                $query->select('inclures.chambre_id')->from('inclures');
+                $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
             })
             ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
@@ -38,6 +38,7 @@ class RechercheController extends Controller
             ->get();
 
         $logements=$logements1->merge($logements2);
+        //dd($logements);
         return view('recherche.affichage-resultats', ['logements' => $logements]);
     }
 
@@ -58,8 +59,9 @@ class RechercheController extends Controller
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->where('ville', 'like', "%{$ville}%")
                 ->whereNotIn('chambres.id',function($query){
-                    $query->select('inclures.chambre_id')->from('inclures');
+                    $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                 })
                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
@@ -83,7 +85,7 @@ class RechercheController extends Controller
                         ->join('offres','offres.id','=','logements.offre_id')
                         ->where('offres.status', '=', "Approuvée")
                         ->whereNotIn('chambres.id',function($query){
-                            $query->select('inclures.chambre_id')->from('inclures');
+                            $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                         })
                         ->where('prix','<=',$budget_max)
                         ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
@@ -111,7 +113,7 @@ class RechercheController extends Controller
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->whereNotIn('chambres.id',function($query){
-                    $query->select('inclures.chambre_id')->from('inclures');
+                    $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                 })
                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
@@ -138,7 +140,7 @@ class RechercheController extends Controller
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->whereNotIn('chambres.id',function($query){
-                    $query->select('inclures.chambre_id')->from('inclures');
+                    $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                 })
                 ->where('ville', 'like', "%{$city}%")
                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
@@ -167,7 +169,7 @@ class RechercheController extends Controller
                     ->join('offres','offres.id','=','logements.offre_id')
                     ->where('offres.status', '=', "Approuvée")
                     ->whereNotIn('chambres.id',function($query){
-                        $query->select('inclures.chambre_id')->from('inclures');
+                        $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                     })
                     ->where('prix','<=',$budget_max)
                     ->where('ville', 'like', "%{$city}%")
@@ -198,7 +200,7 @@ class RechercheController extends Controller
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->whereNotIn('chambres.id',function($query){
-                    $query->select('inclures.chambre_id')->from('inclures');
+                    $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                 })
                 ->where('prix','<=',$budget_max)
                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
@@ -227,7 +229,7 @@ class RechercheController extends Controller
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->whereNotIn('chambres.id',function($query){
-                    $query->select('inclures.chambre_id')->from('inclures');
+                    $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                 })
                 ->where('prix','<=',$budget_max)
                 ->where('ville', 'like', "%{$city}%")
