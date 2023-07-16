@@ -36,13 +36,14 @@ class CreateEquipement extends Command
          'Climatisation',
          'Cuisine équipée',
          'Internet');
-         
+
         foreach($tab_equipement as $item)
         {
             $admin = Equipement::create([
                 'nom' => $item,
             ]);
         }
+        $this->info('Equipements list created successfully!');
 
     }
 }

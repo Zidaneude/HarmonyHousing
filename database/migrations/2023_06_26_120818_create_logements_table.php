@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('frequence_paie');
             $table->string('region');
             $table->string('type');
-            $table->string('photos1')->nullable();
-            $table->string('photos2')->nullable();
-            $table->string('photos3')->nullable();
+            $table->string('l_photos1')->nullable();
+            $table->string('l_photos2')->nullable();
+            $table->string('l_photos3')->nullable();
             $table->foreignId('offre_id')->constrained();
             $table->timestamps();
         });

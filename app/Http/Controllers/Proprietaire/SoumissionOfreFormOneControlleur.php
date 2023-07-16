@@ -6,7 +6,7 @@ use toastr;
 use App\Models\Offre;
 use App\Models\Chambre;
 use App\Models\Inclure;
-use App\Models\Equiper2;
+use App\Models\Appartement_equipement;
 use App\Models\Logement;
 use App\Models\Equipement;
 use App\Models\Appartement;
@@ -238,7 +238,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                         //id de chaque equipement
                         //dd($list_equip);
                         $id = Equipement::where('nom', '=', $equip)->first()->id;
-                        Equiper2::create(['appartement_id' => $ID_App, 'equipement_id' => $id]);
+                        Appartement_equipement::create(['appartement_id' => $ID_App, 'equipement_id' => $id]);
                     }
                     if ($chambres_idem == $CHAMBRE_IDENTIQUES) {
 

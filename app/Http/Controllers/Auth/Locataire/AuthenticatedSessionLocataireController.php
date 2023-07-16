@@ -35,7 +35,7 @@ class AuthenticatedSessionLocataireController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
         $pre=Auth::guard('locataire')->user()->nom;
-        toastr()->success('Heureux de vous revoir '.$pre);
+        //toastr()->success('Heureux de vous revoir '.$pre);
         //return redirect()->intended(RouteServiceProvider::DASHBORD_LOCATAIRE);
         $locataire=Auth::guard('locataire')->user();
         return view('dashboard.dashbord-locataire',['locataire'=>$locataire]) ;
@@ -53,7 +53,7 @@ class AuthenticatedSessionLocataireController extends Controller
 
         $request->session()->regenerateToken();
 
-        toastr()->success(' Au revoir '.$pre.' à la prochaine !');
+        //toastr()->success(' Au revoir '.$pre.' à la prochaine !');
         return redirect('/');
     } 
 }   

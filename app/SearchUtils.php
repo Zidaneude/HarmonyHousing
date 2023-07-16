@@ -19,9 +19,9 @@ class SearchUtils{
             ->whereNotIn('chambres.id',function($query){
                 $query->select('inclures.chambre_id')->from('inclures');
             })
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
-        
+
             return $logements;
 
         }else{
@@ -29,7 +29,7 @@ class SearchUtils{
             ->join('appartements','logements.id','=','appartements.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
             return $logements;
         }
@@ -42,9 +42,12 @@ class SearchUtils{
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('logements.ville', 'like', "%{$search}%")
                 ->orWhere('quartier', 'like', "%{$search}%")
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
             $logements2=DB::table('logements')
                 ->join('appartements','logements.id','=','appartements.logement_id')
@@ -52,7 +55,7 @@ class SearchUtils{
                 ->where('offres.status', '=', "Approuvée")
                 ->where('ville', 'like', "%{$search}%")
                 ->orWhere('quartier', 'like', "%{$search}%")
-                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
                 ->get();
             $logements=$logements1->merge($logements2);
             return $logements;
@@ -67,8 +70,11 @@ class SearchUtils{
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
             ->where('prix','<=',$budget_max)
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
 
         $logements2=DB::table('logements')
@@ -76,7 +82,7 @@ class SearchUtils{
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->where('prix','<=',$budget_max)
-                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -92,8 +98,11 @@ class SearchUtils{
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('prix','>=',$budget_min)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
 
         $logements2=DB::table('logements')
@@ -101,7 +110,7 @@ class SearchUtils{
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->where('prix','>=',$budget_min)
-                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -118,8 +127,11 @@ class SearchUtils{
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->whereBetween('prix',[$budget_min,$budget_max])
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
 
         $logements2=DB::table('logements')
@@ -127,7 +139,7 @@ class SearchUtils{
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->whereBetween('prix',[$budget_min,$budget_max])
-                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
                 ->get();
         $logements=$logements1->merge($logements2);
         return $logements;
@@ -144,9 +156,12 @@ class SearchUtils{
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
             ->where('ville', 'like', "%{$search}%")
             ->orwhere('quartier', 'like', "%{$search}%")
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
             return $logements;
         }else
@@ -158,7 +173,7 @@ class SearchUtils{
             ->where('offres.status', '=', "Approuvée")
             ->where('ville', 'like', "%{$search}%")
             ->orwhere('quartier', 'like', "%{$search}%")
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
             return $logements;
         }
@@ -173,10 +188,13 @@ class SearchUtils{
                     ->join('chambres','logements.id','=','chambres.logement_id')
                     ->join('offres','offres.id','=','logements.offre_id')
                     ->where('offres.status', '=', "Approuvée")
+                    ->whereNotIn('chambres.id',function($query){
+                        $query->select('inclures.chambre_id')->from('inclures');
+                    })
                     ->where('prix','<=',$budget_max)
                     ->where('ville', 'like', "%{$search}%")
                     ->orwhere('quartier', 'like', "%{$search}%")
-                    ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                    ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                     ->get();
 
             $logements3=DB::table('logements')
@@ -186,7 +204,7 @@ class SearchUtils{
                     ->where('prix','<=',$budget_max)
                     ->where('ville', 'like', "%{$search}%")
                     ->orwhere('quartier', 'like', "%{$search}%")
-                    ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+                    ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
                     ->get();
 
             $logements=$logements2->merge($logements3);
@@ -202,10 +220,13 @@ class SearchUtils{
                     ->join('chambres','logements.id','=','chambres.logement_id')
                     ->join('offres','offres.id','=','logements.offre_id')
                     ->where('offres.status', '=', "Approuvée")
+                    ->whereNotIn('chambres.id',function($query){
+                        $query->select('inclures.chambre_id')->from('inclures');
+                    })
                     ->where('prix','>=',$budget_min)
                     ->where('ville', 'like', "%{$search}%")
                     ->orwhere('quartier', 'like', "%{$search}%")
-                    ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                    ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                     ->get();
 
             $logements3=DB::table('logements')
@@ -215,7 +236,7 @@ class SearchUtils{
                     ->where('prix','>=',$budget_min)
                     ->where('ville', 'like', "%{$search}%")
                     ->orwhere('quartier', 'like', "%{$search}%")
-                    ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+                    ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
                     ->get();
 
             $logements=$logements2->merge($logements3);
@@ -233,8 +254,11 @@ class SearchUtils{
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
             ->where('prix','>=',$budget_min)
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
             return $logements;
         }else
@@ -244,7 +268,7 @@ class SearchUtils{
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
             ->where('prix','>=',$budget_min)
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
             return $logements;
         }
@@ -263,8 +287,11 @@ class SearchUtils{
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
             ->where('prix','<=',$budget_max)
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
             return $logements;
         }else
@@ -274,7 +301,7 @@ class SearchUtils{
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
             ->where('prix','<=',$budget_max)
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
             return $logements;
         }
@@ -295,10 +322,13 @@ class SearchUtils{
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
             ->where('ville', 'like', "%{$search}%")
             ->orwhere('quartier', 'like', "%{$search}%")
             ->where('prix','>=',$budget_min)
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
             return $logements;
         }else
@@ -310,7 +340,7 @@ class SearchUtils{
             ->where('ville', 'like', "%{$search}%")
             ->orwhere('quartier', 'like', "%{$search}%")
             ->where('prix','>=',$budget_min)
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
             return $logements;
         }
@@ -332,10 +362,13 @@ class SearchUtils{
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
             ->where('ville', 'like', "%{$search}%")
             ->orwhere('quartier', 'like', "%{$search}%")
             ->where('prix','<=',$budget_max)
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
             return $logements;
         }else
@@ -347,7 +380,7 @@ class SearchUtils{
             ->where('ville', 'like', "%{$search}%")
             ->orwhere('quartier', 'like', "%{$search}%")
             ->where('prix','<=',$budget_max)
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
             return $logements;
         }
@@ -368,9 +401,12 @@ class SearchUtils{
             ->join('chambres','logements.id','=','chambres.logement_id')
             ->join('offres','offres.id','=','logements.offre_id')
             ->where('offres.status', '=', "Approuvée")
+            ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
             ->where('prix','<=',$budget_min)
             ->where('prix','<=',$budget_max)
-            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+            ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
             ->get();
             return $logements;
         }else
@@ -381,7 +417,7 @@ class SearchUtils{
             ->where('offres.status', '=', "Approuvée")
             ->where('prix','<=',$budget_min)
             ->where('prix','<=',$budget_max)
-            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+            ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
             return $logements;
         }
@@ -401,11 +437,14 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
         ->join('chambres','logements.id','=','chambres.logement_id')
         ->join('offres','offres.id','=','logements.offre_id')
         ->where('offres.status', '=', "Approuvée")
+        ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+        })
         ->where('ville', 'like', "%{$search}%")
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('prix','<=',$budget_min)
         ->where('prix','<=',$budget_max)
-        ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','chambres.id')
+        ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','chambres.id')
         ->get();
         return  $logements;
     }else
@@ -418,7 +457,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('prix','<=',$budget_min)
         ->where('prix','<=',$budget_max)
-        ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+        ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
         ->get();
         return $logements;
     }
@@ -431,15 +470,18 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
         $logements2=DB::table('logements')
                 ->join('appartements','logements.id','=','appartements.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->where('appartements.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -458,9 +500,12 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('prix','>=',$budget_min)
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
          $logements2=DB::table('logements')
                  ->join('appartements','logements.id','=','appartements.logement_id')
@@ -468,7 +513,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                  ->where('offres.status', '=', "Approuvée")
                  ->where('prix','>=',$budget_min)
                  ->where('appartements.disponibilite','>=',$disponibilite)
-                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                  ->get();
 
          $logements=$logements1->merge($logements2);
@@ -488,8 +533,11 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
                 ->where('prix','<=',$budget_max)
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
 
          $logements2=DB::table('logements')
@@ -498,7 +546,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                  ->where('offres.status', '=', "Approuvée")
                  ->where('prix','<=',$budget_max)
                  ->where('appartements.disponibilite','>=',$disponibilite)
-                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+                 ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                  ->get();
 
          $logements=$logements1->merge($logements2);
@@ -518,10 +566,13 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('prix','<=',$budget_min)
                 ->where('prix','<=',$budget_max)
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
 
         $logements2=DB::table('logements')
@@ -531,7 +582,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->where('prix','<=',$budget_min)
                 ->where('prix','<=',$budget_max)
                 ->where('appartements.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -550,10 +601,13 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('logements.ville', 'like', "%{$search}%")
                 ->orwhere('logements.quartier', 'like', "%{$search}%")
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
         $logements2=DB::table('logements')
                 ->join('appartements','logements.id','=','appartements.logement_id')
@@ -562,7 +616,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->where('ville', 'like', "%{$search}%")
                 ->orwhere('quartier', 'like', "%{$search}%")
                 ->where('appartements.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -583,11 +637,14 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('logements.ville', 'like', "%{$search}%")
                 ->orwhere('logements.quartier', 'like', "%{$search}%")
                 ->where('chambres.prix','>=',$budget_min)
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
 
         $logements2=DB::table('logements')
@@ -598,7 +655,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->orwhere('quartier', 'like', "%{$search}%")
                 ->where('appartements.prix','>=',$budget_min)
                 ->where('appartements.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -620,11 +677,14 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('logements.ville', 'like', "%{$search}%")
                 ->orwhere('logements.quartier', 'like', "%{$search}%")
                 ->where('chambres.prix','<=',$budget_max)
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
 
         $logements2=DB::table('logements')
@@ -635,7 +695,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->orwhere('quartier', 'like', "%{$search}%")
                 ->where('appartements.prix','<=',$budget_max)
                 ->where('appartements.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -655,12 +715,15 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
+                ->whereNotIn('chambres.id',function($query){
+                    $query->select('inclures.chambre_id')->from('inclures');
+                })
                 ->where('logements.ville', 'like', "%{$search}%")
                 ->orwhere('logements.quartier', 'like', "%{$search}%")
                 ->where('chambres.prix','>=',$budget_min)
                 ->where('chambres.prix','<=',$budget_max)
                 ->where('chambres.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                 ->get();
         $logements2=DB::table('logements')
                 ->join('appartements','logements.id','=','appartements.logement_id')
@@ -671,7 +734,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                 ->where('appartements.prix','>=',$budget_min)
                 ->where('appartements.prix','<=',$budget_max)
                 ->where('appartements.disponibilite','>=',$disponibilite)
-                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+                ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                 ->get();
 
         $logements=$logements1->merge($logements2);
@@ -690,11 +753,14 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                ->join('chambres','logements.id','=','chambres.logement_id')
                ->join('offres','offres.id','=','logements.offre_id')
                ->where('offres.status', '=', "Approuvée")
+               ->whereNotIn('chambres.id',function($query){
+                $query->select('inclures.chambre_id')->from('inclures');
+            })
                ->where('prix','>=',$budget_min)
                ->where('prix','<=',$budget_max)
                ->where('ville', 'like', "%{$search}%")
                ->orwhere('quartier', 'like', "%{$search}%")
-               ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+               ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
                ->get();
 
        $logements3=DB::table('logements')
@@ -705,7 +771,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
                ->where('prix','<=',$budget_max)
                ->where('ville', 'like', "%{$search}%")
                ->orwhere('quartier', 'like', "%{$search}%")
-               ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+               ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
                ->get();
 
        $logements=$logements2->merge($logements3);
@@ -726,8 +792,11 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->join('chambres','logements.id','=','chambres.logement_id')
            ->join('offres','offres.id','=','logements.offre_id')
            ->where('offres.status', '=', "Approuvée")
+           ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+             })
            ->where('chambres.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
            ->get();
            return  $logements;
        }else
@@ -737,7 +806,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->join('offres','offres.id','=','logements.offre_id')
            ->where('offres.status', '=', "Approuvée")
            ->where('appartements.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
            ->get();
            return  $logements;
        }
@@ -757,9 +826,12 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->join('chambres','logements.id','=','chambres.logement_id')
            ->join('offres','offres.id','=','logements.offre_id')
            ->where('offres.status', '=', "Approuvée")
+           ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+            })
            ->where('chambres.prix','>=',$budget_min)
            ->where('chambres.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
            ->get();
            return $logements;
        }else
@@ -770,7 +842,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->where('offres.status', '=', "Approuvée")
            ->where('appartements.disponibilite','>=',$disponibilite)
            ->where('appartements.prix','>=',$budget_min)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
            ->get();
            return $logements;
        }
@@ -791,9 +863,12 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->join('chambres','logements.id','=','chambres.logement_id')
            ->join('offres','offres.id','=','logements.offre_id')
            ->where('offres.status', '=', "Approuvée")
+           ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+            })
            ->where('chambres.prix','<=',$budget_max)
            ->where('chambres.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
            ->get();
            return $logements;
        }else
@@ -804,7 +879,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->where('offres.status', '=', "Approuvée")
            ->where('appartements.disponibilite','>=',$disponibilite)
            ->where('appartements.prix','<=',$budget_max)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
            ->get();
            return $logements;
        }
@@ -825,10 +900,13 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->join('chambres','logements.id','=','chambres.logement_id')
            ->join('offres','offres.id','=','logements.offre_id')
            ->where('offres.status', '=', "Approuvée")
+           ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+            })
            ->where('chambres.prix','>=',$budget_min)
            ->where('chambres.prix','<=',$budget_max)
            ->where('chambres.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
            ->get();
            return  $logements;
        }else
@@ -840,7 +918,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->where('apartements.prix','>=',$budget_min)
            ->where('appartements.prix','<=',$budget_max)
            ->where('appartements.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
            ->get();
            return  $logements;
        }
@@ -859,10 +937,13 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->join('chambres','logements.id','=','chambres.logement_id')
            ->join('offres','offres.id','=','logements.offre_id')
            ->where('offres.status', '=', "Approuvée")
+           ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+            })
            ->where('ville', 'like', "%{$search}%")
            ->orwhere('quartier', 'like', "%{$search}%")
            ->where('chambres.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
            ->get();
            return  $logements;
        }else
@@ -874,7 +955,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->where('ville', 'like', "%{$search}%")
            ->orwhere('quartier', 'like', "%{$search}%")
            ->where('appartements.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
            ->get();
            return $logements;
        }
@@ -894,11 +975,14 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->join('chambres','logements.id','=','chambres.logement_id')
            ->join('offres','offres.id','=','logements.offre_id')
            ->where('offres.status', '=', "Approuvée")
+           ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+            })
            ->where('ville', 'like', "%{$search}%")
            ->orwhere('quartier', 'like', "%{$search}%")
            ->where('chambres.prix','>=',$budget_min)
            ->where('chambres.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
            ->get();
            return  $logements;
        }else
@@ -911,7 +995,7 @@ public static function searchVille_type_Bmax_and_Bmin(Request $request)
            ->orwhere('quartier', 'like', "%{$search}%")
            ->where('apartements.prix','>=',$budget_min)
            ->where('appartements.disponibilite','>=',$disponibilite)
-           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+           ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
            ->get();
            return  $logements;
        }
@@ -932,11 +1016,14 @@ public static function searchdisponibilite_type_ville_Bmin(Request $request)
         ->join('chambres','logements.id','=','chambres.logement_id')
         ->join('offres','offres.id','=','logements.offre_id')
         ->where('offres.status', '=', "Approuvée")
+        ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+        })
         ->where('ville', 'like', "%{$search}%")
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('chambres.prix','<=',$budget_max)
         ->where('chambres.disponibilite','>=',$disponibilite)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
         ->get();
         return $logements;
     }else
@@ -949,7 +1036,7 @@ public static function searchdisponibilite_type_ville_Bmin(Request $request)
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('apartements.prix','<=',$budget_max)
         ->where('appartements.disponibilite','>=',$disponibilite)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
         ->get();
         return $logements;
     }
@@ -971,12 +1058,15 @@ public static function searchdisponibilite_type_ville_Bmin_Bmax(Request $request
         ->join('chambres','logements.id','=','chambres.logement_id')
         ->join('offres','offres.id','=','logements.offre_id')
         ->where('offres.status', '=', "Approuvée")
+        ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+            })
         ->where('ville', 'like', "%{$search}%")
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('chambres.prix','>=',$budget_min)
         ->where('chambres.prix','<=',$budget_max)
         ->where('chambres.disponibilite','>=',$disponibilite)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
         ->get();
         return $logements;
     }else
@@ -990,7 +1080,7 @@ public static function searchdisponibilite_type_ville_Bmin_Bmax(Request $request
         ->where('appartements.prix','>=',$budget_min)
         ->where('appartements.prix','<=',$budget_max)
         ->where('appartements.disponibilite','>=',$disponibilite)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
         ->get();
         return $logements;
     }
@@ -1010,11 +1100,14 @@ public static function searchdisponibilite_type_ville_Bmax(Request $request)
         ->join('chambres','logements.id','=','chambres.logement_id')
         ->join('offres','offres.id','=','logements.offre_id')
         ->where('offres.status', '=', "Approuvée")
+        ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+        })
         ->where('ville', 'like', "%{$search}%")
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('chambres.prix','<=',$budget_max)
         ->where('chambres.disponibilite','>=',$disponibilite)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
         ->get();
         return $logements;
     }else
@@ -1027,7 +1120,7 @@ public static function searchdisponibilite_type_ville_Bmax(Request $request)
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('appartements.prix','<=',$budget_max)
         ->where('appartements.disponibilite','>=',$disponibilite)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
         ->get();
         return $logements;
     }
@@ -1048,11 +1141,14 @@ public static function searchVille_type_Bmin_Bmax(Request $request)
         ->join('chambres','logements.id','=','chambres.logement_id')
         ->join('offres','offres.id','=','logements.offre_id')
         ->where('offres.status', '=', "Approuvée")
+        ->whereNotIn('chambres.id',function($query){
+            $query->select('inclures.chambre_id')->from('inclures');
+        })
         ->where('ville', 'like', "%{$search}%")
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('chambres.prix','>=',$budget_min)
         ->where('chambres.prix','<=',$budget_max)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','chambres.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','chambres.id')
         ->get();
         return $logements;
     }else
@@ -1065,7 +1161,7 @@ public static function searchVille_type_Bmin_Bmax(Request $request)
         ->orwhere('quartier', 'like', "%{$search}%")
         ->where('appartements.prix','>=',$budget_min)
         ->where('appartements.prix','<=',$budget_max)
-        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','logements.photos1','appartements.id')
+        ->select('prix','quartier','ville','logements.type','meuble','disponibilite','l_photos1','appartements.id')
         ->get();
         return $logements;
     }

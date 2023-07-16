@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const CONNEXION_LOCATAIRE = '/connexion-locataire';
+    public const CONNEXION_LOCATAIRE = '/locataire-dashboard';
     public const HOME = '/';
     public const CONNEXION_PROPRIETAIRE = '/connexion-proprietaire';
     public const DASHBORD = '/proprietaire-dashbord';
