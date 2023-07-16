@@ -33,9 +33,9 @@
             </div>
         </div>
         <div>
-            @if($errors->any())
+            @if ($errors->any())
                 @foreach ($errors->all() as $item)
-                {{$item}}
+                    {{ $item }}
                 @endforeach
             @endif
         </div>
@@ -58,7 +58,8 @@
                                                 required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="description_annonce"><strong>Description</strong><span style="color: red;">*</span></label>
+                                            <label for="description_annonce"><strong>Description</strong><span
+                                                    style="color: red;">*</span></label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">
@@ -126,10 +127,10 @@
                                                     Appartement</option>
                                             </select>
                                         </div>
-                                         <!------           form logement -------->
-                                         <div class="form-group" id="my" style=" position:relative;" >
+                                        <!------           form logement -------->
+                                        <div class="form-group" id="my" style=" position:relative;">
 
-                                         </div>
+                                        </div>
 
                                         <div class="form-group my-4">
                                             <label for="frequence_paie"><i class="fas fa-calendar"></i>
@@ -175,7 +176,7 @@
                                             </label>
                                             <input type="number" name="chambre" id="chambre" class="form-control"
                                                 min="1" max="50" required placeholder=""
-                                                oninput="mutex()"/>
+                                                oninput="mutex()" />
                                         </div>
 
                                         <div id="roomFormsContainer">
@@ -227,16 +228,14 @@
 
         document.getElementById('identicalYes').addEventListener('change', function() {
             identicalRooms = true;
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
-            if(text=="Appartement")
-            {
+            if (text == "Appartement") {
                 generateRoomForms2()
 
-            }
-            else{
+            } else {
                 generateRoomForms();
             }
             //generateRoomForms();
@@ -244,18 +243,16 @@
         document.getElementById('identicalNo').addEventListener('change', function() {
             identicalRooms = false;
             ///
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
-            if(text=="Appartement")
-            {
+            if (text == "Appartement") {
 
                 generateRoomForms2()
 
-            }else
-            {
-                 generateRoomForms();
+            } else {
+                generateRoomForms();
             }
 
         });
@@ -435,17 +432,15 @@
         });
 
 
-        function apap()
-        {
+        function apap() {
 
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
             appb.innerHTML = '';
-            if(text=="Appartement")
-                    {
-                        appb.innerHTML += `
+            if (text == "Appartement") {
+                appb.innerHTML += `
 
                         <div class="form-group mt-4">
                             <label for="numero"><i class="fas fa-bath"></i> <strong>Numéro appartement</strong> <span style="color: red;">*</span></label>
@@ -557,8 +552,7 @@
         </label>
     </div>
 </div>
-                        `
-                        ;
+                        `;
 
             }
         }
@@ -588,19 +582,15 @@
             }
         }
 
-        function mutex()
-        {
-            var tye=document.getElementById("type_logement");
+        function mutex() {
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
-            if(text=="Appartement")
-            {
+            var text = tye.options[tye.selectedIndex].text;
+            if (text == "Appartement") {
 
                 generateRoomForms2()
 
-            }
-            else
-            {
+            } else {
                 generateRoomForms();
             }
         }

@@ -7,7 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class EmailVerificationNotificationLocataireController extends Controller
+class EmailVerificationNotificationController extends Controller
 {
     /**
      * Send a new email verification notification.
@@ -23,5 +23,3 @@ class EmailVerificationNotificationLocataireController extends Controller
         return back()->with('status', 'verification-link-sent');
     }
 }
-
-
