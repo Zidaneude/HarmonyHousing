@@ -136,19 +136,19 @@
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-5"
                                     style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
-                                    <strong>{{ ucfirst($logements[0]->type) }} Meublé
-                                        {{ $logements[0]->ville }}-{{ ucfirst($logements[0]->quartier) }}</strong>
+                                    <strong>{{ ucfirst($logements[0]->type) }}
+                                        {{ $logements[0]->type == 'chambre' ? 'meublée' : 'meublé' }} situé à
+                                        {{ $logements[0]->ville }} - {{ ucfirst($logements[0]->quartier) }}</strong>
                                 </h4>
-
                             </div>
                         @else
                             <div class="card-box">
                                 <h4 class="card-title mbr-fonts-style mb-2 display-5"
                                     style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
-                                    <strong>{{ ucfirst($logements[0]->type) }} non meublé
-                                        {{ $logements[0]->ville }}-{{ ucfirst($logements[0]->quartier) }} </strong>
+                                    <strong>{{ ucfirst($logements[0]->type) }}
+                                        {{ $logements[0]->type == 'chambre' ? 'non meublée' : 'non meublé' }} situé à
+                                        {{ $logements[0]->ville }} - {{ ucfirst($logements[0]->quartier) }} </strong>
                                 </h4>
-
                             </div>
                         @endif
 
@@ -160,20 +160,20 @@
             </div>
         </div>
     </section>
-
-    <section data-bs-version="5.1" class="features17 cid-tK1uerIJsL" id="features18-c">
-
-        <div class="container">
-            <div class="mbr-section-head">
-                <div class="col-12">
-                    <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-7"><strong>Equipements du
-                            logement</strong></h4><br>
-
+    @if (isset($logements) && $logements[0]->type == 'appartement')
+    @else
+        <section data-bs-version="5.1" class="features17 cid-tK1uerIJsL" id="features18-c">
+            <div class="container">
+                <div class="mbr-section-head">
+                    <div class="col-12">
+                        <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-7"><strong>Equipements
+                                de la chambre</strong></h4><br>
+                    </div>
                 </div>
             </div>
+        </section>
+    @endif
 
-        </div>
-    </section>
 
 
 
@@ -184,140 +184,143 @@
 
             <div class="row justify-content-center">
 
-                @if ($chambres->equipements->contains('nom', 'Internet'))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" checked disabled>
-                            </div>
-
-                            <i class="fa-solid fa-wifi mt-2 mr-2" style="font-size:12px"></i>
-                            <div class="card-box">
-
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Internet</h4>
-
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', 'Internet'))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" checked disabled>
+                                </div>
+                                <i class="fa-solid fa-wifi mt-2 mr-2" style="font-size:12px"></i>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">&nbsp;Internet</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-wifi mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Internet</h4>
-
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-wifi mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Internet</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endif
 
-                @if ($chambres->equipements->contains('nom', 'Chauffage'))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check2" name="option2"
-                                    value="something" checked disabled>
-                                <input type="checkbox" class="form-check-input" id="check2" name="option2"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto socicon-curse socicon"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', 'Chauffage'))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2"
+                                        value="something" checked disabled>
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto socicon-curse socicon"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check2" name="option2"
-                                    value="something" checked disabled>
-                                <input type="checkbox" class="form-check-input" id="check2" name="option2"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto socicon-curse socicon"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2"
+                                        value="something" checked disabled>
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto socicon-curse socicon"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Chauffage</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endif
 
-                @if ($chambres->equipements->contains('nom', 'Ordinateur'))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check3" name="option3"
-                                    value="something" checked disabled>
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', 'Ordinateur'))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check3" name="option3"
+                                        value="something" checked disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mbrib-desktop"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
+
+                                </div>
                             </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
+                        </div>
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check3" name="option3"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mbrib-desktop"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
+                                </div>
 
                             </div>
                         </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check3" name="option3"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Ordinateur</h4>
-                            </div>
-
-                        </div>
-                    </div>
+                    @endif
                 @endif
 
-                @if ($chambres->equipements->contains('nom', 'Climatisation'))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check3" name="option3"
-                                    value="something" checked disabled>
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', 'Climatisation'))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check3" name="option3"
+                                        value="something" checked disabled>
+
+                                </div>
+                                <span class="mbr-iconfont m-auto mbrib-desktop"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
+
+                                </div>
 
                             </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
-
-                            </div>
-
                         </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check3" name="option3"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mbrib-desktop"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
-                            </div>
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check3" name="option3"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mbrib-desktop"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Climatisation</h4>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 @endif
 
             </div>
@@ -328,135 +331,141 @@
 
         <div class="container" style="box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);  margin-bottom: 5px;">
             <div class="row justify-content-center">
-                @if ($chambres->equipements->contains('nom', 'Télévision'))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" checked disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-video-play mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Télévision</h4>
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', 'Télévision'))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" checked disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-video-play mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Télévision</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-protect mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-protect mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endif
 
-                @if ($chambres->equipements->contains('nom', 'Cintres pour vêtements'))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" checked disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">
-                                    Cintres pour vetements</h4>
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', 'Cintres pour vêtements'))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" checked disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">
+                                        Cintres pour vetements</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">
-                                    Cintres pour vetements</h4>
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-website-theme mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">
+                                        Cintres pour vetements</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endif
 
-                @if ($chambres->equipements->contains('nom', 'Fer à repasser'))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" checked disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', 'Fer à repasser'))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" checked disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Fer à repasser</h4>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endif
+                @if (isset($chambres))
+                    @if ($chambres->equipements->contains('nom', "Équipements d'hygiène"))
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" checked disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
 
-
-                @if ($chambres->equipements->contains('nom', "Équipements d'hygiène"))
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" checked disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                @else
-                    <div class="card col-12 col-md-6 col-lg-3">
-                        <div class="card-wrapper">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="check1" name="option1"
-                                    value="something" disabled>
-                            </div>
-                            <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
-                                style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
-                            <div class="card-box">
-                                <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
-
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="card-wrapper">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1"
+                                        value="something" disabled>
+                                </div>
+                                <span class="mbr-iconfont m-auto mobi-mbri-success mobi-mbri"
+                                    style="font-size: 30px; color: rgb(35, 35, 35); fill: rgb(35, 35, 35);"></span>
+                                <div class="card-box">
+                                    <h4 class="card-title mbr-fonts-style mb-2 display-7">Equipements d'hygiène</h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 @endif
             </div>
         </div>
@@ -602,10 +611,6 @@
 
     <section data-bs-version="5.1" class="features13 cid-tK1beoHo8i" id="features14-2">
 
-
-
-
-
     </section>
 
     <section data-bs-version="5.1" class="content11 cid-tK1NzbVgLh" id="content11-e">
@@ -618,9 +623,13 @@
                             <a class="btn btn-primary display-5"
                                 href="{{ url('/payment/chambre/' . $chambres->id) }}"><span
                                     class="mobi-mbri mobi-mbri-credit-card mbr-iconfont mbr-iconfont-btn"
-                                    style="color: rgb(255, 255, 255);"></span>Reservez maintenant</a>
+                                    style="color: rgb(255, 255, 255);"></span>Réservez maintenant</a>
+                        @elseif (isset($logements))
+                            <a class="btn btn-primary display-5"
+                                href="{{ url('/payment/appartement/' . $logements[0]->id) }}"><span
+                                    class="mobi-mbri mobi-mbri-credit-card mbr-iconfont mbr-iconfont-btn"
+                                    style="color: rgb(255, 255, 255);"></span>Réservez maintenant</a>
                         @endif
-
                         <a class="btn btn-black display-5" href="#"><span
                                 class="mobi-mbri mobi-mbri-like mbr-iconfont mbr-iconfont-btn "
                                 style="color: rgb(250, 250, 250);"></span>J'aime</a>

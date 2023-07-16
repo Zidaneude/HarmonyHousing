@@ -35,13 +35,13 @@ class SoumissionOfreFormOneControlleur extends Controller
     {
 
         //les chambres sont equipées ?
-        $cham_equip=$request->equipements1;
+        $cham_equip = $request->equipements1;
 
-        $TYPE_CHAMBRE="chambre";
-        $TYPE_APPARTEMENT="appartement";
-        $TYPE_STUDIO="studio";
-        $CHAMBRE_IDENTIQUES="oui";
-        $CHAMBRE_EQUIPEE="oui";
+        $TYPE_CHAMBRE = "Chambre";
+        $TYPE_APPARTEMENT = "Appartement";
+        $TYPE_STUDIO = "Studio";
+        $CHAMBRE_IDENTIQUES = "Oui";
+        $CHAMBRE_EQUIPEE = "Oui";
 
 
         //nombre de chambre entrer par le user
@@ -161,7 +161,7 @@ class SoumissionOfreFormOneControlleur extends Controller
             }
             //les chambres ne sont pas identiques
             else {
-               // dd($request);
+                // dd($request);
                 // on stock l'offre
                 $this->storeOffre($request);
                 // on stock le logement
@@ -219,30 +219,28 @@ class SoumissionOfreFormOneControlleur extends Controller
 
         if ($type_logement == $TYPE_APPARTEMENT) {
             $chaine_tab == "";
-            $appart_equip=$request->equipements;
-           // dd($request);
-            if ($appart_equip=="oui")
-            {
+            $appart_equip = $request->equipements;
+            // dd($request);
+            if ($appart_equip == "oui") {
                 //dd($request);
                 if ($request->equipments != null) {
-                     // on stock l'offre
-                     $this->storeOffre($request);
-                     // on stock le logement
+                    // on stock l'offre
+                    $this->storeOffre($request);
+                    // on stock le logement
 
-                     $ID_LOG = $this->storeLogement($request);
-                     $list_equip = $request->equipments;
-                     $cpt = 0; // variable de compteur
-                     $ID_App = $this->storeAppartement($request, $ID_LOG);
+                    $ID_LOG = $this->storeLogement($request);
+                    $list_equip = $request->equipments;
+                    $cpt = 0; // variable de compteur
+                    $ID_App = $this->storeAppartement($request, $ID_LOG);
 
 
-                     foreach ($list_equip as $equip) {
+                    foreach ($list_equip as $equip) {
                         //id de chaque equipement
                         //dd($list_equip);
                         $id = Equipement::where('nom', '=', $equip)->first()->id;
                         Equiper2::create(['appartement_id' => $ID_App, 'equipement_id' => $id]);
                     }
-                    if ($chambres_idem == $CHAMBRE_IDENTIQUES)
-                    {
+                    if ($chambres_idem == $CHAMBRE_IDENTIQUES) {
 
                         for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                             $id_chambre = $this->storeChambreInAppart($request, $ID_LOG);
@@ -254,42 +252,37 @@ class SoumissionOfreFormOneControlleur extends Controller
                                 $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                             }
                         }
-
-                    }
-                    else{
-                         //dd($request);
-                         $cpt = 1;
+                    } else {
+                        //dd($request);
+                        $cpt = 1;
                         for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                             $id_chambre = $this->storeChambreInAppartVariable($request, $ID_LOG, $cpt);
                             Inclure::create(['chambre_id' => $id_chambre, 'appartement_id' => $ID_App]);
 
                             if ($chaine_tab == "") {
                                 $chaine_tab = strval($id_chambre);
-
                             } else {
                                 $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                             }
                         }
                     }
                     return view('soumission_offre.soumission-offre2', ['nb' => $nombre_chambre, 'ch_id' => true, 'chaine' => $chaine_tab, 'id_log' => $ID_LOG, "type_log" => $type_logement, 'id_appart' => $ID_App]);
-
-                }else{
+                } else {
                     ///erreur
                 }
-            }else{
+            } else {
 
-                 // on stock l'offre
-                 $this->storeOffre($request);
-                 // on stock le logement
+                // on stock l'offre
+                $this->storeOffre($request);
+                // on stock le logement
 
-                 $ID_LOG = $this->storeLogement($request);
+                $ID_LOG = $this->storeLogement($request);
 
-                 $cpt = 0; // variable de compteur
-                 $ID_App = $this->storeAppartement($request, $ID_LOG);
+                $cpt = 0; // variable de compteur
+                $ID_App = $this->storeAppartement($request, $ID_LOG);
 
 
-                if ($chambres_idem == $CHAMBRE_IDENTIQUES)
-                {
+                if ($chambres_idem == $CHAMBRE_IDENTIQUES) {
 
                     for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                         $id_chambre = $this->storeChambreInAppart($request, $ID_LOG);
@@ -301,9 +294,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                             $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                         }
                     }
-
-                }
-                else{
+                } else {
 
                     for ($cpt; $cpt < $nombre_chambre; $cpt++) {
                         $id_chambre = $this->storeChambreInAppartVariable($request, $ID_LOG, $cpt);
@@ -311,16 +302,13 @@ class SoumissionOfreFormOneControlleur extends Controller
 
                         if ($chaine_tab == "") {
                             $chaine_tab = strval($id_chambre);
-
                         } else {
                             $chaine_tab = $chaine_tab . '.' . strval($id_chambre);
                         }
                     }
                 }
                 return view('soumission_offre.soumission-offre2', ['nb' => $nombre_chambre, 'ch_id' => true, 'chaine' => $chaine_tab, 'id_log' => $ID_LOG, "type_log" => $type_logement, 'id_appart' => $ID_App]);
-
             }
-
         }
     }
 
@@ -339,18 +327,18 @@ class SoumissionOfreFormOneControlleur extends Controller
         ]);
     }
 
-        // sauvegarder le logement
-        public function storeLogement(Request $request):int
-        {
-        $logement=Logement::insertGetId([
-            'adresse'=>$request->adresse,
-            'quartier'=>$request->quartier,
-            'region'=>$request->region,
-            'ville'=>$request->ville,
-            'code_postal'=>$request->code_postal,
-            'frequence_paie'=>$request->frequence_paie,
-            'type'=>$request->type_logement,
-            'offre_id'=>Offre::latest()->first()->id,
+    // sauvegarder le logement
+    public function storeLogement(Request $request): int
+    {
+        $logement = Logement::insertGetId([
+            'adresse' => $request->adresse,
+            'quartier' => $request->quartier,
+            'region' => $request->region,
+            'ville' => $request->ville,
+            'code_postal' => $request->code_postal,
+            'frequence_paie' => $request->frequence_paie,
+            'type' => $request->type_logement,
+            'offre_id' => Offre::latest()->first()->id,
 
         ]);
         return $logement;
@@ -365,7 +353,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                 'meuble' => $request->meuble1,
                 'superficie' => $request->surface_chambre1,
                 'capacite' => $request->cap_chambre1,
-                'equipe_bool'=>$request->equipements1,
+                'equipe_bool' => $request->equipements1,
                 'logement_id' => $ID_LOG,
             ]
         );
@@ -381,7 +369,7 @@ class SoumissionOfreFormOneControlleur extends Controller
             'meuble' => $request->input('meuble' . strval($i)),
             'superficie' => $request->input('surface_chambre' . strval($i)),
             'capacite' => $request->input('cap_chambre' . strval($i)),
-            'equipe_bool'=>$request->input('equipements' . strval($i)),
+            'equipe_bool' => $request->input('equipements' . strval($i)),
             'logement_id' => $ID_LOG,
         ]);
         return $id;
@@ -422,7 +410,7 @@ class SoumissionOfreFormOneControlleur extends Controller
                 'num' => $request->numero,
                 'etage' => $request->etage,
                 'nombre_chambre' => $request->chambre,
-                'equipe_bool'=>$request->equipements1,
+                'equipe_bool' => $request->equipements1,
                 'logement_id' => $ID_LOG,
             ]
         );

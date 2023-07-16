@@ -33,9 +33,9 @@
             </div>
         </div>
         <div>
-            @if($errors->any())
+            @if ($errors->any())
                 @foreach ($errors->all() as $item)
-                {{$item}}
+                    {{ $item }}
                 @endforeach
             @endif
         </div>
@@ -58,7 +58,8 @@
                                                 required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="description_annonce"><strong>Description</strong><span style="color: red;">*</span></label>
+                                            <label for="description_annonce"><strong>Description</strong><span
+                                                    style="color: red;">*</span></label>
                                             <textarea name="description_annonce" id="description_annonce" class="form-control" rows="3" placeholder="Message"></textarea>
                                         </div>
                                         <h5 class="fs-title mt-5" style="color: #004aad; text-align: center;">
@@ -80,16 +81,16 @@
                                                     style="color: red;">*</span></label>
                                             <select name="region" id="region" class="form-control" required>
                                                 <option value="">--Sélectionnez une région--</option>
-                                                <option value="nord">Nord</option>
-                                                <option value="sud">Sud</option>
-                                                <option value="est">Est</option>
-                                                <option value="ouest">Ouest</option>
-                                                <option value="littoral">Littoral</option>
-                                                <option value="adamaoua">Adamaoua</option>
-                                                <option value="nord-ouest">Nord-Ouest</option>
-                                                <option value="sud-ouest">Sud-Ouest</option>
-                                                <option value="centre">Centre</option>
-                                                <option value="est">Extrême-Nord</option>
+                                                <option value="Nord">Nord</option>
+                                                <option value="Sud">Sud</option>
+                                                <option value="Est">Est</option>
+                                                <option value="Ouest">Ouest</option>
+                                                <option value="Littoral">Littoral</option>
+                                                <option value="Adamaoua">Adamaoua</option>
+                                                <option value="Nord-Ouest">Nord-Ouest</option>
+                                                <option value="Sud-Ouest">Sud-Ouest</option>
+                                                <option value="Centre">Centre</option>
+                                                <option value="Est">Extrême-Nord</option>
                                             </select>
                                         </div>
                                         <div class="form-group my-4">
@@ -116,20 +117,20 @@
                                                     data-placeholder="--Sélectionnez un type de logement--"
                                                     data-label="Les chambres sont-elles identiques ?">--Sélectionnez
                                                     un type de logement--</option>
-                                                <option value="chambre"
+                                                <option value="Chambre"
                                                     data-placeholder="Entrez le nombre de chambre(s)"
                                                     data-label="Les chambres sont-elles identiques ?">Chambre
                                                 </option>
-                                                <option value="appartement"
+                                                <option value="Appartement"
                                                     data-placeholder="Entrez le nombre de chambre(s) de votre appartement"
                                                     data-label="Les chambres de votre appartement sont-elles identiques ?">
                                                     Appartement</option>
                                             </select>
                                         </div>
-                                         <!------           form logement -------->
-                                         <div class="form-group" id="my" style=" position:relative;" >
+                                        <!------           form logement -------->
+                                        <div class="form-group" id="my" style=" position:relative;">
 
-                                         </div>
+                                        </div>
 
                                         <div class="form-group my-4">
                                             <label for="frequence_paie"><i class="fas fa-calendar"></i>
@@ -153,12 +154,12 @@
                                             <div class="row" style="margin-left:2px;">
                                                 <div class="col-md-2 form-check">
                                                     <input type="radio" id="identicalYes" name="chambres"
-                                                        value="oui" class="form-check-input" required>
+                                                        value="Oui" class="form-check-input" required>
                                                     <label for="identicalYes" class="form-check-label">Oui</label>
                                                 </div>
                                                 <div class="col-md-4 form-check">
                                                     <input type="radio" id="identicalNo" name="chambres"
-                                                        value="non" class="form-check-input" required>
+                                                        value="Non" class="form-check-input" required>
                                                     <label for="identicalNo" class="form-check-label">Non</label>
                                                 </div>
                                             </div>
@@ -175,7 +176,7 @@
                                             </label>
                                             <input type="number" name="chambre" id="chambre" class="form-control"
                                                 min="1" max="50" required placeholder=""
-                                                oninput="mutex()"/>
+                                                oninput="mutex()" />
                                         </div>
 
                                         <div id="roomFormsContainer">
@@ -227,16 +228,14 @@
 
         document.getElementById('identicalYes').addEventListener('change', function() {
             identicalRooms = true;
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
-            if(text=="Appartement")
-            {
+            if (text == "Appartement") {
                 generateRoomForms2()
 
-            }
-            else{
+            } else {
                 generateRoomForms();
             }
             //generateRoomForms();
@@ -244,18 +243,16 @@
         document.getElementById('identicalNo').addEventListener('change', function() {
             identicalRooms = false;
             ///
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
-            if(text=="Appartement")
-            {
+            if (text == "Appartement") {
 
                 generateRoomForms2()
 
-            }else
-            {
-                 generateRoomForms();
+            } else {
+                generateRoomForms();
             }
 
         });
@@ -299,8 +296,8 @@
         <label for="equipements${i}"><i class="fas fa-tools"></i> <strong>Avec équipements ?</strong> <span style="color: red;">*</span></label>
         <select name="equipements${i}" id="equipements${i}" class="form-control" onchange="toggleEquipmentsContainer(${i})" required>
             <option value="">--Sélectionnez--</option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
         </select>
     </div>
 
@@ -435,17 +432,15 @@
         });
 
 
-        function apap()
-        {
+        function apap() {
 
-            var tye=document.getElementById("type_logement");
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
+            var text = tye.options[tye.selectedIndex].text;
 
             appb.innerHTML = '';
-            if(text=="Appartement")
-                    {
-                        appb.innerHTML += `
+            if (text == "Appartement") {
+                appb.innerHTML += `
 
                         <div class="form-group mt-4">
                             <label for="numero"><i class="fas fa-bath"></i> <strong>Numéro appartement</strong> <span style="color: red;">*</span></label>
@@ -557,8 +552,7 @@
         </label>
     </div>
 </div>
-                        `
-                        ;
+                        `;
 
             }
         }
@@ -588,19 +582,15 @@
             }
         }
 
-        function mutex()
-        {
-            var tye=document.getElementById("type_logement");
+        function mutex() {
+            var tye = document.getElementById("type_logement");
             var appb = document.getElementById('my');
-            var text=tye.options[tye.selectedIndex].text;
-            if(text=="Appartement")
-            {
+            var text = tye.options[tye.selectedIndex].text;
+            if (text == "Appartement") {
 
                 generateRoomForms2()
 
-            }
-            else
-            {
+            } else {
                 generateRoomForms();
             }
         }
