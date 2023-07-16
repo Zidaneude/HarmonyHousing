@@ -47,6 +47,7 @@ class RechercheController extends Controller
 
     public function Recherche(Request $request){
 
+        dd($request);
         $city = $request->ville;
         $budget_max = $request->budget_max;
         $type = $request->type;
@@ -59,7 +60,7 @@ class RechercheController extends Controller
                 ->join('chambres','logements.id','=','chambres.logement_id')
                 ->join('offres','offres.id','=','logements.offre_id')
                 ->where('offres.status', '=', "Approuvée")
-                ->where('ville', 'like', "%{$ville}%")
+                ->where('ville', 'like', "%{$city}%")
                 ->whereNotIn('chambres.id',function($query){
                     $query->select('appartement_chambres.chambre_id')->from('appartement_chambres');
                 })
@@ -261,7 +262,7 @@ class RechercheController extends Controller
 public function search(Request $request)
 {
     $request->flash();
-
+    dd($request);
     $search = $request->input('search');
     $type = $request->input('type');
     $budget_min = $request->input('budget_min');

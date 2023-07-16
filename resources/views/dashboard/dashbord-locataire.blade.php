@@ -102,28 +102,46 @@
     <div class="container">
 
         <div class="card shadow-sm border-0 p-2">
+            <form method="GET" action="{{route('resultat.from.homme')}}">
             <div class="row my-4">
                 <div class="col-md-3 mb-3">
-                    <label for="ville" style="font-weight: bold;">Ville</label>
-                    <input type="text" id="ville" name="ville" class="form-control" placeholder="Ex: Douala">
+                    <label for="ville" name="search" style="font-weight: bold;">Ville</label>
+                    <input type="text" id="ville" name="ville"  value="{{ old('search') }}" class="form-control" placeholder="Ex: Douala">
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="quartier" style="font-weight: bold;">Quartier</label>
-                    <input type="text" id="quartier" name="quartier" class="form-control"
+                    <label for="quartier" name="search" style="font-weight: bold;">Quartier</label>
+                    <input type="text" id="quartier" value="{{ old('search') }}" name="quartier" class="form-control"
                         placeholder="Ex: Bonamoussadi">
                 </div>
 
+
                 <div class="col-md-3">
                     <label style="font-weight: bold;">Type de logement</label>
-                    <div class="form-check">
-                        <input type="radio" id="apartment" name="type" class="form-check-input">
-                        <label for="apartment" class="form-check-label">Appartement</label>
+
+                    {{-- <div class="form-check">
+                        <input type="radio" id="appartment" name="type" class="form-check-input">
+                        <label for="appartment" class="form-check-label" value="appartement">Appartement</label>
                     </div>
                     <div class="form-check">
                         <input type="radio" id="room" name="type" class="form-check-input">
-                        <label for="room" class="form-check-label">Chambre</label>
+                        <label for="room" class="form-check-label" value="chambre">Chambre</label>
+                    </div> --}}
+                    <div class="form-group my-3">
+                        <div class="row">
+                            <div class="col form-check d-flex align-items-center justify-content-center">
+                                <input class="form-check-input me-2" name="type" type="radio"
+                                    id="chambre" value="chambre">
+                                <label class="form-check-label" for="chambre">Chambre</label>
+                            </div>
+                            <div class="col form-check d-flex align-items-center justify-content-center">
+                                <input class="form-check-input me-2" name="type" type="radio"
+                                    id="appartement" value="appartement">
+                                <label class="form-check-label" for="appartement">Appartement</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="col-md-3 d-flex align-items-end justify-content-end">
                     <button type="button" class="btn btn-success me-2" data-bs-toggle="modal"
                         data-bs-target="#plus-de-filtres">Plus de filtres</button>
@@ -148,79 +166,23 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="budget-min">Budget min</label>
-                                        <input type="number" id="budget-min" name="budget-min" class="form-control"
-                                            placeholder="Ex: 10000 FCFA" min="0">
+                                        <input type="number" id="budget-min" name="budget_min" value="{{ old('budget_min') }}" class="form-control"
+                                            placeholder="Ex: 10000 FCFA" min="0" >
                                     </div>
                                     <div class="col-md-6">
                                         <label for="budget-max">Budget max</label>
                                         <input type="number" id="budget-max" name="budget-max" class="form-control"
-                                            placeholder="Ex: 50000 FCFA" min="0">
+                                            placeholder="Ex: 50000 FCFA" min="0" name="budget_max" value="{{ old('budget_max') }}">
                                     </div>
                                 </div>
                             </fieldset>
-
-                            <!-- Meublé -->
-                            <fieldset class="mb-3">
-                                <legend>Meublé ?</legend>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="meuble-oui" name="meuble" value="oui"
-                                        class="form-check-input">
-                                    <label for="meuble-oui" class="form-check-label">Oui</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="meuble-non" name="meuble" value="non"
-                                        class="form-check-input">
-                                    <label for="meuble-non" class="form-check-label">Non</label>
-                                </div>
-                            </fieldset>
-
-                            <!-- Avec équipements -->
-                            <fieldset class="mb-3">
-                                <legend>Avec équipements ?</legend>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="equipement-oui" name="equipement" value="oui"
-                                        class="form-check-input">
-                                    <label for="equipement-oui" class="form-check-label">Oui</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="equipement-non" name="equipement" value="non"
-                                        class="form-check-input">
-                                    <label for="equipement-non" class="form-check-label">Non</label>
-                                </div>
-                            </fieldset>
-
-                            <!-- Fréquence de paiement -->
-                            <fieldset class="mb-3">
-                                <legend>Fréquence de paiement</legend>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="frequence-1-mois" name="frequence" value="1 mois"
-                                        class="form-check-input">
-                                    <label for="frequence-1-mois" class="form-check-label">1 mois</label>
-                                </div>
-                                <div class="form-check form-check-inline mb-3">
-                                    <input type="radio" id="frequence-3-mois" name="frequence" value="3 mois"
-                                        class="form-check-input">
-                                    <label for="frequence-3-mois" class="form-check-label">3 mois</label>
-                                </div>
-                                <div class="form-check form-check-inline mb-3">
-                                    <input type="radio" id="frequence-6-mois" name="frequence" value="6 mois"
-                                        class="form-check-input">
-                                    <label for="frequence-6-mois" class="form-check-label">6 mois</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" id="frequence-1-an" name="frequence" value="1 an"
-                                        class="form-check-input">
-                                    <label for="frequence-1-an" class="form-check-label">1 an</label>
-                                </div>
-                            </fieldset>
-
                             <!-- Disponibilité -->
                             <fieldset class="mb-3">
                                 <legend>Disponibilité</legend>
                                 <div class="form-group">
                                     <label for="dispo-date">À partir du :</label>
                                     <input type="date" id="dispo-date" name="dispo" class="form-control"
-                                        min="">
+                                         name="disponibilite" value="{{ old('disponibilite') }}" >
                                 </div>
                             </fieldset>
 
@@ -233,6 +195,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </div>
 
         <h5 class="my-5" style="color:#02469e; font-weight: bold;">+60 logements disponibles</h5>

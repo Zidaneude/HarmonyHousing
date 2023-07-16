@@ -9,6 +9,7 @@ class SearchUtils{
     // 1 uniquement avec le type
     public static function searchType(Request $request)
     {
+        dd($request);
         $type=$request->type;
         if($type=='chambre')
         {
@@ -31,6 +32,7 @@ class SearchUtils{
             ->where('offres.status', '=', "Approuvée")
             ->select('prix','quartier','ville','logements.type','meuble','nombre_chambre','disponibilite','l_photos1','appartements.id')
             ->get();
+            dd($logements);
             return $logements;
         }
     }

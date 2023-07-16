@@ -74,6 +74,7 @@
             <form class="mt-3"
                 style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px; width: 100%; max-width: 800px;"
                 method="GET" action="{{ route('resultat.from.homme') }}">
+
                 <input type="text" name="search" placeholder="Entrez une ville ou un quartier"
                     style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; flex-grow: 1;"
                     value="{{ old('search') }}">
@@ -218,9 +219,9 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-4">
                                 <div class="image-wrapper">
-                                    @if ($item->photos1)
+                                    @if ($item->l_photos1)
                                         <a href="détails et reservation.html"><img height="200"
-                                                style="border-radius: 5px;" src="/storage/{{ $item->photos1 }}"
+                                                style="border-radius: 5px;" src="/storage/{{ $item->l_photos1 }}"
                                                 alt="Mobirise Website Builder"></a>
                                     @endif
 
