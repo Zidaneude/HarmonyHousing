@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth\Proprietaire;
 
-use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
 
 class EmailVerificationPromptProprietaireController extends Controller
 {
